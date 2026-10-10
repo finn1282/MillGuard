@@ -8,6 +8,6 @@ run() {
 }
 run "fixture checks (models, summaries, one number per signal, Malay text)" $PY -m backend.api.make_fixtures --check
 run "backend tests" $PY -m pytest -q backend/tests
-run "frontend production build" sh -c "cd frontend && npm run build"
+run "frontend production build" sh -c "cd frontend && npm install --no-audit --no-fund && npm run build"
 rm -f /tmp/millguard_check_$$.log
 [ $FAIL -eq 0 ] && echo "ALL PASS" || { echo "SOME CHECKS FAILED"; exit 1; }
