@@ -1,7 +1,8 @@
 import { useEffect } from "react";
-import { NavLink, Outlet, useNavigate } from "react-router-dom";
+import { NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { useClock } from "../lib/clock";
 import { useLang, type Key } from "../lib/i18n";
+import { ErrorBoundary } from "./ErrorBoundary";
 import { TimeBar } from "./TimeBar";
 
 export const PAGES: { to: string; key: Key }[] = [
@@ -65,12 +66,14 @@ function useShortcuts() {
 
 export function Shell() {
   useShortcuts();
+  const { pathname } = useLocation();
+  const clocked = /^\/(mill|machine)/.test(pathname);
   return (
     <div className="min-h-screen bg-paper text-ink font-ui lg:flex">
       <Rail />
       <main className="flex-1 min-w-0 flex flex-col pb-[var(--tabbar-h)] lg:pb-0">
-        <TimeBar />
-        <Outlet />
+        {clocked && <TimeBar />}
+        <ErrorBoundary resetKey={pathname}><Outlet /></ErrorBoundary>
       </main>
       <Tabs />
     </div>

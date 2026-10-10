@@ -7,7 +7,7 @@ import { useApi } from "../lib/useApi";
 import { IconChevron, IconPause, IconPhone, IconPlay } from "./Icons";
 import { SampleBadge } from "./SampleBadge";
 
-function LangToggle() {
+export function LangToggle() {
   const { lang, setLang, t } = useLang();
   return (
     <div role="group" aria-label={t("language")} className="flex flex-none border border-control-border rounded overflow-hidden">
