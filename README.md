@@ -25,7 +25,7 @@ make all         # simulate, train, tune on training mills, back-test mill 10, w
 make demo-all    # API + Telegram bot + web app at http://localhost:5173
 make demo-offline  # last resort: web app built from fixtures at http://localhost:4173, no backend, no network
 ```
-`make check` runs the fixture checks, the backend tests and a frontend production build. Telegram and AI advice are optional: put keys in `backend/.env` (see `backend/.env.example`).
+Run them in this order: `setup` → `all` → `check` → `demo-all`. `make check` runs the fixture checks, the backend tests and a frontend production build. Telegram and AI advice are optional: put keys in `backend/.env` (see `backend/.env.example`).
 
 ## What is real, simulated and assumed
 

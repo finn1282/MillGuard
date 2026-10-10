@@ -19,3 +19,5 @@ Contract or scope changes, one line each.
 - 2026-10-10: backend data fix (no contract change): reasons quote the fingerprint's comparison (last 48 h vs own 30 days) for the same signal; last_service = most recent of logged service and handled_at; fixture check fails on two percentages for one signal.
 - 2026-10-10: contract v1.10/v1.11: POST /api/advice {asset_id, at, lang} -> AdviceOut (title, sections, sources, disclaimer, generated_at, cached, model, message?). Grafilab OpenAI-compatible provider via backend/advice/llm.py; own-words notes in backend/knowledge/; advice_* fixtures for Press 2 act-now and Boiler 1 whole-mill (EN, MS). message is an additive field for the unavailable case.
 - 2026-10-10: contract v1.12: Action.reasons is 2 to 3 (was exactly 3); generic 'load differs' reasons are dropped instead of padding.
+- 2026-10-10: contract final = v1.12 (no change); MASTER_PLAN.md replaced by the final plan.
+- 2026-10-10: docs/config patch (demo-v1.1, no behaviour change): LLM_* in backend/.env.example; two artifact-dependent tests skip with "run `make all` first" when artifacts are missing; README run order setup, all, check, demo-all.

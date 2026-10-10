@@ -9,6 +9,7 @@ from backend.api import models as m
 from backend.api.make_fixtures import check
 
 FIX = Path(__file__).resolve().parents[2] / "contracts" / "fixtures"
+PRED = Path(__file__).resolve().parents[1] / "artifacts" / "mill10_predictions.parquet"
 ASSET_IDS = ["press_1", "press_2", "press_3", "press_4", "boiler_1"]
 SUFFIX = {"quiet": "_quiet", "act": "_act", "both": ""}
 
@@ -84,6 +85,8 @@ def test_assumption_labels_are_human():
 
 
 def test_live_api_matches_fixture_bookmarks():
+    if not PRED.exists():
+        pytest.skip("run `make all` first")
     from fastapi.testclient import TestClient
     from backend.api.main import app, STUB
     if STUB:
@@ -97,6 +100,8 @@ def test_live_api_matches_fixture_bookmarks():
 
 
 def test_advice_never_crashes_without_key(monkeypatch):
+    if not PRED.exists():
+        pytest.skip("run `make all` first")
     from backend.advice import engine
     from backend.engine.service import Service
     monkeypatch.setenv("LLM_API_KEY", "")

@@ -1,7 +1,16 @@
 # MillGuard — Master Plan (Single Source of Truth)
 
-Version 1.11 · Sat 10 Oct 2026, 20:45 MYT · Team: 3 people, 2 computers (A = backend, B = design then frontend, third member = pitch) · Deadline: **Sun 11 Oct, 09:30 MYT**
+Version 1.12 (FROZEN at tag demo-v1) · Sat 10 Oct 2026, 23:20 MYT · Team: 3 people, 2 computers (A = backend, B = design then frontend, third member = pitch) · Deadline: **Sun 11 Oct, 09:30 MYT**
 Owner of this file: the orchestrator chat. Agents read it, they do not rewrite it. Propose changes in `CHANGELOG.md` and the orchestrator merges them.
+
+---
+
+## STATUS — FROZEN (23:00, tag `demo-v1` = commit 4180c7a)
+
+- Build complete; bug fixes and docs only from here. Contract final = v1.12 (`Action.reasons` is 2–3; generic reasons dropped).
+- Verified independently on a fresh clone of `demo-v1` (Linux): `make setup` 19 s, `make all` 3 min 44 s, then `make check` ALL PASS. Headline numbers reproduce exactly (RM972,848 / RM723,550 / RM557,570 / RM421,040; 34 / 10 / 12 / 3 breakdowns; 22 of 34 caught; 63 h median warning; 1.3 false alarms/week) and so do the 3 bookmarks. Tiny cross-platform differences in a few per-alert risk figures (±1–3 points) and model AP (±0.004); demo fixtures unaffected.
+- The alert-budget slider was removed from the UI (the limit never bound); the feedback-tuned threshold (P1) moved to the roadmap.
+- Demo: `make demo-all` (live) or `make demo-offline` / GitHub Pages (fixtures). Run sheet in the orchestrator chat.
 
 ---
 
