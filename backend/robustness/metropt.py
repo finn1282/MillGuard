@@ -31,6 +31,11 @@ def hourly(df):
     digital = [c for c in num.columns if c not in analog]
     for c in digital:
         h[f"{c}_duty"] = num[c].resample("1h").mean()
+    for c in ("COMP", "DV_eletric"):   # compressor duty cycle domain features: load cycles per hour and mean ON length (recharge time)
+        if c in num:
+            cyc = (num[c].diff().abs() > 0).astype(float).resample("1h").sum() / 2
+            h[f"{c}_cycles"] = cyc
+            h[f"{c}_on_len"] = (h[f"{c}_duty"] / cyc.replace(0, np.nan)).ffill(limit=6)
     return h
 
 
@@ -92,7 +97,7 @@ def main():
                note=("Real compressor data, unsupervised. Isolation Forest fit on healthy Feb 2020; threshold set on healthy "
                      "March for <=0.5 episodes/week and <=2% of hours alerting; scored on Apr-Aug (4 air-leak failures). Caught = alert opened "
                      f"0-{LEAD_WINDOW_H} h before the failure start; {late} more failure(s) were flagged only after they had started. "
-                     "Same persistence and hysteresis rules as the mill pipeline. Threshold was fixed on healthy data, not tuned on the failures."))
+                     "Features include compressor duty cycle, load cycles per hour and mean ON length (v1.4 retry; did not change the outcome). Same persistence and hysteresis rules as the mill pipeline. Threshold was fixed on healthy data, not tuned on the failures."))
     print("episodes:", [(str(a), str(b)) for a, b in eps]); print("score max by failure window:", [round(float(score[(score.index >= s - pd.Timedelta(hours=72)) & (score.index <= e)].max()), 3) for s, e in zip(f_start, f_end)], "thr", round(float(thr), 3))
     (ART / "robustness.json").write_text(json.dumps(out, indent=1))
     print(json.dumps({k: v for k, v in out.items() if k != "note"}), "| episodes:", len(eps), "| threshold:", round(float(thr), 4))
