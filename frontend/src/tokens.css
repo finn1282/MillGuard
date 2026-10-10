@@ -1,0 +1,56 @@
+/* MillGuard — Direction B tokens. Contrast ratios are against #FFFFFF. */
+
+:root {
+  /* type */
+  --font-ui: 'Archivo', system-ui, sans-serif;
+  --font-num: 'JetBrains Mono', ui-monospace, monospace;   /* every RM, %, time, date */
+
+  /* ground + ink */
+  --paper: #F3F1EC;        /* page background */
+  --paper-bar: #FBFAF7;    /* time bar */
+  --card: #FFFFFF;
+  --rule: #D9D5CC;         /* card borders */
+  --rule-soft: #E6E2D9;    /* row dividers */
+  --ink: #16191C;          /* 17:1, also nav rail + decision bar background */
+  --ink-2: #2B3035;        /* body copy */
+  --muted: #545B61;        /* 6.6:1 secondary text */
+  --control-border: #9C978C;
+
+  /* status — always colour + icon + word */
+  --act: #C2410C;          /* 5.2:1 Act now chip/band, primary button */
+  --act-tint: #FFF1E8;     /* "Why first" strip, Act now rows on mobile map */
+  --loss: #9A3412;         /* 7.3:1 Expected loss figure, "Missed" */
+  --watch-bg: #FEF3C7;
+  --watch-ink: #78350F;    /* 8.4:1 on --watch-bg */
+  --watch-border: #D9A441;
+  --ok: #0F766E;           /* 5.5:1 Normal, matches, protected */
+  --ok-bg: #E6F4F1;
+  --ok-ink: #0B5D56;
+  --ok-border: #8FCBC2;
+
+  /* decision bar (dark) */
+  --db-label: #D5D8DA;
+  --db-sub: #AEB4B8;
+  --db-loss: #FDBA74;
+  --db-protect: #5EEAD4;
+
+  /* sample badge */
+  --sample-bg: #FEF3C7;
+  --sample-ink: #78350F;
+  --sample-border: #F5D78E;
+
+  /* shape */
+  --radius: 6px;
+  --radius-chip: 999px;
+  --tap-min: 44px;         /* primary buttons 52–60px */
+}
+
+/* hero ringgit sizes (desktop / mobile) */
+.rm-hero    { font: 800 64px/1.05 var(--font-num); letter-spacing: -.02em; }
+.rm-protect { font: 800 54px/1 var(--font-num);    letter-spacing: -.02em; }
+.rm-card    { font: 800 34px/1.1 var(--font-num); }
+@media (max-width: 600px) {
+  .rm-hero    { font-size: 42px; }
+  .rm-protect { font-size: 36px; }
+  .rm-card    { font-size: 28px; }
+}
