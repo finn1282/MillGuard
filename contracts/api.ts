@@ -5,7 +5,7 @@ export type FaultClass = "worm_wear" | "bearing" | "gearbox_shaft" | "hydraulic_
   | "electrical" | "boiler_steam" | "boiler_water" | "unknown";
 export type Recommendation = "fix_now" | "schedule_next_stop" | "monitor";
 export type AssetStatus = "ok" | "watch" | "act";
-export type PolicyId = "run_to_failure" | "fixed_interval" | "millguard";
+export type PolicyId = "run_to_failure" | "fixed_interval" | "millguard" | "schedule_plus_millguard";
 
 export interface Reason {
   text_en: string; text_ms: string; signal: string;
@@ -108,7 +108,7 @@ export interface PolicyResult {
 
 export interface TimelinePoint {
   t: string; // daily, 365 points
-  cost: { run_to_failure: number; fixed_interval: number; millguard: number }; // cumulative RM
+  cost: { run_to_failure: number; fixed_interval: number; millguard: number; schedule_plus_millguard: number }; // cumulative RM
 }
 
 export interface BacktestEvent {

@@ -1,126 +1,126 @@
 {
  "press": {
   "mill10_all/24h": {
-   "auc": 0.819,
-   "ap": 0.234,
-   "base_rate": 0.0244
+   "auc": 0.951,
+   "ap": 0.335,
+   "base_rate": 0.0221
   },
   "mill10_all/72h": {
-   "auc": 0.763,
-   "ap": 0.247,
-   "base_rate": 0.0723
+   "auc": 0.904,
+   "ap": 0.561,
+   "base_rate": 0.0645
   },
   "mill10_all/168h": {
-   "auc": 0.751,
-   "ap": 0.404,
-   "base_rate": 0.1631
+   "auc": 0.903,
+   "ap": 0.786,
+   "base_rate": 0.1425
   },
   "mill10_months9_12/24h": {
-   "auc": 0.716,
-   "ap": 0.145,
+   "auc": 0.951,
+   "ap": 0.409,
    "base_rate": 0.0246
   },
   "mill10_months9_12/72h": {
-   "auc": 0.741,
-   "ap": 0.253,
+   "auc": 0.94,
+   "ap": 0.632,
    "base_rate": 0.0738
   },
   "mill10_months9_12/168h": {
-   "auc": 0.718,
-   "ap": 0.393,
-   "base_rate": 0.1718
+   "auc": 0.937,
+   "ap": 0.851,
+   "base_rate": 0.1586
   },
   "mills1_9_months9_12/24h": {
-   "auc": 0.793,
-   "ap": 0.193,
-   "base_rate": 0.0251
+   "auc": 0.939,
+   "ap": 0.351,
+   "base_rate": 0.0243
   },
   "mills1_9_months9_12/72h": {
-   "auc": 0.749,
-   "ap": 0.237,
-   "base_rate": 0.0734
+   "auc": 0.905,
+   "ap": 0.619,
+   "base_rate": 0.0716
   },
   "mills1_9_months9_12/168h": {
-   "auc": 0.763,
-   "ap": 0.46,
-   "base_rate": 0.162
+   "auc": 0.913,
+   "ap": 0.82,
+   "base_rate": 0.1594
   },
   "train_oof/24h": {
-   "auc": 0.818,
-   "ap": 0.168,
-   "base_rate": 0.0224
+   "auc": 0.933,
+   "ap": 0.322,
+   "base_rate": 0.0226
   },
   "train_oof/72h": {
-   "auc": 0.797,
-   "ap": 0.244,
-   "base_rate": 0.0659
+   "auc": 0.892,
+   "ap": 0.579,
+   "base_rate": 0.0665
   },
   "train_oof/168h": {
-   "auc": 0.787,
-   "ap": 0.418,
-   "base_rate": 0.1493
+   "auc": 0.892,
+   "ap": 0.784,
+   "base_rate": 0.1507
   }
  },
  "boiler": {
   "mill10_all/24h": {
-   "auc": 0.985,
-   "ap": 0.773,
+   "auc": 0.998,
+   "ap": 0.749,
    "base_rate": 0.006
   },
   "mill10_all/72h": {
-   "auc": 0.669,
-   "ap": 0.491,
+   "auc": 0.662,
+   "ap": 0.51,
    "base_rate": 0.018
   },
   "mill10_all/168h": {
-   "auc": 0.469,
-   "ap": 0.239,
+   "auc": 0.595,
+   "ap": 0.266,
    "base_rate": 0.0419
   },
   "mill10_months9_12/24h": {
-   "auc": 0.989,
-   "ap": 0.804,
+   "auc": 0.996,
+   "ap": 0.761,
    "base_rate": 0.0164
   },
   "mill10_months9_12/72h": {
-   "auc": 0.804,
-   "ap": 0.553,
+   "auc": 0.795,
+   "ap": 0.56,
    "base_rate": 0.0492
   },
   "mill10_months9_12/168h": {
-   "auc": 0.642,
-   "ap": 0.357,
+   "auc": 0.793,
+   "ap": 0.435,
    "base_rate": 0.1148
   },
   "mills1_9_months9_12/24h": {
-   "auc": 0.983,
-   "ap": 0.681,
+   "auc": 0.996,
+   "ap": 0.758,
    "base_rate": 0.0064
   },
   "mills1_9_months9_12/72h": {
-   "auc": 0.844,
-   "ap": 0.481,
+   "auc": 0.834,
+   "ap": 0.499,
    "base_rate": 0.0191
   },
   "mills1_9_months9_12/168h": {
-   "auc": 0.659,
-   "ap": 0.26,
+   "auc": 0.551,
+   "ap": 0.216,
    "base_rate": 0.0446
   },
   "train_oof/24h": {
-   "auc": 0.984,
-   "ap": 0.675,
+   "auc": 0.96,
+   "ap": 0.562,
    "base_rate": 0.0084
   },
   "train_oof/72h": {
-   "auc": 0.848,
-   "ap": 0.542,
+   "auc": 0.843,
+   "ap": 0.565,
    "base_rate": 0.0252
   },
   "train_oof/168h": {
-   "auc": 0.673,
-   "ap": 0.286,
-   "base_rate": 0.0568
+   "auc": 0.666,
+   "ap": 0.284,
+   "base_rate": 0.0584
   }
  }
 }

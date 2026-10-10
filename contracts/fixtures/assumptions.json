@@ -330,9 +330,41 @@
  {
   "key": "simulator.crop_index_2025",
   "label": "Crop index 2025",
-  "value": "0.84, 0.72, 0.82, 0.88, 0.97, 1.02, 1.08, 1.15, 1.19, 1.22, 1.12, 0.99",
+  "value": "0.734, 0.703, 0.821, 0.998, 1.048, 1.001, 1.072, 1.097, 1.089, 1.209, 1.145, 1.082",
   "unit": "relative to annual mean",
-  "source": "MPOB monthly summary 2025; only Feb and Oct anchors from plan, rest approximate",
+  "source": "MPOB 2025 monthly CPO production, normalised to the mean (plan v1.4 item 4); Dec is preliminary",
+  "status": "validated"
+ },
+ {
+  "key": "simulator.pf_h_worm_wear",
+  "label": "Pf h worm wear",
+  "value": 300.0,
+  "unit": "running h",
+  "source": "Plan v1.4: worm wear shows several days to weeks ahead",
+  "status": "assumed"
+ },
+ {
+  "key": "simulator.pf_h_gearbox_shaft",
+  "label": "Pf h gearbox shaft",
+  "value": 400.0,
+  "unit": "running h",
+  "source": "Plan v1.4: gearbox shows several days to weeks ahead",
+  "status": "assumed"
+ },
+ {
+  "key": "simulator.pf_h_bearing",
+  "label": "Pf h bearing",
+  "value": 150.0,
+  "unit": "running h",
+  "source": "Plan v1.4: bearing shows several days ahead",
+  "status": "assumed"
+ },
+ {
+  "key": "simulator.pf_h_hydraulic_cone",
+  "label": "Pf h hydraulic cone",
+  "value": 200.0,
+  "unit": "running h",
+  "source": "Plan v1.4 (assumed, between bearing and worm)",
   "status": "assumed"
  },
  {

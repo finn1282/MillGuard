@@ -16,7 +16,6 @@ H = 8760
 PRESS_COMPS = ["worm_wear", "bearing", "gearbox_shaft", "hydraulic_cone", "electrical", "unknown"]
 BOILER_COMPS = ["boiler_steam", "boiler_water"]
 PRECURSOR_H = {"electrical": 24, "unknown": 36, "boiler_steam": 36, "boiler_water": 72}   # remaining-time shaped
-SHAPE_POW = {"worm_wear": 2, "bearing": 3, "gearbox_shaft": 2, "hydraulic_cone": 2}        # age/life shaped
 UNK_SIGNALS = ["motor_current", "cone_pressure", "gearbox_oil_temp", "vib_rms"]
 
 
@@ -38,13 +37,12 @@ def new_component(rng, comp, p):
 
 def effect(comp, age, life):
     """Wear effect 0..1 (grows to 1 at failure)."""
-    if comp in PRECURSOR_H:
-        return float(np.clip(1 - (life - age) / PRECURSOR_H[comp], 0, 1))
-    return float(min(age / life, 1.0) ** SHAPE_POW[comp])
+    return float(np.clip(1 - (life - age) / PRECURSOR_H[comp], 0, 1)) if comp in PRECURSOR_H else 0.0
 
 
 def run_dynamics(rng, p, mill):
     """Hour loop: throughput, wear, failures. Returns arrays and records."""
+    PRECURSOR_H.update({c: val(p, "simulator", f"pf_h_{c}") for c in ("worm_wear", "gearbox_shaft", "bearing", "hydraulic_cone")})
     crop = np.array(val(p, "simulator", "crop_index_2025"))
     t = pd.date_range(START, periods=H, freq="h")
     month_idx = t.month.values - 1
@@ -142,7 +140,7 @@ def build_telemetry(rng, p, mill, d, noise_mult, offset):
         cone = (45 * np.maximum(load, 0.3) ** 0.3 + 6 * e["hydraulic_cone"]
                 + rng.normal(0, 1, H) * noise_mult * (1.2 + 4 * e["hydraulic_cone"]) + 4 * u("cone_pressure"))
         oil = 58 + 12 * load + ambient + 12 * e["gearbox_shaft"] + nz(0.8) + 5 * u("gearbox_oil_temp") + drift(rng, H, 2)
-        rms = 2.0 * (1 + 0.1 * load) * (1 + 0.7 * np.clip((e["bearing"] - 0.75) / 0.25, 0, None) ** 1.5
+        rms = 2.0 * (1 + 0.1 * load) * (1 + 0.7 * np.clip((e["bearing"] - 0.3) / 0.7, 0, None) ** 1.5
                                        + 0.25 * u("vib_rms")) * (1 + nz(0.04))
         kurt = 3.0 + 4.5 * e["bearing"] + nz(0.2) + 0.8 * u("vib_rms")
         daily = pd.Series(2.8 * (1 + 0.5 * e["worm_wear"]) + nz(0.15)).where(run)

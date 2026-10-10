@@ -15,7 +15,8 @@ OUT = Path(__file__).resolve().parents[2] / "contracts" / "fixtures"
 MYT = timezone(timedelta(hours=8))
 AT = datetime(2025, 1, 14, 19, 0, tzinfo=MYT)   # boiler + press night; markers use 11, 13, 14 Jan
 START, END = datetime(2025, 1, 1, tzinfo=MYT), datetime(2025, 12, 31, 23, tzinfo=MYT)
-TARGET = {"run_to_failure": 1_240_000, "fixed_interval": 780_000, "millguard": 412_000}   # plan v1.3 sample totals
+TARGET = {"run_to_failure": 1_240_000, "fixed_interval": 780_000, "millguard": 412_000,
+          "schedule_plus_millguard": 335_000}   # plan v1.3 sample totals
 ASSETS = [("press_1", "Press 1", "press"), ("press_2", "Press 2", "press"),
           ("press_3", "Press 3", "press"), ("press_4", "Press 4", "press"),
           ("boiler_1", "Boiler 1", "boiler")]
@@ -137,7 +138,7 @@ def backtest(p, cpo_price=None, miss_mult=1.0):
             fails.append((int(d), f"press_{pid}", str(rng.choice(classes, p=w))))
     fails += [(118, "boiler_1", "boiler_steam"), (271, "boiler_1", "boiler_water")]
     fails.sort()
-    ev = {k: [] for k in ("run_to_failure", "fixed_interval", "millguard")}   # (day, type, asset, fc)
+    ev = {k: [] for k in ("run_to_failure", "fixed_interval", "millguard", "schedule_plus_millguard")}   # (day, type, asset, fc)
     for d, a, fc in fails:
         ev["run_to_failure"].append((d, "breakdown", a, fc))
         prevented = rng.random() < (0.6 if fc == "worm_wear" else 0.1) and a != "boiler_1"
@@ -149,6 +150,9 @@ def backtest(p, cpo_price=None, miss_mult=1.0):
             ev["fixed_interval"].append((d, "planned_fix", f"press_{pid}", "worm_wear"))
     for d in sorted(rng.choice(365, 22, replace=False)):
         ev["millguard"].append((int(d), "false_alarm", f"press_{rng.integers(1, 5)}", "unknown"))
+    ev["schedule_plus_millguard"] = [(d, "planned_fix" if t == "breakdown" and rng.random() < 0.75 else t, a, fc)
+                                     for d, t, a, fc in ev["fixed_interval"]]
+    ev["schedule_plus_millguard"] += [x for x in ev["millguard"] if x[1] == "false_alarm"]
     price = cpo_price or val(p, "economics", "cpo_price_rm_per_t")
     price_cost = {"breakdown": lambda fc: cost.breakdown_cost(p, fc, price, miss_mult),
                   "planned_fix": lambda fc: cost.planned_cost(p, fc),

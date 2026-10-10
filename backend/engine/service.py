@@ -239,8 +239,8 @@ class Service:
             ep, events, thr, = None, None, None
             ep, events, thr = backtest.run_all_policies(self.p, 10, self.pred, self.fails, self.lives, self.hidden,
                                                         self.fit["k"], self.fit["fixed_interval_frac"], bud, cpo, miss,
-                                                        self.fit["trigger"])
-            pols = [backtest.summarize(self.p, events, k) for k in ("run_to_failure", "fixed_interval", "millguard")]
+                                                        self.fit["trigger"], self.fit["schedule_plus"])
+            pols = [backtest.summarize(self.p, events, k) for k in backtest.POLICIES]
             tl = backtest.timeline(events)
             evs = sorted(({"t": iso(e["t"]), "policy": e["policy"], "type": e["type"], "asset_id": e["asset_id"]}
                           for e in events), key=lambda e: e["t"])

@@ -193,7 +193,7 @@ class AssetDetail(BaseModel):
     history: list[HistoryItem]
 
 
-PolicyId = Literal["run_to_failure", "fixed_interval", "millguard"]
+PolicyId = Literal["run_to_failure", "fixed_interval", "millguard", "schedule_plus_millguard"]
 
 
 class PolicyResult(BaseModel):
@@ -210,6 +210,7 @@ class PolicyCosts(BaseModel):
     run_to_failure: int
     fixed_interval: int
     millguard: int
+    schedule_plus_millguard: int
 
 
 class BacktestEvent(BaseModel):

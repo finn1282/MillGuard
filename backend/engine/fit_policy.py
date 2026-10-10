@@ -9,7 +9,8 @@ from backend.models.train import CUT, EVAL_START
 from backend.params import load
 from backend.sim.simulate import DATA
 
-GRID = [0.02, 0.03, 0.05, 0.08, 0.12, 0.18, 0.25, 0.35, 0.5]
+GRID = [0.02, 0.03, 0.05, 0.08, 0.12, 0.18, 0.25, 0.35, 0.5, 0.65, 0.8]
+STRETCH = [0.3, 0.4, 0.5, 0.6, 0.8, 1.0, 1.2, 1.4, 1.7, 2.0, 2.5]
 FRACS = [0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.2]
 
 
@@ -63,11 +64,35 @@ def fit(p=None, verbose=True, triggers=("p72", "pstop", "p168")):
     for atype, (thr, _, _) in best.items():
         fc = "boiler_steam" if atype == "boiler" else "worm_wear"
         k[atype] = thr / (1 - thr) * cost.saved_if_acted(p, fc) / c_fp
-    out = dict(fixed_interval_frac=frac, fixed_sweep={str(a): int(b) for a, b in fi.items()},
+    thr_fit = {a: decide.risk_threshold(p, a, k[a]) for a in k}
+    trig_fit = {a: b[2] for a, b in best.items()}
+    eps, catch_n, catch_d = {}, {"press": 0, "boiler": 0}, {"press": 0, "boiler": 0}
+    for m in mills:
+        pm, fm = pred[(pred.mill_id == m) & (pred.t < CUT)], fails[(fails.mill_id == m) & (fails.t < CUT)]
+        ep = decide.run_mill(p, pm, fm, thr_fit, 5, None, 1.0, m, trig_fit)
+        eps[m] = ep[ep.t_open >= EVAL_START] if len(ep) else ep
+        for r in window(fm).itertuples():
+            at = cost.asset_type(r.fault_class)
+            catch_d[at] += 1
+            catch_n[at] += int(len(eps[m]) and ((eps[m].asset_id == r.asset_id) & (eps[m].outcome == "prevented")
+                                                & (eps[m].fail_idx == int((r.t - pd.Timestamp("2025-01-01")) / pd.Timedelta(hours=1)))).any())
+    catch = {a: catch_n[a] / max(catch_d[a], 1) for a in catch_n}
+    sp = {}
+    for f in STRETCH:
+        tot = 0
+        for m in mills:
+            fm = fails[fails.mill_id == m]
+            ev = backtest.schedule_plus_events(p, m, fm, lives, hidden, f, eps[m], catch, None, 1.0)
+            tot += sum(x["cost"] for x in ev if EVAL_START <= x["t"] < CUT)
+        sp[f] = tot
+    plus_frac = min(sp, key=sp.get)
+    out = dict(fixed_interval_frac=frac, schedule_plus=dict(frac=plus_frac, catch=catch, sweep={str(a): int(b) for a, b in sp.items()}), fixed_sweep={str(a): int(b) for a, b in fi.items()},
                best_threshold={a: b[0] for a, b in best.items()}, trigger={a: b[2] for a, b in best.items()}, k=k,
                threshold_sweep={a: {str(t): int(c) for t, c in b[1].items()} for a, b in best.items()})
     (DATA.parent.parent / "artifacts" / "policy_fit.json").write_text(json.dumps(out, indent=1))
     if verbose:
+        print("schedule+MillGuard sweep (RM, training mills):", out["schedule_plus"]["sweep"], "-> frac", plus_frac,
+              "catch rate", {a: round(v, 2) for a, v in catch.items()})
         print("fixed-interval sweep (RM, training mills):", out["fixed_sweep"], "-> frac", frac)
         for a, (t, r, tr) in best.items():
             print(f"{a}: best trigger {tr}, threshold {t}, k = {k[a]:.1f}")

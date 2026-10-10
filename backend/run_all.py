@@ -25,8 +25,8 @@ def load_mill10():
 def evaluate(p, fit, verbose=True, **kw):
     pred, fails, lives, hidden = load_mill10()
     ep, events, thr = backtest.run_all_policies(p, MILL, pred, fails, lives, hidden, fit["k"],
-                                                fit["fixed_interval_frac"], trigger=fit["trigger"], **kw)
-    pols = [backtest.summarize(p, events, k) for k in ("run_to_failure", "fixed_interval", "millguard")]
+                                                fit["fixed_interval_frac"], trigger=fit["trigger"], plus=fit["schedule_plus"], **kw)
+    pols = [backtest.summarize(p, events, k) for k in backtest.POLICIES]
     return ep, events, thr, pols, fails
 
 

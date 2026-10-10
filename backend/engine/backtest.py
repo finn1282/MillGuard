@@ -70,6 +70,36 @@ def millguard_events(p, episodes, failures, cpo, miss):
     return out
 
 
+def schedule_plus_events(p, mill, failures, lives, hidden, frac, episodes, catch, cpo, miss):
+    """Stretched fixed schedule (replace at frac x mean life) plus MillGuard alerts for what fails in between.
+    A breakdown of the stretched schedule is caught if MillGuard prevented that same failure in its own run;
+    breakdowns that only exist because the schedule changed the part's life are caught at the training-mill catch rate."""
+    prevented = {(e.asset_id, e.fail_idx): e for e in episodes.itertuples() if e.outcome == "prevented"}
+    original = {(r.asset_id, int((r.t - T0) / pd.Timedelta(hours=1))) for r in failures.itertuples()}
+    rng = np.random.default_rng([mill or 0, 4])
+    out = []
+    for x in fixed_events(p, mill, failures, lives, hidden, frac, cpo, miss):
+        x = dict(x, policy="schedule_plus_millguard")
+        if x["type"] == "breakdown":
+            key = (x["asset_id"], int((x["t"] - T0) / pd.Timedelta(hours=1)))
+            atype = cost.asset_type(x["fault_class"])
+            if key in prevented:
+                e = prevented[key]
+                x.update(type="planned_fix", t=pd.Timestamp(e.t_repair), cost=e.rm_cost_to_act)
+            elif key not in original and rng.random() < catch[atype]:
+                x.update(type="planned_fix", t=x["t"] - pd.Timedelta(hours=24), cost=cost.planned_cost(p, x["fault_class"]))
+        out.append(x)
+    for e in episodes.itertuples():
+        if e.outcome in ("false_alarm", "misclassified"):
+            stop = e.rm_cost_to_act - cost.planned_cost(p, e.fault_class)
+            out.append(ev(e.t_open, "schedule_plus_millguard", "false_alarm", e.asset_id, e.fault_class,
+                          cost.false_alarm_cost(p) + stop))
+    return out
+
+
+POLICIES = ("run_to_failure", "fixed_interval", "millguard", "schedule_plus_millguard")
+
+
 def summarize(p, events, policy):
     e = [x for x in events if x["policy"] == policy]
     bd = [x for x in e if x["type"] == "breakdown"]
@@ -83,7 +113,7 @@ def summarize(p, events, policy):
 def timeline(events, days=365):
     idx = pd.date_range(T0, periods=days, freq="D")
     cols = {}
-    for pol in ("run_to_failure", "fixed_interval", "millguard"):
+    for pol in POLICIES:
         daily = np.zeros(days)
         for x in events:
             if x["policy"] == pol:
@@ -94,9 +124,12 @@ def timeline(events, days=365):
     return [dict(t=idx[i], cost={k: int(v[i]) for k, v in cols.items()}) for i in range(days)]
 
 
-def run_all_policies(p, mill, pred, failures, lives, hidden, k, frac, budget=5, cpo=None, miss=1.0, trigger="p72"):
+def run_all_policies(p, mill, pred, failures, lives, hidden, k, frac, budget=5, cpo=None, miss=1.0, trigger="p72",
+                     plus=None):
     thr = {t: decide.risk_threshold(p, t, k[t], cpo, miss) for t in ("press", "boiler")}
     episodes = decide.run_mill(p, pred, failures, thr, budget, cpo, miss, mill, trigger)
     events = rtf_events(p, failures, cpo, miss) + fixed_events(p, mill, failures, lives, hidden, frac, cpo, miss) \
         + millguard_events(p, episodes, failures, cpo, miss)
+    if plus:
+        events += schedule_plus_events(p, mill, failures, lives, hidden, plus["frac"], episodes, plus["catch"], cpo, miss)
     return episodes, events, thr

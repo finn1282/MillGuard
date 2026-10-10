@@ -8,3 +8,4 @@ Contract or scope changes, one line each.
 - 2026-10-10: fixtures aligned to frontend (no contract change): Jan 2025 demo nights, brief_quiet/line_quiet, sample backtest totals, strings in backend/engine/text.py.
 - 2026-10-10: real API live (artifacts-backed, still contract v1.1, no contract change); fixtures remain the fallback (MILLGUARD_STUB=1).
 - 2026-10-10: contract v1.5 (machine-first): diagnosis + fingerprint, fix plan, history, line summaries, GET /api/faults; money = expected loss, horizon_h = hours to deadline (Press 2 fixture 11 h). v1.4 policy schedule_plus_millguard still to come. Real API for the new fields follows.
+- 2026-10-10: contract v1.4: policy schedule_plus_millguard in /api/backtest policies, timeline cost and events (PolicyId, PolicyCosts). Simulator now uses P-F ramps (assumed) and MPOB 2025 crop index; results re-run.

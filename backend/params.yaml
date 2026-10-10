@@ -45,12 +45,17 @@ simulator:
   messy_work_order_share: {value: 0.10, unit: fraction, source: "Plan 3.1 (wrong class or late timestamp)", status: assumed}
   weekly_planned_stop_h:  {value: 6,  unit: h, source: "Plan 2.3 (06:00 stop); duration assumed", status: assumed}
   missing_reading_rate:   {value: 0.01, unit: fraction, source: "Team assumption", status: assumed}
-  # Monthly crop index, Jan..Dec, mean=1. Plan anchors: Feb low ~1.19 Mt, Oct peak ~2.04 Mt (MPOB 2025). Other months interpolated: replace with MPOB monthly table.
+  # Monthly crop index, Jan..Dec = MPOB 2025 monthly CPO production (Nov revised, Dec preliminary) / annual mean.
   crop_index_2025:
-    value: [0.84, 0.72, 0.82, 0.88, 0.97, 1.02, 1.08, 1.15, 1.19, 1.22, 1.12, 0.99]
+    value: [0.734, 0.703, 0.821, 0.998, 1.048, 1.001, 1.072, 1.097, 1.089, 1.209, 1.145, 1.082]
     unit: relative to annual mean
-    source: "MPOB monthly summary 2025; only Feb and Oct anchors from plan, rest approximate"
-    status: assumed
+    source: "MPOB 2025 monthly CPO production, normalised to the mean (plan v1.4 item 4); Dec is preliminary"
+    status: validated
+  # P-F interval: running hours from first detectable sign to failure (effect ramps 0 to 1 over this many hours)
+  pf_h_worm_wear:      {value: 300, unit: running h, source: "Plan v1.4: worm wear shows several days to weeks ahead", status: assumed}
+  pf_h_gearbox_shaft:  {value: 400, unit: running h, source: "Plan v1.4: gearbox shows several days to weeks ahead", status: assumed}
+  pf_h_bearing:        {value: 150, unit: running h, source: "Plan v1.4: bearing shows several days ahead", status: assumed}
+  pf_h_hydraulic_cone: {value: 200, unit: running h, source: "Plan v1.4 (assumed, between bearing and worm)", status: assumed}
 
 alerting:
   persistence_h:   {value: 3,   unit: h,     source: "Plan 4.1", status: validated}
