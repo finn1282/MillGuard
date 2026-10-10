@@ -190,7 +190,7 @@ const S = {
   s4: ["Decide", "Putuskan"],
   s4b: ["Ringgit at risk if you wait against the cost of fixing. Only the best few reach you.", "Ringgit berisiko jika menunggu berbanding kos membaiki. Hanya yang terbaik sampai kepada anda."],
   s5: ["Explain", "Terangkan"],
-  s5b: ["The top three reasons in plain words, in English or Bahasa Malaysia.", "Tiga sebab utama dalam bahasa mudah, dalam Bahasa Inggeris atau Bahasa Malaysia."],
+  s5b: ["The main reasons, two or three, in plain words, in English or Bahasa Malaysia.", "Sebab utama, dua atau tiga, dalam bahasa mudah, dalam Bahasa Inggeris atau Bahasa Malaysia."],
   protectedWord: ["protected", "dilindungi"],
   faultGuide: ["Fault guide", "Panduan kerosakan"],
   faultGuideSub: ["From published screw press and boiler failure studies", "Daripada kajian kerosakan penekan skru dan dandang yang diterbitkan"],
