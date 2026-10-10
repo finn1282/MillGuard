@@ -1,6 +1,6 @@
 # MillGuard — Master Plan (Single Source of Truth)
 
-Version 1.1 · Sat 10 Oct 2026, 14:50 MYT · Team: 3 people, 2 computers (A = backend, B = design then frontend, third member = pitch) · Deadline: **Sun 11 Oct, 09:30 MYT**
+Version 1.5 · Sat 10 Oct 2026, 17:20 MYT · Team: 3 people, 2 computers (A = backend, B = design then frontend, third member = pitch) · Deadline: **Sun 11 Oct, 09:30 MYT**
 Owner of this file: the orchestrator chat. Agents read it, they do not rewrite it. Propose changes in `CHANGELOG.md` and the orchestrator merges them.
 
 ---
@@ -174,6 +174,13 @@ The old ROI table in the original plan used RM4,180/t. **Do not hand-edit ROI nu
 **Sanity fixes (v1.2, 15:20):**
 - **Fix now vs wait needs the risk up to the next planned stop**, which can be up to 7 days away. Train LightGBM for three horizons (24 h, 72 h, 168 h) and interpolate P(fail before next stop). Fix now = stop hours × RM/h + parts. Wait = P(fail before stop) × breakdown cost + parts.
 - **Fair baselines.** The fixed-interval policy uses the best interval found by a sweep on training mills (not a weak guess); run-to-failure is as-is. Judges will ask whether we beat a strawman.
+- **v1.4 (16:50), after the first full run.** Press catch was ~20%, median lead 16 h; the margin over a swept fixed interval was RM93k; MetroPT-3 caught 0 of 4. Changes:
+  1. **Realistic P-F intervals.** Gradual faults must show a detectable warning before they fail. Typical P-F interval (time from first detectable sign to failure): worm wear and gearbox several days to weeks; bearing several days. Electrical faults stay mostly sudden. Report catch rate **per fault class**; sudden faults are expected misses.
+  2. **Add a fourth policy, "Schedule + MillGuard".** Keep the mill's existing schedule, stretched to a longer interval, and let MillGuard catch what fails in between. This is how a real mill would adopt it, and it is the headline comparison.
+  3. **One targeted MetroPT-3 retry** with domain features (compressor duty cycle, load cycles per hour, recharge time — the compressor's version of current per tonne). Threshold still set only on Feb–Mar healthy data. Max 90 minutes; if it still misses, report it honestly.
+  4. **Real MPOB 2025 monthly CPO production** for seasonality (tonnes): Jan 1,239,895; Feb 1,188,443; Mar 1,387,616; Apr 1,686,379; May 1,771,621; Jun 1,692,370; Jul 1,812,467; Aug 1,854,756; Sep 1,840,983; Oct 2,043,886; Nov 1,935,510 (revised); Dec 1,829,549 (preliminary). Normalise to the mean.
+  5. **inspection_finds_wrong_class** stays as an assumption (default 50%, slider 0–100%); the deck shows the strict result too.
+  6. **Telegram bot dropped.** The real boiler dataset stays P1, only if everything above is done by 23:00.
 - **Boiler is P0 in simulated form.** The demo's competing alert needs it. Add 1 boiler to the simulator (steam temperature drift outside 530–545 °C, feed-water quality drift, rare tube-leak events). The real 5-day boiler dataset stays P1, as a "same detector works on real boiler data" check.
 
 ### 4.2 Professional stack (for the "path to a real mill" slide)
@@ -281,6 +288,35 @@ interface Action {
 | `GET /api/robustness` | `{ dataset: "MetroPT-3", failures_total, caught, median_lead_h, false_alarms_per_week, note }` |
 | `GET /api/replay/markers` | `[{t, kind: "bookmark"|"alert"|"breakdown", label_en, label_ms, asset_id?}]` (v1.1) |
 | `POST /api/feedback` | body `{action_id, useful?: boolean, decision?: Recommendation}` → `{ ok: true }` (v1.1) |
+
+**Contract v1.5 changes (10 Oct, 17:15) — machine-first redesign (see section 14):**
+
+```ts
+interface FingerprintCheck { signal: string; label_en: string; label_ms: string;
+  expected: "up" | "down" | "unstable" | "spike"; observed_en: string; observed_ms: string; matches: boolean; }
+interface Diagnosis { fault_class: FaultClass; name_en: string; name_ms: string; confidence_pct: number;
+  plain_en: string; plain_ms: string;                 // one sentence: what is physically happening
+  alternatives: { fault_class: FaultClass; confidence_pct: number }[];
+  fingerprint: FingerprintCheck[]; }                  // 3–4 checks
+interface FixPlan { title_en: string; title_ms: string; steps_en: string[]; steps_ms: string[];
+  parts: { name_en: string; name_ms: string; qty: number }[];
+  crew: number; est_hours: number; needs_stop: boolean; best_window: string; }  // ISO time
+interface HistoryItem { t: string; fault_class: FaultClass; what_en: string; what_ms: string;
+  downtime_h: number; was_predicted: boolean; }
+interface FaultGuide { fault_class: FaultClass; name_en: string; name_ms: string;
+  what_en: string; what_ms: string; why_en: string; why_ms: string;
+  signs: { signal: string; label_en: string; label_ms: string; expected: FingerprintCheck["expected"] }[];
+  fix_steps_en: string[]; fix_steps_ms: string[];
+  typical_downtime_h: number; typical_cost_rm: number; onset: "gradual" | "sudden"; }
+```
+
+- `GET /api/assets/{id}` adds `status`, `risk_pct`, `diagnosis: Diagnosis | null`, `fix: FixPlan | null`, `history: HistoryItem[]` (last 12 months for that machine).
+- `GET /api/line` assets add `summary_en`, `summary_ms` (e.g. "Worm wearing" / "Normal").
+- New `GET /api/faults` → `FaultGuide[]` (static, from the FMEA studies; drives the fault guide).
+- `/api/backtest` policies include `schedule_plus_millguard` (v1.4). The Impact page's "After" = `schedule_plus_millguard`, "Before" = `run_to_failure`.
+- Fix steps are generic maintenance actions (inspect, replace, check), written in plain language.
+- **Money semantics (17:30, no shape change):** `rm_at_risk` = **expected loss if you wait** = P(fail before the action deadline) × full breakdown cost. The UI shows the maths: "Expected loss if you wait: RM21,000 (41% × RM51,000 breakdown)". The full breakdown cost is `round(rm_at_risk / (risk_pct/100))`.
+- **Risk window = time to the decision:** `horizon_h` = hours from `at` until `deadline` (e.g. 19:00 → 06:00 stop = 11 h), and `risk_pct` is the probability of failure within that window. The UI says "41% chance before tomorrow's 06:00 stop", not "in 48 h".
 
 **Contract v1.1 changes (10 Oct, 15:10):**
 - New `GET /api/replay/markers`. Bookmarks are the 3 demo moments on mill 10, chosen by the backend: quiet night, Press 2 worm-wear alert onset, boiler + press alerts on the same night. Alerts are every MillGuard alert. Breakdowns are failures under run-to-failure.
@@ -396,6 +432,31 @@ millguard/
 | Team exhaustion | Sleep shifts 03:00–05:30; freeze at 03:00 |
 
 ---
+
+## 14. Frontend v2 — machine-first redesign (17:15; supersedes sections 2.2, 2.3 and 9.1)
+
+**Goal:** the user can see which machine is malfunctioning, what is wrong with it, and how to fix it, with the same layout logic on mobile and desktop.
+
+**Principles:** the machine is the main thing; problem first, then fix, always in that order; one status vocabulary (Normal / Watch / Act now, always colour + icon + word); show the fault fingerprint; ringgit on every decision; no KPI grids.
+
+**Pages (same order on both devices; mobile bottom tabs, desktop left rail):**
+1. **Mill** — time bar, attention summary, ranked attention cards, mill map by station (unmonitored stations greyed out), quiet state.
+2. **Machine** — header (status, risk, RM), What's wrong (diagnosis, confidence, alternatives), fault fingerprint checks, 3 evidence items with 7-day trends, What to do (fix plan: when, steps, parts, crew, hours, needs stop), decision bar (wait vs fix vs protected), action buttons, history (predicted / missed), link to the fault guide. Desktop: two columns (problem left, fix right, sticky). Mobile: stacked in the same order, buttons pinned to the bottom.
+3. **Impact** — Before (fix when it breaks) vs After (schedule + MillGuard): RM per year, breakdowns, downtime; savings headline; 12-month replay strip; what-if sliders; compare toggle (fixed schedule only / MillGuard only).
+4. **How it works** — five-step explainer (Sense, Warning signs, Predict, Decide, Explain) using Press 2 as the example; fault guide; data honesty (real / simulated / assumed) plus robustness.
+
+**Global:** EN/BM toggle, "Sample data" badge in fixture mode, presenter shortcuts (1–4 pages, B next bookmark).
+
+**Demo flow:** Mill quiet night → Press 2 bookmark (Act now) → open Press 2 (fingerprint, fix, RM18k, BM toggle) → boiler + press night (boiler first, whole mill) → Impact (before/after, judge moves a slider). How it works is kept for Q&A.
+
+**Build order:** Machine page → Mill → Impact → How it works.
+
+**P2 stretch — "Expert advice" on the Machine page (only if all P0 is green before 01:00):**
+- An "Ask for detailed advice" button under the fix plan calls a new `POST /api/advice {asset_id, at}` that returns `{text_en, text_ms, sources[]}`.
+- Backend calls the Claude API with only grounded inputs: the diagnosis, fingerprint, fix plan, machine history, and (if we find them) public manufacturer manual excerpts for screw presses and boilers, stored in `backend/knowledge/` with their source links. No free-form guessing.
+- The UI labels it "AI-generated guidance — check against the manufacturer's manual" and lists sources; the generic fix plan stays the default.
+- Pitch framing even if not built: "Phase 2 connects MillGuard to each mill's own equipment manuals and SOPs."
+- Risk: needs an API key and network at demo time, so it falls back to a cached answer for the demo bookmarks.
 
 ## 13. Sources (new this round)
 
