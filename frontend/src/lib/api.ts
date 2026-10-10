@@ -69,9 +69,9 @@ export const api = {
   faults: () => (USE_FIXTURES ? fixture<FaultGuide[]>("faults") : get<FaultGuide[]>("/faults")),
   feedback: (body: FeedbackIn) =>
     USE_FIXTURES ? fixture<FeedbackOut>("feedback") : post<FeedbackOut>("/feedback", body),
-  // v1.8 may not exist yet: any failure means "disabled".
+  // v1.8: any failure means "disabled"; the button only shows when enabled.
   notifyStatus: (): Promise<NotifyStatus> =>
-    USE_FIXTURES ? Promise.resolve({ enabled: false })
-      : get<NotifyStatus>("/notify/status").catch(() => ({ enabled: false })),
+    (USE_FIXTURES ? fixture<NotifyStatus>("notify_status") : get<NotifyStatus>("/notify/status"))
+      .catch(() => ({ enabled: false, channel: "", subscribers: 0 })),
   notify: (at: string, kind: "alert" | "brief" = "alert") => post<NotifyOut>("/notify", { at, kind }),
 };

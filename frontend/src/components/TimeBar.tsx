@@ -30,7 +30,7 @@ function SendToPhone() {
   if (!status.data?.enabled || !at) return null;
   const send = async () => {
     setBusy(true);
-    try { const r = await api.notify(at, "alert"); setMsg(t("sentTo", { n: r.sent })); }
+    try { const r = await api.notify(at, "alert"); setMsg(r.ok ? t("sentTo", { n: r.sent }) : t("sendFailed")); }
     catch { setMsg(t("sendFailed")); }
     setBusy(false);
   };
@@ -78,7 +78,7 @@ export function TimeBar() {
   );
 
   return (
-    <div className="bg-paper-bar border-b border-rule lg:sticky lg:top-0 z-20">
+    <div className="bg-paper-bar border-b border-rule">
       {/* desktop: real bookmark labels are long, so they get their own row */}
       <div className="hidden lg:flex flex-wrap items-center gap-x-3.5 gap-y-3 px-10 py-3.5">
         <div className="order-1">{controls}</div>

@@ -20,7 +20,8 @@ const ClockCtx = createContext<Ctx>(null!);
 export function ClockProvider({ children }: { children: ReactNode }) {
   const meta = useApi(api.meta, []);
   const marks = useApi(api.markers, []);
-  const [at, setAtRaw] = useState<string>();
+  // ?at= in the URL sets the starting time (presenter deep links).
+  const [at, setAtRaw] = useState<string | undefined>(() => new URLSearchParams(location.search).get("at") ?? undefined);
   const [playing, setPlaying] = useState(false);
 
   const markers = marks.data ?? [];
