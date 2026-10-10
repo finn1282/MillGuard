@@ -1,0 +1,14 @@
+pandas
+numpy
+scipy
+pyarrow
+lightgbm
+scikit-learn
+shap
+fastapi
+uvicorn
+pydantic>=2
+pyyaml
+ucimlrepo
+python-telegram-bot
+httpx

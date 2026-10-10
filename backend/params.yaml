@@ -1,0 +1,58 @@
+# Every value: value, unit, source, status (validated | assumed | derived)
+economics:
+  throughput_tph:      {value: 60,      unit: t FFB/h, source: "Published mill simulation (plan 3.2)", status: validated}
+  presses:             {value: 4,       unit: count,   source: "Plan 3.1 (4 presses x 15 t/h)", status: validated}
+  press_throughput_tph: {value: 15,     unit: t FFB/h, source: "Plan 3.1", status: validated}
+  oer:                 {value: 0.1974,  unit: fraction, source: "MPOB Overview of the Malaysian Oil Palm Industry 2025", status: validated}
+  cpo_price_rm_per_t:  {value: 4292.5,  unit: RM/t,    source: "MPOB 2025 average CPO price (spot ~RM4,420 on 5 Oct 2026)", status: validated}
+  cpo_price_slider_min: {value: 3800,   unit: RM/t,    source: "Plan 3.2 slider range", status: assumed}
+  cpo_price_slider_max: {value: 5000,   unit: RM/t,    source: "Plan 3.2 slider range", status: assumed}
+  rm_per_mill_hour:    {value: 50844,   unit: RM/h,    source: "60 x 0.1974 x 4292.5 (plan quotes ~RM50,800)", status: derived}
+  rm_per_press_hour:   {value: 12711,   unit: RM/h,    source: "rm_per_mill_hour / 4 (plan quotes ~RM12,700)", status: derived}
+  unplanned_press_stop_h: {value: 4,    unit: h,       source: "Team assumption", status: assumed}
+  unplanned_boiler_stop_h: {value: 8,   unit: h,       source: "Team assumption (boiler stop halts whole mill)", status: assumed}
+  planned_repair_extra_lost_h: {value: 0, unit: h,     source: "Repair done inside weekly planned stop", status: assumed}
+  lost_share:          {value: 0.30,    unit: fraction, source: "Share of delayed output truly lost; range 0.20-0.40; rest caught up", status: assumed}
+  lost_share_low:      {value: 0.20,    unit: fraction, source: "Plan 3.2 range", status: assumed}
+  lost_share_high:     {value: 0.40,    unit: fraction, source: "Plan 3.2 range", status: assumed}
+  false_alarm_cost_rm: {value: 300,     unit: RM,      source: "Inspection cost per false alarm", status: assumed}
+  miss_cost_mult:      {value: 1.0,     unit: x,       source: "Slider: multiplier on cost of a missed failure", status: assumed}
+  criticality_boiler:  {value: 1.0,     unit: mill share, source: "Boiler stop = whole mill", status: derived}
+  criticality_press:   {value: 0.25,    unit: mill share, source: "One press = 1/4 mill", status: derived}
+
+repair_cost_rm:   # parts + labour per fault class (placeholders)
+  worm_wear:      {value: 6000,  unit: RM, source: "Placeholder", status: assumed}
+  bearing:        {value: 4500,  unit: RM, source: "Placeholder", status: assumed}
+  gearbox_shaft:  {value: 9000,  unit: RM, source: "Placeholder", status: assumed}
+  hydraulic_cone: {value: 3500,  unit: RM, source: "Placeholder", status: assumed}
+  electrical:     {value: 2500,  unit: RM, source: "Placeholder", status: assumed}
+  boiler_steam:   {value: 8000,  unit: RM, source: "Placeholder", status: assumed}
+  boiler_water:   {value: 6000,  unit: RM, source: "Placeholder", status: assumed}
+  unknown:        {value: 3000,  unit: RM, source: "Placeholder", status: assumed}
+
+simulator:
+  n_mills:        {value: 10,  unit: count,  source: "Plan 3.1", status: assumed}
+  months:         {value: 12,  unit: count,  source: "Plan 3.1", status: assumed}
+  step_h:         {value: 1,   unit: h,      source: "Plan 3.1 hourly data", status: assumed}
+  worm_life_h_min: {value: 700,  unit: h, source: "Plan 1.4 (700-800 h in original plan)", status: validated}
+  worm_life_h_max: {value: 2000, unit: h, source: "RCM screw press studies: ~1,217 h interval, ~2,035 h replacement (UMM 2026, UIN Suska 2021)", status: validated}
+  cone_pressure_max_bar: {value: 60, unit: bar, source: "Plan 3.1 calibration anchor", status: validated}
+  fibre_oil_loss_alarm:  {value: 0.04, unit: fraction, source: "Thai mill sensor study (SAJIE 36(1))", status: validated}
+  target_stops_per_mill_year: {value: [25, 50], unit: count, source: "North Sumatra mill logged 65 in 7 months; plan target", status: validated}
+  messy_work_order_share: {value: 0.10, unit: fraction, source: "Plan 3.1 (wrong class or late timestamp)", status: assumed}
+  weekly_planned_stop_h:  {value: 6,  unit: h, source: "Plan 2.3 (06:00 stop); duration assumed", status: assumed}
+  missing_reading_rate:   {value: 0.01, unit: fraction, source: "Team assumption", status: assumed}
+  # Monthly crop index, Jan..Dec, mean=1. Plan anchors: Feb low ~1.19 Mt, Oct peak ~2.04 Mt (MPOB 2025). Other months interpolated: replace with MPOB monthly table.
+  crop_index_2025:
+    value: [0.84, 0.72, 0.82, 0.88, 0.97, 1.02, 1.08, 1.15, 1.19, 1.22, 1.12, 0.99]
+    unit: relative to annual mean
+    source: "MPOB monthly summary 2025; only Feb and Oct anchors from plan, rest approximate"
+    status: assumed
+
+alerting:
+  persistence_h:   {value: 3,   unit: h,     source: "Plan 4.1", status: validated}
+  max_per_shift:   {value: 5,   unit: count, source: "Plan 4.1", status: validated}
+  horizon_h:       {value: 72,  unit: h,     source: "Plan 4.1", status: validated}
+  hysteresis_ratio: {value: 0.6, unit: x threshold, source: "Clear below 60% of threshold", status: assumed}
+  min_lead_h:      {value: 6,   unit: h,     source: "Alert only if time remains to act", status: assumed}
+  fixed_interval_h: {value: 1000, unit: h,   source: "Fixed-interval policy; near RCM worm interval ~1,217 h", status: assumed}
