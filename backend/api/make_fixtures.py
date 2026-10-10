@@ -106,6 +106,15 @@ def advice_fixtures(s, at):
                 print(f"WARNING: no advice written for {f.name} ({o.message})")
 
 
+def keep_gateway_fixtures():
+    """v1.14 gateway fixtures are authored by hand (contract examples); validate them here instead of regenerating."""
+    from backend.api import models as m
+    for name, model, many in (("ingest", m.IngestOut, 0), ("live", m.LiveStatus, 0), ("live_start", m.LiveSession, 0), ("live_stop", m.LiveStatus, 0),
+                              ("scenarios", m.Scenario, 1), ("scenario_hours", m.ReadingIn, 1), ("upload", m.UploadOut, 0)):
+        d = json.loads((OUT / f"{name}.json").read_text())
+        [model(**x) for x in d] if many else model(**d)
+
+
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     s = Service()
@@ -128,6 +137,7 @@ def main():
     write("notify_status", NotifyStatus(enabled=False, channel="telegram", subscribers=0))
     write("notify", NotifyOut(ok=False, sent=0))
     write("notify_schedule", NotifyOut(ok=True, sent=3))
+    keep_gateway_fixtures()
     (OUT / "bookmarks.json").write_text(json.dumps(at, indent=1))
     print("fixtures (real snapshot) written to", OUT, at)
     backtest_grid(s)

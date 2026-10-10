@@ -40,6 +40,13 @@ def test_backtest_grid_complete():
     assert len(idx["files"]) == 81 and all((FIX / "backtest_grid" / f["file"]).exists() for f in idx["files"])
 
 
+def test_gateway_fixtures_match_models():
+    for name, model, many in (("ingest", m.IngestOut, 0), ("live", m.LiveStatus, 0), ("live_start", m.LiveSession, 0), ("live_stop", m.LiveStatus, 0),
+                              ("scenarios", m.Scenario, 1), ("scenario_hours", m.ReadingIn, 1), ("upload", m.UploadOut, 0)):
+        d = load(name)
+        [model(**x) for x in d] if many else model(**d)
+
+
 def test_summaries_inside_series_and_one_number_per_signal():
     check(FIX)
 

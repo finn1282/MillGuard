@@ -1,0 +1,32 @@
+[
+ {
+  "id": "mill10",
+  "name_en": "Mill 10 (held-out mill)",
+  "name_ms": "Kilang 10 (kilang tidak dilihat)",
+  "description_en": "The unseen demo mill, replayed hour by hour; Press 2 worm wear develops.",
+  "description_ms": "Kilang demo yang tidak dilihat, dimainkan jam demi jam; kehausan worm Penekan 2 berkembang.",
+  "default_start": "2025-08-21T03:00:00+08:00",
+  "hours": 8760,
+  "upload_enabled": true
+ },
+ {
+  "id": "bearing_p3",
+  "name_en": "Bearing failure on Press 3",
+  "name_ms": "Kerosakan bearing pada Penekan 3",
+  "description_en": "Mill 10 with a bearing failing on Press 3 about 100 running hours after the start.",
+  "description_ms": "Kilang 10 dengan bearing Penekan 3 rosak kira-kira 100 jam larian selepas permulaan.",
+  "default_start": "2025-09-15T08:00:00+08:00",
+  "hours": 8760,
+  "upload_enabled": true
+ },
+ {
+  "id": "bad_sensor",
+  "name_en": "Faulty vibration sensor on Press 4",
+  "name_ms": "Penderia getaran rosak pada Penekan 4",
+  "description_en": "Press 4 vibration sensor sticks, then spikes. No machine fault: expect a sensor alert, not a machine alert.",
+  "description_ms": "Penderia getaran Penekan 4 tersekat, kemudian melonjak. Tiada kerosakan mesin: jangkakan amaran penderia, bukan amaran mesin.",
+  "default_start": "2025-09-25T10:00:00+08:00",
+  "hours": 8760,
+  "upload_enabled": true
+ }
+]

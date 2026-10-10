@@ -1,0 +1,7 @@
+{
+ "session_id": "s-demo1",
+ "scenario_id": "bad_sensor",
+ "start_t": "2025-09-25T10:00:00+08:00",
+ "speed_s_per_h": 2.0,
+ "started_wallclock": "2026-10-11T09:00:00+08:00"
+}

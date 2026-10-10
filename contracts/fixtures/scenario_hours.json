@@ -1,0 +1,29 @@
+[
+ {
+  "gateway_id": "demo-gw1",
+  "source": "scenario:bad_sensor",
+  "asset_id": "press_4",
+  "t": "2025-09-26T14:00:00+08:00",
+  "readings": {
+   "motor_current": 61.2,
+   "throughput_tph": 15.1,
+   "vib_rms": 2.04,
+   "vib_kurtosis": 3.1,
+   "gearbox_oil_temp": 68.4,
+   "cone_pressure": 46.2,
+   "fibre_oil_loss": null
+  }
+ },
+ {
+  "gateway_id": "demo-gw1",
+  "source": "scenario:bad_sensor",
+  "asset_id": "boiler_1",
+  "t": "2025-09-26T14:00:00+08:00",
+  "readings": {
+   "steam_temp": 538.1,
+   "steam_pressure": 21.3,
+   "feedwater_flow": 35.8,
+   "feedwater_cond": 21.0
+  }
+ }
+]

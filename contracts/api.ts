@@ -34,11 +34,24 @@ export interface Meta {
 }
 
 // GET /api/brief?at=
+// v1.14 (additive): a sensor problem. Never a machine alert; it never changes a machine's status.
+export interface SensorAlert {
+  asset_id: string; signal: string; kind: "out_of_range" | "stuck" | "spike" | "missing";
+  t: string; first_t: string; message_en: string; message_ms: string;
+}
+// v1.14 (additive): a sensor problem, never a machine alert; it never changes a machine's status.
+export interface SensorAlert {
+  asset_id: string; signal: string; kind: "out_of_range" | "stuck" | "spike" | "missing";
+  t: string; first_t: string; // last and first bad reading of this issue
+  message_en: string; message_ms: string; // e.g. "Press 4 vibration sensor looks faulty: check the sensor, not the machine"
+}
+
 export interface Brief {
   at: string; shift: "day" | "night";
   rm_protected_total: number; // v1.7: sum of rm_saved_if_acted of the actions shown
   actions: Action[]; // <=5, sorted by rm_saved_if_acted desc
   watching_count: number; suppressed_count: number;
+  sensor_alerts?: SensorAlert[]; // v1.14
 }
 
 export interface LineAsset {
@@ -50,7 +63,7 @@ export interface LineAsset {
 }
 
 // GET /api/line?at=
-export interface Line { at: string; assets: LineAsset[] }
+export interface Line { at: string; assets: LineAsset[]; sensor_alerts?: SensorAlert[] /* v1.14 */ }
 
 export interface Series {
   signal: string; label_en: string; label_ms: string; unit: string;
@@ -192,3 +205,35 @@ export interface AdviceOut {
   model: string;
   message?: string | null; // friendly text when unavailable (no key, no network, no fault); sections is then []
 }
+
+// ---- v1.14 gateway (additive). Write endpoints need header X-Demo-Key when the server has DEMO_KEY set (401 otherwise): ingest, live/start, live/stop, upload, notify, feedback.
+// The client is the gateway: the Gateway page (or backend/scripts/stream.py) fetches hours and POSTs them to /api/ingest at its own pace.
+// One hourly payload per asset, as a real ESP32 / Raspberry Pi / PLC gateway would send (vibration RMS and kurtosis computed at the edge).
+// press_N readings: motor_current (A), throughput_tph, vib_rms (mm/s), vib_kurtosis, gearbox_oil_temp (C), cone_pressure (bar), fibre_oil_loss (%, daily lab value, null otherwise).
+// boiler_1 readings: steam_temp (C), steam_pressure (bar), feedwater_flow (t/h), feedwater_cond (uS/cm). A null or missing field is allowed (counts as missing).
+export interface ReadingIn {
+  gateway_id: string; source: string; // "scenario:<id>" | "csv:<name>" | ...
+  asset_id: "press_1" | "press_2" | "press_3" | "press_4" | "boiler_1";
+  t: string; readings: Record<string, number | null>;
+}
+// POST /api/ingest  body: ReadingIn | ReadingIn[]   (bad payload: 422)
+// Sensor-health checks per reading: out of physical range, stuck (identical 6+ h while running), spike (> 6 robust SD from the last 72 h), missing (3+ h).
+// A bad reading raises a SensorAlert, never a machine alert.
+export interface IngestOut { accepted: number; rejected: number; sensor_issues: SensorAlert[]; live_at: string | null }
+// GET /api/live. live_at = latest hour for which all 5 assets were ingested in this session.
+export interface LiveStatus {
+  enabled: boolean; session_id: string | null; source: string | null; gateway_id: string | null; live_at: string | null;
+  readings_ingested: number; seconds_since_last: number | null; sensor_issues: SensorAlert[];
+}
+// POST /api/live/start (replaces any running session), POST /api/live/stop (body empty, returns LiveStatus with enabled=false)
+export interface LiveStartIn { scenario_id: string; start?: string | null; speed_s_per_h?: number } // speed: seconds of wall clock per simulated hour, used by the client to pace
+export interface LiveSession { session_id: string; scenario_id: string; start_t: string; speed_s_per_h: number; started_wallclock: string }
+// While a session is active, /api/brief, /api/line, /api/assets/{id}, /api/meta and /api/backtest serve the session's scenario at live_at (the `at` argument is ignored);
+// sensor_alerts are merged into brief and line. With no session nothing changes (mill10, replay clock).
+// GET /api/scenarios, GET /api/scenarios/{id}/hours?from=<iso>&n=<int> -> ReadingIn[] (n hours x 5 assets, oldest first, n <= 168)
+export interface Scenario {
+  id: string; name_en: string; name_ms: string; description_en: string; description_ms: string;
+  default_start: string; hours: number; upload_enabled: boolean; // upload_enabled false on Vercel
+}
+// POST /api/upload (multipart file; CSV columns asset_id, t, then one column per reading). Local only: 501 on Vercel. Builds scenario "csv_<name>".
+export interface UploadOut { scenario_id: string; rows: number; assets: number; issues: string[] }

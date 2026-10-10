@@ -1,0 +1,10 @@
+{
+ "enabled": false,
+ "session_id": null,
+ "source": null,
+ "gateway_id": null,
+ "live_at": null,
+ "readings_ingested": 0,
+ "seconds_since_last": null,
+ "sensor_issues": []
+}

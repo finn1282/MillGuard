@@ -64,6 +64,16 @@ class Meta(BaseModel):
     rm_per_mill_hour: int
 
 
+class SensorAlert(BaseModel):   # v1.14: a sensor problem, never a machine alert
+    asset_id: str
+    signal: str
+    kind: Literal["out_of_range", "stuck", "spike", "missing"]
+    t: str            # last bad reading
+    first_t: str      # first bad reading of this issue
+    message_en: str   # e.g. "Press 4 vibration sensor looks faulty: check the sensor, not the machine"
+    message_ms: str
+
+
 class Brief(BaseModel):
     at: str
     shift: Literal["day", "night"]
@@ -71,6 +81,7 @@ class Brief(BaseModel):
     rm_protected_total: int   # v1.7: sum of rm_saved_if_acted over the actions shown
     watching_count: int
     suppressed_count: int
+    sensor_alerts: list[SensorAlert] = []   # v1.14, additive
 
 
 class LineAsset(BaseModel):
@@ -89,6 +100,7 @@ class LineAsset(BaseModel):
 class Line(BaseModel):
     at: str
     assets: list[LineAsset]
+    sensor_alerts: list[SensorAlert] = []   # v1.14, additive; asset_id says which machine's sensor
 
 
 class Series(BaseModel):
@@ -391,3 +403,63 @@ class AdviceOut(BaseModel):
     cached: bool          # true when served from the cache or a fixture; false when fresh or unavailable
     model: str
     message: str | None = None   # friendly text when advice is unavailable (no key, no network, no fault); sections is then empty
+
+
+# ---- v1.14 gateway (additive) ----
+class ReadingIn(BaseModel):
+    """One hourly summary from a gateway (ESP32, Raspberry Pi or PLC). Vibration RMS and kurtosis are computed at the edge."""
+    gateway_id: str
+    source: str   # e.g. "scenario:bearing_p3", "csv:mydata", "plc:mill-a"
+    asset_id: Literal["press_1", "press_2", "press_3", "press_4", "boiler_1"]
+    t: str        # hour, ISO 8601
+    readings: dict[str, float | None]   # press: motor_current, throughput_tph, vib_rms, vib_kurtosis, gearbox_oil_temp, cone_pressure, fibre_oil_loss; boiler: steam_temp, steam_pressure, feedwater_flow, feedwater_cond
+
+
+class IngestOut(BaseModel):
+    accepted: int
+    rejected: int
+    sensor_issues: list[SensorAlert]
+    live_at: str | None   # latest hour for which all 5 assets have been ingested in this session
+
+
+class LiveStatus(BaseModel):
+    enabled: bool
+    session_id: str | None = None
+    source: str | None = None
+    gateway_id: str | None = None
+    live_at: str | None = None
+    readings_ingested: int = 0
+    seconds_since_last: float | None = None
+    sensor_issues: list[SensorAlert] = []
+
+
+class LiveStartIn(BaseModel):
+    scenario_id: str
+    start: str | None = None          # default: the scenario's default_start
+    speed_s_per_h: float = 2.0        # seconds of wall clock per simulated hour (client-side pacing)
+
+
+class LiveSession(BaseModel):
+    session_id: str
+    scenario_id: str
+    start_t: str
+    speed_s_per_h: float
+    started_wallclock: str
+
+
+class Scenario(BaseModel):
+    id: str
+    name_en: str
+    name_ms: str
+    description_en: str
+    description_ms: str
+    default_start: str
+    hours: int
+    upload_enabled: bool = False   # CSV upload is local only
+
+
+class UploadOut(BaseModel):
+    scenario_id: str
+    rows: int
+    assets: int
+    issues: list[str]
