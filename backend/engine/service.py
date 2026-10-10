@@ -245,10 +245,10 @@ class Service:
                     failures=[dict(t=iso(r.t), fault_class=r.fault_class) for r in fl.itertuples()], action=action,
                     diagnosis=diag, fix=fix, history=self._history(aid, t))
 
-    def _series(self, sig, en, ms, unit, ts, vals, window_h):
+    def _series(self, sig, en, ms, unit, ts, vals, window_h, ends=False):
         v = np.round(np.asarray(vals, dtype=float), 3)   # summary is computed from exactly these served points
         k = min(24, max(1, len(v) // 4))
-        a, b = float(v[:k].mean()), float(v[-k:].mean())
+        a, b = (float(v[0]), float(v[-1])) if ends else (float(v[:k].mean()), float(v[-k:].mean()))   # counters: exact ends
         top = float(np.abs(v).max())
         dec = 3 if top < 1 else 2 if top < 10 else 1 if top < 100 else 0
         unit_ms = text.UNIT_MS.get(unit, unit)
@@ -272,7 +272,7 @@ class Service:
             tp = self.tel[self.tel.asset_id.str.startswith("press")]
             g = tp[tp.asset_id == aid].set_index("t").throughput_tph if aid.startswith("press") else tp.groupby("t").throughput_tph.sum()
             v = g.reindex(hrs).fillna(0).tolist()
-        return self._series(sig, en, ms, unit, hrs, v, window_h)
+        return self._series(sig, en, ms, unit, hrs, v, window_h, ends=sig == "hours_since_service")
 
     def _last_service(self, aid, name, t):
         m = self.maint[(self.maint.asset_id == aid) & (self.maint.t <= t)].sort_values("t")
