@@ -85,6 +85,7 @@ def main():
     fa = sum(is_fa(o) for o, _ in eps)
     fail_h = sum((e - s) / pd.Timedelta(hours=1) for s, e in zip(f_start, f_end))
     weeks = (len(test) - fail_h - LEAD_WINDOW_H * len(FAILS)) / 168
+    late = sum(any(s < o <= e for o, _ in eps) for s, e in zip(f_start, f_end))
     out = dict(dataset="MetroPT-3", failures_total=len(FAILS), caught=caught,
                median_lead_h=round(float(np.median(leads)), 1) if leads else 0.0,
                false_alarms_per_week=round(fa / weeks, 2),
@@ -92,7 +93,6 @@ def main():
                      "March for <=0.5 episodes/week and <=2% of hours alerting; scored on Apr-Aug (4 air-leak failures). Caught = alert opened "
                      f"0-{LEAD_WINDOW_H} h before the failure start; {late} more failure(s) were flagged only after they had started. "
                      "Same persistence and hysteresis rules as the mill pipeline. Threshold was fixed on healthy data, not tuned on the failures."))
-    late = sum(any(s < o <= e for o, _ in eps) for s, e in zip(f_start, f_end))
     print("episodes:", [(str(a), str(b)) for a, b in eps]); print("score max by failure window:", [round(float(score[(score.index >= s - pd.Timedelta(hours=72)) & (score.index <= e)].max()), 3) for s, e in zip(f_start, f_end)], "thr", round(float(thr), 3))
     (ART / "robustness.json").write_text(json.dumps(out, indent=1))
     print(json.dumps({k: v for k, v in out.items() if k != "note"}), "| episodes:", len(eps), "| threshold:", round(float(thr), 4))
