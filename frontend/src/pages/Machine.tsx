@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
-import { ActionButtons, Useful } from "../components/ActionButtons";
+import { ActionButtons } from "../components/ActionButtons";
 import { AdvicePanel } from "../components/AdvicePanel";
 import { DecisionBar, OutlookBar } from "../components/Decision";
 import { Fingerprint } from "../components/Fingerprint";
-import { FixPlanCard } from "../components/FixPlanCard";
 import { IconAct, IconCross, IconTick } from "../components/Icons";
 import { Sparkline } from "../components/Sparkline";
 import { StatusIcon } from "../components/Status";
@@ -86,7 +85,7 @@ function MachineView({ id }: { id: string }) {
   const guide = d.diagnosis ? fname(d.diagnosis.fault_class) : undefined;
 
   return (
-    <div className={`page ${a ? "pb-[200px] lg:pb-14" : ""}`}>
+    <div className={`page ${a ? "pb-[260px] lg:pb-14" : ""}`}>
       <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
         <Link to="/mill" className="text-[15px] lg:text-[17px] font-semibold">{t("backToMill")}</Link>
         {peers.length > 0 && (
@@ -155,6 +154,7 @@ function MachineView({ id }: { id: string }) {
               )}
             </div>
           )}
+          {a && at && <AdvicePanel key={`${id}@${at}`} assetId={id} at={at} />}
           {d.diagnosis && d.diagnosis.fingerprint.length > 0 && <Fingerprint d={d.diagnosis} />}
 
           {evidence.length > 0 && (
@@ -205,7 +205,7 @@ function MachineView({ id }: { id: string }) {
         <section aria-labelledby="sec-b" ref={sticky.ref} style={{ top: sticky.top }}
           className="flex flex-col gap-3.5 lg:gap-4 min-w-0 lg:sticky">
           <H2 id="sec-b" letter="B">{t("whatToDo")}</H2>
-          {a && saved && <DecisionBar action={a} title={`${d.fix ? pick(d.fix, "title") : pick(a, "headline")} · ${pick(a, "deadline_label")}`} />}
+          {a && saved && <DecisionBar action={a} title={`${pick(a, "headline")} · ${pick(a, "deadline_label")}`} />}
           {a && !saved && <OutlookBar m={a} title={t("keepWatching")} wholeMill={wholeMill} />}
           {!a && o && <OutlookBar m={o} wholeMill={d.asset.type === "boiler"}
             title={d.status === "ok" ? t("nothingKeepRunning") : t("keepWatching")} />}
@@ -214,8 +214,6 @@ function MachineView({ id }: { id: string }) {
               <IconTick size={18} className="mt-0.5" />{pick(o, "note")}
             </p>
           )}
-          {d.fix && <FixPlanCard fix={d.fix} />}
-          {a && d.fix && at && <AdvicePanel key={`${id}@${at}`} assetId={id} at={at} />}
 
           {!a && (d.last_service || d.next_check) && (
             <div className="sec grid grid-cols-2 gap-5">
@@ -237,9 +235,8 @@ function MachineView({ id }: { id: string }) {
           {a && (<>
             {/* pinned above the tab bar on mobile, inline on desktop */}
             <div className="fixed lg:static inset-x-0 bottom-[var(--tabbar-h)] z-20 bg-card lg:bg-transparent border-t border-rule lg:border-0 shadow-[0_-6px_16px_var(--shadow)] lg:shadow-none px-4 py-3 lg:p-0">
-              <ActionButtons key={a.id} action={a} recorded={recorded} onRecorded={() => setRecorded(true)} />
+              <ActionButtons key={`${a.id}@${at}`} action={a} recorded={recorded} onRecorded={() => setRecorded(true)} />
             </div>
-            <Useful key={`u-${a.id}`} actionId={a.id} onRecorded={() => setRecorded(true)} />
           </>)}
         </section>
       </div>

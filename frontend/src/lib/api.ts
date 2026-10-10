@@ -100,5 +100,12 @@ export const api = {
   // The model can take up to 30 s plus one retry on the backend.
   advice: (asset_id: string, at: string, lang: "en" | "ms") =>
     USE_FIXTURES ? fixtureAdvice(asset_id, at, lang) : post<AdviceOut>("/advice", { asset_id, at, lang }, 75_000),
-  notify: (at: string, kind: "alert" | "brief" = "alert") => post<NotifyOut>("/notify", { at, kind }),
+  notify: (at: string, kind: "alert" | "brief" | "schedule" = "alert", action_id?: string) =>
+    USE_FIXTURES && kind === "schedule" ? fixture<NotifyOut>("notify_schedule")
+      : post<NotifyOut>("/notify", { at, kind, action_id }),
+  // v1.13 Schedule: live mode checks the bot first; fixture mode uses notify_schedule.json. Never claims a send that did not happen.
+  notifySchedule: async (at: string, action_id: string): Promise<NotifyOut> => {
+    if (!USE_FIXTURES && !(await api.notifyStatus()).enabled) return { ok: false, sent: 0 };
+    return api.notify(at, "schedule", action_id).catch(() => ({ ok: false, sent: 0 }));
+  },
 };
