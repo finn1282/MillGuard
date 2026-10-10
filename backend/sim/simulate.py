@@ -198,6 +198,7 @@ def build_failures(rng, p, mill, d):
         dt = val(p, "economics", "unplanned_boiler_stop_h" if at == "boiler" else "unplanned_press_stop_h")
         rows.append(dict(mill_id=mill, asset_id=a, t=t[h], fault_class=c, downtime_h=dt))
     fail = pd.DataFrame(rows, columns=["mill_id", "asset_id", "t", "fault_class", "downtime_h"])
+    fail.insert(0, "failure_id", [f"m{mill}_{i}" for i in range(len(fail))])
     # messy work orders: ~10% wrong class or late timestamp
     mess = val(p, "simulator", "messy_work_order_share")
     wo = fail.copy()

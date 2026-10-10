@@ -1,0 +1,126 @@
+{
+ "press": {
+  "mill10_all/24h": {
+   "auc": 0.843,
+   "ap": 0.245,
+   "base_rate": 0.0244
+  },
+  "mill10_all/72h": {
+   "auc": 0.788,
+   "ap": 0.259,
+   "base_rate": 0.0723
+  },
+  "mill10_all/168h": {
+   "auc": 0.741,
+   "ap": 0.38,
+   "base_rate": 0.1631
+  },
+  "mill10_months9_12/24h": {
+   "auc": 0.739,
+   "ap": 0.155,
+   "base_rate": 0.0246
+  },
+  "mill10_months9_12/72h": {
+   "auc": 0.755,
+   "ap": 0.233,
+   "base_rate": 0.0738
+  },
+  "mill10_months9_12/168h": {
+   "auc": 0.666,
+   "ap": 0.302,
+   "base_rate": 0.1718
+  },
+  "mills1_9_months9_12/24h": {
+   "auc": 0.802,
+   "ap": 0.212,
+   "base_rate": 0.0251
+  },
+  "mills1_9_months9_12/72h": {
+   "auc": 0.751,
+   "ap": 0.267,
+   "base_rate": 0.0734
+  },
+  "mills1_9_months9_12/168h": {
+   "auc": 0.755,
+   "ap": 0.445,
+   "base_rate": 0.162
+  },
+  "train_oof/24h": {
+   "auc": 0.821,
+   "ap": 0.169,
+   "base_rate": 0.0224
+  },
+  "train_oof/72h": {
+   "auc": 0.79,
+   "ap": 0.253,
+   "base_rate": 0.0659
+  },
+  "train_oof/168h": {
+   "auc": 0.781,
+   "ap": 0.428,
+   "base_rate": 0.1493
+  }
+ },
+ "boiler": {
+  "mill10_all/24h": {
+   "auc": 0.985,
+   "ap": 0.773,
+   "base_rate": 0.006
+  },
+  "mill10_all/72h": {
+   "auc": 0.669,
+   "ap": 0.491,
+   "base_rate": 0.018
+  },
+  "mill10_all/168h": {
+   "auc": 0.469,
+   "ap": 0.239,
+   "base_rate": 0.0419
+  },
+  "mill10_months9_12/24h": {
+   "auc": 0.989,
+   "ap": 0.804,
+   "base_rate": 0.0164
+  },
+  "mill10_months9_12/72h": {
+   "auc": 0.804,
+   "ap": 0.553,
+   "base_rate": 0.0492
+  },
+  "mill10_months9_12/168h": {
+   "auc": 0.642,
+   "ap": 0.357,
+   "base_rate": 0.1148
+  },
+  "mills1_9_months9_12/24h": {
+   "auc": 0.983,
+   "ap": 0.681,
+   "base_rate": 0.0064
+  },
+  "mills1_9_months9_12/72h": {
+   "auc": 0.844,
+   "ap": 0.481,
+   "base_rate": 0.0191
+  },
+  "mills1_9_months9_12/168h": {
+   "auc": 0.659,
+   "ap": 0.26,
+   "base_rate": 0.0446
+  },
+  "train_oof/24h": {
+   "auc": 0.984,
+   "ap": 0.675,
+   "base_rate": 0.0084
+  },
+  "train_oof/72h": {
+   "auc": 0.848,
+   "ap": 0.542,
+   "base_rate": 0.0252
+  },
+  "train_oof/168h": {
+   "auc": 0.673,
+   "ap": 0.286,
+   "base_rate": 0.0568
+  }
+ }
+}
