@@ -74,4 +74,9 @@ alerting:
   fix_now_response_h: {value: 4, unit: h, source: "Time from fix-now alert to repair done", status: assumed}
   clear_hours:     {value: 6, unit: h, source: "Alert clears after this many hours below hysteresis level", status: assumed}
   min_lead_h:      {value: 6,   unit: h,     source: "Alert only if time remains to act", status: assumed}
-  fixed_interval_h: {value: 1000, unit: h,   source: "Fixed-interval policy; near RCM worm interval ~1,217 h", status: assumed}
+
+fixed_schedule:   # the "Fixed schedule (published RCM intervals)" baseline; replacement at the first weekly stop after the interval
+  interval_h_worm_wear:     {value: 525, unit: running h, source: "Ishak, Hotmauli, Prajadhiana, RCM for press machines, SENTI UGM 2024, Table 6 (RCM-recommended interval, running hours); used as published, no tuning", status: validated}
+  interval_h_bearing:       {value: 533, unit: running h, source: "Ishak, Hotmauli, Prajadhiana, RCM for press machines, SENTI UGM 2024, Table 6 (RCM-recommended interval, running hours); used as published, no tuning", status: validated}
+  interval_h_gearbox_shaft: {value: 400, unit: running h, source: "Ishak, Hotmauli, Prajadhiana, RCM for press machines, SENTI UGM 2024, Table 6 (RCM-recommended interval, running hours); used as published, no tuning", status: validated}
+  hydraulic_cone_electrical: {value: "run to failure", unit: text, source: "No published interval for cone hydraulics or electrical, so the schedule leaves them to run to failure (boiler also unchanged)", status: assumed}

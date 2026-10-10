@@ -407,7 +407,11 @@ ASSUMPTION_LABEL = {
     "alerting.fix_now_response_h": "Time to start a fix-now repair (hours)",
     "alerting.clear_hours": "Hours below the line before an alert clears",
     "alerting.min_lead_h": "Shortest useful lead time before a stop (hours)",
-    "alerting.fixed_interval_h": "Fixed-interval policy: service every (running hours)",
+    "fixed_schedule.interval_h_worm_wear": "Fixed schedule: replace worm every (running hours, published RCM)",
+    "fixed_schedule.interval_h_bearing": "Fixed schedule: replace bearing every (running hours, published RCM)",
+    "fixed_schedule.interval_h_gearbox_shaft": "Fixed schedule: service gearbox or shaft every (running hours, published RCM)",
+    "fixed_schedule.hydraulic_cone_electrical": "Fixed schedule: cone hydraulics and electrical have no published interval",
 }
+POLICY_LABEL = {"fixed_interval": ("Fixed schedule (published RCM intervals)", "Jadual tetap (selang RCM terbitan)")}
 BACKTEST_APPROX = ("After an early repair, the part is treated as renewed; its slightly earlier next wear-out is not modelled "
-                   "(median warning 63 h vs part life 700–2,000 h).")
+                   "(median warning about 70 h vs average part lives of 600–1,000 h).")

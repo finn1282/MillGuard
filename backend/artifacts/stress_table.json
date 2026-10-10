@@ -8,9 +8,9 @@
   "median_lead_h": 72.5,
   "cost": {
    "run_to_failure": 3153791,
-   "fixed_interval": 3104271,
+   "fixed_interval": 2735945,
    "millguard": 1896776,
-   "schedule_plus_millguard": 1621236
+   "schedule_plus_millguard": 1782706
   },
   "key": "baseline",
   "label": "No perturbation (reference)"
@@ -24,9 +24,9 @@
   "median_lead_h": 88.0,
   "cost": {
    "run_to_failure": 3153791,
-   "fixed_interval": 3104271,
+   "fixed_interval": 2735945,
    "millguard": 3057331,
-   "schedule_plus_millguard": 2201855
+   "schedule_plus_millguard": 2321071
   },
   "key": "noise2",
   "label": "Sensor noise x2"
@@ -40,9 +40,9 @@
   "median_lead_h": 104.0,
   "cost": {
    "run_to_failure": 3153791,
-   "fixed_interval": 3104271,
+   "fixed_interval": 2735945,
    "millguard": 2965242,
-   "schedule_plus_millguard": 2023258
+   "schedule_plus_millguard": 2134848
   },
   "key": "noise3",
   "label": "Sensor noise x3"
@@ -56,9 +56,9 @@
   "median_lead_h": 74.0,
   "cost": {
    "run_to_failure": 3153791,
-   "fixed_interval": 3104271,
+   "fixed_interval": 2735945,
    "millguard": 1714125,
-   "schedule_plus_millguard": 1489091
+   "schedule_plus_millguard": 1648061
   },
   "key": "miss20",
   "label": "20% of readings missing"
@@ -72,9 +72,9 @@
   "median_lead_h": 77.5,
   "cost": {
    "run_to_failure": 3153791,
-   "fixed_interval": 3104271,
+   "fixed_interval": 2735945,
    "millguard": 1884969,
-   "schedule_plus_millguard": 1615805
+   "schedule_plus_millguard": 1771525
   },
   "key": "miss40",
   "label": "40% of readings missing"
@@ -88,9 +88,9 @@
   "median_lead_h": 80.5,
   "cost": {
    "run_to_failure": 3153791,
-   "fixed_interval": 3104271,
+   "fixed_interval": 2735945,
    "millguard": 1955932,
-   "schedule_plus_millguard": 1682768
+   "schedule_plus_millguard": 1840488
   },
   "key": "drift",
   "label": "Slow sensor drift (+10% over the year on current and vibration)"
@@ -104,9 +104,9 @@
   "median_lead_h": 72.0,
   "cost": {
    "run_to_failure": 3153791,
-   "fixed_interval": 3104271,
+   "fixed_interval": 2735945,
    "millguard": 1880600,
-   "schedule_plus_millguard": 1639938
+   "schedule_plus_millguard": 1801408
   },
   "key": "wo25",
   "label": "25% of work orders with the wrong fault class"

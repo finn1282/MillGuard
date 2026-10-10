@@ -8,5 +8,5 @@
  "precision_pct": 67.5,
  "false_alarms_per_day": 0.09,
  "split": "Unseen mill 10, full year 2025; only the inputs are perturbed, the failures are the real ones",
- "note": "Catch 79 of 108, 0.65 false alarms per week, median lead 72 hours. Schedule + MillGuard RM1,639,938 vs fixed interval RM3,104,271 (better); MillGuard alone RM1,880,600. Alert counts and cost use the same backtest as the app; lead_min is the median warning in minutes."
+ "note": "Catch 79 of 108, 0.65 false alarms per week, median lead 72 hours. Schedule + MillGuard RM1,801,408 vs fixed interval RM2,735,945 (better); MillGuard alone RM1,880,600. Alert counts and cost use the same backtest as the app; lead_min is the median warning in minutes."
 }

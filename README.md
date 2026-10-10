@@ -1,6 +1,6 @@
 # MillGuard
 
-**MillGuard tells a palm-oil mill's night-shift supervisor which machine to fix, why, and what it saves in ringgit.** It reads hourly sensor data from the screw presses and the boiler, scores the risk of each failure, and turns it into a short brief: *Act now*, *Watch* or *Normal*, with the fault fingerprint, a fix plan and the cost of waiting against the cost of fixing. On our simulated demo mill (mill 10, unseen in training, 2025) it cuts cost from RM3,153,791 (fix when it breaks) to RM1,621,236 and breakdowns from 108 to 33, and it beats a fixed service schedule (RM3,104,271) by RM1,483,035. The same brief goes to a phone through Telegram, and a grounded AI advisor writes step-by-step guidance in English or Bahasa Malaysia.
+**MillGuard tells a palm-oil mill's night-shift supervisor which machine to fix, why, and what it saves in ringgit.** It reads hourly sensor data from the screw presses and the boiler, scores the risk of each failure, and turns it into a short brief: *Act now*, *Watch* or *Normal*, with the fault fingerprint, a fix plan and the cost of waiting against the cost of fixing. On our simulated demo mill (mill 10, unseen in training, 2025) it cuts cost from RM3,153,791 (fix when it breaks) to RM1,782,706 and breakdowns from 108 to 19, and it beats a fixed service schedule built from published RCM intervals (RM2,735,945) by RM953,239. The same brief goes to a phone through Telegram, and a grounded AI advisor writes step-by-step guidance in English or Bahasa Malaysia.
 
 **Live demo (no install, sample data):** https://finn1282.github.io/MillGuard/
 
@@ -35,6 +35,7 @@ Run them in this order: `setup` → `all` → `check` → `demo-all`. `make chec
 | **Real** | MetroPT-3 compressor data (real failures): used only as a stress test, result negative (0 of 4 caught early) | How it works, robustness |
 | **Real** | A public boiler dataset, fetched at run time: no skill found (AUC 0.54), reported as a negative result | Robustness |
 | **Real** | Component life distributions (worm, bearing, gearbox/shaft): lognormal fits to one palm oil mill's 2023 screw press failure records (Ishak et al., SENTI UGM 2024), cross-checked with three other studies; the simulator gives about 64 press breakdowns per mill in 7 months against 65 logged at a real North Sumatra mill (Aprilia et al., USU 2025) | `backend/params.yaml`, simulator |
+| **Real** | The fixed-schedule baseline uses the RCM-recommended intervals of the same study (worm 525 h, bearing 533 h, gearbox/shaft 400 h), as published and untuned; cone and electrical have no published interval and run to failure | Impact page, `backend/params.yaml` |
 | **Simulated** | All sensor readings, failures and work orders of the 10 mills (about 100 press stops per mill-year); mill 10 is never used for training or tuning | Everything on the Mill and Machine pages |
 | **Assumed** | Warning periods before failure (worm 300 h, gearbox 400 h, bearing 150 h, cone 200 h), repair and breakdown costs, cone hydraulics life (no published figure), share of stopped production truly lost, 50% inspection accuracy, 1.5x parts cost for unplanned repair | `GET /api/assumptions` (marked validated or assumed), `backend/params.yaml` |
 
@@ -52,7 +53,7 @@ Every number lives in `backend/params.yaml` with its source and status.
 
 - The data is simulated. The warning periods are assumptions, so the savings are a model result, not a measured one.
 - Back-test approximation: after an early repair the part is treated as renewed; its slightly earlier next wear-out is not modelled (median warning about 70 h against part lives of 600 to 1,000 h on average).
-- Noise sensitivity: with sensor noise doubled, catches fall from 76 to 31 of 108 and false alarms rise to 2.8 a week; MillGuard plus a schedule (RM2,201,855) still costs less than a fixed schedule (RM3,104,271) but loses much of its edge. We show this on purpose. Training on noisy copies of the training mills was tried and not adopted (out-of-fold cost on the training mills rose 4.3%, over the 3% rule).
+- Noise sensitivity: with sensor noise doubled, catches fall from 76 to 31 of 108 and false alarms rise to 2.8 a week; MillGuard plus a schedule (RM2,321,071) still costs less than the fixed schedule (RM2,735,945) but loses much of its edge. We show this on purpose. Training on noisy copies of the training mills was tried and not adopted (out-of-fold cost on the training mills rose 4.3%, over the 3% rule).
 - Real-data tests were negative: MetroPT-3 0 of 4 caught early, real boiler data AUC 0.54.
 - The alert limit (max 5 per shift) never bound on this mill: 89 of 90 alert shifts had a single alert, so it is shown as a fixed line, not a slider.
 

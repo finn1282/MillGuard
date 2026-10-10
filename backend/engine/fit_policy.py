@@ -1,4 +1,4 @@
-"""Tune on training mills only: fixed-interval fraction and the false-alarm multiplier k (threshold)."""
+"""Tune on training mills only: the false-alarm multiplier k (threshold)."""
 import json
 
 import numpy as np
@@ -10,8 +10,6 @@ from backend.params import load
 from backend.sim.simulate import DATA
 
 GRID = [0.02, 0.03, 0.05, 0.08, 0.12, 0.18, 0.25, 0.35, 0.5, 0.65, 0.8]
-STRETCH = [0.3, 0.4, 0.5, 0.6, 0.8, 1.0, 1.2, 1.4, 1.7, 2.0, 2.5]
-FRACS = [0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.2]
 
 
 def window(df, col="t"):
@@ -25,16 +23,8 @@ def fit(p=None, verbose=True, triggers=("p72", "pstop", "p168")):
     lives = pd.read_parquet(DATA / "lives.parquet")
     hidden = pd.read_parquet(DATA / "hidden.parquet")
     mills = range(1, 10)
-    # fixed interval sweep (cost within the training window)
-    fi = {}
-    for f in FRACS:
-        tot = 0
-        for m in mills:
-            fm = fails[fails.mill_id == m]
-            e = backtest.fixed_events(p, m, fm, lives, hidden, f, None, 1.0)
-            tot += sum(x["cost"] for x in e if EVAL_START <= x["t"] < CUT)
-        fi[f] = tot
-    frac = min(fi, key=fi.get)
+    fixed = sum(x["cost"] for m in mills for x in backtest.fixed_events(p, m, fails[fails.mill_id == m], lives, hidden, None, 1.0)
+                if EVAL_START <= x["t"] < CUT)   # published RCM intervals, no tuning
     best, all_res = {}, {}
     for atype in ("press", "boiler"):
         for trig in triggers:
@@ -77,19 +67,12 @@ def fit(p=None, verbose=True, triggers=("p72", "pstop", "p168")):
             catch_n[at] += int(len(eps[m]) and ((eps[m].asset_id == r.asset_id) & (eps[m].outcome == "prevented")
                                                 & (eps[m].fail_idx == int((r.t - pd.Timestamp("2025-01-01")) / pd.Timedelta(hours=1)))).any())
     catch = {a: catch_n[a] / max(catch_d[a], 1) for a in catch_n}
-    sp = {}
-    for f in STRETCH:
-        tot = 0
-        for m in mills:
-            fm = fails[fails.mill_id == m]
-            ev = backtest.schedule_plus_events(p, m, fm, lives, hidden, f, eps[m], catch, None, 1.0)
-            tot += sum(x["cost"] for x in ev if EVAL_START <= x["t"] < CUT)
-        sp[f] = tot
-    plus_frac = min(sp, key=sp.get)
+    plus = sum(x["cost"] for m in mills for x in backtest.schedule_plus_events(p, m, fails[fails.mill_id == m], lives, hidden, eps[m], catch, None, 1.0)
+               if EVAL_START <= x["t"] < CUT)
     oof = {a: int(b[1][b[0]]) for a, b in best.items()}
     oof["millguard_total"] = sum(oof.values())
-    oof["fixed_interval"] = int(fi[frac]); oof["schedule_plus_millguard"] = int(sp[plus_frac])
-    out = dict(train_oof_cost_rm=oof, fixed_interval_frac=frac, schedule_plus=dict(frac=plus_frac, catch=catch, sweep={str(a): int(b) for a, b in sp.items()}), fixed_sweep={str(a): int(b) for a, b in fi.items()},
+    oof["fixed_interval"] = int(fixed); oof["schedule_plus_millguard"] = int(plus)
+    out = dict(train_oof_cost_rm=oof, schedule_plus=dict(catch=catch),
                best_threshold={a: b[0] for a, b in best.items()}, trigger={a: b[2] for a, b in best.items()}, k=k,
                threshold_sweep={a: {str(t): int(c) for t, c in b[1].items()} for a, b in best.items()})
     (DATA.parent.parent / "artifacts" / "policy_fit.json").write_text(json.dumps(out, indent=1))
@@ -97,9 +80,7 @@ def fit(p=None, verbose=True, triggers=("p72", "pstop", "p168")):
         print(f"TRAINING-mill out-of-fold policy cost (mills 1-9, Feb-Aug, RM): MillGuard {oof['millguard_total']:,} "
               f"(press {oof['press']:,}, boiler {oof['boiler']:,}); schedule+MillGuard {oof['schedule_plus_millguard']:,}; "
               f"fixed interval {oof['fixed_interval']:,}")
-        print("schedule+MillGuard sweep (RM, training mills):", out["schedule_plus"]["sweep"], "-> frac", plus_frac,
-              "catch rate", {a: round(v, 2) for a, v in catch.items()})
-        print("fixed-interval sweep (RM, training mills):", out["fixed_sweep"], "-> frac", frac)
+        print("catch rate (training mills)", {a: round(v, 2) for a, v in catch.items()})
         for a, (t, r, tr) in best.items():
             print(f"{a}: best trigger {tr}, threshold {t}, k = {k[a]:.1f}")
     return out

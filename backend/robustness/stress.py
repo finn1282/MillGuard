@@ -67,7 +67,7 @@ def predict(feat, bundle):
 
 def run(p, fit, tel, err, wo, bundle, fails, lives, hidden):
     pred = predict(build(save=False, tel=tel, err=err, wo=wo), bundle)
-    ep, events, thr = backtest.run_all_policies(p, MILL, pred, fails, lives, hidden, fit["k"], fit["fixed_interval_frac"],
+    ep, events, thr = backtest.run_all_policies(p, MILL, pred, fails, lives, hidden, fit["k"],
                                                 trigger=fit["trigger"], plus=fit["schedule_plus"])
     tm = backtest.test_mill_table(ep, fails)
     caught = sum(r["caught"] for r in tm["by_fault_class"])

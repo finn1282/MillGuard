@@ -9,12 +9,12 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-from backend.engine import cost
+from backend.engine import cost, text
 from backend.engine.service import ART, Service
 from backend.params import val
 
 OUT = Path(__file__).resolve().parents[2] / "pitch"
-NAMES = {"run_to_failure": "Fix when it breaks", "fixed_interval": "Fixed schedule", "millguard": "MillGuard alone",
+NAMES = {"run_to_failure": "Fix when it breaks", "fixed_interval": text.POLICY_LABEL["fixed_interval"][0], "millguard": "MillGuard alone",
          "schedule_plus_millguard": "Schedule + MillGuard"}
 COL = {"run_to_failure": "#b3261e", "fixed_interval": "#8a8a8a", "millguard": "#3b7dd8", "schedule_plus_millguard": "#1a7f4b"}
 rm = lambda x: f"RM{x:,.0f}"
@@ -107,7 +107,7 @@ def numbers(s, bt, strict, tm, stress_rows):
     sp_, rtf, fx = pol["schedule_plus_millguard"]["total_cost_rm"], pol["run_to_failure"]["total_cost_rm"], pol["fixed_interval"]["total_cost_rm"]
     L += ["", f"- Schedule + MillGuard saves **{rm(rtf - sp_)}** a year vs fixing when it breaks ({(rtf - sp_) / rtf:.0%}) and **{rm(fx - sp_)}** vs the best fixed schedule ({(fx - sp_) / fx:.0%}). Source: /api/backtest.",
           f"- Strict case (a wrong-class alert never finds the fault, `inspection_accuracy=0`): Schedule + MillGuard {rm(sp['schedule_plus_millguard']['total_cost_rm'])}, still {rm(fx - sp['schedule_plus_millguard']['total_cost_rm'])} below the fixed schedule. Source: /api/backtest?inspection_accuracy=0.",
-          "- The fixed schedule is the best interval found by a sweep on training mills (0.5 x mean part life); Schedule + MillGuard uses 0.6 x. Source: backend/artifacts/policy_fit.json.",
+          "- The fixed schedule uses the published RCM intervals (Ishak et al. 2024: worm 525 h, bearing 533 h, shaft 400 h), no tuning; Schedule + MillGuard uses the same schedule. Source: backend/artifacts/policy_fit.json.",
           "", "## Detection quality (mill 10, MillGuard alerts)", "| Number | Value | Source |", "|---|---|---|",
           f"| Failures caught before they happened | {sum(r['caught'] for r in tm['by_fault_class'])} of {sum(r['total'] for r in tm['by_fault_class'])} | /api/robustness test_mill |",
           f"| Median warning time | {np.median(lead):.0f} h | backend/artifacts/episodes.parquet (alert open to failure) |",

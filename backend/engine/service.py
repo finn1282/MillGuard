@@ -385,7 +385,7 @@ class Service:
             p["alerting"]["inspection_finds_wrong_class"]["value"] = acc
             ep, events, thr, = None, None, None
             ep, events, thr = backtest.run_all_policies(p, 10, self.pred, self.fails, self.lives, self.hidden,
-                                                        self.fit["k"], self.fit["fixed_interval_frac"], bud, cpo, miss,
+                                                        self.fit["k"], bud, cpo, miss,
                                                         self.fit["trigger"], self.fit["schedule_plus"])
             pols = [backtest.summarize(p, events, k) for k in backtest.POLICIES]
             tl = backtest.timeline(events)

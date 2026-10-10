@@ -1,4 +1,4 @@
-"""Three-policy backtest: run-to-failure, fixed interval (swept on training mills), MillGuard."""
+"""Policy backtest: run-to-failure, fixed schedule (published RCM intervals, no tuning), MillGuard, schedule + MillGuard."""
 import numpy as np
 import pandas as pd
 
@@ -6,8 +6,7 @@ from backend.engine import cost, decide
 from backend.params import val
 
 T0 = pd.Timestamp("2025-01-01")
-WEAR_OUT = ["worm_wear", "bearing", "gearbox_shaft", "hydraulic_cone"]
-MEAN_LIFE = {"worm_wear": 1350.0, "bearing": 11500.0, "gearbox_shaft": 21000.0, "hydraulic_cone": 9500.0}
+SCHEDULED = ["worm_wear", "bearing", "gearbox_shaft"]   # cone and electrical have no published interval: run to failure
 
 
 def ev(t, policy, typ, asset, fc, c):
@@ -19,24 +18,26 @@ def rtf_events(p, failures, cpo, miss):
                cost.breakdown_cost(p, r.fault_class, cpo, miss)) for r in failures.itertuples()]
 
 
-def fixed_events(p, mill, failures, lives, hidden, frac, cpo, miss, t_end=None):
-    """Counterfactual: wear-out parts are replaced at the first weekly stop after age >= frac*mean life."""
+def fixed_events(p, mill, failures, lives, hidden, cpo, miss):
+    """Counterfactual: worm, bearing and shaft are replaced at the first weekly stop after the published RCM interval
+    (running hours); everything else runs to failure."""
     out = []
-    keep = failures[~failures.fault_class.isin(WEAR_OUT)]
+    interval = {c: val(p, "fixed_schedule", f"interval_h_{c}") for c in SCHEDULED}
+    keep = failures[~failures.fault_class.isin(SCHEDULED)]
     out += [ev(r.t, "fixed_interval", "breakdown", r.asset_id, r.fault_class,
                cost.breakdown_cost(p, r.fault_class, cpo, miss)) for r in keep.itertuples()]
     for a in [f"press_{i}" for i in range(1, 5)]:
         h = hidden[(hidden.mill_id == mill) & (hidden.asset_id == a)].sort_values("t")
         times = pd.DatetimeIndex(h.t); C = np.cumsum(h.inc.values)
         stops = np.where((times.dayofweek == 6) & (times.hour == 6))[0]
-        for c in WEAR_OUT:
+        for c in SCHEDULED:
             lv = lives[(lives.mill_id == mill) & (lives.asset_id == a) & (lives.comp == c)].sort_values("k")
             life_seq, age0 = lv.life.values, float(lv.age0.iloc[0])
             base, k = -age0, 0
             while True:
                 life = life_seq[k % len(life_seq)]
                 f_idx = int(np.searchsorted(C, base + life))
-                r_idx = int(np.searchsorted(C, base + frac * MEAN_LIFE[c]))
+                r_idx = int(np.searchsorted(C, base + interval[c]))
                 s_pos = np.searchsorted(stops, r_idx)
                 s_idx = int(stops[s_pos]) if s_pos < len(stops) else len(C)
                 if f_idx >= len(C) and s_idx >= len(C):
@@ -70,15 +71,15 @@ def millguard_events(p, episodes, failures, cpo, miss):
     return out
 
 
-def schedule_plus_events(p, mill, failures, lives, hidden, frac, episodes, catch, cpo, miss):
-    """Stretched fixed schedule (replace at frac x mean life) plus MillGuard alerts for what fails in between.
-    A breakdown of the stretched schedule is caught if MillGuard prevented that same failure in its own run;
+def schedule_plus_events(p, mill, failures, lives, hidden, episodes, catch, cpo, miss):
+    """The same published schedule plus MillGuard alerts for what fails in between.
+    A breakdown of the schedule is caught if MillGuard prevented that same failure in its own run;
     breakdowns that only exist because the schedule changed the part's life are caught at the training-mill catch rate."""
     prevented = {(e.asset_id, e.fail_idx): e for e in episodes.itertuples() if e.outcome == "prevented"}
     original = {(r.asset_id, int((r.t - T0) / pd.Timedelta(hours=1))) for r in failures.itertuples()}
     rng = np.random.default_rng([mill or 0, 4])
     out = []
-    for x in fixed_events(p, mill, failures, lives, hidden, frac, cpo, miss):
+    for x in fixed_events(p, mill, failures, lives, hidden, cpo, miss):
         x = dict(x, policy="schedule_plus_millguard")
         if x["type"] == "breakdown":
             key = (x["asset_id"], int((x["t"] - T0) / pd.Timedelta(hours=1)))
@@ -124,14 +125,14 @@ def timeline(events, days=365):
     return [dict(t=idx[i], cost={k: int(v[i]) for k, v in cols.items()}) for i in range(days)]
 
 
-def run_all_policies(p, mill, pred, failures, lives, hidden, k, frac, budget=5, cpo=None, miss=1.0, trigger="p72",
+def run_all_policies(p, mill, pred, failures, lives, hidden, k, budget=5, cpo=None, miss=1.0, trigger="p72",
                      plus=None):
     thr = {t: decide.risk_threshold(p, t, k[t], cpo, miss) for t in ("press", "boiler")}
     episodes = decide.run_mill(p, pred, failures, thr, budget, cpo, miss, mill, trigger)
-    events = rtf_events(p, failures, cpo, miss) + fixed_events(p, mill, failures, lives, hidden, frac, cpo, miss) \
+    events = rtf_events(p, failures, cpo, miss) + fixed_events(p, mill, failures, lives, hidden, cpo, miss) \
         + millguard_events(p, episodes, failures, cpo, miss)
     if plus:
-        events += schedule_plus_events(p, mill, failures, lives, hidden, plus["frac"], episodes, plus["catch"], cpo, miss)
+        events += schedule_plus_events(p, mill, failures, lives, hidden, episodes, plus["catch"], cpo, miss)
     return episodes, events, thr
 
 

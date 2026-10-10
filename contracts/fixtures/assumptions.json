@@ -496,11 +496,35 @@
   "status": "assumed"
  },
  {
-  "key": "alerting.fixed_interval_h",
-  "label": "Fixed-interval policy: service every (running hours)",
-  "value": 1000.0,
-  "unit": "h",
-  "source": "Fixed-interval policy; near RCM worm interval ~1,217 h",
+  "key": "fixed_schedule.interval_h_worm_wear",
+  "label": "Fixed schedule: replace worm every (running hours, published RCM)",
+  "value": 525.0,
+  "unit": "running h",
+  "source": "Ishak, Hotmauli, Prajadhiana, RCM for press machines, SENTI UGM 2024, Table 6 (RCM-recommended interval, running hours); used as published, no tuning",
+  "status": "validated"
+ },
+ {
+  "key": "fixed_schedule.interval_h_bearing",
+  "label": "Fixed schedule: replace bearing every (running hours, published RCM)",
+  "value": 533.0,
+  "unit": "running h",
+  "source": "Ishak, Hotmauli, Prajadhiana, RCM for press machines, SENTI UGM 2024, Table 6 (RCM-recommended interval, running hours); used as published, no tuning",
+  "status": "validated"
+ },
+ {
+  "key": "fixed_schedule.interval_h_gearbox_shaft",
+  "label": "Fixed schedule: service gearbox or shaft every (running hours, published RCM)",
+  "value": 400.0,
+  "unit": "running h",
+  "source": "Ishak, Hotmauli, Prajadhiana, RCM for press machines, SENTI UGM 2024, Table 6 (RCM-recommended interval, running hours); used as published, no tuning",
+  "status": "validated"
+ },
+ {
+  "key": "fixed_schedule.hydraulic_cone_electrical",
+  "label": "Fixed schedule: cone hydraulics and electrical have no published interval",
+  "value": "r, u, n,  , t, o,  , f, a, i, l, u, r, e",
+  "unit": "text",
+  "source": "No published interval for cone hydraulics or electrical, so the schedule leaves them to run to failure (boiler also unchanged)",
   "status": "assumed"
  },
  {
@@ -522,7 +546,7 @@
  {
   "key": "derived.backtest_approximation",
   "label": "How the backtest treats a repaired part",
-  "value": "After an early repair, the part is treated as renewed; its slightly earlier next wear-out is not modelled (median warning 63 h vs part life 700–2,000 h).",
+  "value": "After an early repair, the part is treated as renewed; its slightly earlier next wear-out is not modelled (median warning about 70 h vs average part lives of 600–1,000 h).",
   "unit": "",
   "source": "Backtest simplification",
   "status": "assumed"
