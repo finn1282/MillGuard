@@ -26,11 +26,3 @@ export function StatusChip({ status, small }: { status: AssetStatus; small?: boo
   );
 }
 
-export function NotMonitoredChip() {
-  const { t } = useLang();
-  return (
-    <span className="inline-flex items-center rounded-chip border border-dashed border-control-border text-muted font-bold text-sm px-2.5 py-1">
-      {t("notMonitored")}
-    </span>
-  );
-}

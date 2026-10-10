@@ -1,18 +1,16 @@
-import { Fragment } from "react";
 import { Link } from "react-router-dom";
 import { IconTick } from "../components/Icons";
-import { NotMonitoredChip, StatusChip } from "../components/Status";
+import { StatusChip } from "../components/Status";
 import { ErrorBox, Loading } from "../components/States";
 import { api } from "../lib/api";
 import { useClock } from "../lib/clock";
 import { rm } from "../lib/format";
-import { useLang, type Key } from "../lib/i18n";
+import { useLang } from "../lib/i18n";
 import type { Action, AssetStatus, LineAsset } from "../lib/types";
 import { useApi } from "../lib/useApi";
 
 const BORDER: Record<AssetStatus, string> = { act: "border-2 border-act", watch: "border-2 border-watch-border", ok: "border border-rule" };
 const ROW_BG: Record<AssetStatus, string> = { act: "bg-act-tint", watch: "bg-watch-tint", ok: "" };
-const BEFORE: Key[] = ["st_ramp", "st_sterilizer", "st_thresher", "st_digesters"];
 
 export function Mill() {
   const { at } = useClock();
@@ -169,47 +167,26 @@ function MillMap({ assets }: { assets: LineAsset[] }) {
   const { t } = useLang();
   const presses = assets.filter((a) => a.stage === "press").sort((x, y) => x.position - y.position);
   const boilers = assets.filter((a) => a.stage === "boiler");
-  const station = (k: Key) => (
-    <div key={k} className="flex flex-col gap-1 justify-center p-3 rounded border-2 border-dashed border-[#BDB8AD] bg-[#F8F7F3] text-muted min-w-[104px] flex-1">
-      <span className="font-bold text-base">{t(k)}</span><span className="text-sm font-semibold">{t("notMonitored")}</span>
-    </div>
-  );
-  const arrow = <span aria-hidden className="self-center text-muted text-xl">→</span>;
   return (
     <section aria-labelledby="map" className="basis-[560px] grow-[999] min-w-0 flex flex-col gap-3.5">
-      {/* desktop: process flow */}
+      {/* desktop: presses side by side, boiler underneath */}
       <div className="hidden lg:flex sec flex-col gap-[18px]">
-        <div className="flex justify-between items-baseline gap-3 flex-wrap">
-          <h2 id="map" className="m-0 text-2xl font-extrabold">{t("millOrder")}</h2>
-          <span className="text-base text-muted">{t("flowsLR")}</span>
+        <h2 id="map" className="m-0 text-2xl font-extrabold">{t("monitored")}</h2>
+        <div className="flex flex-col gap-2.5">
+          <div className="text-base font-bold text-muted">{t("stationPress")}</div>
+          <div className="grid grid-cols-2 xl:grid-cols-4 gap-2.5">{presses.map((a) => <Tile key={a.id} a={a} />)}</div>
         </div>
-        <div className="flex gap-2.5 items-stretch flex-wrap">
-          {BEFORE.map((k) => <Fragment key={k}>{station(k)}{arrow}</Fragment>)}
-          <div className="flex flex-col gap-2 basis-[220px] grow min-w-[220px] p-2.5 rounded bg-paper">
-            <div className="text-base font-bold text-muted">{t("stationPress")}</div>
-            {presses.map((a) => <Tile key={a.id} a={a} />)}
-          </div>
-          {arrow}{station("st_clarification")}
-        </div>
-        <div className="flex gap-4 items-center flex-wrap border-t border-rule-soft pt-[18px]">
-          <span className="text-base text-muted font-bold">{t("steamAll")}</span>
-          {boilers.map((a) => <div key={a.id} className="basis-[420px] shrink"><Tile a={a} /></div>)}
+        <div className="flex flex-col gap-2.5 border-t border-rule-soft pt-[18px]">
+          <div className="text-base font-bold text-muted">{t("boilerHouse")}</div>
+          {boilers.map((a) => <Tile key={a.id} a={a} />)}
         </div>
       </div>
-      {/* mobile: one list in process order */}
+      {/* mobile: one list */}
       <div className="lg:hidden flex flex-col gap-3">
-        <h2 className="m-0 mt-2 text-[19px] font-extrabold">{t("millOrder")}</h2>
+        <h2 className="m-0 mt-2 text-[19px] font-extrabold">{t("monitored")}</h2>
         <div className="bg-card border border-rule rounded overflow-hidden">
-          {BEFORE.map((k, i) => (
-            <div key={k} className={`flex justify-between items-center gap-3 px-3.5 py-3 ${i ? "border-t border-rule-soft" : ""}`}>
-              <span className="font-bold text-muted">{t(k)}</span><NotMonitoredChip />
-            </div>
-          ))}
-          <div className="px-3.5 pt-2.5 pb-1 border-t border-rule-soft label">{t("stationPress")}</div>
+          <div className="px-3.5 pt-2.5 pb-1 label">{t("stationPress")}</div>
           {presses.map((a) => <Row key={a.id} a={a} />)}
-          <div className="flex justify-between items-center gap-3 px-3.5 py-3 border-t border-rule-soft">
-            <span className="font-bold text-muted">{t("st_clarification")}</span><NotMonitoredChip />
-          </div>
           <div className="px-3.5 pt-2.5 pb-1 border-t-2 border-ink label">{t("boilerHouse")}</div>
           {boilers.map((a) => <Row key={a.id} a={a} />)}
         </div>
