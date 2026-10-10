@@ -6,8 +6,12 @@
   "stage": "press",
   "position": 4,
   "status": "watch",
-  "risk_pct": 33.0
+  "risk_pct": 33.0,
+  "summary_en": "Bearing wearing",
+  "summary_ms": "Galas haus"
  },
+ "status": "watch",
+ "risk_pct": 33.0,
  "series": [
   {
    "signal": "current_per_tonne",
@@ -2052,5 +2056,71 @@
  ],
  "alert_windows": [],
  "failures": [],
- "action": null
+ "action": null,
+ "diagnosis": {
+  "fault_class": "bearing",
+  "name_en": "Bearing wear",
+  "name_ms": "Haus galas",
+  "confidence_pct": 54.0,
+  "plain_en": "A bearing that carries the shaft is roughening, which shows up as sharper vibration and extra heat.",
+  "plain_ms": "Galas yang menyokong aci semakin kasar, ditunjukkan oleh getaran yang lebih tajam dan haba tambahan.",
+  "alternatives": [
+   {
+    "fault_class": "gearbox_shaft",
+    "confidence_pct": 28.0
+   },
+   {
+    "fault_class": "unknown",
+    "confidence_pct": 18.0
+   }
+  ],
+  "fingerprint": [
+   {
+    "signal": "vib_kurtosis",
+    "label_en": "Vibration spikiness (kurtosis)",
+    "label_ms": "Kemuncakan getaran (kurtosis)",
+    "expected": "up",
+    "observed_en": "Up 22% over 5 days",
+    "observed_ms": "Naik 22% dalam 5 hari",
+    "matches": true
+   },
+   {
+    "signal": "vib_rms",
+    "label_en": "Vibration level (RMS)",
+    "label_ms": "Tahap getaran (RMS)",
+    "expected": "up",
+    "observed_en": "Up 6% over 5 days",
+    "observed_ms": "Naik 6% dalam 5 hari",
+    "matches": true
+   },
+   {
+    "signal": "gearbox_oil_temp",
+    "label_en": "Gearbox oil temperature",
+    "label_ms": "Suhu minyak gear",
+    "expected": "up",
+    "observed_en": "Flat over 5 days (+0%)",
+    "observed_ms": "Mendatar dalam 5 hari (+0%)",
+    "matches": false
+   }
+  ]
+ },
+ "fix": null,
+ "history": [
+  {
+   "t": "2024-10-29T16:00:00+08:00",
+   "fault_class": "worm_wear",
+   "what_en": "Worm wear: MillGuard warned before it failed",
+   "what_ms": "Haus skru cacing: MillGuard memberi amaran sebelum rosak",
+   "downtime_h": 0.0,
+   "was_predicted": true
+  },
+  {
+   "t": "2024-05-09T16:00:00+08:00",
+   "fault_class": "bearing",
+   "what_en": "Bearing wear: broke down with no warning",
+   "what_ms": "Haus galas: rosak tanpa amaran",
+   "downtime_h": 8.0,
+   "was_predicted": false
+  }
+ ]
 }

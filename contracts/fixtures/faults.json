@@ -1,0 +1,374 @@
+[
+ {
+  "fault_class": "worm_wear",
+  "name_en": "Worm wear",
+  "name_ms": "Haus skru cacing",
+  "what_en": "The screw that squeezes the fruit is wearing thin, so the motor works harder and more oil stays in the fibre.",
+  "what_ms": "Skru yang memerah buah semakin haus, jadi motor bekerja lebih kuat dan lebih banyak minyak tertinggal dalam serabut.",
+  "why_en": "Fruit fibre and sand grind the worm and cone surfaces over about 700 to 1,300 running hours.",
+  "why_ms": "Serabut buah dan pasir mengikis permukaan skru dan kon selepas kira-kira 700 hingga 1,300 jam operasi.",
+  "signs": [
+   {
+    "signal": "current_per_tonne",
+    "label_en": "Motor current per tonne",
+    "label_ms": "Arus motor setiap tan",
+    "expected": "up"
+   },
+   {
+    "signal": "fibre_oil_loss",
+    "label_en": "Oil lost in fibre",
+    "label_ms": "Kehilangan minyak dalam serabut",
+    "expected": "up"
+   },
+   {
+    "signal": "motor_current",
+    "label_en": "Motor current",
+    "label_ms": "Arus motor",
+    "expected": "up"
+   },
+   {
+    "signal": "vib_rms",
+    "label_en": "Vibration level (RMS)",
+    "label_ms": "Tahap getaran (RMS)",
+    "expected": "up"
+   }
+  ],
+  "fix_steps_en": [
+   "Plan the change for the next planned stop and tell the crew.",
+   "Isolate and lock out the press, then open the press cage.",
+   "Measure the worm and cone clearance and compare with the worn limit.",
+   "Replace the worm and the cone liner if worn; check the shaft seat.",
+   "Close up, run empty for 10 minutes, then check current per tonne."
+  ],
+  "fix_steps_ms": [
+   "Rancang penggantian pada henti terancang seterusnya dan maklumkan krew.",
+   "Asingkan dan kunci penekan, kemudian buka sangkar penekan.",
+   "Ukur sela skru dan kon, bandingkan dengan had haus.",
+   "Tukar skru dan lapik kon jika haus; semak dudukan aci.",
+   "Tutup, jalankan kosong 10 minit, kemudian semak arus setiap tan."
+  ],
+  "typical_downtime_h": 6.0,
+  "typical_cost_rm": 6000,
+  "onset": "gradual"
+ },
+ {
+  "fault_class": "bearing",
+  "name_en": "Bearing wear",
+  "name_ms": "Haus galas",
+  "what_en": "A bearing that carries the shaft is roughening, which shows up as sharper vibration and extra heat.",
+  "what_ms": "Galas yang menyokong aci semakin kasar, ditunjukkan oleh getaran yang lebih tajam dan haba tambahan.",
+  "why_en": "Poor lubrication, contamination or misalignment slowly damages the rolling surfaces.",
+  "why_ms": "Pelinciran yang lemah, pencemaran atau ketidaklurusan merosakkan permukaan galas secara perlahan.",
+  "signs": [
+   {
+    "signal": "vib_kurtosis",
+    "label_en": "Vibration spikiness (kurtosis)",
+    "label_ms": "Kemuncakan getaran (kurtosis)",
+    "expected": "up"
+   },
+   {
+    "signal": "vib_rms",
+    "label_en": "Vibration level (RMS)",
+    "label_ms": "Tahap getaran (RMS)",
+    "expected": "up"
+   },
+   {
+    "signal": "gearbox_oil_temp",
+    "label_en": "Gearbox oil temperature",
+    "label_ms": "Suhu minyak gear",
+    "expected": "up"
+   }
+  ],
+  "fix_steps_en": [
+   "Check grease or oil level and condition at the bearing.",
+   "Listen and feel for roughness and heat with the press running.",
+   "At the stop, lock out and remove the bearing housing cover.",
+   "Replace the bearing and seals; clean and re-grease the housing.",
+   "Restart and compare vibration with the earlier reading."
+  ],
+  "fix_steps_ms": [
+   "Semak paras dan keadaan gris atau minyak pada galas.",
+   "Dengar dan rasa kekasaran serta haba semasa penekan berjalan.",
+   "Pada waktu henti, kunci dan buka penutup rumah galas.",
+   "Tukar galas dan sesendal; bersihkan dan gris semula rumah galas.",
+   "Mulakan semula dan bandingkan getaran dengan bacaan sebelum ini."
+  ],
+  "typical_downtime_h": 8.0,
+  "typical_cost_rm": 4500,
+  "onset": "gradual"
+ },
+ {
+  "fault_class": "gearbox_shaft",
+  "name_en": "Gearbox or shaft fault",
+  "name_ms": "Kerosakan gear atau aci",
+  "what_en": "The gearbox or drive shaft is running hotter and rougher than normal, often from worn gear teeth or low oil.",
+  "what_ms": "Kotak gear atau aci pemacu lebih panas dan kasar daripada biasa, selalunya kerana gigi gear haus atau minyak rendah.",
+  "why_en": "Worn gear teeth, shaft misalignment or degraded gear oil raise friction and heat.",
+  "why_ms": "Gigi gear haus, aci tidak sejajar atau minyak gear merosot meningkatkan geseran dan haba.",
+  "signs": [
+   {
+    "signal": "gearbox_oil_temp",
+    "label_en": "Gearbox oil temperature",
+    "label_ms": "Suhu minyak gear",
+    "expected": "up"
+   },
+   {
+    "signal": "vib_rms",
+    "label_en": "Vibration level (RMS)",
+    "label_ms": "Tahap getaran (RMS)",
+    "expected": "up"
+   },
+   {
+    "signal": "current_per_tonne",
+    "label_en": "Motor current per tonne",
+    "label_ms": "Arus motor setiap tan",
+    "expected": "up"
+   }
+  ],
+  "fix_steps_en": [
+   "Check the gearbox oil level and take an oil sample.",
+   "Look for metal particles on the magnetic plug.",
+   "At the stop, check shaft alignment and coupling bolts.",
+   "Change the gear oil and filter; inspect gear teeth through the inspection port.",
+   "Replace the gear set or shaft if damage is found; log the findings."
+  ],
+  "fix_steps_ms": [
+   "Semak paras minyak kotak gear dan ambil sampel minyak.",
+   "Cari serpihan logam pada palam magnet.",
+   "Pada waktu henti, semak penjajaran aci dan bolt gandingan.",
+   "Tukar minyak gear dan penapis; periksa gigi gear melalui lubang pemeriksaan.",
+   "Tukar set gear atau aci jika rosak; catat penemuan."
+  ],
+  "typical_downtime_h": 14.0,
+  "typical_cost_rm": 9000,
+  "onset": "gradual"
+ },
+ {
+  "fault_class": "hydraulic_cone",
+  "name_en": "Cone hydraulic fault",
+  "name_ms": "Kerosakan hidraulik kon",
+  "what_en": "The hydraulic system that holds the pressing cone is unstable, so the squeeze on the fruit swings up and down.",
+  "what_ms": "Sistem hidraulik yang menahan kon penekan tidak stabil, jadi tekanan pada buah berayun naik turun.",
+  "why_en": "Oil leaks, worn seals or a tired pump let the cone pressure wander.",
+  "why_ms": "Kebocoran minyak, sesendal haus atau pam letih menyebabkan tekanan kon berubah-ubah.",
+  "signs": [
+   {
+    "signal": "cone_pressure",
+    "label_en": "Cone hydraulic pressure",
+    "label_ms": "Tekanan hidraulik kon",
+    "expected": "unstable"
+   },
+   {
+    "signal": "current_per_tonne",
+    "label_en": "Motor current per tonne",
+    "label_ms": "Arus motor setiap tan",
+    "expected": "up"
+   },
+   {
+    "signal": "fibre_oil_loss",
+    "label_en": "Oil lost in fibre",
+    "label_ms": "Kehilangan minyak dalam serabut",
+    "expected": "up"
+   }
+  ],
+  "fix_steps_en": [
+   "Check the hydraulic oil level and look for leaks on hoses and fittings.",
+   "Watch the cone pressure gauge for swings while running.",
+   "At the stop, replace leaking hoses and worn seals.",
+   "Change the hydraulic filter and top up with the right oil grade.",
+   "Test the cone pressure under load before handing back."
+  ],
+  "fix_steps_ms": [
+   "Semak paras minyak hidraulik dan cari kebocoran pada hos dan penyambung.",
+   "Perhatikan tolok tekanan kon untuk ayunan semasa berjalan.",
+   "Pada waktu henti, tukar hos bocor dan sesendal haus.",
+   "Tukar penapis hidraulik dan tambah minyak gred yang betul.",
+   "Uji tekanan kon dengan beban sebelum diserahkan semula."
+  ],
+  "typical_downtime_h": 5.0,
+  "typical_cost_rm": 3500,
+  "onset": "gradual"
+ },
+ {
+  "fault_class": "electrical",
+  "name_en": "Electrical fault",
+  "name_ms": "Kerosakan elektrik",
+  "what_en": "The motor current is jumping around, which usually means a loose connection, worn contactor or failing motor winding.",
+  "what_ms": "Arus motor melonjak-lonjak, biasanya akibat sambungan longgar, kontaktor haus atau belitan motor rosak.",
+  "why_en": "Heat cycling loosens terminals and ageing insulation or contactors cause intermittent faults.",
+  "why_ms": "Kitaran haba melonggarkan terminal, dan penebat atau kontaktor yang tua menyebabkan kerosakan berselang-seli.",
+  "signs": [
+   {
+    "signal": "motor_current",
+    "label_en": "Motor current",
+    "label_ms": "Arus motor",
+    "expected": "unstable"
+   },
+   {
+    "signal": "current_per_tonne",
+    "label_en": "Motor current per tonne",
+    "label_ms": "Arus motor setiap tan",
+    "expected": "spike"
+   },
+   {
+    "signal": "gearbox_oil_temp",
+    "label_en": "Gearbox oil temperature",
+    "label_ms": "Suhu minyak gear",
+    "expected": "up"
+   }
+  ],
+  "fix_steps_en": [
+   "Check the controller alarm log for the last 24 hours.",
+   "Inspect terminals and cable ends for heat marks; tighten loose ones.",
+   "Check the contactor and overload relay for pitting or wear.",
+   "Measure insulation resistance of the motor windings.",
+   "Replace the faulty part and run a load test."
+  ],
+  "fix_steps_ms": [
+   "Semak log penggera pengawal untuk 24 jam lepas.",
+   "Periksa terminal dan hujung kabel untuk kesan haba; ketatkan yang longgar.",
+   "Semak kontaktor dan geganti beban lampau untuk lekuk atau haus.",
+   "Ukur rintangan penebat belitan motor.",
+   "Tukar bahagian yang rosak dan jalankan ujian beban."
+  ],
+  "typical_downtime_h": 4.0,
+  "typical_cost_rm": 2500,
+  "onset": "sudden"
+ },
+ {
+  "fault_class": "boiler_steam",
+  "name_en": "Steam temperature drift",
+  "name_ms": "Sisihan suhu stim",
+  "what_en": "The boiler's steam is leaving the normal temperature band, often because of fouled tubes or poor feed-water control.",
+  "what_ms": "Stim dandang keluar daripada julat suhu biasa, selalunya kerana tiub kotor atau kawalan air suapan lemah.",
+  "why_en": "Scale or ash on tubes, or wrong feed-water dosing, upsets heat transfer.",
+  "why_ms": "Kerak atau abu pada tiub, atau dos air suapan yang salah, mengganggu pemindahan haba.",
+  "signs": [
+   {
+    "signal": "steam_temp",
+    "label_en": "Steam temperature",
+    "label_ms": "Suhu stim",
+    "expected": "down"
+   },
+   {
+    "signal": "steam_pressure",
+    "label_en": "Steam pressure",
+    "label_ms": "Tekanan stim",
+    "expected": "unstable"
+   },
+   {
+    "signal": "feedwater_flow",
+    "label_en": "Feed-water flow",
+    "label_ms": "Aliran air suapan",
+    "expected": "down"
+   }
+  ],
+  "fix_steps_en": [
+   "Check feed-water dosing pump and chemical levels.",
+   "Do a bottom blowdown and a water-glass check.",
+   "Check the feed-water flow meter and control valve.",
+   "Inspect soot blowers and look for tube fouling.",
+   "Watch steam temperature for 30 minutes; call the boiler engineer if it keeps drifting."
+  ],
+  "fix_steps_ms": [
+   "Semak pam dos air suapan dan paras bahan kimia.",
+   "Lakukan blowdown bawah dan semakan kaca paras air.",
+   "Semak meter aliran air suapan dan injap kawalan.",
+   "Periksa penghembus jelaga dan cari tiub yang kotor.",
+   "Pantau suhu stim 30 minit; hubungi jurutera dandang jika masih menyimpang."
+  ],
+  "typical_downtime_h": 8.0,
+  "typical_cost_rm": 3000,
+  "onset": "gradual"
+ },
+ {
+  "fault_class": "boiler_water",
+  "name_en": "Feed-water quality drift",
+  "name_ms": "Sisihan kualiti air suapan",
+  "what_en": "The water going into the boiler is getting dirtier, which can scale the tubes and lead to a tube leak.",
+  "what_ms": "Air yang masuk ke dandang semakin kotor, boleh menyebabkan kerak pada tiub dan kebocoran tiub.",
+  "why_en": "A tired water-treatment plant or too little blowdown lets dissolved solids build up.",
+  "why_ms": "Loji rawatan air yang letih atau blowdown terlalu sedikit menyebabkan pepejal terlarut bertambah.",
+  "signs": [
+   {
+    "signal": "feedwater_cond",
+    "label_en": "Feed-water conductivity",
+    "label_ms": "Kekonduksian air suapan",
+    "expected": "up"
+   },
+   {
+    "signal": "steam_pressure",
+    "label_en": "Steam pressure",
+    "label_ms": "Tekanan stim",
+    "expected": "unstable"
+   },
+   {
+    "signal": "feedwater_flow",
+    "label_en": "Feed-water flow",
+    "label_ms": "Aliran air suapan",
+    "expected": "down"
+   }
+  ],
+  "fix_steps_en": [
+   "Test feed-water conductivity and hardness.",
+   "Check the softener or resin bed and regenerate if due.",
+   "Increase blowdown until conductivity returns to normal.",
+   "Check chemical dosing rates against the water-treatment plan.",
+   "Plan a tube inspection at the next planned stop if it keeps rising."
+  ],
+  "fix_steps_ms": [
+   "Uji kekonduksian dan kekerasan air suapan.",
+   "Semak pelembut atau lapisan resin dan jana semula jika sampai masa.",
+   "Tambah blowdown sehingga kekonduksian kembali normal.",
+   "Semak kadar dos bahan kimia mengikut pelan rawatan air.",
+   "Rancang pemeriksaan tiub pada henti terancang seterusnya jika terus meningkat."
+  ],
+  "typical_downtime_h": 8.0,
+  "typical_cost_rm": 3000,
+  "onset": "gradual"
+ },
+ {
+  "fault_class": "unknown",
+  "name_en": "Unusual behaviour",
+  "name_ms": "Tingkah laku luar biasa",
+  "what_en": "This machine is behaving differently from its own normal, but the pattern does not match a known fault yet.",
+  "what_ms": "Mesin ini berkelakuan berbeza daripada normalnya sendiri, tetapi coraknya belum sepadan dengan kerosakan yang diketahui.",
+  "why_en": "Several signals moved at once without a clear single cause.",
+  "why_ms": "Beberapa isyarat berubah serentak tanpa satu punca yang jelas.",
+  "signs": [
+   {
+    "signal": "motor_current",
+    "label_en": "Motor current",
+    "label_ms": "Arus motor",
+    "expected": "unstable"
+   },
+   {
+    "signal": "vib_rms",
+    "label_en": "Vibration level (RMS)",
+    "label_ms": "Tahap getaran (RMS)",
+    "expected": "up"
+   },
+   {
+    "signal": "gearbox_oil_temp",
+    "label_en": "Gearbox oil temperature",
+    "label_ms": "Suhu minyak gear",
+    "expected": "up"
+   }
+  ],
+  "fix_steps_en": [
+   "Walk around the machine and look, listen and smell for anything unusual.",
+   "Check oil levels, guards and fasteners.",
+   "Compare the readings with a healthy press running the same load.",
+   "Inspect at the next planned stop and log what you find."
+  ],
+  "fix_steps_ms": [
+   "Berjalan mengelilingi mesin dan lihat, dengar dan hidu apa-apa yang luar biasa.",
+   "Semak paras minyak, pengadang dan pengikat.",
+   "Bandingkan bacaan dengan penekan sihat pada beban yang sama.",
+   "Periksa pada henti terancang seterusnya dan catat penemuan."
+  ],
+  "typical_downtime_h": 4.0,
+  "typical_cost_rm": 3000,
+  "onset": "sudden"
+ }
+]

@@ -8,7 +8,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
 from backend.api.models import (AssetDetail, Assumption, Backtest, Brief, FeedbackIn, FeedbackOut,
-                                Line, Marker, Meta, Robustness)
+                                FaultGuide, Line, Marker, Meta, Robustness)
 
 ROOT = Path(__file__).resolve().parents[2]
 FIX = ROOT / "contracts" / "fixtures"
@@ -19,7 +19,7 @@ if not STUB:
     from backend.engine.service import Service
     svc = Service()
 
-app = FastAPI(title="MillGuard API", version="1.1")
+app = FastAPI(title="MillGuard API", version="1.5")
 app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
 
 
@@ -76,6 +76,12 @@ def backtest(cpo_price: float = 4292.5, miss_cost_mult: float = 1.0, alert_budge
     if STUB:
         return fx("backtest")
     return svc.backtest(cpo_price, miss_cost_mult, alert_budget, compare)
+
+
+@app.get("/api/faults", response_model=list[FaultGuide])
+def faults(at: str | None = None):
+    from backend.engine import playbook
+    return fx("faults") if STUB else playbook.all_guides()
 
 
 @app.get("/api/assumptions", response_model=list[Assumption])

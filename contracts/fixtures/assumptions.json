@@ -96,6 +96,22 @@
   "status": "assumed"
  },
  {
+  "key": "economics.repair_stop_h_press",
+  "label": "Repair stop h press",
+  "value": 2.0,
+  "unit": "h",
+  "source": "Fix-now repair stops one press this long",
+  "status": "assumed"
+ },
+ {
+  "key": "economics.repair_stop_h_boiler",
+  "label": "Repair stop h boiler",
+  "value": 0.0,
+  "unit": "h",
+  "source": "Boiler fix-now is a no-stop intervention",
+  "status": "assumed"
+ },
+ {
   "key": "economics.unplanned_repair_multiplier",
   "label": "Unplanned repair multiplier",
   "value": 1.5,
@@ -202,17 +218,17 @@
  {
   "key": "repair_cost_rm.boiler_steam",
   "label": "Boiler steam",
-  "value": 8000.0,
+  "value": 3000.0,
   "unit": "RM",
-  "source": "Placeholder",
+  "source": "No-stop intervention (feed-water dosing, blowdown); placeholder",
   "status": "assumed"
  },
  {
   "key": "repair_cost_rm.boiler_water",
   "label": "Boiler water",
-  "value": 6000.0,
+  "value": 3000.0,
   "unit": "RM",
-  "source": "Placeholder",
+  "source": "No-stop intervention (water treatment); placeholder",
   "status": "assumed"
  },
  {
@@ -349,6 +365,30 @@
   "value": 0.6,
   "unit": "x threshold",
   "source": "Clear below 60% of threshold",
+  "status": "assumed"
+ },
+ {
+  "key": "alerting.inspection_finds_wrong_class",
+  "label": "Inspection finds wrong class",
+  "value": 0.5,
+  "unit": "probability",
+  "source": "If the predicted class is wrong, the crew inspection still finds the real fault this often",
+  "status": "assumed"
+ },
+ {
+  "key": "alerting.fix_now_response_h",
+  "label": "Fix now response h",
+  "value": 4.0,
+  "unit": "h",
+  "source": "Time from fix-now alert to repair done",
+  "status": "assumed"
+ },
+ {
+  "key": "alerting.clear_hours",
+  "label": "Clear hours",
+  "value": 6.0,
+  "unit": "h",
+  "source": "Alert clears after this many hours below hysteresis level",
   "status": "assumed"
  },
  {

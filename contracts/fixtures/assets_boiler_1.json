@@ -6,8 +6,12 @@
   "stage": "boiler",
   "position": 0,
   "status": "act",
-  "risk_pct": 28.0
+  "risk_pct": 28.0,
+  "summary_en": "Steam temperature drifting",
+  "summary_ms": "Suhu stim menyimpang"
  },
+ "status": "act",
+ "risk_pct": 28.0,
  "series": [
   {
    "signal": "steam_temp",
@@ -2064,7 +2068,7 @@
   "asset_type": "boiler",
   "fault_class": "boiler_steam",
   "risk_pct": 28.0,
-  "horizon_h": 24,
+  "horizon_h": 4,
   "rm_at_risk": 61000,
   "rm_cost_to_act": 3000,
   "rm_saved_if_acted": 58000,
@@ -2098,5 +2102,96 @@
   "why_rank_en": "Boiler stops the whole mill, so it comes first",
   "why_rank_ms": "Dandang menghentikan seluruh kilang, jadi ia diutamakan",
   "criticality": "whole_mill"
- }
+ },
+ "diagnosis": {
+  "fault_class": "boiler_steam",
+  "name_en": "Steam temperature drift",
+  "name_ms": "Sisihan suhu stim",
+  "confidence_pct": 76.0,
+  "plain_en": "The boiler's steam is leaving the normal temperature band, often because of fouled tubes or poor feed-water control.",
+  "plain_ms": "Stim dandang keluar daripada julat suhu biasa, selalunya kerana tiub kotor atau kawalan air suapan lemah.",
+  "alternatives": [
+   {
+    "fault_class": "boiler_water",
+    "confidence_pct": 17.0
+   },
+   {
+    "fault_class": "unknown",
+    "confidence_pct": 7.0
+   }
+  ],
+  "fingerprint": [
+   {
+    "signal": "steam_temp",
+    "label_en": "Steam temperature",
+    "label_ms": "Suhu stim",
+    "expected": "down",
+    "observed_en": "Down 3% over 5 days",
+    "observed_ms": "Turun 3% dalam 5 hari",
+    "matches": true
+   },
+   {
+    "signal": "steam_pressure",
+    "label_en": "Steam pressure",
+    "label_ms": "Tekanan stim",
+    "expected": "unstable",
+    "observed_en": "Swinging 2.1x more than normal",
+    "observed_ms": "Berayun 2.1x lebih daripada biasa",
+    "matches": true
+   },
+   {
+    "signal": "feedwater_flow",
+    "label_en": "Feed-water flow",
+    "label_ms": "Aliran air suapan",
+    "expected": "down",
+    "observed_en": "Down 9% over 5 days",
+    "observed_ms": "Turun 9% dalam 5 hari",
+    "matches": true
+   }
+  ]
+ },
+ "fix": {
+  "title_en": "Check feed-water dosing and blowdown",
+  "title_ms": "Semak dos air suapan dan blowdown",
+  "steps_en": [
+   "Check feed-water dosing pump and chemical levels.",
+   "Do a bottom blowdown and a water-glass check.",
+   "Check the feed-water flow meter and control valve.",
+   "Inspect soot blowers and look for tube fouling.",
+   "Watch steam temperature for 30 minutes; call the boiler engineer if it keeps drifting."
+  ],
+  "steps_ms": [
+   "Semak pam dos air suapan dan paras bahan kimia.",
+   "Lakukan blowdown bawah dan semakan kaca paras air.",
+   "Semak meter aliran air suapan dan injap kawalan.",
+   "Periksa penghembus jelaga dan cari tiub yang kotor.",
+   "Pantau suhu stim 30 minit; hubungi jurutera dandang jika masih menyimpang."
+  ],
+  "parts": [
+   {
+    "name_en": "Dosing chemicals",
+    "name_ms": "Bahan kimia dos",
+    "qty": 1
+   },
+   {
+    "name_en": "Control valve gasket",
+    "name_ms": "Gasket injap kawalan",
+    "qty": 1
+   }
+  ],
+  "crew": 2,
+  "est_hours": 2.0,
+  "needs_stop": false,
+  "best_window": "2025-01-14T19:00:00+08:00"
+ },
+ "history": [
+  {
+   "t": "2024-07-10T16:00:00+08:00",
+   "fault_class": "boiler_water",
+   "what_en": "Feed-water quality drift: MillGuard warned before it failed",
+   "what_ms": "Sisihan kualiti air suapan: MillGuard memberi amaran sebelum rosak",
+   "downtime_h": 0.0,
+   "was_predicted": true
+  }
+ ]
 }

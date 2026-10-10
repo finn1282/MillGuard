@@ -6,8 +6,12 @@
   "stage": "press",
   "position": 3,
   "status": "ok",
-  "risk_pct": 7.0
+  "risk_pct": 7.0,
+  "summary_en": "Normal",
+  "summary_ms": "Normal"
  },
+ "status": "ok",
+ "risk_pct": 7.0,
  "series": [
   {
    "signal": "current_per_tonne",
@@ -2052,5 +2056,17 @@
  ],
  "alert_windows": [],
  "failures": [],
- "action": null
+ "action": null,
+ "diagnosis": null,
+ "fix": null,
+ "history": [
+  {
+   "t": "2024-08-07T16:00:00+08:00",
+   "fault_class": "gearbox_shaft",
+   "what_en": "Gearbox or shaft fault: MillGuard warned before it failed",
+   "what_ms": "Kerosakan gear atau aci: MillGuard memberi amaran sebelum rosak",
+   "downtime_h": 0.0,
+   "was_predicted": true
+  }
+ ]
 }

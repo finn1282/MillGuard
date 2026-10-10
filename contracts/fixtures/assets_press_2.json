@@ -6,8 +6,12 @@
   "stage": "press",
   "position": 2,
   "status": "act",
-  "risk_pct": 41.0
+  "risk_pct": 41.0,
+  "summary_en": "Worm wearing",
+  "summary_ms": "Skru cacing haus"
  },
+ "status": "act",
+ "risk_pct": 41.0,
  "series": [
   {
    "signal": "current_per_tonne",
@@ -2069,7 +2073,7 @@
   "asset_type": "press",
   "fault_class": "worm_wear",
   "risk_pct": 41.0,
-  "horizon_h": 48,
+  "horizon_h": 11,
   "rm_at_risk": 21000,
   "rm_cost_to_act": 3000,
   "rm_saved_if_acted": 18000,
@@ -2103,5 +2107,121 @@
   "why_rank_en": "Costs less than the boiler, and the fix fits the planned stop",
   "why_rank_ms": "Kos lebih rendah daripada dandang, dan pembaikan muat dalam henti terancang",
   "criticality": "partial"
- }
+ },
+ "diagnosis": {
+  "fault_class": "worm_wear",
+  "name_en": "Worm wear",
+  "name_ms": "Haus skru cacing",
+  "confidence_pct": 82.0,
+  "plain_en": "The screw that squeezes the fruit is wearing thin, so the motor works harder and more oil stays in the fibre.",
+  "plain_ms": "Skru yang memerah buah semakin haus, jadi motor bekerja lebih kuat dan lebih banyak minyak tertinggal dalam serabut.",
+  "alternatives": [
+   {
+    "fault_class": "bearing",
+    "confidence_pct": 11.0
+   },
+   {
+    "fault_class": "electrical",
+    "confidence_pct": 7.0
+   }
+  ],
+  "fingerprint": [
+   {
+    "signal": "current_per_tonne",
+    "label_en": "Motor current per tonne",
+    "label_ms": "Arus motor setiap tan",
+    "expected": "up",
+    "observed_en": "Up 9% over 5 days",
+    "observed_ms": "Naik 9% dalam 5 hari",
+    "matches": true
+   },
+   {
+    "signal": "fibre_oil_loss",
+    "label_en": "Oil lost in fibre",
+    "label_ms": "Kehilangan minyak dalam serabut",
+    "expected": "up",
+    "observed_en": "Up from 2.9% to 3.6% over 5 days",
+    "observed_ms": "Naik daripada 2.9% kepada 3.6% dalam 5 hari",
+    "matches": true
+   },
+   {
+    "signal": "motor_current",
+    "label_en": "Motor current",
+    "label_ms": "Arus motor",
+    "expected": "up",
+    "observed_en": "Up 8% over 5 days",
+    "observed_ms": "Naik 8% dalam 5 hari",
+    "matches": true
+   },
+   {
+    "signal": "vib_rms",
+    "label_en": "Vibration level (RMS)",
+    "label_ms": "Tahap getaran (RMS)",
+    "expected": "up",
+    "observed_en": "Flat over 5 days (+1%)",
+    "observed_ms": "Mendatar dalam 5 hari (+1%)",
+    "matches": false
+   }
+  ]
+ },
+ "fix": {
+  "title_en": "Change the worm",
+  "title_ms": "Tukar skru cacing",
+  "steps_en": [
+   "Plan the change for the next planned stop and tell the crew.",
+   "Isolate and lock out the press, then open the press cage.",
+   "Measure the worm and cone clearance and compare with the worn limit.",
+   "Replace the worm and the cone liner if worn; check the shaft seat.",
+   "Close up, run empty for 10 minutes, then check current per tonne."
+  ],
+  "steps_ms": [
+   "Rancang penggantian pada henti terancang seterusnya dan maklumkan krew.",
+   "Asingkan dan kunci penekan, kemudian buka sangkar penekan.",
+   "Ukur sela skru dan kon, bandingkan dengan had haus.",
+   "Tukar skru dan lapik kon jika haus; semak dudukan aci.",
+   "Tutup, jalankan kosong 10 minit, kemudian semak arus setiap tan."
+  ],
+  "parts": [
+   {
+    "name_en": "Press worm (screw)",
+    "name_ms": "Skru penekan",
+    "qty": 1
+   },
+   {
+    "name_en": "Cone liner set",
+    "name_ms": "Set lapik kon",
+    "qty": 1
+   }
+  ],
+  "crew": 3,
+  "est_hours": 4.0,
+  "needs_stop": true,
+  "best_window": "2025-01-15T06:00:00+08:00"
+ },
+ "history": [
+  {
+   "t": "2024-12-04T16:00:00+08:00",
+   "fault_class": "bearing",
+   "what_en": "Bearing wear: broke down with no warning",
+   "what_ms": "Haus galas: rosak tanpa amaran",
+   "downtime_h": 8.0,
+   "was_predicted": false
+  },
+  {
+   "t": "2024-09-03T16:00:00+08:00",
+   "fault_class": "worm_wear",
+   "what_en": "Worm wear: MillGuard warned before it failed",
+   "what_ms": "Haus skru cacing: MillGuard memberi amaran sebelum rosak",
+   "downtime_h": 0.0,
+   "was_predicted": true
+  },
+  {
+   "t": "2024-03-19T16:00:00+08:00",
+   "fault_class": "worm_wear",
+   "what_en": "Worm wear: broke down with no warning",
+   "what_ms": "Haus skru cacing: rosak tanpa amaran",
+   "downtime_h": 6.0,
+   "was_predicted": false
+  }
+ ]
 }

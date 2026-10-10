@@ -74,6 +74,8 @@ class LineAsset(BaseModel):
     position: int   # 1-4 for presses, 0 for boiler
     status: AssetStatus
     risk_pct: float
+    summary_en: str
+    summary_ms: str
 
 
 class Line(BaseModel):
@@ -99,12 +101,96 @@ class FailureEvent(BaseModel):
     fault_class: FaultClass
 
 
+Expected = Literal["up", "down", "unstable", "spike"]
+
+
+class FingerprintCheck(BaseModel):
+    signal: str
+    label_en: str
+    label_ms: str
+    expected: Expected
+    observed_en: str
+    observed_ms: str
+    matches: bool
+
+
+class Alternative(BaseModel):
+    fault_class: FaultClass
+    confidence_pct: float
+
+
+class Diagnosis(BaseModel):
+    fault_class: FaultClass
+    name_en: str
+    name_ms: str
+    confidence_pct: float
+    plain_en: str
+    plain_ms: str
+    alternatives: list[Alternative]
+    fingerprint: list[FingerprintCheck] = Field(min_length=3, max_length=4)
+
+
+class Part(BaseModel):
+    name_en: str
+    name_ms: str
+    qty: int
+
+
+class FixPlan(BaseModel):
+    title_en: str
+    title_ms: str
+    steps_en: list[str]
+    steps_ms: list[str]
+    parts: list[Part]
+    crew: int
+    est_hours: float
+    needs_stop: bool
+    best_window: str
+
+
+class HistoryItem(BaseModel):
+    t: str
+    fault_class: FaultClass
+    what_en: str
+    what_ms: str
+    downtime_h: float
+    was_predicted: bool
+
+
+class Sign(BaseModel):
+    signal: str
+    label_en: str
+    label_ms: str
+    expected: Expected
+
+
+class FaultGuide(BaseModel):
+    fault_class: FaultClass
+    name_en: str
+    name_ms: str
+    what_en: str
+    what_ms: str
+    why_en: str
+    why_ms: str
+    signs: list[Sign]
+    fix_steps_en: list[str]
+    fix_steps_ms: list[str]
+    typical_downtime_h: float
+    typical_cost_rm: int
+    onset: Literal["gradual", "sudden"]
+
+
 class AssetDetail(BaseModel):
     asset: LineAsset
+    status: AssetStatus
+    risk_pct: float
     series: list[Series]
     alert_windows: list[AlertWindow]
     failures: list[FailureEvent]
     action: Action | None
+    diagnosis: Diagnosis | None
+    fix: FixPlan | None
+    history: list[HistoryItem]
 
 
 PolicyId = Literal["run_to_failure", "fixed_interval", "millguard"]

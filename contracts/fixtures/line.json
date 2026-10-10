@@ -8,7 +8,9 @@
    "stage": "press",
    "position": 1,
    "status": "ok",
-   "risk_pct": 4.0
+   "risk_pct": 4.0,
+   "summary_en": "Normal",
+   "summary_ms": "Normal"
   },
   {
    "id": "press_2",
@@ -17,7 +19,9 @@
    "stage": "press",
    "position": 2,
    "status": "act",
-   "risk_pct": 41.0
+   "risk_pct": 41.0,
+   "summary_en": "Worm wearing",
+   "summary_ms": "Skru cacing haus"
   },
   {
    "id": "press_3",
@@ -26,7 +30,9 @@
    "stage": "press",
    "position": 3,
    "status": "ok",
-   "risk_pct": 7.0
+   "risk_pct": 7.0,
+   "summary_en": "Normal",
+   "summary_ms": "Normal"
   },
   {
    "id": "press_4",
@@ -35,7 +41,9 @@
    "stage": "press",
    "position": 4,
    "status": "watch",
-   "risk_pct": 33.0
+   "risk_pct": 33.0,
+   "summary_en": "Bearing wearing",
+   "summary_ms": "Galas haus"
   },
   {
    "id": "boiler_1",
@@ -44,7 +52,9 @@
    "stage": "boiler",
    "position": 0,
    "status": "act",
-   "risk_pct": 28.0
+   "risk_pct": 28.0,
+   "summary_en": "Steam temperature drifting",
+   "summary_ms": "Suhu stim menyimpang"
   }
  ]
 }

@@ -6,8 +6,12 @@
   "stage": "press",
   "position": 1,
   "status": "ok",
-  "risk_pct": 4.0
+  "risk_pct": 4.0,
+  "summary_en": "Normal",
+  "summary_ms": "Normal"
  },
+ "status": "ok",
+ "risk_pct": 4.0,
  "series": [
   {
    "signal": "current_per_tonne",
@@ -2052,5 +2056,25 @@
  ],
  "alert_windows": [],
  "failures": [],
- "action": null
+ "action": null,
+ "diagnosis": null,
+ "fix": null,
+ "history": [
+  {
+   "t": "2024-06-16T16:00:00+08:00",
+   "fault_class": "hydraulic_cone",
+   "what_en": "Cone hydraulic fault: MillGuard warned before it failed",
+   "what_ms": "Kerosakan hidraulik kon: MillGuard memberi amaran sebelum rosak",
+   "downtime_h": 0.0,
+   "was_predicted": true
+  },
+  {
+   "t": "2024-10-10T16:00:00+08:00",
+   "fault_class": "electrical",
+   "what_en": "Electrical fault: broke down with no warning",
+   "what_ms": "Kerosakan elektrik: rosak tanpa amaran",
+   "downtime_h": 4.0,
+   "was_predicted": false
+  }
+ ]
 }

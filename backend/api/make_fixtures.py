@@ -7,7 +7,8 @@ import numpy as np
 
 from backend.api.models import (Action, Marker, Assumption, AssetDetail, Backtest, Brief, FeedbackOut,
                                 Line, LineAsset, Meta, Reason, Robustness)
-from backend.engine import cost, text
+from backend.api.models import FaultGuide, HistoryItem
+from backend.engine import cost, playbook, text
 from backend.params import load, val
 
 OUT = Path(__file__).resolve().parents[2] / "contracts" / "fixtures"
@@ -40,16 +41,21 @@ def build_action(aid, asset_id, name, atype, fc, risk, horizon, at_risk, cost_to
 def actions(p):
     """Fixture numbers are hand-set samples (plan v1.3); real values come from the pipeline."""
     return [
-        build_action("act_boiler_1_0001", "boiler_1", "Boiler 1", "boiler", "boiler_steam", 28.0, 24,
+        build_action("act_boiler_1_0001", "boiler_1", "Boiler 1", "boiler", "boiler_steam", 28.0, 4,
                      61000, 3000, "fix_now", AT.replace(hour=23), "whole_mill", text.BOILER_1),
-        build_action("act_press_2_0001", "press_2", "Press 2", "press", "worm_wear", 41.0, 48,
+        build_action("act_press_2_0001", "press_2", "Press 2", "press", "worm_wear", 41.0, 11,
                      21000, 3000, "schedule_next_stop", (AT + timedelta(days=1)).replace(hour=6),
                      "partial", text.PRESS_2_WORM)]
 
 
+FAULT = {"press_2": "worm_wear", "press_4": "bearing", "boiler_1": "boiler_steam"}
+
+
 def line_assets():
     return [LineAsset(id=i, name=n, type=t, stage=t, position=0 if t == "boiler" else int(i[-1]),
-                      status=STATUS[i], risk_pct=RISK[i]) for i, n, t in ASSETS]
+                      status=STATUS[i], risk_pct=RISK[i],
+                      summary_en=(text.SUMMARY[FAULT[i]] if i in FAULT else text.SUMMARY_OK)[0],
+                      summary_ms=(text.SUMMARY[FAULT[i]] if i in FAULT else text.SUMMARY_OK)[1]) for i, n, t in ASSETS]
 
 
 def series(asset_id, window_h=168):
@@ -73,13 +79,51 @@ def series(asset_id, window_h=168):
     return [Series(signal=s, label_en=en, label_ms=ms, unit=u, points=pts(v)) for s, en, ms, u, v in defs]
 
 
+def diagnosis_for(asset_id):
+    c = playbook.check
+    if asset_id == "press_2":
+        return playbook.diagnosis("worm_wear", 82, [("bearing", 11), ("electrical", 7)], [
+            c("current_per_tonne", "up", "Up 9% over 5 days", "Naik 9% dalam 5 hari", True),
+            c("fibre_oil_loss", "up", "Up from 2.9% to 3.6% over 5 days", "Naik daripada 2.9% kepada 3.6% dalam 5 hari", True),
+            c("motor_current", "up", "Up 8% over 5 days", "Naik 8% dalam 5 hari", True),
+            c("vib_rms", "up", "Flat over 5 days (+1%)", "Mendatar dalam 5 hari (+1%)", False)])
+    if asset_id == "boiler_1":
+        return playbook.diagnosis("boiler_steam", 76, [("boiler_water", 17), ("unknown", 7)], [
+            c("steam_temp", "down", "Down 3% over 5 days", "Turun 3% dalam 5 hari", True),
+            c("steam_pressure", "unstable", "Swinging 2.1x more than normal", "Berayun 2.1x lebih daripada biasa", True),
+            c("feedwater_flow", "down", "Down 9% over 5 days", "Turun 9% dalam 5 hari", True)])
+    if asset_id == "press_4":
+        return playbook.diagnosis("bearing", 54, [("gearbox_shaft", 28), ("unknown", 18)], [
+            c("vib_kurtosis", "up", "Up 22% over 5 days", "Naik 22% dalam 5 hari", True),
+            c("vib_rms", "up", "Up 6% over 5 days", "Naik 6% dalam 5 hari", True),
+            c("gearbox_oil_temp", "up", "Flat over 5 days (+0%)", "Mendatar dalam 5 hari (+0%)", False)])
+    return None
+
+
+def history_for(asset_id):
+    W = text.FAULT_LABEL
+    item = lambda days, fc, pred, dt: HistoryItem(
+        t=iso(AT - timedelta(days=days, hours=3)), fault_class=fc, downtime_h=dt, was_predicted=pred,
+        what_en=text.HISTORY_WHAT[pred][0].format(fault=W[fc][0].capitalize()),
+        what_ms=text.HISTORY_WHAT[pred][1].format(fault=W[fc][1].capitalize()))
+    return {"press_1": [item(212, "hydraulic_cone", True, 0.0), item(96, "electrical", False, 4.0)],
+            "press_2": [item(41, "bearing", False, 8.0), item(133, "worm_wear", True, 0.0), item(301, "worm_wear", False, 6.0)],
+            "press_3": [item(160, "gearbox_shaft", True, 0.0)],
+            "press_4": [item(77, "worm_wear", True, 0.0), item(250, "bearing", False, 8.0)],
+            "boiler_1": [item(188, "boiler_water", True, 0.0)]}[asset_id]
+
+
 def asset_detail(asset_id, acts):
     from backend.api.models import AlertWindow, FailureEvent
     a = next(x for x in line_assets() if x.id == asset_id)
     action = next((x for x in acts if x.asset_id == asset_id), None)
     windows = [AlertWindow(start=iso(AT - timedelta(hours=9)), end=iso(AT))] if action else []
     fails = [FailureEvent(t=iso(AT - timedelta(days=41, hours=3)), fault_class="bearing")] if asset_id == "press_2" else []
-    return AssetDetail(asset=a, series=series(asset_id), alert_windows=windows, failures=fails, action=action)
+    diag = diagnosis_for(asset_id)
+    fix = playbook.fix_plan(diag.fault_class, action.deadline if action.recommendation == "schedule_next_stop" else iso(AT)) \
+        if action else None
+    return AssetDetail(asset=a, status=a.status, risk_pct=a.risk_pct, series=series(asset_id), alert_windows=windows,
+                       failures=fails, action=action, diagnosis=diag, fix=fix, history=history_for(asset_id))
 
 
 def backtest(p, cpo_price=None, miss_mult=1.0):
@@ -199,9 +243,10 @@ def main():
                                    false_alarms_per_week=0.8,
                                    note="PLACEHOLDER until the real MetroPT-3 run (plan step 8)."))
     write("feedback", FeedbackOut(ok=True))
+    write("faults", playbook.all_guides())
     write("brief_quiet", Brief(at=iso(AT.replace(day=11)), shift="night", actions=[], watching_count=1,
                                suppressed_count=3))
-    quiet = [a.model_copy(update={"status": "ok", "risk_pct": 3.0}) for a in line_assets()]
+    quiet = [a.model_copy(update={"status": "ok", "risk_pct": 3.0, "summary_en": text.SUMMARY_OK[0], "summary_ms": text.SUMMARY_OK[1]}) for a in line_assets()]
     write("line_quiet", Line(at=iso(AT.replace(day=11)), assets=quiet))
     for a in acts:
         assert a.reasons[0].signal in {x.signal for x in series(a.asset_id)}, a.id

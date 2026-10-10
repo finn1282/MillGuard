@@ -8,7 +8,9 @@
    "stage": "press",
    "position": 1,
    "status": "ok",
-   "risk_pct": 3.0
+   "risk_pct": 3.0,
+   "summary_en": "Normal",
+   "summary_ms": "Normal"
   },
   {
    "id": "press_2",
@@ -17,7 +19,9 @@
    "stage": "press",
    "position": 2,
    "status": "ok",
-   "risk_pct": 3.0
+   "risk_pct": 3.0,
+   "summary_en": "Normal",
+   "summary_ms": "Normal"
   },
   {
    "id": "press_3",
@@ -26,7 +30,9 @@
    "stage": "press",
    "position": 3,
    "status": "ok",
-   "risk_pct": 3.0
+   "risk_pct": 3.0,
+   "summary_en": "Normal",
+   "summary_ms": "Normal"
   },
   {
    "id": "press_4",
@@ -35,7 +41,9 @@
    "stage": "press",
    "position": 4,
    "status": "ok",
-   "risk_pct": 3.0
+   "risk_pct": 3.0,
+   "summary_en": "Normal",
+   "summary_ms": "Normal"
   },
   {
    "id": "boiler_1",
@@ -44,7 +52,9 @@
    "stage": "boiler",
    "position": 0,
    "status": "ok",
-   "risk_pct": 3.0
+   "risk_pct": 3.0,
+   "summary_en": "Normal",
+   "summary_ms": "Normal"
   }
  ]
 }
