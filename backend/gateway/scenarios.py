@@ -95,6 +95,31 @@ def hours(sid, start, n):
 
 
 # ---- build side
+HOLD_H = 24   # after the last bad reading, the rolling features need a day to recover
+
+
+def hold_during_quarantine(pred, issues):
+    """While a sensor is quarantined (a frozen, spiking or out-of-range reading was masked), the machine's risk is held at its last
+    trusted value: the models are not asked to judge a machine from a sensor we do not trust."""
+    cols = [c for c in pred.columns if c.startswith(("p24", "p72", "p168", "cp_"))]
+    pred = pred.sort_values(["asset_id", "t"]).reset_index(drop=True)
+    bad = issues[issues.kind != "missing"]
+    for aid, g in bad.groupby("asset_id"):
+        idx = pred.index[pred.asset_id == aid]
+        t = pred.t[idx]
+        held = pd.Series(False, index=idx)
+        for tf in g.t:
+            held |= (t >= tf) & (t <= tf + pd.Timedelta(hours=HOLD_H))
+        starts = [i for i in idx if held[i] and (i == idx[0] or not held[i - 1])]
+        for i0 in starts:
+            j = i0
+            while j in held.index and held[j]:
+                j += 1
+            if i0 > idx[0]:
+                pred.loc[i0:j - 1, cols] = pred.loc[i0 - 1, cols].values
+    return pred
+
+
 def _write_dataset(sid, telemetry, errors, maintenance, failures, lives, hidden, default_start, extra=None):
     tel, err, wo, fails = telemetry, errors, maintenance, failures
     p = load()
@@ -102,7 +127,7 @@ def _write_dataset(sid, telemetry, errors, maintenance, failures, lives, hidden,
     bundle = joblib.load(ART / "models.joblib")
     masked, issues = health.scan(tel)                         # flagged readings are masked before scoring
     feats = build(save=False, tel=masked, err=err, wo=wo)
-    pred = predict(feats, bundle)
+    pred = hold_during_quarantine(predict(feats, bundle), issues)
     d = DIR / sid
     d.mkdir(parents=True, exist_ok=True)
     for name, df in dict(predictions=pred, failures=fails, telemetry=tel, lives=lives, hidden=hidden, maintenance=wo, errors=err).items():
@@ -174,7 +199,7 @@ def inject_sensor_fault(tel, fails, wo, skip=0):
             found += 1
     stuck = list(range(i, i + 12)); spike = [i + 12, i + 13]
     for col, k in (("vib_rms", 6.0), ("vib_kurtosis", 3.0)):
-        base = float(tel.loc[i - 1, col])
+        base = float(np.nanmedian(tel.loc[i: i + 13, col]))   # the sensor freezes at a normal running value
         tel.loc[stuck, col] = base
         tel.loc[spike, col] = base * k
     start = iso(p4.t[i] - pd.Timedelta(hours=24))

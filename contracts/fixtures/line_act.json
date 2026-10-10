@@ -1,5 +1,5 @@
 {
- "at": "2025-08-25T03:00:00+08:00",
+ "at": "2025-11-23T22:00:00+08:00",
  "assets": [
   {
    "id": "press_1",
@@ -8,7 +8,7 @@
    "stage": "press",
    "position": 1,
    "status": "ok",
-   "risk_pct": 5.0,
+   "risk_pct": 0.0,
    "summary_en": "Normal",
    "summary_ms": "Normal",
    "name_ms": "Penekan 1"
@@ -20,7 +20,7 @@
    "stage": "press",
    "position": 2,
    "status": "act",
-   "risk_pct": 76.0,
+   "risk_pct": 87.0,
    "summary_en": "Worm wearing",
    "summary_ms": "Skru cacing haus",
    "name_ms": "Penekan 2"
@@ -32,7 +32,7 @@
    "stage": "press",
    "position": 3,
    "status": "ok",
-   "risk_pct": 5.0,
+   "risk_pct": 11.0,
    "summary_en": "Normal",
    "summary_ms": "Normal",
    "name_ms": "Penekan 3"
@@ -44,7 +44,7 @@
    "stage": "press",
    "position": 4,
    "status": "ok",
-   "risk_pct": 0.0,
+   "risk_pct": 11.0,
    "summary_en": "Normal",
    "summary_ms": "Normal",
    "name_ms": "Penekan 4"
@@ -55,10 +55,10 @@
    "type": "boiler",
    "stage": "boiler",
    "position": 0,
-   "status": "ok",
+   "status": "watch",
    "risk_pct": 5.0,
-   "summary_en": "Normal",
-   "summary_ms": "Normal",
+   "summary_en": "Steam temperature drifting",
+   "summary_ms": "Suhu stim menyimpang",
    "name_ms": "Dandang 1"
   }
  ],

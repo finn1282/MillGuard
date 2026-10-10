@@ -87,15 +87,15 @@ def build_markers(svc: Service, ep, out_file=None):
     M = text.MARKERS
     nights = [t for t in svc.times if t.hour == 19 and t >= pd.Timestamp("2025-02-01")]
     briefs = {t: svc.brief(iso(t)) for t in nights}
-    # quiet = no action; prefer nights where waiting is free for every machine, else the nights with the smallest outlook saving
+    # quiet = no action; prefer nights where waiting costs under RM1,000 for every machine, else the nights with the smallest outlook saving
     # (realistic failure rates leave few or no nights with zero saving)
     noact = [t for t, b in briefs.items() if not b["actions"]]
-    saving = {t: sum(svc._outlook(a, ty, None, t)["rm_saved_if_acted"] for a, _, ty, _ in ASSETS) for t in noact}
-    quiet = [t for t in noact if saving[t] == 0] or sorted(noact, key=saving.get)[:max(len(noact) // 10, 1)]
+    saving = {t: max(svc._outlook(a, ty, None, t)["rm_saved_if_acted"] for a, _, ty, _ in ASSETS) for t in noact}
+    quiet = [t for t in noact if saving[t] < 1000] or sorted(noact, key=saving.get)[:max(len(noact) // 10, 1)]
     q = ([t for t in quiet if briefs[t]["watching_count"] and briefs[t]["suppressed_count"]] or
          [t for t in quiet if briefs[t]["watching_count"] or briefs[t]["suppressed_count"]] or quiet)
     print(f"quiet nights: {len(quiet)} of {len(noact)} no-action nights (with watching/suppressed: {len([t for t in quiet if briefs[t]['watching_count'] or briefs[t]['suppressed_count']])}); "
-          f"min total outlook saving RM{min(saving.values(), default=0)}")
+          f"min largest outlook saving RM{min(saving.values(), default=0)}")
     q_t = q[len(q) // 3] if q else nights[0]
     gradual = {"worm_wear", "bearing", "gearbox_shaft", "hydraulic_cone"}
     cands = []   # (matches, saved, -hour, t, action): true-positive alerts on gradual faults, every hour of their window

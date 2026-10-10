@@ -1,58 +1,58 @@
 {
- "at": "2025-08-25T03:00:00+08:00",
+ "at": "2025-11-23T22:00:00+08:00",
  "shift": "night",
  "actions": [
   {
-   "id": "act_press_2_2025082503",
+   "id": "act_press_2_2025112322",
    "asset_id": "press_2",
    "asset_name": "Press 2",
    "asset_name_ms": "Penekan 2",
    "asset_type": "press",
    "fault_class": "worm_wear",
-   "risk_pct": 76.0,
-   "horizon_h": 147,
-   "rm_at_risk": 18432,
+   "risk_pct": 87.0,
+   "horizon_h": 152,
+   "rm_at_risk": 21099,
    "rm_cost_to_act": 13626,
-   "rm_saved_if_acted": 4806,
+   "rm_saved_if_acted": 7473,
    "recommendation": "fix_now",
-   "deadline": "2025-08-25T07:00:00+08:00",
+   "deadline": "2025-11-24T02:00:00+08:00",
    "headline_en": "Press 2: Worm wear. Change the worm now.",
    "headline_ms": "Penekan 2: Haus skru cacing. Tukar skru cacing sekarang.",
    "reasons": [
     {
-     "text_en": "Motor current per tonne is 5% above Press 2's normal",
-     "text_ms": "Arus motor setiap tan 5% lebih tinggi daripada biasa bagi Penekan 2",
+     "text_en": "Motor current per tonne is 8% above Press 2's normal",
+     "text_ms": "Arus motor setiap tan 8% lebih tinggi daripada biasa bagi Penekan 2",
      "signal": "current_per_tonne",
      "direction": "up",
-     "contribution": 0.482
+     "contribution": 0.561
     },
     {
-     "text_en": "Oil lost in fibre is 3.3% (alarm line is 4%)",
-     "text_ms": "Kehilangan minyak dalam serabut ialah 3.3% (garis amaran 4%)",
+     "text_en": "Motor current is 8% above Press 2's normal",
+     "text_ms": "Arus motor 8% lebih tinggi daripada biasa bagi Penekan 2",
+     "signal": "motor_current",
+     "direction": "up",
+     "contribution": 0.226
+    },
+    {
+     "text_en": "Oil lost in fibre is 3.5% (alarm line is 4%)",
+     "text_ms": "Kehilangan minyak dalam serabut ialah 3.5% (garis amaran 4%)",
      "signal": "fibre_oil_loss",
      "direction": "up",
-     "contribution": 0.44
-    },
-    {
-     "text_en": "440 hours since the last logged service on Press 2",
-     "text_ms": "440 jam sejak servis terakhir direkodkan bagi Penekan 2",
-     "signal": "hours_since_service",
-     "direction": "up",
-     "contribution": 0.078
+     "contribution": 0.213
     }
    ],
    "why_rank_en": "Biggest ringgit saving tonight",
    "why_rank_ms": "Penjimatan ringgit terbesar malam ini",
    "criticality": "partial",
    "rm_breakdown_cost": 24252,
-   "deadline_label_en": "within 4 hours, by 07:00",
-   "deadline_label_ms": "dalam 4 jam, sebelum 07:00",
+   "deadline_label_en": "within 4 hours, by 02:00",
+   "deadline_label_ms": "dalam 4 jam, sebelum 02:00",
    "window_label_en": "before the next planned stop, Sunday 06:00",
    "window_label_ms": "sebelum henti terancang seterusnya, Ahad jam 06:00"
   }
  ],
- "rm_protected_total": 4806,
- "watching_count": 0,
+ "rm_protected_total": 7473,
+ "watching_count": 1,
  "suppressed_count": 0,
  "sensor_alerts": []
 }

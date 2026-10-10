@@ -62,7 +62,10 @@ simulator:
   # P-F interval: running hours from first detectable sign to failure (effect ramps 0 to 1 over this many hours)
   pf_h_worm_wear:      {value: 300, unit: running h, source: "Plan v1.4: worm wear shows several days to weeks ahead", status: assumed}
   pf_h_gearbox_shaft:  {value: 400, unit: running h, source: "Plan v1.4: gearbox shows several days to weeks ahead", status: assumed}
-  pf_h_bearing:        {value: 150, unit: running h, source: "Plan v1.4: bearing shows several days ahead", status: assumed}
+  pf_h_bearing:        {value: 98.5, unit: running h, source: "NASA/IMS run-to-failure bearings (Qiu, Lee, Lin, Yu 2006, J. Sound and Vibration 289; NASA PCoE data repository): median of 4 failed bearings, measured warning 275, 121, 76, 60 h (onset = leaves own first-48 h baseline by 4 robust SD for 3 h); backend/artifacts/ims_bearings.json", status: validated}
+  bearing_rms_rise:    {value: 0.7, unit: fraction of normal RMS at failure, source: "Scale of our press vibration units, hand-set (IMS gives only the normalised shape of the ramp, bearing_ramp_shape below)", status: assumed}
+  bearing_kurtosis_rise: {value: 4.5, unit: kurtosis points at failure, source: "Scale of our press vibration units, hand-set (shape from IMS)", status: assumed}
+  bearing_ramp_shape:  {value: "backend/artifacts/ims_bearings.json", unit: file, source: "Averaged normalised RMS and kurtosis curves of the failed IMS bearings (0 at onset, 1 at failure); same source as pf_h_bearing", status: validated}
   pf_h_hydraulic_cone: {value: 200, unit: running h, source: "Plan v1.4 (assumed, between bearing and worm)", status: assumed}
 
 alerting:

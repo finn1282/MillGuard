@@ -3,6 +3,7 @@
 Hidden state per component = age vs a random life. Failure when age >= life (then a fresh component).
 Outputs Azure PdM-style tables (telemetry, errors, maintenance, failures) plus hidden lives for backtests.
 """
+import json
 from pathlib import Path
 
 import numpy as np
@@ -18,6 +19,17 @@ PRESS_COMPS = ["worm_wear", "bearing", "gearbox_shaft", "hydraulic_cone", "elect
 BOILER_COMPS = ["boiler_steam", "boiler_water"]
 PRECURSOR_H = {"electrical": 24, "unknown": 36, "boiler_steam": 36, "boiler_water": 72}   # remaining-time shaped
 UNK_SIGNALS = ["motor_current", "cone_pressure", "gearbox_oil_temp", "vib_rms"]
+
+
+_ims = {}
+
+
+def bearing_ramp(p, x):
+    """Real normalised RMS and kurtosis ramps (0 at onset, 1 at failure) of the IMS failed bearings, at progress x in 0..1."""
+    if "c" not in _ims:
+        _ims["c"] = json.loads((Path(__file__).resolve().parents[2] / val(p, "simulator", "bearing_ramp_shape")).read_text())
+    c = _ims["c"]; g = np.linspace(0, 1, c["grid_points"])
+    return np.interp(x, g, c["curve_rms"]), np.interp(x, g, c["curve_kurtosis"])
 
 
 def draw_life(rng, comp, p):
@@ -146,9 +158,11 @@ def build_telemetry(rng, p, mill, d, noise_mult, offset):
         cone = (45 * np.maximum(load, 0.3) ** 0.3 + 6 * e["hydraulic_cone"]
                 + rng.normal(0, 1, H) * noise_mult * (1.2 + 4 * e["hydraulic_cone"]) + 4 * u("cone_pressure"))
         oil = 58 + 12 * load + ambient + 12 * e["gearbox_shaft"] + nz(0.8) + 5 * u("gearbox_oil_temp") + drift(rng, H, 2)
-        rms = 2.0 * (1 + 0.1 * load) * (1 + 0.7 * np.clip((e["bearing"] - 0.3) / 0.7, 0, None) ** 1.5
+        ramp = bearing_ramp(p, d["eff"][(a, "bearing")].astype(float))   # measured shape (IMS), our vibration units
+        amp_b = d["amp"][(a, "bearing")]
+        rms = 2.0 * (1 + 0.1 * load) * (1 + val(p, "simulator", "bearing_rms_rise") * amp_b * ramp[0]
                                        + 0.25 * u("vib_rms")) * (1 + nz(0.04))
-        kurt = 3.0 + 4.5 * e["bearing"] + nz(0.2) + 0.8 * u("vib_rms")
+        kurt = 3.0 + val(p, "simulator", "bearing_kurtosis_rise") * amp_b * ramp[1] + nz(0.2) + 0.8 * u("vib_rms")
         daily = pd.Series(2.8 * (1 + 0.5 * e["worm_wear"]) + nz(0.15)).where(run)
         lab = np.full(H, np.nan); idx = np.where(hr == 8)[0]
         lab[idx] = daily.rolling(24, min_periods=1).mean().values[idx] + rng.normal(0, 0.12 * noise_mult, len(idx))

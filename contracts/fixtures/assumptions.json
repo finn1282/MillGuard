@@ -418,10 +418,34 @@
  {
   "key": "simulator.pf_h_bearing",
   "label": "Warning period before bearing failure (running hours)",
-  "value": 150.0,
+  "value": 98.5,
   "unit": "running h",
-  "source": "Plan v1.4: bearing shows several days ahead",
+  "source": "NASA/IMS run-to-failure bearings (Qiu, Lee, Lin, Yu 2006, J. Sound and Vibration 289; NASA PCoE data repository): median of 4 failed bearings, measured warning 275, 121, 76, 60 h (onset = leaves own first-48 h baseline by 4 robust SD for 3 h); backend/artifacts/ims_bearings.json",
+  "status": "validated"
+ },
+ {
+  "key": "simulator.bearing_rms_rise",
+  "label": "Bearing wear: rise of vibration level at failure (fraction of normal)",
+  "value": 0.7,
+  "unit": "fraction of normal RMS at failure",
+  "source": "Scale of our press vibration units, hand-set (IMS gives only the normalised shape of the ramp, bearing_ramp_shape below)",
   "status": "assumed"
+ },
+ {
+  "key": "simulator.bearing_kurtosis_rise",
+  "label": "Bearing wear: rise of vibration spikiness at failure (kurtosis points)",
+  "value": 4.5,
+  "unit": "kurtosis points at failure",
+  "source": "Scale of our press vibration units, hand-set (shape from IMS)",
+  "status": "assumed"
+ },
+ {
+  "key": "simulator.bearing_ramp_shape",
+  "label": "Bearing wear ramp shape (measured on run-to-failure bearings)",
+  "value": "b, a, c, k, e, n, d, /, a, r, t, i, f, a, c, t, s, /, i, m, s, _, b, e, a, r, i, n, g, s, ., j, s, o, n",
+  "unit": "file",
+  "source": "Averaged normalised RMS and kurtosis curves of the failed IMS bearings (0 at onset, 1 at failure); same source as pf_h_bearing",
+  "status": "validated"
  },
  {
   "key": "simulator.pf_h_hydraulic_cone",

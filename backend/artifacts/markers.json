@@ -1,13 +1,13 @@
 [
  {
-  "t": "2025-01-03T14:00:00+08:00",
+  "t": "2025-01-04T10:00:00+08:00",
   "kind": "alert",
   "asset_id": "press_4",
   "label_en": "Press 4: MillGuard alert",
   "label_ms": "Penekan 4: amaran MillGuard"
  },
  {
-  "t": "2025-01-05T20:00:00+08:00",
+  "t": "2025-01-07T18:00:00+08:00",
   "kind": "alert",
   "asset_id": "press_2",
   "label_en": "Press 2: MillGuard alert",
@@ -28,18 +28,18 @@
   "label_ms": "Penekan 4: amaran MillGuard"
  },
  {
-  "t": "2025-01-09T20:00:00+08:00",
-  "kind": "alert",
-  "asset_id": "press_3",
-  "label_en": "Press 3: MillGuard alert",
-  "label_ms": "Penekan 3: amaran MillGuard"
- },
- {
   "t": "2025-01-10T10:00:00+08:00",
   "kind": "breakdown",
   "asset_id": "press_1",
   "label_en": "Press 1: breakdown",
   "label_ms": "Penekan 1: kerosakan"
+ },
+ {
+  "t": "2025-01-10T16:00:00+08:00",
+  "kind": "alert",
+  "asset_id": "press_3",
+  "label_en": "Press 3: MillGuard alert",
+  "label_ms": "Penekan 3: amaran MillGuard"
  },
  {
   "t": "2025-01-11T12:00:00+08:00",
@@ -49,14 +49,7 @@
   "label_ms": "Penekan 2: kerosakan"
  },
  {
-  "t": "2025-01-11T20:00:00+08:00",
-  "kind": "alert",
-  "asset_id": "press_2",
-  "label_en": "Press 2: MillGuard alert",
-  "label_ms": "Penekan 2: amaran MillGuard"
- },
- {
-  "t": "2025-01-12T05:00:00+08:00",
+  "t": "2025-01-13T13:00:00+08:00",
   "kind": "alert",
   "asset_id": "boiler_1",
   "label_en": "Boiler 1: MillGuard alert",
@@ -70,25 +63,18 @@
   "label_ms": "Penekan 4: kerosakan"
  },
  {
-  "t": "2025-01-16T12:00:00+08:00",
-  "kind": "breakdown",
-  "asset_id": "boiler_1",
-  "label_en": "Boiler 1: breakdown",
-  "label_ms": "Dandang 1: kerosakan"
- },
- {
-  "t": "2025-01-16T16:00:00+08:00",
+  "t": "2025-01-16T11:00:00+08:00",
   "kind": "alert",
   "asset_id": "press_2",
   "label_en": "Press 2: MillGuard alert",
   "label_ms": "Penekan 2: amaran MillGuard"
  },
  {
-  "t": "2025-01-16T21:00:00+08:00",
-  "kind": "alert",
+  "t": "2025-01-16T12:00:00+08:00",
+  "kind": "breakdown",
   "asset_id": "boiler_1",
-  "label_en": "Boiler 1: MillGuard alert",
-  "label_ms": "Dandang 1: amaran MillGuard"
+  "label_en": "Boiler 1: breakdown",
+  "label_ms": "Dandang 1: kerosakan"
  },
  {
   "t": "2025-01-17T12:00:00+08:00",
@@ -98,18 +84,25 @@
   "label_ms": "Penekan 3: kerosakan"
  },
  {
+  "t": "2025-01-17T19:00:00+08:00",
+  "kind": "alert",
+  "asset_id": "boiler_1",
+  "label_en": "Boiler 1: MillGuard alert",
+  "label_ms": "Dandang 1: amaran MillGuard"
+ },
+ {
+  "t": "2025-01-17T20:00:00+08:00",
+  "kind": "alert",
+  "asset_id": "press_3",
+  "label_en": "Press 3: MillGuard alert",
+  "label_ms": "Penekan 3: amaran MillGuard"
+ },
+ {
   "t": "2025-01-17T21:00:00+08:00",
   "kind": "breakdown",
   "asset_id": "press_3",
   "label_en": "Press 3: breakdown",
   "label_ms": "Penekan 3: kerosakan"
- },
- {
-  "t": "2025-01-18T03:00:00+08:00",
-  "kind": "alert",
-  "asset_id": "boiler_1",
-  "label_en": "Boiler 1: MillGuard alert",
-  "label_ms": "Dandang 1: amaran MillGuard"
  },
  {
   "t": "2025-01-18T17:00:00+08:00",
@@ -119,7 +112,7 @@
   "label_ms": "Penekan 2: kerosakan"
  },
  {
-  "t": "2025-01-19T00:00:00+08:00",
+  "t": "2025-01-20T11:00:00+08:00",
   "kind": "alert",
   "asset_id": "press_2",
   "label_en": "Press 2: MillGuard alert",
@@ -133,14 +126,28 @@
   "label_ms": "Penekan 2: kerosakan"
  },
  {
-  "t": "2025-01-24T16:00:00+08:00",
+  "t": "2025-01-22T02:00:00+08:00",
+  "kind": "alert",
+  "asset_id": "press_2",
+  "label_en": "Press 2: MillGuard alert",
+  "label_ms": "Penekan 2: amaran MillGuard"
+ },
+ {
+  "t": "2025-01-23T20:00:00+08:00",
+  "kind": "alert",
+  "asset_id": "press_2",
+  "label_en": "Press 2: MillGuard alert",
+  "label_ms": "Penekan 2: amaran MillGuard"
+ },
+ {
+  "t": "2025-01-25T02:00:00+08:00",
   "kind": "alert",
   "asset_id": "press_3",
   "label_en": "Press 3: MillGuard alert",
   "label_ms": "Penekan 3: amaran MillGuard"
  },
  {
-  "t": "2025-01-25T19:00:00+08:00",
+  "t": "2025-01-25T09:00:00+08:00",
   "kind": "alert",
   "asset_id": "press_4",
   "label_en": "Press 4: MillGuard alert",
@@ -154,18 +161,18 @@
   "label_ms": "Penekan 3: kerosakan"
  },
  {
-  "t": "2025-01-28T04:00:00+08:00",
-  "kind": "alert",
-  "asset_id": "press_3",
-  "label_en": "Press 3: MillGuard alert",
-  "label_ms": "Penekan 3: amaran MillGuard"
- },
- {
-  "t": "2025-01-29T18:00:00+08:00",
+  "t": "2025-01-31T00:00:00+08:00",
   "kind": "alert",
   "asset_id": "press_1",
   "label_en": "Press 1: MillGuard alert",
   "label_ms": "Penekan 1: amaran MillGuard"
+ },
+ {
+  "t": "2025-02-02T23:00:00+08:00",
+  "kind": "alert",
+  "asset_id": "press_2",
+  "label_en": "Press 2: MillGuard alert",
+  "label_ms": "Penekan 2: amaran MillGuard"
  },
  {
   "t": "2025-02-03T15:00:00+08:00",
@@ -175,28 +182,21 @@
   "label_ms": "Penekan 1: kerosakan"
  },
  {
-  "t": "2025-02-04T13:00:00+08:00",
+  "t": "2025-02-03T23:00:00+08:00",
   "kind": "alert",
   "asset_id": "press_1",
   "label_en": "Press 1: MillGuard alert",
   "label_ms": "Penekan 1: amaran MillGuard"
  },
  {
-  "t": "2025-02-04T18:00:00+08:00",
+  "t": "2025-02-05T11:00:00+08:00",
   "kind": "alert",
   "asset_id": "boiler_1",
   "label_en": "Boiler 1: MillGuard alert",
   "label_ms": "Dandang 1: amaran MillGuard"
  },
  {
-  "t": "2025-02-05T17:00:00+08:00",
-  "kind": "alert",
-  "asset_id": "boiler_1",
-  "label_en": "Boiler 1: MillGuard alert",
-  "label_ms": "Dandang 1: amaran MillGuard"
- },
- {
-  "t": "2025-02-07T15:00:00+08:00",
+  "t": "2025-02-07T02:00:00+08:00",
   "kind": "alert",
   "asset_id": "press_2",
   "label_en": "Press 2: MillGuard alert",
@@ -210,7 +210,7 @@
   "label_ms": "Penekan 1: kerosakan"
  },
  {
-  "t": "2025-02-11T18:00:00+08:00",
+  "t": "2025-02-11T02:00:00+08:00",
   "kind": "alert",
   "asset_id": "press_4",
   "label_en": "Press 4: MillGuard alert",
@@ -238,25 +238,18 @@
   "label_ms": "Penekan 1: kerosakan"
  },
  {
-  "t": "2025-02-28T17:00:00+08:00",
+  "t": "2025-02-28T14:00:00+08:00",
   "kind": "alert",
   "asset_id": "press_2",
   "label_en": "Press 2: MillGuard alert",
   "label_ms": "Penekan 2: amaran MillGuard"
  },
  {
-  "t": "2025-03-02T14:00:00+08:00",
+  "t": "2025-02-28T15:00:00+08:00",
   "kind": "alert",
   "asset_id": "press_4",
   "label_en": "Press 4: MillGuard alert",
   "label_ms": "Penekan 4: amaran MillGuard"
- },
- {
-  "t": "2025-03-03T00:00:00+08:00",
-  "kind": "alert",
-  "asset_id": "press_1",
-  "label_en": "Press 1: MillGuard alert",
-  "label_ms": "Penekan 1: amaran MillGuard"
  },
  {
   "t": "2025-03-04T00:00:00+08:00",
@@ -273,7 +266,7 @@
   "label_ms": "Penekan 4: kerosakan"
  },
  {
-  "t": "2025-03-06T08:00:00+08:00",
+  "t": "2025-03-06T01:00:00+08:00",
   "kind": "alert",
   "asset_id": "press_4",
   "label_en": "Press 4: MillGuard alert",
@@ -287,7 +280,7 @@
   "label_ms": "Penekan 1: kerosakan"
  },
  {
-  "t": "2025-03-09T12:00:00+08:00",
+  "t": "2025-03-08T17:00:00+08:00",
   "kind": "alert",
   "asset_id": "press_3",
   "label_en": "Press 3: MillGuard alert",
@@ -308,25 +301,11 @@
   "label_ms": "Penekan 3: kerosakan"
  },
  {
-  "t": "2025-03-15T21:00:00+08:00",
-  "kind": "alert",
-  "asset_id": "press_3",
-  "label_en": "Press 3: MillGuard alert",
-  "label_ms": "Penekan 3: amaran MillGuard"
- },
- {
-  "t": "2025-03-20T00:00:00+08:00",
+  "t": "2025-03-20T05:00:00+08:00",
   "kind": "alert",
   "asset_id": "press_2",
   "label_en": "Press 2: MillGuard alert",
   "label_ms": "Penekan 2: amaran MillGuard"
- },
- {
-  "t": "2025-03-20T22:00:00+08:00",
-  "kind": "alert",
-  "asset_id": "press_1",
-  "label_en": "Press 1: MillGuard alert",
-  "label_ms": "Penekan 1: amaran MillGuard"
  },
  {
   "t": "2025-03-22T10:00:00+08:00",
@@ -336,11 +315,11 @@
   "label_ms": "Penekan 2: kerosakan"
  },
  {
-  "t": "2025-03-23T16:00:00+08:00",
+  "t": "2025-03-23T00:00:00+08:00",
   "kind": "alert",
-  "asset_id": "boiler_1",
-  "label_en": "Boiler 1: MillGuard alert",
-  "label_ms": "Dandang 1: amaran MillGuard"
+  "asset_id": "press_1",
+  "label_en": "Press 1: MillGuard alert",
+  "label_ms": "Penekan 1: amaran MillGuard"
  },
  {
   "t": "2025-03-29T22:00:00+08:00",
@@ -350,32 +329,32 @@
   "label_ms": "Penekan 1: kerosakan"
  },
  {
-  "t": "2025-03-31T12:00:00+08:00",
+  "t": "2025-03-30T15:00:00+08:00",
   "kind": "alert",
   "asset_id": "press_2",
   "label_en": "Press 2: MillGuard alert",
   "label_ms": "Penekan 2: amaran MillGuard"
  },
  {
-  "t": "2025-04-03T10:00:00+08:00",
+  "t": "2025-04-02T10:00:00+08:00",
   "kind": "breakdown",
   "asset_id": "press_2",
   "label_en": "Press 2: breakdown",
   "label_ms": "Penekan 2: kerosakan"
  },
  {
-  "t": "2025-04-04T01:00:00+08:00",
-  "kind": "alert",
-  "asset_id": "press_1",
-  "label_en": "Press 1: MillGuard alert",
-  "label_ms": "Penekan 1: amaran MillGuard"
- },
- {
-  "t": "2025-04-04T11:00:00+08:00",
+  "t": "2025-04-04T10:00:00+08:00",
   "kind": "alert",
   "asset_id": "press_3",
   "label_en": "Press 3: MillGuard alert",
   "label_ms": "Penekan 3: amaran MillGuard"
+ },
+ {
+  "t": "2025-04-05T19:00:00+08:00",
+  "kind": "alert",
+  "asset_id": "press_1",
+  "label_en": "Press 1: MillGuard alert",
+  "label_ms": "Penekan 1: amaran MillGuard"
  },
  {
   "t": "2025-04-05T22:00:00+08:00",
@@ -385,7 +364,7 @@
   "label_ms": "Penekan 1: kerosakan"
  },
  {
-  "t": "2025-04-06T15:00:00+08:00",
+  "t": "2025-04-06T05:00:00+08:00",
   "kind": "alert",
   "asset_id": "press_1",
   "label_en": "Press 1: MillGuard alert",
@@ -420,21 +399,14 @@
   "label_ms": "Penekan 3: kerosakan"
  },
  {
-  "t": "2025-04-11T12:00:00+08:00",
-  "kind": "alert",
-  "asset_id": "press_4",
-  "label_en": "Press 4: MillGuard alert",
-  "label_ms": "Penekan 4: amaran MillGuard"
- },
- {
-  "t": "2025-04-14T16:00:00+08:00",
+  "t": "2025-04-13T23:00:00+08:00",
   "kind": "alert",
   "asset_id": "press_3",
   "label_en": "Press 3: MillGuard alert",
   "label_ms": "Penekan 3: amaran MillGuard"
  },
  {
-  "t": "2025-04-15T00:00:00+08:00",
+  "t": "2025-04-14T21:00:00+08:00",
   "kind": "alert",
   "asset_id": "press_4",
   "label_en": "Press 4: MillGuard alert",
@@ -448,20 +420,6 @@
   "label_ms": "Penekan 4: kerosakan"
  },
  {
-  "t": "2025-04-18T08:00:00+08:00",
-  "kind": "alert",
-  "asset_id": "press_4",
-  "label_en": "Press 4: MillGuard alert",
-  "label_ms": "Penekan 4: amaran MillGuard"
- },
- {
-  "t": "2025-04-19T04:00:00+08:00",
-  "kind": "alert",
-  "asset_id": "press_2",
-  "label_en": "Press 2: MillGuard alert",
-  "label_ms": "Penekan 2: amaran MillGuard"
- },
- {
   "t": "2025-04-19T17:00:00+08:00",
   "kind": "breakdown",
   "asset_id": "press_3",
@@ -469,14 +427,21 @@
   "label_ms": "Penekan 3: kerosakan"
  },
  {
-  "t": "2025-04-20T19:00:00+08:00",
+  "t": "2025-04-19T20:00:00+08:00",
   "kind": "alert",
   "asset_id": "press_4",
   "label_en": "Press 4: MillGuard alert",
   "label_ms": "Penekan 4: amaran MillGuard"
  },
  {
-  "t": "2025-04-20T21:00:00+08:00",
+  "t": "2025-04-20T08:00:00+08:00",
+  "kind": "alert",
+  "asset_id": "press_2",
+  "label_en": "Press 2: MillGuard alert",
+  "label_ms": "Penekan 2: amaran MillGuard"
+ },
+ {
+  "t": "2025-04-20T17:00:00+08:00",
   "kind": "alert",
   "asset_id": "press_3",
   "label_en": "Press 3: MillGuard alert",
@@ -504,25 +469,25 @@
   "label_ms": "Penekan 3: kerosakan"
  },
  {
-  "t": "2025-04-27T02:00:00+08:00",
+  "t": "2025-04-26T21:00:00+08:00",
   "kind": "alert",
   "asset_id": "boiler_1",
   "label_en": "Boiler 1: MillGuard alert",
   "label_ms": "Dandang 1: amaran MillGuard"
  },
  {
-  "t": "2025-04-27T12:00:00+08:00",
-  "kind": "breakdown",
-  "asset_id": "press_2",
-  "label_en": "Press 2: breakdown",
-  "label_ms": "Penekan 2: kerosakan"
- },
- {
-  "t": "2025-04-28T04:00:00+08:00",
+  "t": "2025-04-27T03:00:00+08:00",
   "kind": "alert",
   "asset_id": "press_1",
   "label_en": "Press 1: MillGuard alert",
   "label_ms": "Penekan 1: amaran MillGuard"
+ },
+ {
+  "t": "2025-04-27T16:00:00+08:00",
+  "kind": "breakdown",
+  "asset_id": "press_2",
+  "label_en": "Press 2: breakdown",
+  "label_ms": "Penekan 2: kerosakan"
  },
  {
   "t": "2025-04-28T10:00:00+08:00",
@@ -532,25 +497,32 @@
   "label_ms": "Dandang 1: kerosakan"
  },
  {
-  "t": "2025-04-29T00:00:00+08:00",
-  "kind": "alert",
-  "asset_id": "press_3",
-  "label_en": "Press 3: MillGuard alert",
-  "label_ms": "Penekan 3: amaran MillGuard"
+  "t": "2025-05-01T00:00:00+08:00",
+  "kind": "breakdown",
+  "asset_id": "press_1",
+  "label_en": "Press 1: breakdown",
+  "label_ms": "Penekan 1: kerosakan"
  },
  {
-  "t": "2025-04-30T22:00:00+08:00",
+  "t": "2025-05-01T06:00:00+08:00",
   "kind": "breakdown",
   "asset_id": "press_2",
   "label_en": "Press 2: breakdown",
   "label_ms": "Penekan 2: kerosakan"
  },
  {
-  "t": "2025-05-01T00:00:00+08:00",
-  "kind": "breakdown",
+  "t": "2025-05-02T21:00:00+08:00",
+  "kind": "alert",
   "asset_id": "press_1",
-  "label_en": "Press 1: breakdown",
-  "label_ms": "Penekan 1: kerosakan"
+  "label_en": "Press 1: MillGuard alert",
+  "label_ms": "Penekan 1: amaran MillGuard"
+ },
+ {
+  "t": "2025-05-04T15:00:00+08:00",
+  "kind": "alert",
+  "asset_id": "press_3",
+  "label_en": "Press 3: MillGuard alert",
+  "label_ms": "Penekan 3: amaran MillGuard"
  },
  {
   "t": "2025-05-04T23:00:00+08:00",
@@ -560,14 +532,7 @@
   "label_ms": "Penekan 3: kerosakan"
  },
  {
-  "t": "2025-05-05T22:00:00+08:00",
-  "kind": "alert",
-  "asset_id": "press_1",
-  "label_en": "Press 1: MillGuard alert",
-  "label_ms": "Penekan 1: amaran MillGuard"
- },
- {
-  "t": "2025-05-06T00:00:00+08:00",
+  "t": "2025-05-06T18:00:00+08:00",
   "kind": "alert",
   "asset_id": "press_3",
   "label_en": "Press 3: MillGuard alert",
@@ -581,13 +546,6 @@
   "label_ms": "Penekan 1: kerosakan"
  },
  {
-  "t": "2025-05-10T23:00:00+08:00",
-  "kind": "alert",
-  "asset_id": "press_1",
-  "label_en": "Press 1: MillGuard alert",
-  "label_ms": "Penekan 1: amaran MillGuard"
- },
- {
   "t": "2025-05-11T22:00:00+08:00",
   "kind": "breakdown",
   "asset_id": "press_1",
@@ -595,11 +553,11 @@
   "label_ms": "Penekan 1: kerosakan"
  },
  {
-  "t": "2025-05-12T05:00:00+08:00",
+  "t": "2025-05-13T02:00:00+08:00",
   "kind": "alert",
-  "asset_id": "press_1",
-  "label_en": "Press 1: MillGuard alert",
-  "label_ms": "Penekan 1: amaran MillGuard"
+  "asset_id": "boiler_1",
+  "label_en": "Boiler 1: MillGuard alert",
+  "label_ms": "Dandang 1: amaran MillGuard"
  },
  {
   "t": "2025-05-13T02:00:00+08:00",
@@ -607,13 +565,6 @@
   "asset_id": "press_1",
   "label_en": "Press 1: breakdown",
   "label_ms": "Penekan 1: kerosakan"
- },
- {
-  "t": "2025-05-13T04:00:00+08:00",
-  "kind": "alert",
-  "asset_id": "boiler_1",
-  "label_en": "Boiler 1: MillGuard alert",
-  "label_ms": "Dandang 1: amaran MillGuard"
  },
  {
   "t": "2025-05-13T19:00:00+08:00",
@@ -636,49 +587,42 @@
   "label_ms": "Dandang 1: kerosakan"
  },
  {
-  "t": "2025-05-17T17:00:00+08:00",
+  "t": "2025-05-18T04:00:00+08:00",
+  "kind": "alert",
+  "asset_id": "press_2",
+  "label_en": "Press 2: MillGuard alert",
+  "label_ms": "Penekan 2: amaran MillGuard"
+ },
+ {
+  "t": "2025-05-24T13:00:00+08:00",
   "kind": "alert",
   "asset_id": "press_1",
   "label_en": "Press 1: MillGuard alert",
   "label_ms": "Penekan 1: amaran MillGuard"
  },
  {
-  "t": "2025-05-24T18:00:00+08:00",
-  "kind": "alert",
+  "t": "2025-05-27T07:00:00+08:00",
+  "kind": "breakdown",
   "asset_id": "press_2",
-  "label_en": "Press 2: MillGuard alert",
-  "label_ms": "Penekan 2: amaran MillGuard"
+  "label_en": "Press 2: breakdown",
+  "label_ms": "Penekan 2: kerosakan"
  },
  {
-  "t": "2025-05-26T09:00:00+08:00",
+  "t": "2025-05-27T13:00:00+08:00",
+  "kind": "breakdown",
+  "asset_id": "press_2",
+  "label_en": "Press 2: breakdown",
+  "label_ms": "Penekan 2: kerosakan"
+ },
+ {
+  "t": "2025-05-27T22:00:00+08:00",
   "kind": "breakdown",
   "asset_id": "press_1",
   "label_en": "Press 1: breakdown",
   "label_ms": "Penekan 1: kerosakan"
  },
  {
-  "t": "2025-05-28T00:00:00+08:00",
-  "kind": "breakdown",
-  "asset_id": "press_2",
-  "label_en": "Press 2: breakdown",
-  "label_ms": "Penekan 2: kerosakan"
- },
- {
-  "t": "2025-05-28T12:00:00+08:00",
-  "kind": "alert",
-  "asset_id": "press_2",
-  "label_en": "Press 2: MillGuard alert",
-  "label_ms": "Penekan 2: amaran MillGuard"
- },
- {
-  "t": "2025-05-28T21:00:00+08:00",
-  "kind": "breakdown",
-  "asset_id": "press_2",
-  "label_en": "Press 2: breakdown",
-  "label_ms": "Penekan 2: kerosakan"
- },
- {
-  "t": "2025-06-04T01:00:00+08:00",
+  "t": "2025-06-05T00:00:00+08:00",
   "kind": "alert",
   "asset_id": "press_3",
   "label_en": "Press 3: MillGuard alert",
@@ -692,39 +636,25 @@
   "label_ms": "Penekan 3: kerosakan"
  },
  {
-  "t": "2025-06-07T01:00:00+08:00",
-  "kind": "alert",
-  "asset_id": "press_2",
-  "label_en": "Press 2: MillGuard alert",
-  "label_ms": "Penekan 2: amaran MillGuard"
- },
- {
-  "t": "2025-06-07T20:00:00+08:00",
-  "kind": "alert",
-  "asset_id": "press_1",
-  "label_en": "Press 1: MillGuard alert",
-  "label_ms": "Penekan 1: amaran MillGuard"
- },
- {
-  "t": "2025-06-08T02:00:00+08:00",
+  "t": "2025-06-07T19:00:00+08:00",
   "kind": "alert",
   "asset_id": "press_3",
   "label_en": "Press 3: MillGuard alert",
   "label_ms": "Penekan 3: amaran MillGuard"
  },
  {
-  "t": "2025-06-08T22:00:00+08:00",
+  "t": "2025-06-08T02:00:00+08:00",
+  "kind": "alert",
+  "asset_id": "press_1",
+  "label_en": "Press 1: MillGuard alert",
+  "label_ms": "Penekan 1: amaran MillGuard"
+ },
+ {
+  "t": "2025-06-08T20:00:00+08:00",
   "kind": "alert",
   "asset_id": "press_4",
   "label_en": "Press 4: MillGuard alert",
   "label_ms": "Penekan 4: amaran MillGuard"
- },
- {
-  "t": "2025-06-09T14:00:00+08:00",
-  "kind": "breakdown",
-  "asset_id": "press_2",
-  "label_en": "Press 2: breakdown",
-  "label_ms": "Penekan 2: kerosakan"
  },
  {
   "t": "2025-06-10T14:00:00+08:00",
@@ -741,7 +671,7 @@
   "label_ms": "Penekan 1: kerosakan"
  },
  {
-  "t": "2025-06-11T08:00:00+08:00",
+  "t": "2025-06-11T15:00:00+08:00",
   "kind": "alert",
   "asset_id": "press_3",
   "label_en": "Press 3: MillGuard alert",
@@ -755,6 +685,13 @@
   "label_ms": "Penekan 4: kerosakan"
  },
  {
+  "t": "2025-06-14T08:00:00+08:00",
+  "kind": "alert",
+  "asset_id": "press_1",
+  "label_en": "Press 1: MillGuard alert",
+  "label_ms": "Penekan 1: amaran MillGuard"
+ },
+ {
   "t": "2025-06-14T17:00:00+08:00",
   "kind": "breakdown",
   "asset_id": "press_3",
@@ -762,7 +699,21 @@
   "label_ms": "Penekan 3: kerosakan"
  },
  {
-  "t": "2025-06-17T13:00:00+08:00",
+  "t": "2025-06-15T01:00:00+08:00",
+  "kind": "alert",
+  "asset_id": "press_3",
+  "label_en": "Press 3: MillGuard alert",
+  "label_ms": "Penekan 3: amaran MillGuard"
+ },
+ {
+  "t": "2025-06-19T17:00:00+08:00",
+  "kind": "breakdown",
+  "asset_id": "press_2",
+  "label_en": "Press 2: breakdown",
+  "label_ms": "Penekan 2: kerosakan"
+ },
+ {
+  "t": "2025-06-19T20:00:00+08:00",
   "kind": "alert",
   "asset_id": "press_3",
   "label_en": "Press 3: MillGuard alert",
@@ -776,24 +727,31 @@
   "label_ms": "Penekan 4: amaran MillGuard"
  },
  {
-  "t": "2025-06-21T14:00:00+08:00",
+  "t": "2025-06-20T09:00:00+08:00",
   "kind": "breakdown",
-  "asset_id": "press_2",
-  "label_en": "Press 2: breakdown",
-  "label_ms": "Penekan 2: kerosakan"
+  "asset_id": "press_1",
+  "label_en": "Press 1: breakdown",
+  "label_ms": "Penekan 1: kerosakan"
  },
  {
-  "t": "2025-06-21T17:00:00+08:00",
+  "t": "2025-06-21T14:00:00+08:00",
   "kind": "bookmark",
   "label_en": "Boiler alert: the whole mill is at risk",
   "label_ms": "Amaran dandang: seluruh kilang berisiko"
  },
  {
-  "t": "2025-06-21T17:00:00+08:00",
+  "t": "2025-06-21T14:00:00+08:00",
   "kind": "alert",
   "asset_id": "boiler_1",
   "label_en": "Boiler 1: MillGuard alert",
   "label_ms": "Dandang 1: amaran MillGuard"
+ },
+ {
+  "t": "2025-06-21T14:00:00+08:00",
+  "kind": "alert",
+  "asset_id": "press_3",
+  "label_en": "Press 3: MillGuard alert",
+  "label_ms": "Penekan 3: amaran MillGuard"
  },
  {
   "t": "2025-06-23T02:00:00+08:00",
@@ -803,13 +761,6 @@
   "label_ms": "Dandang 1: kerosakan"
  },
  {
-  "t": "2025-06-23T14:00:00+08:00",
-  "kind": "alert",
-  "asset_id": "press_2",
-  "label_en": "Press 2: MillGuard alert",
-  "label_ms": "Penekan 2: amaran MillGuard"
- },
- {
   "t": "2025-06-23T19:00:00+08:00",
   "kind": "breakdown",
   "asset_id": "press_4",
@@ -817,385 +768,371 @@
   "label_ms": "Penekan 4: kerosakan"
  },
  {
+  "t": "2025-06-25T20:00:00+08:00",
+  "kind": "alert",
+  "asset_id": "press_2",
+  "label_en": "Press 2: MillGuard alert",
+  "label_ms": "Penekan 2: amaran MillGuard"
+ },
+ {
   "t": "2025-06-26T11:00:00+08:00",
+  "kind": "alert",
+  "asset_id": "press_1",
+  "label_en": "Press 1: MillGuard alert",
+  "label_ms": "Penekan 1: amaran MillGuard"
+ },
+ {
+  "t": "2025-06-26T16:00:00+08:00",
   "kind": "breakdown",
   "asset_id": "press_1",
   "label_en": "Press 1: breakdown",
   "label_ms": "Penekan 1: kerosakan"
  },
  {
-  "t": "2025-06-27T08:00:00+08:00",
-  "kind": "breakdown",
-  "asset_id": "press_2",
-  "label_en": "Press 2: breakdown",
-  "label_ms": "Penekan 2: kerosakan"
- },
- {
-  "t": "2025-06-29T00:00:00+08:00",
+  "t": "2025-06-27T20:00:00+08:00",
   "kind": "breakdown",
   "asset_id": "press_3",
   "label_en": "Press 3: breakdown",
   "label_ms": "Penekan 3: kerosakan"
+ },
+ {
+  "t": "2025-06-28T04:00:00+08:00",
+  "kind": "alert",
+  "asset_id": "press_3",
+  "label_en": "Press 3: MillGuard alert",
+  "label_ms": "Penekan 3: amaran MillGuard"
  },
  {
   "t": "2025-06-29T14:00:00+08:00",
-  "kind": "alert",
-  "asset_id": "press_4",
-  "label_en": "Press 4: MillGuard alert",
-  "label_ms": "Penekan 4: amaran MillGuard"
+  "kind": "breakdown",
+  "asset_id": "press_3",
+  "label_en": "Press 3: breakdown",
+  "label_ms": "Penekan 3: kerosakan"
  },
  {
-  "t": "2025-07-03T04:00:00+08:00",
+  "t": "2025-06-29T22:00:00+08:00",
   "kind": "alert",
   "asset_id": "press_3",
   "label_en": "Press 3: MillGuard alert",
   "label_ms": "Penekan 3: amaran MillGuard"
  },
  {
-  "t": "2025-07-06T04:00:00+08:00",
+  "t": "2025-07-03T01:00:00+08:00",
+  "kind": "breakdown",
+  "asset_id": "press_3",
+  "label_en": "Press 3: breakdown",
+  "label_ms": "Penekan 3: kerosakan"
+ },
+ {
+  "t": "2025-07-05T04:00:00+08:00",
   "kind": "alert",
   "asset_id": "press_1",
   "label_en": "Press 1: MillGuard alert",
   "label_ms": "Penekan 1: amaran MillGuard"
  },
  {
-  "t": "2025-07-06T21:00:00+08:00",
-  "kind": "breakdown",
-  "asset_id": "press_3",
-  "label_en": "Press 3: breakdown",
-  "label_ms": "Penekan 3: kerosakan"
- },
- {
-  "t": "2025-07-07T21:00:00+08:00",
-  "kind": "breakdown",
-  "asset_id": "press_4",
-  "label_en": "Press 4: breakdown",
-  "label_ms": "Penekan 4: kerosakan"
- },
- {
-  "t": "2025-07-08T00:00:00+08:00",
+  "t": "2025-07-06T00:00:00+08:00",
   "kind": "alert",
   "asset_id": "press_2",
   "label_en": "Press 2: MillGuard alert",
   "label_ms": "Penekan 2: amaran MillGuard"
  },
  {
-  "t": "2025-07-11T21:00:00+08:00",
+  "t": "2025-07-13T09:00:00+08:00",
   "kind": "alert",
-  "asset_id": "press_3",
-  "label_en": "Press 3: MillGuard alert",
-  "label_ms": "Penekan 3: amaran MillGuard"
+  "asset_id": "press_4",
+  "label_en": "Press 4: MillGuard alert",
+  "label_ms": "Penekan 4: amaran MillGuard"
  },
  {
-  "t": "2025-07-13T02:00:00+08:00",
+  "t": "2025-07-13T16:00:00+08:00",
   "kind": "breakdown",
   "asset_id": "press_1",
   "label_en": "Press 1: breakdown",
   "label_ms": "Penekan 1: kerosakan"
  },
  {
-  "t": "2025-07-13T10:00:00+08:00",
+  "t": "2025-07-14T08:00:00+08:00",
+  "kind": "breakdown",
+  "asset_id": "press_2",
+  "label_en": "Press 2: breakdown",
+  "label_ms": "Penekan 2: kerosakan"
+ },
+ {
+  "t": "2025-07-14T15:00:00+08:00",
+  "kind": "breakdown",
+  "asset_id": "press_2",
+  "label_en": "Press 2: breakdown",
+  "label_ms": "Penekan 2: kerosakan"
+ },
+ {
+  "t": "2025-07-15T16:00:00+08:00",
+  "kind": "breakdown",
+  "asset_id": "press_1",
+  "label_en": "Press 1: breakdown",
+  "label_ms": "Penekan 1: kerosakan"
+ },
+ {
+  "t": "2025-07-15T21:00:00+08:00",
+  "kind": "breakdown",
+  "asset_id": "press_1",
+  "label_en": "Press 1: breakdown",
+  "label_ms": "Penekan 1: kerosakan"
+ },
+ {
+  "t": "2025-07-18T09:00:00+08:00",
+  "kind": "breakdown",
+  "asset_id": "press_4",
+  "label_en": "Press 4: breakdown",
+  "label_ms": "Penekan 4: kerosakan"
+ },
+ {
+  "t": "2025-07-18T17:00:00+08:00",
+  "kind": "alert",
+  "asset_id": "press_4",
+  "label_en": "Press 4: MillGuard alert",
+  "label_ms": "Penekan 4: amaran MillGuard"
+ },
+ {
+  "t": "2025-07-20T21:00:00+08:00",
+  "kind": "breakdown",
+  "asset_id": "press_4",
+  "label_en": "Press 4: breakdown",
+  "label_ms": "Penekan 4: kerosakan"
+ },
+ {
+  "t": "2025-07-30T12:00:00+08:00",
+  "kind": "alert",
+  "asset_id": "press_2",
+  "label_en": "Press 2: MillGuard alert",
+  "label_ms": "Penekan 2: amaran MillGuard"
+ },
+ {
+  "t": "2025-07-30T20:00:00+08:00",
+  "kind": "breakdown",
+  "asset_id": "press_2",
+  "label_en": "Press 2: breakdown",
+  "label_ms": "Penekan 2: kerosakan"
+ },
+ {
+  "t": "2025-08-01T18:00:00+08:00",
   "kind": "alert",
   "asset_id": "press_1",
   "label_en": "Press 1: MillGuard alert",
   "label_ms": "Penekan 1: amaran MillGuard"
  },
  {
-  "t": "2025-07-14T10:00:00+08:00",
-  "kind": "breakdown",
-  "asset_id": "press_3",
-  "label_en": "Press 3: breakdown",
-  "label_ms": "Penekan 3: kerosakan"
- },
- {
-  "t": "2025-07-14T13:00:00+08:00",
-  "kind": "breakdown",
-  "asset_id": "press_2",
-  "label_en": "Press 2: breakdown",
-  "label_ms": "Penekan 2: kerosakan"
- },
- {
-  "t": "2025-07-14T14:00:00+08:00",
-  "kind": "alert",
-  "asset_id": "press_4",
-  "label_en": "Press 4: MillGuard alert",
-  "label_ms": "Penekan 4: amaran MillGuard"
- },
- {
-  "t": "2025-07-14T18:00:00+08:00",
-  "kind": "alert",
-  "asset_id": "press_3",
-  "label_en": "Press 3: MillGuard alert",
-  "label_ms": "Penekan 3: amaran MillGuard"
- },
- {
-  "t": "2025-07-15T11:00:00+08:00",
+  "t": "2025-08-02T22:00:00+08:00",
   "kind": "breakdown",
   "asset_id": "press_1",
   "label_en": "Press 1: breakdown",
   "label_ms": "Penekan 1: kerosakan"
  },
  {
-  "t": "2025-07-18T12:00:00+08:00",
-  "kind": "breakdown",
-  "asset_id": "press_4",
-  "label_en": "Press 4: breakdown",
-  "label_ms": "Penekan 4: kerosakan"
- },
- {
-  "t": "2025-07-18T20:00:00+08:00",
-  "kind": "alert",
-  "asset_id": "press_4",
-  "label_en": "Press 4: MillGuard alert",
-  "label_ms": "Penekan 4: amaran MillGuard"
- },
- {
-  "t": "2025-07-21T01:00:00+08:00",
-  "kind": "breakdown",
-  "asset_id": "press_4",
-  "label_en": "Press 4: breakdown",
-  "label_ms": "Penekan 4: kerosakan"
- },
- {
-  "t": "2025-07-30T11:00:00+08:00",
+  "t": "2025-08-03T22:00:00+08:00",
   "kind": "alert",
   "asset_id": "press_1",
   "label_en": "Press 1: MillGuard alert",
   "label_ms": "Penekan 1: amaran MillGuard"
  },
  {
-  "t": "2025-07-30T14:00:00+08:00",
+  "t": "2025-08-04T11:00:00+08:00",
+  "kind": "alert",
+  "asset_id": "press_3",
+  "label_en": "Press 3: MillGuard alert",
+  "label_ms": "Penekan 3: amaran MillGuard"
+ },
+ {
+  "t": "2025-08-07T02:00:00+08:00",
+  "kind": "breakdown",
+  "asset_id": "press_3",
+  "label_en": "Press 3: breakdown",
+  "label_ms": "Penekan 3: kerosakan"
+ },
+ {
+  "t": "2025-08-10T23:00:00+08:00",
+  "kind": "alert",
+  "asset_id": "press_3",
+  "label_en": "Press 3: MillGuard alert",
+  "label_ms": "Penekan 3: amaran MillGuard"
+ },
+ {
+  "t": "2025-08-12T12:00:00+08:00",
+  "kind": "breakdown",
+  "asset_id": "press_3",
+  "label_en": "Press 3: breakdown",
+  "label_ms": "Penekan 3: kerosakan"
+ },
+ {
+  "t": "2025-08-13T08:00:00+08:00",
   "kind": "alert",
   "asset_id": "press_2",
   "label_en": "Press 2: MillGuard alert",
   "label_ms": "Penekan 2: amaran MillGuard"
  },
  {
-  "t": "2025-07-30T22:00:00+08:00",
-  "kind": "breakdown",
-  "asset_id": "press_2",
-  "label_en": "Press 2: breakdown",
-  "label_ms": "Penekan 2: kerosakan"
- },
- {
-  "t": "2025-08-01T07:00:00+08:00",
-  "kind": "breakdown",
-  "asset_id": "press_4",
-  "label_en": "Press 4: breakdown",
-  "label_ms": "Penekan 4: kerosakan"
- },
- {
-  "t": "2025-08-02T12:00:00+08:00",
-  "kind": "breakdown",
-  "asset_id": "press_1",
-  "label_en": "Press 1: breakdown",
-  "label_ms": "Penekan 1: kerosakan"
- },
- {
-  "t": "2025-08-04T10:00:00+08:00",
-  "kind": "alert",
-  "asset_id": "press_2",
-  "label_en": "Press 2: MillGuard alert",
-  "label_ms": "Penekan 2: amaran MillGuard"
- },
- {
-  "t": "2025-08-06T19:00:00+08:00",
-  "kind": "breakdown",
-  "asset_id": "press_2",
-  "label_en": "Press 2: breakdown",
-  "label_ms": "Penekan 2: kerosakan"
- },
- {
-  "t": "2025-08-08T20:00:00+08:00",
+  "t": "2025-08-13T15:00:00+08:00",
   "kind": "alert",
   "asset_id": "press_1",
   "label_en": "Press 1: MillGuard alert",
   "label_ms": "Penekan 1: amaran MillGuard"
  },
  {
-  "t": "2025-08-11T12:00:00+08:00",
-  "kind": "alert",
-  "asset_id": "press_3",
-  "label_en": "Press 3: MillGuard alert",
-  "label_ms": "Penekan 3: amaran MillGuard"
- },
- {
-  "t": "2025-08-11T22:00:00+08:00",
+  "t": "2025-08-15T16:00:00+08:00",
   "kind": "breakdown",
   "asset_id": "press_1",
   "label_en": "Press 1: breakdown",
   "label_ms": "Penekan 1: kerosakan"
  },
  {
-  "t": "2025-08-12T08:00:00+08:00",
-  "kind": "breakdown",
-  "asset_id": "press_3",
-  "label_en": "Press 3: breakdown",
-  "label_ms": "Penekan 3: kerosakan"
- },
- {
-  "t": "2025-08-18T14:00:00+08:00",
-  "kind": "alert",
-  "asset_id": "press_3",
-  "label_en": "Press 3: MillGuard alert",
-  "label_ms": "Penekan 3: amaran MillGuard"
- },
- {
-  "t": "2025-08-21T23:00:00+08:00",
-  "kind": "breakdown",
-  "asset_id": "press_3",
-  "label_en": "Press 3: breakdown",
-  "label_ms": "Penekan 3: kerosakan"
- },
- {
-  "t": "2025-08-22T09:00:00+08:00",
-  "kind": "alert",
-  "asset_id": "press_4",
-  "label_en": "Press 4: MillGuard alert",
-  "label_ms": "Penekan 4: amaran MillGuard"
- },
- {
-  "t": "2025-08-24T22:00:00+08:00",
-  "kind": "breakdown",
-  "asset_id": "press_4",
-  "label_en": "Press 4: breakdown",
-  "label_ms": "Penekan 4: kerosakan"
- },
- {
-  "t": "2025-08-25T03:00:00+08:00",
-  "kind": "bookmark",
-  "asset_id": "press_2",
-  "label_en": "Press 2: worm wear, act now",
-  "label_ms": "Penekan 2: haus skru cacing, bertindak sekarang"
- },
- {
-  "t": "2025-08-25T03:00:00+08:00",
-  "kind": "alert",
-  "asset_id": "press_2",
-  "label_en": "Press 2: MillGuard alert",
-  "label_ms": "Penekan 2: amaran MillGuard"
- },
- {
-  "t": "2025-08-25T06:00:00+08:00",
-  "kind": "alert",
-  "asset_id": "press_4",
-  "label_en": "Press 4: MillGuard alert",
-  "label_ms": "Penekan 4: amaran MillGuard"
- },
- {
-  "t": "2025-08-26T00:00:00+08:00",
-  "kind": "breakdown",
-  "asset_id": "press_4",
-  "label_en": "Press 4: breakdown",
-  "label_ms": "Penekan 4: kerosakan"
- },
- {
-  "t": "2025-08-26T08:00:00+08:00",
-  "kind": "alert",
-  "asset_id": "press_4",
-  "label_en": "Press 4: MillGuard alert",
-  "label_ms": "Penekan 4: amaran MillGuard"
- },
- {
-  "t": "2025-08-26T18:00:00+08:00",
+  "t": "2025-08-16T16:00:00+08:00",
   "kind": "breakdown",
   "asset_id": "press_2",
   "label_en": "Press 2: breakdown",
   "label_ms": "Penekan 2: kerosakan"
  },
  {
-  "t": "2025-09-01T07:00:00+08:00",
+  "t": "2025-08-22T01:00:00+08:00",
+  "kind": "alert",
+  "asset_id": "press_4",
+  "label_en": "Press 4: MillGuard alert",
+  "label_ms": "Penekan 4: amaran MillGuard"
+ },
+ {
+  "t": "2025-08-24T18:00:00+08:00",
   "kind": "breakdown",
   "asset_id": "press_4",
   "label_en": "Press 4: breakdown",
   "label_ms": "Penekan 4: kerosakan"
  },
  {
-  "t": "2025-09-06T16:00:00+08:00",
+  "t": "2025-08-25T15:00:00+08:00",
+  "kind": "alert",
+  "asset_id": "press_4",
+  "label_en": "Press 4: MillGuard alert",
+  "label_ms": "Penekan 4: amaran MillGuard"
+ },
+ {
+  "t": "2025-08-31T16:00:00+08:00",
   "kind": "alert",
   "asset_id": "press_3",
   "label_en": "Press 3: MillGuard alert",
   "label_ms": "Penekan 3: amaran MillGuard"
  },
  {
-  "t": "2025-09-07T04:00:00+08:00",
+  "t": "2025-08-31T16:00:00+08:00",
   "kind": "alert",
   "asset_id": "press_1",
   "label_en": "Press 1: MillGuard alert",
   "label_ms": "Penekan 1: amaran MillGuard"
  },
  {
-  "t": "2025-09-10T08:00:00+08:00",
-  "kind": "breakdown",
-  "asset_id": "press_1",
-  "label_en": "Press 1: breakdown",
-  "label_ms": "Penekan 1: kerosakan"
- },
- {
-  "t": "2025-09-11T18:00:00+08:00",
-  "kind": "alert",
-  "asset_id": "press_2",
-  "label_en": "Press 2: MillGuard alert",
-  "label_ms": "Penekan 2: amaran MillGuard"
- },
- {
-  "t": "2025-09-11T23:00:00+08:00",
-  "kind": "breakdown",
-  "asset_id": "press_3",
-  "label_en": "Press 3: breakdown",
-  "label_ms": "Penekan 3: kerosakan"
- },
- {
-  "t": "2025-09-12T13:00:00+08:00",
-  "kind": "alert",
-  "asset_id": "press_3",
-  "label_en": "Press 3: MillGuard alert",
-  "label_ms": "Penekan 3: amaran MillGuard"
- },
- {
-  "t": "2025-09-17T23:00:00+08:00",
-  "kind": "alert",
-  "asset_id": "press_3",
-  "label_en": "Press 3: MillGuard alert",
-  "label_ms": "Penekan 3: amaran MillGuard"
- },
- {
-  "t": "2025-09-19T06:00:00+08:00",
-  "kind": "breakdown",
-  "asset_id": "press_2",
-  "label_en": "Press 2: breakdown",
-  "label_ms": "Penekan 2: kerosakan"
- },
- {
-  "t": "2025-09-21T12:00:00+08:00",
-  "kind": "breakdown",
-  "asset_id": "press_3",
-  "label_en": "Press 3: breakdown",
-  "label_ms": "Penekan 3: kerosakan"
- },
- {
-  "t": "2025-09-22T03:00:00+08:00",
-  "kind": "alert",
-  "asset_id": "press_4",
-  "label_en": "Press 4: MillGuard alert",
-  "label_ms": "Penekan 4: amaran MillGuard"
- },
- {
-  "t": "2025-09-27T01:00:00+08:00",
+  "t": "2025-08-31T21:00:00+08:00",
   "kind": "breakdown",
   "asset_id": "press_4",
   "label_en": "Press 4: breakdown",
   "label_ms": "Penekan 4: kerosakan"
  },
  {
-  "t": "2025-09-27T09:00:00+08:00",
+  "t": "2025-09-04T18:00:00+08:00",
+  "kind": "breakdown",
+  "asset_id": "press_1",
+  "label_en": "Press 1: breakdown",
+  "label_ms": "Penekan 1: kerosakan"
+ },
+ {
+  "t": "2025-09-05T01:00:00+08:00",
+  "kind": "alert",
+  "asset_id": "press_3",
+  "label_en": "Press 3: MillGuard alert",
+  "label_ms": "Penekan 3: amaran MillGuard"
+ },
+ {
+  "t": "2025-09-08T08:00:00+08:00",
+  "kind": "breakdown",
+  "asset_id": "press_3",
+  "label_en": "Press 3: breakdown",
+  "label_ms": "Penekan 3: kerosakan"
+ },
+ {
+  "t": "2025-09-11T11:00:00+08:00",
+  "kind": "alert",
+  "asset_id": "press_1",
+  "label_en": "Press 1: MillGuard alert",
+  "label_ms": "Penekan 1: amaran MillGuard"
+ },
+ {
+  "t": "2025-09-13T12:00:00+08:00",
+  "kind": "alert",
+  "asset_id": "press_2",
+  "label_en": "Press 2: MillGuard alert",
+  "label_ms": "Penekan 2: amaran MillGuard"
+ },
+ {
+  "t": "2025-09-14T01:00:00+08:00",
+  "kind": "breakdown",
+  "asset_id": "press_1",
+  "label_en": "Press 1: breakdown",
+  "label_ms": "Penekan 1: kerosakan"
+ },
+ {
+  "t": "2025-09-16T15:00:00+08:00",
+  "kind": "breakdown",
+  "asset_id": "press_2",
+  "label_en": "Press 2: breakdown",
+  "label_ms": "Penekan 2: kerosakan"
+ },
+ {
+  "t": "2025-09-17T05:00:00+08:00",
+  "kind": "alert",
+  "asset_id": "press_1",
+  "label_en": "Press 1: MillGuard alert",
+  "label_ms": "Penekan 1: amaran MillGuard"
+ },
+ {
+  "t": "2025-09-18T06:00:00+08:00",
+  "kind": "breakdown",
+  "asset_id": "press_1",
+  "label_en": "Press 1: breakdown",
+  "label_ms": "Penekan 1: kerosakan"
+ },
+ {
+  "t": "2025-09-21T19:00:00+08:00",
   "kind": "alert",
   "asset_id": "press_4",
   "label_en": "Press 4: MillGuard alert",
   "label_ms": "Penekan 4: amaran MillGuard"
  },
  {
-  "t": "2025-09-30T11:00:00+08:00",
+  "t": "2025-09-23T01:00:00+08:00",
+  "kind": "alert",
+  "asset_id": "press_2",
+  "label_en": "Press 2: MillGuard alert",
+  "label_ms": "Penekan 2: amaran MillGuard"
+ },
+ {
+  "t": "2025-09-24T16:00:00+08:00",
+  "kind": "breakdown",
+  "asset_id": "press_4",
+  "label_en": "Press 4: breakdown",
+  "label_ms": "Penekan 4: kerosakan"
+ },
+ {
+  "t": "2025-09-25T12:00:00+08:00",
+  "kind": "alert",
+  "asset_id": "press_4",
+  "label_en": "Press 4: MillGuard alert",
+  "label_ms": "Penekan 4: amaran MillGuard"
+ },
+ {
+  "t": "2025-09-25T18:00:00+08:00",
+  "kind": "breakdown",
+  "asset_id": "press_2",
+  "label_en": "Press 2: breakdown",
+  "label_ms": "Penekan 2: kerosakan"
+ },
+ {
+  "t": "2025-10-02T23:00:00+08:00",
   "kind": "breakdown",
   "asset_id": "press_4",
   "label_en": "Press 4: breakdown",
@@ -1209,186 +1146,200 @@
   "label_ms": "Penekan 2: amaran MillGuard"
  },
  {
-  "t": "2025-10-10T00:00:00+08:00",
+  "t": "2025-10-08T19:00:00+08:00",
   "kind": "breakdown",
   "asset_id": "press_2",
   "label_en": "Press 2: breakdown",
   "label_ms": "Penekan 2: kerosakan"
  },
  {
-  "t": "2025-10-10T07:00:00+08:00",
-  "kind": "alert",
-  "asset_id": "press_2",
-  "label_en": "Press 2: MillGuard alert",
-  "label_ms": "Penekan 2: amaran MillGuard"
- },
- {
-  "t": "2025-10-11T17:00:00+08:00",
+  "t": "2025-10-09T23:00:00+08:00",
   "kind": "breakdown",
   "asset_id": "press_2",
   "label_en": "Press 2: breakdown",
   "label_ms": "Penekan 2: kerosakan"
  },
  {
-  "t": "2025-10-12T00:00:00+08:00",
+  "t": "2025-10-11T01:00:00+08:00",
   "kind": "alert",
-  "asset_id": "press_2",
-  "label_en": "Press 2: MillGuard alert",
-  "label_ms": "Penekan 2: amaran MillGuard"
+  "asset_id": "press_4",
+  "label_en": "Press 4: MillGuard alert",
+  "label_ms": "Penekan 4: amaran MillGuard"
  },
  {
-  "t": "2025-10-12T15:00:00+08:00",
-  "kind": "breakdown",
-  "asset_id": "press_2",
-  "label_en": "Press 2: breakdown",
-  "label_ms": "Penekan 2: kerosakan"
- },
- {
-  "t": "2025-10-14T02:00:00+08:00",
-  "kind": "alert",
-  "asset_id": "press_2",
-  "label_en": "Press 2: MillGuard alert",
-  "label_ms": "Penekan 2: amaran MillGuard"
- },
- {
-  "t": "2025-10-14T12:00:00+08:00",
-  "kind": "alert",
-  "asset_id": "press_3",
-  "label_en": "Press 3: MillGuard alert",
-  "label_ms": "Penekan 3: amaran MillGuard"
- },
- {
-  "t": "2025-10-17T03:00:00+08:00",
-  "kind": "breakdown",
-  "asset_id": "press_2",
-  "label_en": "Press 2: breakdown",
-  "label_ms": "Penekan 2: kerosakan"
- },
- {
-  "t": "2025-10-17T04:00:00+08:00",
+  "t": "2025-10-11T15:00:00+08:00",
   "kind": "alert",
   "asset_id": "press_1",
   "label_en": "Press 1: MillGuard alert",
   "label_ms": "Penekan 1: amaran MillGuard"
  },
  {
-  "t": "2025-10-17T19:00:00+08:00",
-  "kind": "alert",
-  "asset_id": "press_4",
-  "label_en": "Press 4: MillGuard alert",
-  "label_ms": "Penekan 4: amaran MillGuard"
- },
- {
-  "t": "2025-10-20T08:00:00+08:00",
-  "kind": "breakdown",
-  "asset_id": "press_1",
-  "label_en": "Press 1: breakdown",
-  "label_ms": "Penekan 1: kerosakan"
- },
- {
-  "t": "2025-10-20T17:00:00+08:00",
+  "t": "2025-10-14T08:00:00+08:00",
   "kind": "breakdown",
   "asset_id": "press_4",
   "label_en": "Press 4: breakdown",
   "label_ms": "Penekan 4: kerosakan"
  },
  {
-  "t": "2025-10-21T01:00:00+08:00",
+  "t": "2025-10-14T15:00:00+08:00",
   "kind": "alert",
   "asset_id": "press_4",
   "label_en": "Press 4: MillGuard alert",
   "label_ms": "Penekan 4: amaran MillGuard"
  },
  {
-  "t": "2025-10-21T23:00:00+08:00",
+  "t": "2025-10-18T01:00:00+08:00",
   "kind": "breakdown",
+  "asset_id": "press_1",
+  "label_en": "Press 1: breakdown",
+  "label_ms": "Penekan 1: kerosakan"
+ },
+ {
+  "t": "2025-10-18T09:00:00+08:00",
+  "kind": "alert",
+  "asset_id": "press_1",
+  "label_en": "Press 1: MillGuard alert",
+  "label_ms": "Penekan 1: amaran MillGuard"
+ },
+ {
+  "t": "2025-10-18T13:00:00+08:00",
+  "kind": "breakdown",
+  "asset_id": "press_1",
+  "label_en": "Press 1: breakdown",
+  "label_ms": "Penekan 1: kerosakan"
+ },
+ {
+  "t": "2025-10-19T13:00:00+08:00",
+  "kind": "breakdown",
+  "asset_id": "press_4",
+  "label_en": "Press 4: breakdown",
+  "label_ms": "Penekan 4: kerosakan"
+ },
+ {
+  "t": "2025-10-19T15:00:00+08:00",
+  "kind": "alert",
   "asset_id": "press_3",
-  "label_en": "Press 3: breakdown",
-  "label_ms": "Penekan 3: kerosakan"
+  "label_en": "Press 3: MillGuard alert",
+  "label_ms": "Penekan 3: amaran MillGuard"
+ },
+ {
+  "t": "2025-10-20T10:00:00+08:00",
+  "kind": "alert",
+  "asset_id": "press_4",
+  "label_en": "Press 4: MillGuard alert",
+  "label_ms": "Penekan 4: amaran MillGuard"
  },
  {
   "t": "2025-10-22T21:00:00+08:00",
   "kind": "breakdown",
-  "asset_id": "press_4",
-  "label_en": "Press 4: breakdown",
-  "label_ms": "Penekan 4: kerosakan"
+  "asset_id": "press_3",
+  "label_en": "Press 3: breakdown",
+  "label_ms": "Penekan 3: kerosakan"
  },
  {
-  "t": "2025-10-25T17:00:00+08:00",
+  "t": "2025-10-24T10:00:00+08:00",
   "kind": "alert",
   "asset_id": "press_3",
   "label_en": "Press 3: MillGuard alert",
   "label_ms": "Penekan 3: amaran MillGuard"
  },
  {
-  "t": "2025-10-27T22:00:00+08:00",
-  "kind": "breakdown",
-  "asset_id": "press_3",
-  "label_en": "Press 3: breakdown",
-  "label_ms": "Penekan 3: kerosakan"
- },
- {
-  "t": "2025-11-04T09:00:00+08:00",
-  "kind": "breakdown",
-  "asset_id": "press_2",
-  "label_en": "Press 2: breakdown",
-  "label_ms": "Penekan 2: kerosakan"
- },
- {
-  "t": "2025-11-13T00:00:00+08:00",
-  "kind": "alert",
-  "asset_id": "press_4",
-  "label_en": "Press 4: MillGuard alert",
-  "label_ms": "Penekan 4: amaran MillGuard"
- },
- {
-  "t": "2025-11-14T02:00:00+08:00",
-  "kind": "alert",
-  "asset_id": "press_2",
-  "label_en": "Press 2: MillGuard alert",
-  "label_ms": "Penekan 2: amaran MillGuard"
- },
- {
-  "t": "2025-11-17T02:00:00+08:00",
-  "kind": "breakdown",
-  "asset_id": "press_2",
-  "label_en": "Press 2: breakdown",
-  "label_ms": "Penekan 2: kerosakan"
- },
- {
-  "t": "2025-11-17T20:00:00+08:00",
-  "kind": "breakdown",
-  "asset_id": "press_4",
-  "label_en": "Press 4: breakdown",
-  "label_ms": "Penekan 4: kerosakan"
- },
- {
-  "t": "2025-11-18T21:00:00+08:00",
-  "kind": "alert",
-  "asset_id": "press_4",
-  "label_en": "Press 4: MillGuard alert",
-  "label_ms": "Penekan 4: amaran MillGuard"
- },
- {
-  "t": "2025-11-19T09:00:00+08:00",
+  "t": "2025-10-25T05:00:00+08:00",
   "kind": "alert",
   "asset_id": "press_1",
   "label_en": "Press 1: MillGuard alert",
   "label_ms": "Penekan 1: amaran MillGuard"
  },
  {
-  "t": "2025-11-20T00:00:00+08:00",
+  "t": "2025-10-25T18:00:00+08:00",
+  "kind": "breakdown",
+  "asset_id": "press_4",
+  "label_en": "Press 4: breakdown",
+  "label_ms": "Penekan 4: kerosakan"
+ },
+ {
+  "t": "2025-10-27T08:00:00+08:00",
+  "kind": "breakdown",
+  "asset_id": "press_3",
+  "label_en": "Press 3: breakdown",
+  "label_ms": "Penekan 3: kerosakan"
+ },
+ {
+  "t": "2025-10-28T09:00:00+08:00",
+  "kind": "alert",
+  "asset_id": "press_2",
+  "label_en": "Press 2: MillGuard alert",
+  "label_ms": "Penekan 2: amaran MillGuard"
+ },
+ {
+  "t": "2025-10-28T13:00:00+08:00",
   "kind": "breakdown",
   "asset_id": "press_1",
   "label_en": "Press 1: breakdown",
   "label_ms": "Penekan 1: kerosakan"
  },
  {
-  "t": "2025-11-20T05:00:00+08:00",
+  "t": "2025-10-31T06:00:00+08:00",
+  "kind": "breakdown",
+  "asset_id": "press_2",
+  "label_en": "Press 2: breakdown",
+  "label_ms": "Penekan 2: kerosakan"
+ },
+ {
+  "t": "2025-10-31T14:00:00+08:00",
+  "kind": "alert",
+  "asset_id": "press_2",
+  "label_en": "Press 2: MillGuard alert",
+  "label_ms": "Penekan 2: amaran MillGuard"
+ },
+ {
+  "t": "2025-11-02T20:00:00+08:00",
+  "kind": "breakdown",
+  "asset_id": "press_2",
+  "label_en": "Press 2: breakdown",
+  "label_ms": "Penekan 2: kerosakan"
+ },
+ {
+  "t": "2025-11-03T16:00:00+08:00",
+  "kind": "alert",
+  "asset_id": "press_1",
+  "label_en": "Press 1: MillGuard alert",
+  "label_ms": "Penekan 1: amaran MillGuard"
+ },
+ {
+  "t": "2025-11-04T18:00:00+08:00",
+  "kind": "breakdown",
+  "asset_id": "press_1",
+  "label_en": "Press 1: breakdown",
+  "label_ms": "Penekan 1: kerosakan"
+ },
+ {
+  "t": "2025-11-13T17:00:00+08:00",
+  "kind": "alert",
+  "asset_id": "press_4",
+  "label_en": "Press 4: MillGuard alert",
+  "label_ms": "Penekan 4: amaran MillGuard"
+ },
+ {
+  "t": "2025-11-15T18:00:00+08:00",
+  "kind": "breakdown",
+  "asset_id": "press_4",
+  "label_en": "Press 4: breakdown",
+  "label_ms": "Penekan 4: kerosakan"
+ },
+ {
+  "t": "2025-11-18T09:00:00+08:00",
   "kind": "alert",
   "asset_id": "press_3",
   "label_en": "Press 3: MillGuard alert",
   "label_ms": "Penekan 3: amaran MillGuard"
+ },
+ {
+  "t": "2025-11-19T14:00:00+08:00",
+  "kind": "alert",
+  "asset_id": "press_2",
+  "label_en": "Press 2: MillGuard alert",
+  "label_ms": "Penekan 2: amaran MillGuard"
  },
  {
   "t": "2025-11-20T13:00:00+08:00",
@@ -1398,6 +1349,20 @@
   "label_ms": "Dandang 1: amaran MillGuard"
  },
  {
+  "t": "2025-11-20T20:00:00+08:00",
+  "kind": "breakdown",
+  "asset_id": "press_3",
+  "label_en": "Press 3: breakdown",
+  "label_ms": "Penekan 3: kerosakan"
+ },
+ {
+  "t": "2025-11-21T08:00:00+08:00",
+  "kind": "alert",
+  "asset_id": "press_1",
+  "label_en": "Press 1: MillGuard alert",
+  "label_ms": "Penekan 1: amaran MillGuard"
+ },
+ {
   "t": "2025-11-21T09:00:00+08:00",
   "kind": "breakdown",
   "asset_id": "boiler_1",
@@ -1405,150 +1370,178 @@
   "label_ms": "Dandang 1: kerosakan"
  },
  {
-  "t": "2025-11-23T02:00:00+08:00",
+  "t": "2025-11-23T03:00:00+08:00",
   "kind": "breakdown",
-  "asset_id": "press_3",
-  "label_en": "Press 3: breakdown",
-  "label_ms": "Penekan 3: kerosakan"
+  "asset_id": "press_1",
+  "label_en": "Press 1: breakdown",
+  "label_ms": "Penekan 1: kerosakan"
  },
  {
-  "t": "2025-11-23T09:00:00+08:00",
+  "t": "2025-11-23T10:00:00+08:00",
+  "kind": "alert",
+  "asset_id": "press_1",
+  "label_en": "Press 1: MillGuard alert",
+  "label_ms": "Penekan 1: amaran MillGuard"
+ },
+ {
+  "t": "2025-11-23T13:00:00+08:00",
+  "kind": "breakdown",
+  "asset_id": "press_2",
+  "label_en": "Press 2: breakdown",
+  "label_ms": "Penekan 2: kerosakan"
+ },
+ {
+  "t": "2025-11-23T22:00:00+08:00",
+  "kind": "bookmark",
+  "asset_id": "press_2",
+  "label_en": "Press 2: worm wear, act now",
+  "label_ms": "Penekan 2: haus skru cacing, bertindak sekarang"
+ },
+ {
+  "t": "2025-11-23T22:00:00+08:00",
+  "kind": "alert",
+  "asset_id": "press_2",
+  "label_en": "Press 2: MillGuard alert",
+  "label_ms": "Penekan 2: amaran MillGuard"
+ },
+ {
+  "t": "2025-11-24T23:00:00+08:00",
+  "kind": "breakdown",
+  "asset_id": "press_1",
+  "label_en": "Press 1: breakdown",
+  "label_ms": "Penekan 1: kerosakan"
+ },
+ {
+  "t": "2025-11-27T22:00:00+08:00",
+  "kind": "breakdown",
+  "asset_id": "press_2",
+  "label_en": "Press 2: breakdown",
+  "label_ms": "Penekan 2: kerosakan"
+ },
+ {
+  "t": "2025-11-30T17:00:00+08:00",
+  "kind": "alert",
+  "asset_id": "press_4",
+  "label_en": "Press 4: MillGuard alert",
+  "label_ms": "Penekan 4: amaran MillGuard"
+ },
+ {
+  "t": "2025-12-01T09:00:00+08:00",
+  "kind": "breakdown",
+  "asset_id": "press_4",
+  "label_en": "Press 4: breakdown",
+  "label_ms": "Penekan 4: kerosakan"
+ },
+ {
+  "t": "2025-12-04T17:00:00+08:00",
   "kind": "alert",
   "asset_id": "press_3",
   "label_en": "Press 3: MillGuard alert",
   "label_ms": "Penekan 3: amaran MillGuard"
  },
  {
-  "t": "2025-11-25T01:00:00+08:00",
-  "kind": "breakdown",
-  "asset_id": "press_4",
-  "label_en": "Press 4: breakdown",
-  "label_ms": "Penekan 4: kerosakan"
- },
- {
-  "t": "2025-11-30T18:00:00+08:00",
-  "kind": "alert",
-  "asset_id": "press_4",
-  "label_en": "Press 4: MillGuard alert",
-  "label_ms": "Penekan 4: amaran MillGuard"
- },
- {
-  "t": "2025-12-01T14:00:00+08:00",
-  "kind": "breakdown",
-  "asset_id": "press_4",
-  "label_en": "Press 4: breakdown",
-  "label_ms": "Penekan 4: kerosakan"
- },
- {
-  "t": "2025-12-02T02:00:00+08:00",
-  "kind": "breakdown",
-  "asset_id": "press_2",
-  "label_en": "Press 2: breakdown",
-  "label_ms": "Penekan 2: kerosakan"
- },
- {
-  "t": "2025-12-04T16:00:00+08:00",
-  "kind": "alert",
-  "asset_id": "press_2",
-  "label_en": "Press 2: MillGuard alert",
-  "label_ms": "Penekan 2: amaran MillGuard"
- },
- {
-  "t": "2025-12-05T17:00:00+08:00",
-  "kind": "alert",
-  "asset_id": "press_1",
-  "label_en": "Press 1: MillGuard alert",
-  "label_ms": "Penekan 1: amaran MillGuard"
- },
- {
-  "t": "2025-12-07T15:00:00+08:00",
-  "kind": "breakdown",
-  "asset_id": "press_2",
-  "label_en": "Press 2: breakdown",
-  "label_ms": "Penekan 2: kerosakan"
- },
- {
-  "t": "2025-12-08T06:00:00+08:00",
-  "kind": "breakdown",
-  "asset_id": "press_1",
-  "label_en": "Press 1: breakdown",
-  "label_ms": "Penekan 1: kerosakan"
- },
- {
-  "t": "2025-12-11T11:00:00+08:00",
+  "t": "2025-12-07T02:00:00+08:00",
   "kind": "breakdown",
   "asset_id": "press_3",
   "label_en": "Press 3: breakdown",
   "label_ms": "Penekan 3: kerosakan"
  },
  {
-  "t": "2025-12-16T01:00:00+08:00",
-  "kind": "alert",
-  "asset_id": "press_4",
-  "label_en": "Press 4: MillGuard alert",
-  "label_ms": "Penekan 4: amaran MillGuard"
- },
- {
-  "t": "2025-12-16T17:00:00+08:00",
+  "t": "2025-12-11T10:00:00+08:00",
   "kind": "breakdown",
-  "asset_id": "press_4",
-  "label_en": "Press 4: breakdown",
-  "label_ms": "Penekan 4: kerosakan"
+  "asset_id": "press_3",
+  "label_en": "Press 3: breakdown",
+  "label_ms": "Penekan 3: kerosakan"
  },
  {
-  "t": "2025-12-17T04:00:00+08:00",
+  "t": "2025-12-12T16:00:00+08:00",
   "kind": "alert",
   "asset_id": "press_4",
   "label_en": "Press 4: MillGuard alert",
   "label_ms": "Penekan 4: amaran MillGuard"
  },
  {
-  "t": "2025-12-21T23:00:00+08:00",
+  "t": "2025-12-13T23:00:00+08:00",
   "kind": "alert",
   "asset_id": "press_2",
   "label_en": "Press 2: MillGuard alert",
   "label_ms": "Penekan 2: amaran MillGuard"
  },
  {
-  "t": "2025-12-24T00:00:00+08:00",
+  "t": "2025-12-15T12:00:00+08:00",
   "kind": "breakdown",
   "asset_id": "press_4",
   "label_en": "Press 4: breakdown",
   "label_ms": "Penekan 4: kerosakan"
  },
  {
-  "t": "2025-12-24T08:00:00+08:00",
-  "kind": "alert",
-  "asset_id": "press_4",
-  "label_en": "Press 4: MillGuard alert",
-  "label_ms": "Penekan 4: amaran MillGuard"
- },
- {
-  "t": "2025-12-24T19:00:00+08:00",
+  "t": "2025-12-16T09:00:00+08:00",
   "kind": "breakdown",
   "asset_id": "press_2",
   "label_en": "Press 2: breakdown",
   "label_ms": "Penekan 2: kerosakan"
  },
  {
-  "t": "2025-12-25T08:00:00+08:00",
+  "t": "2025-12-19T03:00:00+08:00",
+  "kind": "alert",
+  "asset_id": "press_1",
+  "label_en": "Press 1: MillGuard alert",
+  "label_ms": "Penekan 1: amaran MillGuard"
+ },
+ {
+  "t": "2025-12-22T13:00:00+08:00",
   "kind": "breakdown",
   "asset_id": "press_1",
   "label_en": "Press 1: breakdown",
   "label_ms": "Penekan 1: kerosakan"
  },
  {
-  "t": "2025-12-26T15:00:00+08:00",
-  "kind": "breakdown",
-  "asset_id": "press_4",
-  "label_en": "Press 4: breakdown",
-  "label_ms": "Penekan 4: kerosakan"
- },
- {
-  "t": "2025-12-31T08:00:00+08:00",
+  "t": "2025-12-22T21:00:00+08:00",
   "kind": "alert",
   "asset_id": "press_1",
   "label_en": "Press 1: MillGuard alert",
   "label_ms": "Penekan 1: amaran MillGuard"
+ },
+ {
+  "t": "2025-12-22T22:00:00+08:00",
+  "kind": "breakdown",
+  "asset_id": "press_1",
+  "label_en": "Press 1: breakdown",
+  "label_ms": "Penekan 1: kerosakan"
+ },
+ {
+  "t": "2025-12-25T07:00:00+08:00",
+  "kind": "alert",
+  "asset_id": "press_2",
+  "label_en": "Press 2: MillGuard alert",
+  "label_ms": "Penekan 2: amaran MillGuard"
+ },
+ {
+  "t": "2025-12-25T14:00:00+08:00",
+  "kind": "alert",
+  "asset_id": "press_3",
+  "label_en": "Press 3: MillGuard alert",
+  "label_ms": "Penekan 3: amaran MillGuard"
+ },
+ {
+  "t": "2025-12-27T08:00:00+08:00",
+  "kind": "breakdown",
+  "asset_id": "press_3",
+  "label_en": "Press 3: breakdown",
+  "label_ms": "Penekan 3: kerosakan"
+ },
+ {
+  "t": "2025-12-27T20:00:00+08:00",
+  "kind": "breakdown",
+  "asset_id": "press_2",
+  "label_en": "Press 2: breakdown",
+  "label_ms": "Penekan 2: kerosakan"
+ },
+ {
+  "t": "2025-12-28T04:00:00+08:00",
+  "kind": "alert",
+  "asset_id": "press_2",
+  "label_en": "Press 2: MillGuard alert",
+  "label_ms": "Penekan 2: amaran MillGuard"
  }
 ]

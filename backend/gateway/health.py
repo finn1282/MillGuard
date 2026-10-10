@@ -24,7 +24,9 @@ def running(asset_id, readings):
     tph = _num(readings.get("throughput_tph"))
     if tph is None:   # load unreadable: a dead motor current says the press is off
         mc = _num(readings.get("motor_current"))
-        return mc is None or mc > 5
+        if mc is None:   # no load, no current: dead-zero vibration or cone pressure says the press is off
+            return not any(_num(readings.get(k)) == 0.0 for k in ("vib_rms", "cone_pressure"))
+        return mc > 5
     return tph > 0.5
 
 
@@ -61,8 +63,10 @@ def check(asset_id, readings, history):
             med = float(np.median(base))
             sd = max(1.4826 * float(np.median(np.abs(np.asarray(base) - med))), 0.02 * abs(med), 1e-6)
             margin = max(SPIKE_SD * sd, 0.5 * abs(med))   # a step after a repair is not a spike: must also clear the 72 h range
-            up = v > max(base) + margin and v - med > SPIKE_SD * sd
-            down = v < min(base) - margin and med - v > SPIKE_SD * sd and v < 0.2 * abs(med)   # a drop to a fraction of normal; a repaired part reads lower but not that low
+            recent = float(np.median(base[-3:]))   # a wear ramp moves gradually; a sensor spike jumps away from the last few readings
+            jump = abs(v - recent) > margin
+            up = jump and v > max(base) + margin and v - med > SPIKE_SD * sd
+            down = jump and v < min(base) - margin and med - v > SPIKE_SD * sd and v < 0.2 * abs(med)   # a drop to a fraction of normal; a repaired part reads lower but not that low
             if up or down:
                 out.append((sig, "spike"))
     return out
