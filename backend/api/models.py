@@ -241,6 +241,19 @@ class Assumption(BaseModel):
     status: Literal["validated", "assumed"]
 
 
+class RobustnessEntry(BaseModel):
+    dataset: str
+    task_en: str
+    task_ms: str
+    lead_min: int
+    events_total: int
+    events_caught: int
+    precision_pct: float
+    false_alarms_per_day: float
+    split: str
+    note: str
+
+
 class Robustness(BaseModel):
     dataset: str
     failures_total: int
@@ -248,6 +261,7 @@ class Robustness(BaseModel):
     median_lead_h: float
     false_alarms_per_week: float
     note: str
+    extra: list[RobustnessEntry] = []   # v1.6 additive: other real-data checks (may be empty)
 
 
 class Marker(BaseModel):

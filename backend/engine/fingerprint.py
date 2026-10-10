@@ -1,23 +1,38 @@
-"""Fault fingerprint: does each signature signal's last 5 days move the way the fault guide expects?"""
+"""Fault fingerprint: does each signature signal's last 5 days move the way the fault guide expects?
+
+Rule v2 (checked on training mills only, backend/scripts/fingerprint_check.py):
+- up/down: z-score of the last 48 h vs the machine's own 30 days before the window (daily-mean spread), plus a 0.5% floor;
+  the old 2% floor of the absolute value made no sense for degC or bar readings.
+- only hours when the plant is running are compared (press: throughput > 3 t/h; boiler: steam temperature > 500 degC), so
+  start-up and stop hours do not pollute the baseline.
+- feedwater flow is compared per tonne of fruit pressed, because it follows the mill load and the crop season.
+- unstable: ratio 1.3 (was 1.5); step-to-step spread of a 120 h window is noisy.
+"""
 import numpy as np
 import pandas as pd
 
 from backend.engine import playbook, text
 
 WIN_H, BASE_D = 120, 30
-PCT_MIN, Z_MIN, UNSTABLE_X, SPIKE_Z = 2.0, 1.5, 1.5, 4.0
+PCT_MIN, Z_MIN, UNSTABLE_X, SPIKE_Z = 0.5, 1.5, 1.3, 4.0
+BOILER_UP_C = 500.0   # steam above this = boiler firing (stopped hours read about 10% lower)
 
 
-def _clean(tel, aid, t0, t1):
-    g = tel[(tel.asset_id == aid) & (tel.t > t0) & (tel.t <= t1)]
-    return g[g.throughput_tph > 3] if aid.startswith("press") else g
+def _signal(tel, aid, sig):
+    g = tel[tel.asset_id == aid].set_index("t")
+    if aid.startswith("press"):
+        return g[sig].where(g.throughput_tph > 3).dropna()
+    s = g[sig].where(g.steam_temp > BOILER_UP_C)
+    if sig == "feedwater_flow":
+        tph = tel[tel.asset_id.str.startswith("press")].groupby("t").throughput_tph.sum()
+        s = (s / tph.reindex(s.index).where(lambda x: x > 3))
+    return s.dropna()
 
 
 def _series(tel, aid, sig, t):
+    s = _signal(tel, aid, sig)
     lo = t - pd.Timedelta(hours=WIN_H)
-    base = _clean(tel, aid, lo - pd.Timedelta(days=BASE_D), lo).set_index("t")[sig].dropna()
-    win = _clean(tel, aid, lo, t).set_index("t")[sig].dropna()
-    return base, win
+    return s[(s.index > lo - pd.Timedelta(days=BASE_D)) & (s.index <= lo)], s[(s.index > lo) & (s.index <= t)]
 
 
 def _observe(base, win, expected):

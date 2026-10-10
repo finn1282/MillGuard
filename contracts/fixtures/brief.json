@@ -1,85 +1,43 @@
 {
- "at": "2025-07-27T05:00:00+08:00",
+ "at": "2025-09-14T03:00:00+08:00",
  "shift": "night",
  "actions": [
   {
-   "id": "act_press_3_2025072519",
-   "asset_id": "press_3",
-   "asset_name": "Press 3",
-   "asset_type": "press",
-   "fault_class": "worm_wear",
-   "risk_pct": 100.0,
-   "horizon_h": 168,
-   "rm_at_risk": 24252,
-   "rm_cost_to_act": 6000,
-   "rm_saved_if_acted": 18252,
-   "recommendation": "schedule_next_stop",
-   "deadline": "2025-07-27T06:00:00+08:00",
-   "headline_en": "Press 3: Worm wear. Change the worm at the Sunday 06:00 stop.",
-   "headline_ms": "Penekan 3: Haus skru cacing. Tukar skru cacing pada henti terancang Ahad jam 06:00.",
-   "reasons": [
-    {
-     "text_en": "Cone hydraulic pressure is 6% above Press 3's normal",
-     "text_ms": "Tekanan hidraulik kon 6% lebih tinggi daripada biasa bagi Penekan 3",
-     "signal": "cone_pressure",
-     "direction": "up",
-     "contribution": 0.514
-    },
-    {
-     "text_en": "Oil lost in fibre is 3.5% (alarm line is 4%)",
-     "text_ms": "Kehilangan minyak dalam serabut ialah 3.5% (garis amaran 4%)",
-     "signal": "fibre_oil_loss",
-     "direction": "up",
-     "contribution": 0.311
-    },
-    {
-     "text_en": "Motor current per tonne is 6% above Press 3's normal",
-     "text_ms": "Arus motor setiap tan 6% lebih tinggi daripada biasa bagi Penekan 3",
-     "signal": "current_per_tonne",
-     "direction": "up",
-     "contribution": 0.175
-    }
-   ],
-   "why_rank_en": "One press is a quarter of the mill, so it ranks below the boiler",
-   "why_rank_ms": "Satu penekan ialah suku kilang, jadi ia di bawah dandang",
-   "criticality": "partial"
-  },
-  {
-   "id": "act_boiler_1_2025072703",
+   "id": "act_boiler_1_2025091403",
    "asset_id": "boiler_1",
    "asset_name": "Boiler 1",
    "asset_type": "boiler",
-   "fault_class": "boiler_steam",
-   "risk_pct": 5.0,
+   "fault_class": "boiler_water",
+   "risk_pct": 99.0,
    "horizon_h": 168,
-   "rm_at_risk": 6326,
+   "rm_at_risk": 125252,
    "rm_cost_to_act": 3000,
-   "rm_saved_if_acted": 3326,
+   "rm_saved_if_acted": 122252,
    "recommendation": "fix_now",
-   "deadline": "2025-07-27T07:00:00+08:00",
-   "headline_en": "Boiler 1: Steam temperature drift. Check feed-water dosing and blowdown now.",
-   "headline_ms": "Dandang 1: Sisihan suhu stim. Semak dos air suapan dan blowdown sekarang.",
+   "deadline": "2025-09-14T07:00:00+08:00",
+   "headline_en": "Boiler 1: Feed-water quality drift. Check water treatment and boiler tubes now.",
+   "headline_ms": "Dandang 1: Sisihan kualiti air suapan. Semak rawatan air dan tiub dandang sekarang.",
    "reasons": [
     {
-     "text_en": "Feed-water conductivity is 3% above Boiler 1's normal",
-     "text_ms": "Kekonduksian air suapan 3% lebih tinggi daripada biasa bagi Dandang 1",
+     "text_en": "Feed-water conductivity is 21% above Boiler 1's normal",
+     "text_ms": "Kekonduksian air suapan 21% lebih tinggi daripada biasa bagi Dandang 1",
      "signal": "feedwater_cond",
      "direction": "up",
-     "contribution": 0.153
+     "contribution": 0.874
     },
     {
      "text_en": "0 h since the last logged service on Boiler 1",
      "text_ms": "0 jam sejak servis terakhir direkodkan bagi Dandang 1",
      "signal": "hours_since_service",
      "direction": "up",
-     "contribution": 0.723
+     "contribution": 0.107
     },
     {
-     "text_en": "Steam temperature is 1% below Boiler 1's normal",
-     "text_ms": "Suhu stim 1% lebih rendah daripada biasa bagi Dandang 1",
-     "signal": "steam_temp",
+     "text_en": "Feed-water flow is 12% below Boiler 1's normal",
+     "text_ms": "Aliran air suapan 12% lebih rendah daripada biasa bagi Dandang 1",
+     "signal": "feedwater_flow",
      "direction": "down",
-     "contribution": 0.124
+     "contribution": 0.019
     }
    ],
    "why_rank_en": "Boiler stops the whole mill, so it comes first",

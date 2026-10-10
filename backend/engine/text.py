@@ -35,7 +35,7 @@ PRESS_2_WORM = dict(
 MARKERS = dict(
     quiet_en="Quiet night: nothing needs you", quiet_ms="Malam tenang: tiada tindakan diperlukan",
     act_en="{asset}: {fault}, act now", act_ms="{asset}: {fault}, bertindak sekarang",
-    both_en="Boiler and press alerts on the same night", both_ms="Amaran dandang dan penekan pada malam yang sama",
+    both_en="Boiler alert: the whole mill is at risk", both_ms="Amaran dandang: seluruh kilang berisiko",
     alert_en="{asset}: MillGuard alert", alert_ms="{asset}: amaran MillGuard",
     breakdown_en="{asset}: breakdown", breakdown_ms="{asset}: kerosakan")
 
@@ -174,7 +174,7 @@ FAULTS = {
                "Sistem hidraulik yang menahan kon penekan tidak stabil, jadi tekanan pada buah berayun naik turun."),
         why=("Oil leaks, worn seals or a tired pump let the cone pressure wander.",
              "Kebocoran minyak, sesendal haus atau pam letih menyebabkan tekanan kon berubah-ubah."),
-        signs=[("cone_pressure", "unstable"), ("current_per_tonne", "up"), ("fibre_oil_loss", "up")],
+        signs=[("cone_pressure", "unstable"), ("cone_pressure", "up"), ("cone_pressure", "spike")],   # fingerprint rule v2: all on cone pressure (the signal the fault acts on)
         steps=(["Check the hydraulic oil level and look for leaks on hoses and fittings.",
                 "Watch the cone pressure gauge for swings while running.",
                 "At the stop, replace leaking hoses and worn seals.",
@@ -193,7 +193,7 @@ FAULTS = {
                "Arus motor melonjak-lonjak, biasanya akibat sambungan longgar, kontaktor haus atau belitan motor rosak."),
         why=("Heat cycling loosens terminals and ageing insulation or contactors cause intermittent faults.",
              "Kitaran haba melonggarkan terminal, dan penebat atau kontaktor yang tua menyebabkan kerosakan berselang-seli."),
-        signs=[("motor_current", "unstable"), ("current_per_tonne", "spike"), ("gearbox_oil_temp", "up")],
+        signs=[("current_per_tonne", "unstable"), ("current_per_tonne", "spike"), ("motor_current", "spike")],   # v2: load-normalised current; raw current swings with load
         steps=(["Check the controller alarm log for the last 24 hours.",
                 "Inspect terminals and cable ends for heat marks; tighten loose ones.",
                 "Check the contactor and overload relay for pitting or wear.",
@@ -231,7 +231,7 @@ FAULTS = {
                "Air yang masuk ke dandang semakin kotor, boleh menyebabkan kerak pada tiub dan kebocoran tiub."),
         why=("A tired water-treatment plant or too little blowdown lets dissolved solids build up.",
              "Loji rawatan air yang letih atau blowdown terlalu sedikit menyebabkan pepejal terlarut bertambah."),
-        signs=[("feedwater_cond", "up"), ("steam_pressure", "unstable"), ("feedwater_flow", "down")],
+        signs=[("feedwater_cond", "up"), ("feedwater_cond", "unstable"), ("steam_temp", "down")],   # v2: pressure is not a water-quality sign; scale lowers steam temperature
         steps=(["Test feed-water conductivity and hardness.",
                 "Check the softener or resin bed and regenerate if due.",
                 "Increase blowdown until conductivity returns to normal.",
@@ -250,7 +250,7 @@ FAULTS = {
                "Mesin ini berkelakuan berbeza daripada normalnya sendiri, tetapi coraknya belum sepadan dengan kerosakan yang diketahui."),
         why=("Several signals moved at once without a clear single cause.",
              "Beberapa isyarat berubah serentak tanpa satu punca yang jelas."),
-        signs=[("motor_current", "unstable"), ("vib_rms", "up"), ("gearbox_oil_temp", "up")],
+        signs=[("motor_current", "up"), ("cone_pressure", "up"), ("gearbox_oil_temp", "up"), ("vib_rms", "up")],   # v2: unknown = any one of the four rises
         steps=(["Walk around the machine and look, listen and smell for anything unusual.",
                 "Check oil levels, guards and fasteners.",
                 "Compare the readings with a healthy press running the same load.",

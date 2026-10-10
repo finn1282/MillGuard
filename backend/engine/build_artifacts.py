@@ -97,13 +97,17 @@ def build_markers(svc: Service, ep):
     act = max(cands, key=lambda c: c[:4]) if cands else None
     onset = act[4] if act else nights[len(nights) // 2]
     act_asset = act[5] if act else dict(asset_id="press_2", fault_class="worm_wear")
-    both = []
-    for t in svc.times:
-        if (t.hour >= 19 or t.hour < 7) and t >= pd.Timestamp("2025-02-01"):
-            ids = {x["asset_id"] for x in svc.active(t)}
-            if "boiler_1" in ids and ids - {"boiler_1"}:
-                both.append((sum(r["rm_saved_if_acted"] for r, _ in svc._live(t)), t))
-    both_t = max(both)[1] if both else None
+    whole = []   # boiler true-positive alerts (prevented), every hour of their window
+    for a in svc.actions:
+        e = ep[(ep.asset_id == a["asset_id"]) & (ep.t_open == a["t_open"])]
+        if a["asset_id"] != "boiler_1" or a["t_open"] < pd.Timestamp("2025-02-01") or not len(e) or e.iloc[0].outcome != "prevented":
+            continue
+        for t in pd.date_range(a["t_open"], a["t_close"] - pd.Timedelta(hours=1), freq="h"):
+            live = svc._live(t)
+            first = bool(live) and live[0][1]["asset_id"] == "boiler_1"
+            m = sum(c.matches for c in fingerprint.fingerprint(svc.tel, "boiler_1", a["fault_class"], t))
+            whole.append((first, m, svc._money(dict(a), a, t)["rm_saved_if_acted"], -t.value, t))
+    both_t = max(whole)[4] if whole else None
     nm = NAME[act_asset["asset_id"]]; f_en, f_ms = text.FAULT_LABEL[act_asset["fault_class"]]
     out = [dict(t=iso(q_t), kind="bookmark", label_en=M["quiet_en"], label_ms=M["quiet_ms"]),
            dict(t=iso(onset), kind="bookmark", asset_id=act_asset["asset_id"],
@@ -121,7 +125,7 @@ def build_markers(svc: Service, ep):
     out.sort(key=lambda m: m["t"])
     (ART / "markers.json").write_text(json.dumps(out, indent=1, ensure_ascii=False))
     print("bookmarks:", [(m["t"], m["label_en"]) for m in out if m["kind"] == "bookmark"],
-          "" if both_t is not None else "\nWARNING: no night with boiler and press alerts together")
+          "" if both_t is not None else "\nWARNING: no prevented boiler alert")
 
 
 def main():

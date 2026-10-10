@@ -138,9 +138,17 @@ export interface Assumption {
 }
 
 // GET /api/robustness
+export interface RobustnessEntry {
+  dataset: string; task_en: string; task_ms: string;
+  lead_min: number;                 // how far ahead the excursion is predicted
+  events_total: number; events_caught: number;
+  precision_pct: number; false_alarms_per_day: number;
+  split: string; note: string;
+}
 export interface Robustness {
   dataset: string; failures_total: number; caught: number;
   median_lead_h: number; false_alarms_per_week: number; note: string;
+  extra: RobustnessEntry[]; // v1.6, additive; may be empty
 }
 
 // POST /api/feedback

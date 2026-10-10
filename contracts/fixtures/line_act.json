@@ -1,5 +1,5 @@
 {
- "at": "2025-11-18T19:00:00+08:00",
+ "at": "2025-09-29T15:00:00+08:00",
  "assets": [
   {
    "id": "press_1",
@@ -8,7 +8,7 @@
    "stage": "press",
    "position": 1,
    "status": "ok",
-   "risk_pct": 1.0,
+   "risk_pct": 1.4,
    "summary_en": "Normal",
    "summary_ms": "Normal"
   },
@@ -19,9 +19,9 @@
    "stage": "press",
    "position": 2,
    "status": "act",
-   "risk_pct": 73.8,
-   "summary_en": "Worm wearing",
-   "summary_ms": "Skru cacing haus"
+   "risk_pct": 83.7,
+   "summary_en": "Cone pressure unstable",
+   "summary_ms": "Tekanan kon tidak stabil"
   },
   {
    "id": "press_3",
@@ -30,7 +30,7 @@
    "stage": "press",
    "position": 3,
    "status": "ok",
-   "risk_pct": 1.4,
+   "risk_pct": 1.6,
    "summary_en": "Normal",
    "summary_ms": "Normal"
   },
@@ -52,7 +52,7 @@
    "stage": "boiler",
    "position": 0,
    "status": "watch",
-   "risk_pct": 2.6,
+   "risk_pct": 3.0,
    "summary_en": "Feed-water drifting",
    "summary_ms": "Air suapan menyimpang"
   }

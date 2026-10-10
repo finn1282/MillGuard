@@ -1,43 +1,43 @@
 {
- "at": "2025-11-18T19:00:00+08:00",
- "shift": "night",
+ "at": "2025-09-29T15:00:00+08:00",
+ "shift": "day",
  "actions": [
   {
-   "id": "act_press_2_2025111819",
+   "id": "act_press_2_2025092915",
    "asset_id": "press_2",
    "asset_name": "Press 2",
    "asset_type": "press",
-   "fault_class": "worm_wear",
-   "risk_pct": 74.0,
-   "horizon_h": 107,
-   "rm_at_risk": 17946,
-   "rm_cost_to_act": 13626,
-   "rm_saved_if_acted": 4320,
+   "fault_class": "hydraulic_cone",
+   "risk_pct": 84.0,
+   "horizon_h": 135,
+   "rm_at_risk": 17222,
+   "rm_cost_to_act": 11126,
+   "rm_saved_if_acted": 6096,
    "recommendation": "fix_now",
-   "deadline": "2025-11-18T23:00:00+08:00",
-   "headline_en": "Press 2: Worm wear. Change the worm now.",
-   "headline_ms": "Penekan 2: Haus skru cacing. Tukar skru cacing sekarang.",
+   "deadline": "2025-09-29T19:00:00+08:00",
+   "headline_en": "Press 2: Cone hydraulic fault. Check the cone hydraulics now.",
+   "headline_ms": "Penekan 2: Kerosakan hidraulik kon. Semak hidraulik kon sekarang.",
    "reasons": [
     {
-     "text_en": "Motor current per tonne is 2% above Press 2's normal",
-     "text_ms": "Arus motor setiap tan 2% lebih tinggi daripada biasa bagi Penekan 2",
-     "signal": "current_per_tonne",
+     "text_en": "Cone hydraulic pressure is 5% above Press 2's normal",
+     "text_ms": "Tekanan hidraulik kon 5% lebih tinggi daripada biasa bagi Penekan 2",
+     "signal": "cone_pressure",
      "direction": "up",
-     "contribution": 0.683
+     "contribution": 0.889
     },
     {
-     "text_en": "1,972 h since the last logged service on Press 2",
-     "text_ms": "1,972 jam sejak servis terakhir direkodkan bagi Penekan 2",
-     "signal": "hours_since_service",
-     "direction": "up",
-     "contribution": 0.159
+     "text_en": "Motor current is 0% below Press 2's normal",
+     "text_ms": "Arus motor 0% lebih rendah daripada biasa bagi Penekan 2",
+     "signal": "motor_current",
+     "direction": "down",
+     "contribution": 0.075
     },
     {
-     "text_en": "Oil lost in fibre is 3.3% (alarm line is 4%)",
-     "text_ms": "Kehilangan minyak dalam serabut ialah 3.3% (garis amaran 4%)",
+     "text_en": "Oil lost in fibre is 2.5% (alarm line is 4%)",
+     "text_ms": "Kehilangan minyak dalam serabut ialah 2.5% (garis amaran 4%)",
      "signal": "fibre_oil_loss",
-     "direction": "up",
-     "contribution": 0.158
+     "direction": "down",
+     "contribution": 0.036
     }
    ],
    "why_rank_en": "Biggest ringgit saving tonight",

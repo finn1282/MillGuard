@@ -483,13 +483,6 @@
   "asset_id": "boiler_1"
  },
  {
-  "t": "2025-07-27T05:00:00+08:00",
-  "kind": "bookmark",
-  "label_en": "Boiler and press alerts on the same night",
-  "label_ms": "Amaran dandang dan penekan pada malam yang sama",
-  "asset_id": null
- },
- {
   "t": "2025-07-28T16:00:00+08:00",
   "kind": "breakdown",
   "label_en": "Press 3: breakdown",
@@ -624,6 +617,13 @@
  },
  {
   "t": "2025-09-14T03:00:00+08:00",
+  "kind": "bookmark",
+  "label_en": "Boiler alert: the whole mill is at risk",
+  "label_ms": "Amaran dandang: seluruh kilang berisiko",
+  "asset_id": null
+ },
+ {
+  "t": "2025-09-14T03:00:00+08:00",
   "kind": "alert",
   "label_en": "Boiler 1: MillGuard alert",
   "label_ms": "Boiler 1: amaran MillGuard",
@@ -649,6 +649,13 @@
   "label_en": "Boiler 1: MillGuard alert",
   "label_ms": "Boiler 1: amaran MillGuard",
   "asset_id": "boiler_1"
+ },
+ {
+  "t": "2025-09-29T15:00:00+08:00",
+  "kind": "bookmark",
+  "label_en": "Press 2: cone hydraulic fault, act now",
+  "label_ms": "Penekan 2: kerosakan hidraulik kon, bertindak sekarang",
+  "asset_id": "press_2"
  },
  {
   "t": "2025-09-29T15:00:00+08:00",
@@ -775,13 +782,6 @@
   "label_en": "Boiler 1: MillGuard alert",
   "label_ms": "Boiler 1: amaran MillGuard",
   "asset_id": "boiler_1"
- },
- {
-  "t": "2025-11-18T19:00:00+08:00",
-  "kind": "bookmark",
-  "label_en": "Press 2: worm wear, act now",
-  "label_ms": "Penekan 2: haus skru cacing, bertindak sekarang",
-  "asset_id": "press_2"
  },
  {
   "t": "2025-11-18T19:00:00+08:00",

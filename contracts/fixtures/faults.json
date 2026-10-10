@@ -159,16 +159,16 @@
     "expected": "unstable"
    },
    {
-    "signal": "current_per_tonne",
-    "label_en": "Motor current per tonne",
-    "label_ms": "Arus motor setiap tan",
+    "signal": "cone_pressure",
+    "label_en": "Cone hydraulic pressure",
+    "label_ms": "Tekanan hidraulik kon",
     "expected": "up"
    },
    {
-    "signal": "fibre_oil_loss",
-    "label_en": "Oil lost in fibre",
-    "label_ms": "Kehilangan minyak dalam serabut",
-    "expected": "up"
+    "signal": "cone_pressure",
+    "label_en": "Cone hydraulic pressure",
+    "label_ms": "Tekanan hidraulik kon",
+    "expected": "spike"
    }
   ],
   "fix_steps_en": [
@@ -199,9 +199,9 @@
   "why_ms": "Kitaran haba melonggarkan terminal, dan penebat atau kontaktor yang tua menyebabkan kerosakan berselang-seli.",
   "signs": [
    {
-    "signal": "motor_current",
-    "label_en": "Motor current",
-    "label_ms": "Arus motor",
+    "signal": "current_per_tonne",
+    "label_en": "Motor current per tonne",
+    "label_ms": "Arus motor setiap tan",
     "expected": "unstable"
    },
    {
@@ -211,10 +211,10 @@
     "expected": "spike"
    },
    {
-    "signal": "gearbox_oil_temp",
-    "label_en": "Gearbox oil temperature",
-    "label_ms": "Suhu minyak gear",
-    "expected": "up"
+    "signal": "motor_current",
+    "label_en": "Motor current",
+    "label_ms": "Arus motor",
+    "expected": "spike"
    }
   ],
   "fix_steps_en": [
@@ -297,15 +297,15 @@
     "expected": "up"
    },
    {
-    "signal": "steam_pressure",
-    "label_en": "Steam pressure",
-    "label_ms": "Tekanan stim",
+    "signal": "feedwater_cond",
+    "label_en": "Feed-water conductivity",
+    "label_ms": "Kekonduksian air suapan",
     "expected": "unstable"
    },
    {
-    "signal": "feedwater_flow",
-    "label_en": "Feed-water flow",
-    "label_ms": "Aliran air suapan",
+    "signal": "steam_temp",
+    "label_en": "Steam temperature",
+    "label_ms": "Suhu stim",
     "expected": "down"
    }
   ],
@@ -340,18 +340,24 @@
     "signal": "motor_current",
     "label_en": "Motor current",
     "label_ms": "Arus motor",
-    "expected": "unstable"
+    "expected": "up"
    },
    {
-    "signal": "vib_rms",
-    "label_en": "Vibration level (RMS)",
-    "label_ms": "Tahap getaran (RMS)",
+    "signal": "cone_pressure",
+    "label_en": "Cone hydraulic pressure",
+    "label_ms": "Tekanan hidraulik kon",
     "expected": "up"
    },
    {
     "signal": "gearbox_oil_temp",
     "label_en": "Gearbox oil temperature",
     "label_ms": "Suhu minyak gear",
+    "expected": "up"
+   },
+   {
+    "signal": "vib_rms",
+    "label_en": "Vibration level (RMS)",
+    "label_ms": "Tahap getaran (RMS)",
     "expected": "up"
    }
   ],

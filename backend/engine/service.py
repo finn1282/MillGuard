@@ -117,7 +117,7 @@ class Service:
         fc = cur["fault_class"] if cur else self._top_class(a, t) if st[0] == "watch" else None
         risk = self._window(cur, t)[1] * 100 if cur else st[1]
         summ = text.SUMMARY[fc] if fc else text.SUMMARY_OK
-        return dict(id=a, name=n, type=ty, stage=ty, position=pos, status=st[0], risk_pct=round(risk, 1),
+        return dict(id=a, name=n, type=ty, stage=ty, position=pos, status=st[0], risk_pct=round(min(risk, 99.0), 1),
                     summary_en=summ[0], summary_ms=summ[1])
 
     def _top_class(self, aid, t):
@@ -156,7 +156,7 @@ class Service:
     def _money(self, out, a, t):
         """rm_at_risk = expected loss if you wait = P(fail before deadline) x full breakdown cost."""
         hrs, risk = self._window(a, t)
-        pct = round(risk * 100)
+        pct = min(99, round(risk * 100))   # display clip: never show 100%
         full = cost.breakdown_cost(self.p, a["fault_class"])
         out.update(horizon_h=hrs, risk_pct=pct, rm_at_risk=round(pct / 100 * full))
         out["rm_saved_if_acted"] = max(0, out["rm_at_risk"] - out["rm_cost_to_act"])
@@ -271,7 +271,9 @@ class Service:
     def robustness(self):
         f = ART / "robustness.json"
         if f.exists():
-            return json.loads(f.read_text())
+            out = json.loads(f.read_text())
+            out["extra"] = [json.loads(x.read_text()) for x in sorted(ART.glob("robustness_extra_*.json"))]
+            return out
         return dict(dataset="MetroPT-3", failures_total=0, caught=0, median_lead_h=0.0, false_alarms_per_week=0.0,
                     note="Not run yet.")
 

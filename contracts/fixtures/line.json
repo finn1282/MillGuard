@@ -1,5 +1,5 @@
 {
- "at": "2025-07-27T05:00:00+08:00",
+ "at": "2025-09-14T03:00:00+08:00",
  "assets": [
   {
    "id": "press_1",
@@ -8,7 +8,7 @@
    "stage": "press",
    "position": 1,
    "status": "ok",
-   "risk_pct": 11.4,
+   "risk_pct": 1.4,
    "summary_en": "Normal",
    "summary_ms": "Normal"
   },
@@ -29,10 +29,10 @@
    "type": "press",
    "stage": "press",
    "position": 3,
-   "status": "act",
-   "risk_pct": 100.0,
-   "summary_en": "Worm wearing",
-   "summary_ms": "Skru cacing haus"
+   "status": "ok",
+   "risk_pct": 1.0,
+   "summary_en": "Normal",
+   "summary_ms": "Normal"
   },
   {
    "id": "press_4",
@@ -41,7 +41,7 @@
    "stage": "press",
    "position": 4,
    "status": "ok",
-   "risk_pct": 1.6,
+   "risk_pct": 1.4,
    "summary_en": "Normal",
    "summary_ms": "Normal"
   },
@@ -52,9 +52,9 @@
    "stage": "boiler",
    "position": 0,
    "status": "act",
-   "risk_pct": 5.1,
-   "summary_en": "Steam temperature drifting",
-   "summary_ms": "Suhu stim menyimpang"
+   "risk_pct": 99.0,
+   "summary_en": "Feed-water drifting",
+   "summary_ms": "Air suapan menyimpang"
   }
  ]
 }

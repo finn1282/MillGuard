@@ -24,7 +24,7 @@ def main():
     marks = [m for m in s.markers() if m["kind"] == "bookmark"]
     at = {"quiet": next(m["t"] for m in marks if m["label_en"].startswith("Quiet")),
           "act": next(m["t"] for m in marks if m["label_en"].endswith("act now")),
-          "both": next(m["t"] for m in marks if m["label_en"].startswith("Boiler and press"))}
+          "both": next(m["t"] for m in marks if m["label_en"].startswith("Boiler alert"))}
     write("meta", Meta(**s.meta()))
     for key, suffix in (("both", ""), ("act", "_act"), ("quiet", "_quiet")):
         write(f"brief{suffix}", Brief(**s.brief(at[key])))
