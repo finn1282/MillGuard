@@ -1,6 +1,6 @@
 # MillGuard — Master Plan (Single Source of Truth)
 
-Version 1.12 (FROZEN at tag demo-v1) · Sat 10 Oct 2026, 23:20 MYT · Team: 3 people, 2 computers (A = backend, B = design then frontend, third member = pitch) · Deadline: **Sun 11 Oct, 09:30 MYT**
+Version 2.0 (overnight v2, see STATUS and section 16) · Sat 10 Oct 2026, 23:20 MYT · Team: 3 people, 2 computers (A = backend, B = design then frontend, third member = pitch) · Deadline: **Sun 11 Oct, 09:30 MYT**
 Owner of this file: the orchestrator chat. Agents read it, they do not rewrite it. Propose changes in `CHANGELOG.md` and the orchestrator merges them.
 
 ---
