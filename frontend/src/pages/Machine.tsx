@@ -3,6 +3,7 @@ import { Link, Navigate, useParams } from "react-router-dom";
 import { ActionButtons } from "../components/ActionButtons";
 import { AdvicePanel } from "../components/AdvicePanel";
 import { DecisionBar, OutlookBar } from "../components/Decision";
+import { FaultBadge, FaultChip } from "../components/FaultChip";
 import { Fingerprint } from "../components/Fingerprint";
 import { IconAct, IconCross, IconTick } from "../components/Icons";
 import { Sparkline } from "../components/Sparkline";
@@ -13,6 +14,7 @@ import { useClock } from "../lib/clock";
 import { dayMonth, hhmm, num, pct, rm } from "../lib/format";
 import { useLang } from "../lib/i18n";
 import type { AssetDetail, AssetStatus, FaultGuide, Series } from "../lib/types";
+import { faultColor } from "../lib/faultColors";
 import { useApi } from "../lib/useApi";
 import { useStickyTop } from "../lib/useStickyTop";
 
@@ -133,10 +135,12 @@ function MachineView({ id }: { id: string }) {
         <section aria-labelledby="sec-a" className="flex flex-col gap-3.5 lg:gap-4 min-w-0">
           <H2 id="sec-a" letter="A">{t(d.diagnosis ? "whatsWrong" : "whatWeChecked")}</H2>
           {d.diagnosis && (
-            <div className="sec flex flex-col gap-2.5 lg:gap-3.5">
+            <div className="sec border-l-[6px] flex flex-col gap-2.5 lg:gap-3.5" style={{ borderLeftColor: faultColor(d.diagnosis.fault_class).accent }}>
               <p className="label">{t("diagnosis")}</p>
-              <div className="flex justify-between items-baseline gap-2 lg:gap-3 flex-wrap">
-                <h3 className="m-0 text-[22px] lg:text-[30px] font-extrabold leading-tight">{pick(d.diagnosis, "name")}</h3>
+              <div className="flex justify-between items-center gap-2 lg:gap-3 flex-wrap">
+                <h3 className="m-0 flex items-center gap-2.5 lg:gap-3 text-[22px] lg:text-[30px] font-extrabold leading-tight">
+                  <FaultBadge fc={d.diagnosis.fault_class} size={36} />{pick(d.diagnosis, "name")}
+                </h3>
                 <span className="text-sm lg:text-[17px] text-muted whitespace-nowrap">
                   <strong className="font-num text-lg lg:text-2xl text-ink">{pct(d.diagnosis.confidence_pct)}</strong> {t("confident")}
                 </span>
@@ -146,9 +150,9 @@ function MachineView({ id }: { id: string }) {
                 <div className="flex gap-1.5 lg:gap-2.5 flex-wrap items-center">
                   <span className="text-sm lg:text-base text-muted">{t("lessLikely")}</span>
                   {d.diagnosis.alternatives.filter((x) => x.confidence_pct >= 1).map((x) => (
-                    <span key={x.fault_class} className="text-sm lg:text-base border border-rule rounded-[4px] px-2 lg:px-2.5 py-1.5">
+                    <FaultChip key={x.fault_class} fc={x.fault_class} className="text-sm lg:text-base px-2 lg:px-2.5 py-1.5">
                       {fname(x.fault_class) ? pick(fname(x.fault_class)!, "name") : x.fault_class} <span className="font-num">{pct(x.confidence_pct)}</span>
-                    </span>
+                    </FaultChip>
                   ))}
                 </div>
               )}
@@ -205,7 +209,7 @@ function MachineView({ id }: { id: string }) {
         <section aria-labelledby="sec-b" ref={sticky.ref} style={{ top: sticky.top }}
           className="flex flex-col gap-3.5 lg:gap-4 min-w-0 lg:sticky">
           <H2 id="sec-b" letter="B">{t("whatToDo")}</H2>
-          {a && saved && <DecisionBar action={a} title={`${pick(a, "headline")} · ${pick(a, "deadline_label")}`} />}
+          {a && saved && <DecisionBar action={a} title={pick(a, "headline")} />}
           {a && !saved && <OutlookBar m={a} title={t("keepWatching")} wholeMill={wholeMill} />}
           {!a && o && <OutlookBar m={o} wholeMill={d.asset.type === "boiler"}
             title={d.status === "ok" ? t("nothingKeepRunning") : t("keepWatching")} />}
