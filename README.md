@@ -1,6 +1,64 @@
 # MillGuard
 
-Predictive-maintenance copilot for palm-oil mills: one night-shift brief of what to fix, why, and what it saves in ringgit.
+**MillGuard tells a palm-oil mill's night-shift supervisor which machine to fix, why, and what it saves in ringgit.** It reads hourly sensor data from the screw presses and the boiler, scores the risk of each failure, and turns it into a short brief: *Act now*, *Watch* or *Normal*, with the fault fingerprint, a fix plan and the cost of waiting against the cost of fixing. On our simulated demo mill (mill 10, unseen in training, 2025) it cuts cost from RM972,848 (fix when it breaks) to RM421,040 and breakdowns from 34 to 3, and it beats a fixed service schedule by RM302,510. The same brief goes to a phone through Telegram, and a grounded AI advisor writes step-by-step guidance in English or Bahasa Malaysia.
+
+**Live demo (no install, sample data):** https://finn1282.github.io/MillGuard/
+
+## How it fits together
+
+```mermaid
+flowchart LR
+    SIM[Simulator<br/>10 mills, 2025, hourly] --> FEAT[Features] --> MODELS[Risk models<br/>24 / 72 / 168 h, calibrated]
+    MODELS --> DEC[Decisions<br/>persistence, budget,<br/>fix now vs schedule, RM]
+    DEC --> API[FastAPI contract<br/>contracts/api.ts]
+    API --> WEB[Web app<br/>EN / BM]
+    API --> TG[Telegram bot<br/>alerts + buttons]
+    API --> ADV[Expert advice<br/>LLM grounded on<br/>backend/knowledge]
+    FIX[Fixtures snapshot] -.offline demo.-> WEB
+```
+
+## How to run
+
+```sh
+make setup       # Python 3.11 env + dependencies (macOS: make libomp if LightGBM cannot find libomp)
+make all         # simulate, train, tune on training mills, back-test mill 10, write artifacts (about 2 min)
+make demo-all    # API + Telegram bot + web app at http://localhost:5173
+make demo-offline  # last resort: web app built from fixtures at http://localhost:4173, no backend, no network
+```
+`make check` runs the fixture checks, the backend tests and a frontend production build. Telegram and AI advice are optional: put keys in `backend/.env` (see `backend/.env.example`).
+
+## What is real, simulated and assumed
+
+| | What | Where it shows |
+| --- | --- | --- |
+| **Real** | MPOB 2025 oil extraction rate (19.74%), average CPO price (RM4,292.50/t) and monthly crop index | Every ringgit figure, the crop season in the simulator |
+| **Real** | MetroPT-3 compressor data (real failures): used only as a stress test, result negative (0 of 4 caught early) | How it works, robustness |
+| **Real** | A public boiler dataset, fetched at run time: no skill found (AUC 0.54), reported as a negative result | Robustness |
+| **Simulated** | All sensor readings, failures and work orders of the 10 mills; mill 10 is never used for training or tuning | Everything on the Mill and Machine pages |
+| **Assumed** | Warning periods before failure (worm 300 h, gearbox 400 h, bearing 150 h, cone 200 h), repair and breakdown costs, share of stopped production truly lost, 50% inspection accuracy, 1.5x parts cost for unplanned repair | `GET /api/assumptions` (marked validated or assumed), `backend/params.yaml` |
+
+Every number lives in `backend/params.yaml` with its source and status.
+
+## Data licences and AI
+
+- MetroPT-3: CC BY 4.0 (UCI Machine Learning Repository), downloaded at run time.
+- Boiler data: fetched at run time by `make fetch-boiler`, never committed or redistributed.
+- MPOB statistics: public (Overview of the Malaysian Oil Palm Industry 2025).
+- Expert advice uses Gemini through Grafilab's OpenAI-compatible endpoint, grounded only on the machine's own diagnosis, fingerprint, fix plan and history plus our own-words notes in `backend/knowledge/` (with source links). It is labelled AI-generated, never invents part numbers or torque values, and always includes lock-out/tag-out. The two demo moments are answered from stored fixtures, so no network is needed.
+- The team built MillGuard with AI coding agents (Claude Code) and Claude Design.
+
+## Known limitations
+
+- The data is simulated. The warning periods are assumptions, so the savings are a model result, not a measured one.
+- Back-test approximation: after an early repair the part is treated as renewed; its slightly earlier next wear-out is not modelled (median warning 63 h against a part life of 700 to 2,000 h).
+- Noise sensitivity: with sensor noise doubled, MillGuard plus a schedule costs RM463,636 more than a fixed schedule (3.6 false alarms a week). We show this on purpose.
+- Real-data tests were negative: MetroPT-3 0 of 4 caught early, real boiler data AUC 0.54.
+- The alert budget never limits alerts on this mill (89 of 90 shifts have a single alert), so that slider does not move the result.
+
+---
+
+## Developer notes
+
 `MASTER_PLAN.md` is the single source of truth. Backend: `backend/` and `contracts/`. Frontend: `frontend/`.
 
 ## Run it (Python 3.11, macOS or Linux)
