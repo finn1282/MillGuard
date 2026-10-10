@@ -61,10 +61,10 @@ function Main({ bt, compare, setCompare, loading, openDrawer }:
         <h1 className="m-0 text-[26px] lg:text-4xl font-extrabold">{t("isItWorth")}</h1>
         <div role="group" aria-label={t("compareWith")} className="flex flex-col lg:flex-row gap-1.5 lg:gap-0 lg:border lg:border-control-border lg:rounded lg:overflow-hidden lg:bg-card">
           <span className="text-sm lg:text-base text-muted font-semibold lg:font-normal lg:px-3 lg:flex lg:items-center">{t("compareWith")}</span>
-          <div className="grid grid-cols-3 lg:flex border lg:border-0 border-control-border rounded lg:rounded-none overflow-hidden bg-card">
+          <div className="grid grid-cols-1 lg:flex border lg:border-0 border-control-border rounded lg:rounded-none overflow-hidden bg-card">
             {(Object.keys(BEFORE) as Compare[]).map((c, i) => (
               <button key={c} aria-pressed={compare === c} onClick={() => setCompare(c)}
-                className={`min-h-[44px] px-1 lg:px-3.5 py-1.5 text-[13px] lg:text-base font-bold leading-tight ${i ? "border-l border-rule" : ""}
+                className={`min-h-[44px] px-3 lg:px-3.5 py-1.5 text-[15px] lg:text-base font-bold leading-tight ${i ? "border-t lg:border-t-0 lg:border-l border-rule" : ""}
                   ${compare === c ? "bg-ink text-paper" : "bg-transparent text-ink"}`}>
                 {t(`pol_${BEFORE[c]}` as Key)}
               </button>
@@ -104,9 +104,9 @@ function PolicyCard({ p, label, tone }: { p: PolicyResult; label: string; tone: 
     </div>
   );
   return (
-    <div className={`sec border-t-4 ${tone === "loss" ? "border-t-loss" : "border-t-ok"}`}>
+    <div className={`sec flex flex-col border-t-4 ${tone === "loss" ? "border-t-loss" : "border-t-ok"}`}>
       <p className="label">{label}</p>
-      <h2 className="mt-1 lg:mt-1.5 mb-1.5 lg:mb-2.5 text-[19px] lg:text-2xl font-extrabold">{t(`pol_${p.id}` as Key)}</h2>
+      <h2 className="grow mt-1 lg:mt-1.5 mb-1.5 lg:mb-2.5 text-[19px] lg:text-2xl font-extrabold">{t(`pol_${p.id}` as Key)}</h2>
       <div className={`font-num font-extrabold tracking-tight text-[36px] lg:text-[52px] leading-tight mb-2 ${tone === "loss" ? "text-loss" : "text-ok"}`}>
         {rmMillions(p.total_cost_rm)} <span className="font-ui text-sm lg:text-lg font-semibold text-muted tracking-normal">{t("perYear")}</span>
       </div>
@@ -148,11 +148,11 @@ function Strip({ bt, before, after }: { bt: Backtest; before: PolicyId; after: P
   const lane = (id: PolicyId, tone: string) => {
     const ev = bt.events.filter((e) => e.policy === id);
     const c = (ty: BacktestEvent["type"]) => ev.filter((e) => e.type === ty).length;
-    // Mobile: label + total, then the lane full width. Desktop: one row of the parent grid.
-    return (<div className="grid grid-cols-[minmax(0,1fr)_auto] gap-x-3 gap-y-1.5 items-center lg:contents">
+    // Label + total, then the lane full width (long policy names never squeeze the lane).
+    return (<div className="grid grid-cols-[minmax(0,1fr)_auto] gap-x-3 gap-y-1.5 items-center">
       <span className="text-[15px] lg:text-[17px] font-bold">{t(`pol_${id}` as Key)}</span>
       <div role="img" aria-label={t("laneLabel", { b: c("breakdown"), p: c("planned_fix"), f: c("false_alarm") })}
-        className="relative h-11 lg:h-14 bg-paper rounded-[4px] overflow-hidden col-span-2 row-start-2 lg:col-span-1 lg:row-start-auto">
+        className="relative h-11 lg:h-14 bg-paper rounded-[4px] overflow-hidden col-span-2 row-start-2">
         {ev.filter((e) => pos(e.t) <= p).map((e, i) => {
           const left = `${(pos(e.t) * 100).toFixed(2)}%`;
           if (e.type === "breakdown") return <span key={i} style={{ left }} className="absolute top-2.5 lg:top-3.5 w-[3px] lg:w-[5px] h-6 lg:h-7 bg-act rounded-[1px]" />;
@@ -161,7 +161,7 @@ function Strip({ bt, before, after }: { bt: Backtest; before: PolicyId; after: P
         })}
         <span className="absolute top-0 bottom-0 w-0.5 bg-ink" style={{ left: `${p * 100}%` }} aria-hidden />
       </div>
-      <span className={`font-num font-extrabold text-right text-[17px] lg:text-2xl col-start-2 row-start-1 lg:col-start-auto lg:row-start-auto ${tone}`}>{rmMillions(tl[idx].cost[id])}</span>
+      <span className={`font-num font-extrabold text-right text-[17px] lg:text-2xl col-start-2 row-start-1 ${tone}`}>{rmMillions(tl[idx].cost[id])}</span>
     </div>);
   };
 
@@ -184,10 +184,9 @@ function Strip({ bt, before, after }: { bt: Backtest; before: PolicyId; after: P
           </button>
         </div>
       </div>
-      <div className="flex flex-col gap-3 lg:grid lg:grid-cols-[200px_minmax(0,1fr)_120px] lg:gap-x-4 lg:gap-y-2.5 lg:items-center">
+      <div className="flex flex-col gap-3 lg:gap-4">
         {lane(before, "text-loss")}
         {lane(after, "text-ok")}
-        <span className="hidden lg:block" />
         <div className="grid grid-cols-12 text-[11px] lg:text-base text-muted">
           {months.map((m, i) => <span key={i}>{lang === "en" ? m.charAt(0) : m.slice(0, 3)}</span>)}
         </div>
