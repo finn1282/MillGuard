@@ -85,13 +85,16 @@ def build_markers(svc: Service, ep):
     q_t = q[len(q) // 3] if q else nights[0]
     w = ep[(ep.asset_id == "press_2") & (ep.fault_class == "worm_wear") & (ep.t_open >= "2025-02-01")]
     w = w[w.outcome == "prevented"] if (w.outcome == "prevented").any() else w
-    onset = w.sort_values("rm_saved", ascending=False).iloc[0].t_open if len(w) else nights[len(nights) // 2]
+    def live_saved(asset, t):
+        return max([r["rm_saved_if_acted"] for r, a in svc._live(t) if a["asset_id"] == asset] or [0])
+    onset = max(w.t_open, key=lambda t: live_saved("press_2", t)) if len(w) else nights[len(nights) // 2]
     both = []
-    for bo in ep[ep.asset_id == "boiler_1"].itertuples():
-        for pr in ep[ep.asset_id != "boiler_1"].itertuples():
-            lo, hi = max(bo.t_open, pr.t_open), min(bo.t_close, pr.t_close)
-            if lo < hi:
-                both.append((bo.rm_saved + pr.rm_saved, lo))
+    for t in svc.times:
+        if (t.hour >= 19 or t.hour < 7) and t >= pd.Timestamp("2025-02-01"):
+            ids = {x["asset_id"] for x in svc.active(t)}
+            if "boiler_1" in ids and ids - {"boiler_1"}:
+                sv = {a["asset_id"]: r["rm_saved_if_acted"] for r, a in svc._live(t)}
+                both.append((min(sv["boiler_1"], max(v for k, v in sv.items() if k != "boiler_1")), t))
     both_t = max(both)[1] if both else None
     out = [dict(t=iso(q_t), kind="bookmark", label_en=M["quiet_en"], label_ms=M["quiet_ms"]),
            dict(t=iso(onset), kind="bookmark", asset_id="press_2", label_en=M["onset_en"], label_ms=M["onset_ms"])]

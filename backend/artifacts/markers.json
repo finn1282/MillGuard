@@ -183,13 +183,6 @@
  },
  {
   "t": "2025-03-27T17:00:00+08:00",
-  "kind": "bookmark",
-  "asset_id": "press_2",
-  "label_en": "Press 2 worm-wear alert begins",
-  "label_ms": "Amaran haus skru cacing Penekan 2 bermula"
- },
- {
-  "t": "2025-03-27T17:00:00+08:00",
   "kind": "alert",
   "asset_id": "press_2",
   "label_en": "Press 2: MillGuard alert",
@@ -483,16 +476,16 @@
  },
  {
   "t": "2025-07-27T03:00:00+08:00",
-  "kind": "bookmark",
-  "label_en": "Boiler and press alerts on the same night",
-  "label_ms": "Amaran dandang dan penekan pada malam yang sama"
- },
- {
-  "t": "2025-07-27T03:00:00+08:00",
   "kind": "alert",
   "asset_id": "boiler_1",
   "label_en": "Boiler 1: MillGuard alert",
   "label_ms": "Boiler 1: amaran MillGuard"
+ },
+ {
+  "t": "2025-07-27T05:00:00+08:00",
+  "kind": "bookmark",
+  "label_en": "Boiler and press alerts on the same night",
+  "label_ms": "Amaran dandang dan penekan pada malam yang sama"
  },
  {
   "t": "2025-07-28T16:00:00+08:00",
@@ -780,6 +773,13 @@
   "asset_id": "boiler_1",
   "label_en": "Boiler 1: MillGuard alert",
   "label_ms": "Boiler 1: amaran MillGuard"
+ },
+ {
+  "t": "2025-11-18T19:00:00+08:00",
+  "kind": "bookmark",
+  "asset_id": "press_2",
+  "label_en": "Press 2 worm-wear alert begins",
+  "label_ms": "Amaran haus skru cacing Penekan 2 bermula"
  },
  {
   "t": "2025-11-18T19:00:00+08:00",
