@@ -1,0 +1,9 @@
+fastapi
+pydantic>=2
+pandas
+numpy
+pyarrow
+pyyaml
+httpx
+openai
+joblib

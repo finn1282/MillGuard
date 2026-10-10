@@ -1,0 +1,18 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "installCommand": "npm ci --prefix frontend",
+  "buildCommand": "npm run build --prefix frontend",
+  "outputDirectory": "frontend/dist",
+  "functions": {
+    "api/index.py": {
+      "maxDuration": 60,
+      "includeFiles": "{backend/params.yaml,backend/knowledge/**,backend/artifacts/**,contracts/fixtures/**}",
+      "excludeFiles": "{backend/artifacts/models.joblib,backend/artifacts/episodes.parquet,backend/artifacts/feedback.jsonl,**/__pycache__/**,**/pyarrow/include/**,**/pyarrow/tests/**,**/numpy/**/tests/**,**/pandas/tests/**}"
+    }
+  },
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api/index" },
+    { "source": "/((?!assets/).*)", "destination": "/index.html" }
+  ]
+}

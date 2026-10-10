@@ -1,0 +1,16 @@
+# replaces .gitignore for `vercel deploy`: the built artifacts and scenarios (gitignored) MUST be uploaded
+.git
+.venv
+.env
+backend/.env
+backend/data
+backend/artifacts/models.joblib
+backend/artifacts/episodes.parquet
+backend/artifacts/feedback.jsonl
+backend/tests
+frontend/node_modules
+frontend/dist
+frontend/design-ref
+pitch
+.github
+**/__pycache__
