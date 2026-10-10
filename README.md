@@ -53,7 +53,7 @@ Every number lives in `backend/params.yaml` with its source and status.
 - Back-test approximation: after an early repair the part is treated as renewed; its slightly earlier next wear-out is not modelled (median warning 63 h against a part life of 700 to 2,000 h).
 - Noise sensitivity: with sensor noise doubled, MillGuard plus a schedule costs RM463,636 more than a fixed schedule (3.6 false alarms a week). We show this on purpose.
 - Real-data tests were negative: MetroPT-3 0 of 4 caught early, real boiler data AUC 0.54.
-- The alert budget never limits alerts on this mill (89 of 90 shifts have a single alert), so that slider does not move the result.
+- The alert limit (max 5 per shift) never bound on this mill: 89 of 90 alert shifts had a single alert, so it is shown as a fixed line, not a slider.
 
 ---
 
