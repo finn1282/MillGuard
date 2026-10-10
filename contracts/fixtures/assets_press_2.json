@@ -2131,8 +2131,8 @@
     "label_en": "Motor current per tonne",
     "label_ms": "Arus motor setiap tan",
     "expected": "up",
-    "observed_en": "Up 9% over 5 days",
-    "observed_ms": "Naik 9% dalam 5 hari",
+    "observed_en": "Up 9% vs normal, last 5 days",
+    "observed_ms": "Naik 9% berbanding biasa, 5 hari lepas",
     "matches": true
    },
    {
@@ -2140,8 +2140,8 @@
     "label_en": "Oil lost in fibre",
     "label_ms": "Kehilangan minyak dalam serabut",
     "expected": "up",
-    "observed_en": "Up from 2.9% to 3.6% over 5 days",
-    "observed_ms": "Naik daripada 2.9% kepada 3.6% dalam 5 hari",
+    "observed_en": "Up 24% vs normal (3.6%, was 2.9%)",
+    "observed_ms": "Naik 24% berbanding biasa (3.6%, asal 2.9%)",
     "matches": true
    },
    {
@@ -2149,8 +2149,8 @@
     "label_en": "Motor current",
     "label_ms": "Arus motor",
     "expected": "up",
-    "observed_en": "Up 8% over 5 days",
-    "observed_ms": "Naik 8% dalam 5 hari",
+    "observed_en": "Up 8% vs normal, last 5 days",
+    "observed_ms": "Naik 8% berbanding biasa, 5 hari lepas",
     "matches": true
    },
    {
@@ -2158,8 +2158,8 @@
     "label_en": "Vibration level (RMS)",
     "label_ms": "Tahap getaran (RMS)",
     "expected": "up",
-    "observed_en": "Flat over 5 days (+1%)",
-    "observed_ms": "Mendatar dalam 5 hari (+1%)",
+    "observed_en": "No clear change vs normal (+1%)",
+    "observed_ms": "Tiada perubahan jelas berbanding biasa (+1%)",
     "matches": false
    }
   ]

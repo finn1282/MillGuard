@@ -2068,7 +2068,7 @@
   "asset_type": "boiler",
   "fault_class": "boiler_steam",
   "risk_pct": 28.0,
-  "horizon_h": 4,
+  "horizon_h": 24,
   "rm_at_risk": 61000,
   "rm_cost_to_act": 3000,
   "rm_saved_if_acted": 58000,
@@ -2126,8 +2126,8 @@
     "label_en": "Steam temperature",
     "label_ms": "Suhu stim",
     "expected": "down",
-    "observed_en": "Down 3% over 5 days",
-    "observed_ms": "Turun 3% dalam 5 hari",
+    "observed_en": "Down 3% vs normal, last 5 days",
+    "observed_ms": "Turun 3% berbanding biasa, 5 hari lepas",
     "matches": true
    },
    {
@@ -2144,8 +2144,8 @@
     "label_en": "Feed-water flow",
     "label_ms": "Aliran air suapan",
     "expected": "down",
-    "observed_en": "Down 9% over 5 days",
-    "observed_ms": "Turun 9% dalam 5 hari",
+    "observed_en": "Down 9% vs normal, last 5 days",
+    "observed_ms": "Turun 9% berbanding biasa, 5 hari lepas",
     "matches": true
    }
   ]

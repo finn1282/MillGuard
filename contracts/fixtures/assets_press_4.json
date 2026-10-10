@@ -2080,8 +2080,8 @@
     "label_en": "Vibration spikiness (kurtosis)",
     "label_ms": "Kemuncakan getaran (kurtosis)",
     "expected": "up",
-    "observed_en": "Up 22% over 5 days",
-    "observed_ms": "Naik 22% dalam 5 hari",
+    "observed_en": "Up 22% vs normal, last 5 days",
+    "observed_ms": "Naik 22% berbanding biasa, 5 hari lepas",
     "matches": true
    },
    {
@@ -2089,8 +2089,8 @@
     "label_en": "Vibration level (RMS)",
     "label_ms": "Tahap getaran (RMS)",
     "expected": "up",
-    "observed_en": "Up 6% over 5 days",
-    "observed_ms": "Naik 6% dalam 5 hari",
+    "observed_en": "Up 6% vs normal, last 5 days",
+    "observed_ms": "Naik 6% berbanding biasa, 5 hari lepas",
     "matches": true
    },
    {
@@ -2098,8 +2098,8 @@
     "label_en": "Gearbox oil temperature",
     "label_ms": "Suhu minyak gear",
     "expected": "up",
-    "observed_en": "Flat over 5 days (+0%)",
-    "observed_ms": "Mendatar dalam 5 hari (+0%)",
+    "observed_en": "No clear change vs normal (+0%)",
+    "observed_ms": "Tiada perubahan jelas berbanding biasa (+0%)",
     "matches": false
    }
   ]

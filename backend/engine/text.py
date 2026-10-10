@@ -269,10 +269,10 @@ SUMMARY = {   # line card summary per fault class (EN, MS); normal state below
     "boiler_water": ("Feed-water drifting", "Air suapan menyimpang"), "unknown": ("Unusual behaviour", "Tingkah laku luar biasa")}
 SUMMARY_OK = ("Normal", "Normal")
 EXPECT_EN = {"up": "should rise", "down": "should fall", "unstable": "should swing more", "spike": "should show spikes"}
-OBSERVED = {   # (kind) -> (EN, MS) templates
-    "up": ("Up {pct:.0f}% over 5 days", "Naik {pct:.0f}% dalam 5 hari"),
-    "down": ("Down {pct:.0f}% over 5 days", "Turun {pct:.0f}% dalam 5 hari"),
-    "flat": ("Flat over 5 days ({pct:+.0f}%)", "Mendatar dalam 5 hari ({pct:+.0f}%)"),
+OBSERVED = {   # (kind) -> (EN, MS) templates; "normal" = the machine's own 30 days before the 5-day window
+    "up": ("Up {pct:.0f}% vs normal, last 5 days", "Naik {pct:.0f}% berbanding biasa, 5 hari lepas"),
+    "down": ("Down {pct:.0f}% vs normal, last 5 days", "Turun {pct:.0f}% berbanding biasa, 5 hari lepas"),
+    "flat": ("No clear change vs normal ({pct:+.0f}%)", "Tiada perubahan jelas berbanding biasa ({pct:+.0f}%)"),
     "unstable": ("Swinging {x:.1f}x more than normal", "Berayun {x:.1f}x lebih daripada biasa"),
     "steady": ("As steady as normal ({x:.1f}x)", "Sama stabil seperti biasa ({x:.1f}x)"),
     "spike": ("{n} spikes in 5 days", "{n} lonjakan dalam 5 hari"),

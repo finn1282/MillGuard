@@ -41,7 +41,7 @@ def build_action(aid, asset_id, name, atype, fc, risk, horizon, at_risk, cost_to
 def actions(p):
     """Fixture numbers are hand-set samples (plan v1.3); real values come from the pipeline."""
     return [
-        build_action("act_boiler_1_0001", "boiler_1", "Boiler 1", "boiler", "boiler_steam", 28.0, 4,
+        build_action("act_boiler_1_0001", "boiler_1", "Boiler 1", "boiler", "boiler_steam", 28.0, 24,
                      61000, 3000, "fix_now", AT.replace(hour=23), "whole_mill", text.BOILER_1),
         build_action("act_press_2_0001", "press_2", "Press 2", "press", "worm_wear", 41.0, 11,
                      21000, 3000, "schedule_next_stop", (AT + timedelta(days=1)).replace(hour=6),
@@ -83,20 +83,20 @@ def diagnosis_for(asset_id):
     c = playbook.check
     if asset_id == "press_2":
         return playbook.diagnosis("worm_wear", 82, [("bearing", 11), ("electrical", 7)], [
-            c("current_per_tonne", "up", "Up 9% over 5 days", "Naik 9% dalam 5 hari", True),
-            c("fibre_oil_loss", "up", "Up from 2.9% to 3.6% over 5 days", "Naik daripada 2.9% kepada 3.6% dalam 5 hari", True),
-            c("motor_current", "up", "Up 8% over 5 days", "Naik 8% dalam 5 hari", True),
-            c("vib_rms", "up", "Flat over 5 days (+1%)", "Mendatar dalam 5 hari (+1%)", False)])
+            c("current_per_tonne", "up", "Up 9% vs normal, last 5 days", "Naik 9% berbanding biasa, 5 hari lepas", True),
+            c("fibre_oil_loss", "up", "Up 24% vs normal (3.6%, was 2.9%)", "Naik 24% berbanding biasa (3.6%, asal 2.9%)", True),
+            c("motor_current", "up", "Up 8% vs normal, last 5 days", "Naik 8% berbanding biasa, 5 hari lepas", True),
+            c("vib_rms", "up", "No clear change vs normal (+1%)", "Tiada perubahan jelas berbanding biasa (+1%)", False)])
     if asset_id == "boiler_1":
         return playbook.diagnosis("boiler_steam", 76, [("boiler_water", 17), ("unknown", 7)], [
-            c("steam_temp", "down", "Down 3% over 5 days", "Turun 3% dalam 5 hari", True),
+            c("steam_temp", "down", "Down 3% vs normal, last 5 days", "Turun 3% berbanding biasa, 5 hari lepas", True),
             c("steam_pressure", "unstable", "Swinging 2.1x more than normal", "Berayun 2.1x lebih daripada biasa", True),
-            c("feedwater_flow", "down", "Down 9% over 5 days", "Turun 9% dalam 5 hari", True)])
+            c("feedwater_flow", "down", "Down 9% vs normal, last 5 days", "Turun 9% berbanding biasa, 5 hari lepas", True)])
     if asset_id == "press_4":
         return playbook.diagnosis("bearing", 54, [("gearbox_shaft", 28), ("unknown", 18)], [
-            c("vib_kurtosis", "up", "Up 22% over 5 days", "Naik 22% dalam 5 hari", True),
-            c("vib_rms", "up", "Up 6% over 5 days", "Naik 6% dalam 5 hari", True),
-            c("gearbox_oil_temp", "up", "Flat over 5 days (+0%)", "Mendatar dalam 5 hari (+0%)", False)])
+            c("vib_kurtosis", "up", "Up 22% vs normal, last 5 days", "Naik 22% berbanding biasa, 5 hari lepas", True),
+            c("vib_rms", "up", "Up 6% vs normal, last 5 days", "Naik 6% berbanding biasa, 5 hari lepas", True),
+            c("gearbox_oil_temp", "up", "No clear change vs normal (+0%)", "Tiada perubahan jelas berbanding biasa (+0%)", False)])
     return None
 
 

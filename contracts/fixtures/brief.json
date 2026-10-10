@@ -9,7 +9,7 @@
    "asset_type": "boiler",
    "fault_class": "boiler_steam",
    "risk_pct": 28.0,
-   "horizon_h": 4,
+   "horizon_h": 24,
    "rm_at_risk": 61000,
    "rm_cost_to_act": 3000,
    "rm_saved_if_acted": 58000,

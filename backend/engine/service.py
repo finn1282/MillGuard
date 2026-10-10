@@ -5,7 +5,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from backend.engine import backtest, cost, decide, text
+from backend.engine import backtest, cost, decide, fingerprint, playbook, text
 from backend.params import load, val
 
 ART = Path(__file__).resolve().parents[1] / "artifacts"
@@ -70,7 +70,8 @@ class Service:
             trig = p72
             if self.fit["trigger"][atype] == "pstop":
                 trig = np.array([decide.p_before(*x, h) for x, h in zip(zip(p24, p72, p168), hts)])
-            out[a] = dict(trig=trig, p72=p72)
+            out[a] = dict(trig=trig, p72=p72, p24=p24, p168=p168,
+                          cp=g[[c for c in g.columns if c.startswith("cp_")]].fillna(0))
         return out
 
     def clamp_time(self, at):
@@ -108,22 +109,64 @@ class Service:
     def line(self, at):
         t = self.clamp_time(at)
         st = self.status(t)
-        return dict(at=iso(t), assets=[dict(id=a, name=n, type=ty, stage=ty, position=pos, status=st[a][0],
-                                            risk_pct=round(st[a][1], 1)) for a, n, ty, pos in ASSETS])
+        return dict(at=iso(t), assets=[self._line_asset(a, n, ty, pos, st[a], t) for a, n, ty, pos in ASSETS])
 
-    def _action(self, a, rank, top_saved, has_whole):
+    def _line_asset(self, a, n, ty, pos, st, t):
+        cur = next((x for x in self.active(t) if x["asset_id"] == a), None)
+        fc = cur["fault_class"] if cur else self._top_class(a, t) if st[0] == "watch" else None
+        risk = self._window(cur, t)[1] * 100 if cur else st[1]
+        summ = text.SUMMARY[fc] if fc else text.SUMMARY_OK
+        return dict(id=a, name=n, type=ty, stage=ty, position=pos, status=st[0], risk_pct=round(risk, 1),
+                    summary_en=summ[0], summary_ms=summ[1])
+
+    def _top_class(self, aid, t):
+        return self._class_probs(aid, t)[0][0]
+
+    def _class_probs(self, aid, t):
+        row = self._trig[aid]["cp"].iloc[self.idx(t)]
+        row = row[row > 0]
+        if row.empty:
+            return [("unknown", 1.0)]
+        row = row / row.sum()
+        return [(c[3:], float(v)) for c, v in row.sort_values(ascending=False).items()]
+
+    def _window(self, a, t):
+        """(horizon_h, P(fail before the action deadline)) at replay time t."""
+        h = self.idx(t)
+        tr = self._trig[a["asset_id"]]
+        if a["recommendation"] == "fix_now":   # waiting means waiting for the next planned stop
+            hrs = min(168, decide.hours_to_stop(t, val(self.p, "alerting", "min_lead_h")))
+        else:
+            hrs = max(1, int(np.ceil((pd.Timestamp(a["deadline"]).tz_localize(None) - t) / pd.Timedelta(hours=1))))
+        return hrs, decide.p_before(tr["p24"][h], tr["p72"][h], tr["p168"][h], hrs)
+
+    def _action(self, a, rank, top_saved, has_whole, t=None):
         why = (text.WHY_WHOLE_EN, text.WHY_WHOLE_MS) if a["criticality"] == "whole_mill" else \
             (text.WHY_PARTIAL_EN, text.WHY_PARTIAL_MS) if has_whole else \
             (text.WHY_TOP_EN, text.WHY_TOP_MS) if rank == 0 else (text.WHY_LOWER_EN, text.WHY_LOWER_MS)
         out = {k: v for k, v in a.items() if k not in ("t_open", "t_close", "t_candidate", "internal")}
         out.update(why_rank_en=why[0], why_rank_ms=why[1])
+        return self._money(out, a, t) if t is not None else out
+
+    def _money(self, out, a, t):
+        """rm_at_risk = expected loss if you wait = P(fail before deadline) x full breakdown cost."""
+        hrs, risk = self._window(a, t)
+        pct = round(risk * 100)
+        full = cost.breakdown_cost(self.p, a["fault_class"])
+        out.update(horizon_h=hrs, risk_pct=pct, rm_at_risk=round(pct / 100 * full))
+        out["rm_saved_if_acted"] = max(0, out["rm_at_risk"] - out["rm_cost_to_act"])
         return out
+
+    def _live(self, t):
+        """Active alerts with money recomputed for replay time t, biggest saving first."""
+        rows = [self._money(dict(a), a, t) for a in self.active(t)]
+        return sorted(zip(rows, self.active(t)), key=lambda x: -x[0]["rm_saved_if_acted"])
 
     def brief(self, at, budget=5):
         t = self.clamp_time(at)
-        act = sorted(self.active(t), key=lambda a: -a["rm_saved_if_acted"])
+        act = [a for _, a in self._live(t)]
         has_whole = any(a["criticality"] == "whole_mill" for a in act)
-        shown = [self._action(a, i, act[0]["rm_saved_if_acted"], has_whole) for i, a in enumerate(act[:budget])]
+        shown = [self._action(a, i, None, has_whole, t) for i, a in enumerate(act[:budget])]
         st = self.status(t)
         watching = sum(1 for aid, (s, _, _) in st.items() if s == "watch")
         suppressed = sum(1 for aid, (s, _, sup) in st.items() if sup) + max(0, len(act) - budget)
@@ -151,10 +194,41 @@ class Service:
                 if a["asset_id"] == aid and a["t_close"] > lo and a["t_open"] <= t]
         fl = self.fails[(self.fails.asset_id == aid) & (self.fails.t > lo) & (self.fails.t <= t)]
         cur = next((a for a in self.active(t) if a["asset_id"] == aid), None)
-        action = self._action(cur, 0, cur["rm_saved_if_acted"], cur["criticality"] == "whole_mill") if cur else None
-        return dict(asset=dict(id=aid, name=n, type=ty, stage=ty, position=pos, status=st[0], risk_pct=round(st[1], 1)),
-                    series=series, alert_windows=wins,
-                    failures=[dict(t=iso(r.t), fault_class=r.fault_class) for r in fl.itertuples()], action=action)
+        action = self._action(cur, 0, None, cur["criticality"] == "whole_mill", t) if cur else None
+        la = self._line_asset(aid, n, ty, pos, st, t)
+        diag, fix = self._diagnosis(aid, cur, st[0], t, action)
+        return dict(asset=la, status=la["status"], risk_pct=la["risk_pct"], series=series, alert_windows=wins,
+                    failures=[dict(t=iso(r.t), fault_class=r.fault_class) for r in fl.itertuples()], action=action,
+                    diagnosis=diag, fix=fix, history=self._history(aid, t))
+
+    def _diagnosis(self, aid, cur, status, t, action):
+        if status == "ok":
+            return None, None
+        probs = self._class_probs(aid, cur["t_open"] if cur else t)
+        fc = cur["fault_class"] if cur else probs[0][0]
+        rest = [(c, v) for c, v in probs if c != fc]
+        top = dict(probs).get(fc, 0.0)
+        conf = round(top * 100)
+        alts = [(c, round(v * 100)) for c, v in rest[:2]]
+        diag = playbook.diagnosis(fc, conf, alts, fingerprint.fingerprint(self.tel, aid, fc, t)).model_dump(mode="json")
+        fix = None
+        if cur:
+            best = action["deadline"] if action["recommendation"] == "schedule_next_stop" else iso(t)
+            fix = playbook.fix_plan(fc, best).model_dump(mode="json")
+        return diag, fix
+
+    def _history(self, aid, t):
+        lo = t - pd.Timedelta(days=365)
+        fl = self.fails[(self.fails.asset_id == aid) & (self.fails.t > lo) & (self.fails.t <= t)]
+        out = []
+        for r in fl.sort_values("t", ascending=False).itertuples():
+            warned = any(a["asset_id"] == aid and a["t_open"] <= r.t and (r.t - a["t_open"]) <= pd.Timedelta(hours=168)
+                         for a in self.actions)
+            f_en, f_ms = text.FAULT_LABEL[r.fault_class]
+            w = text.HISTORY_WHAT[warned]
+            out.append(dict(t=iso(r.t), fault_class=r.fault_class, what_en=w[0].format(fault=f_en.capitalize()),
+                            what_ms=w[1].format(fault=f_ms.capitalize()), downtime_h=float(r.downtime_h), was_predicted=warned))
+        return out
 
     def backtest(self, cpo_price=None, miss_cost_mult=1.0, alert_budget=5, compare="run_to_failure"):
         cpo = min(max(cpo_price if cpo_price else val(self.p, "economics", "cpo_price_rm_per_t"), 3800), 5000)
