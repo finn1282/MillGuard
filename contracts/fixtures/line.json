@@ -1,5 +1,5 @@
 {
- "at": "2025-10-18T19:00:00+08:00",
+ "at": "2025-01-14T19:00:00+08:00",
  "assets": [
   {
    "id": "press_1",
@@ -44,7 +44,7 @@
    "stage": "boiler",
    "position": 0,
    "status": "act",
-   "risk_pct": 58.0
+   "risk_pct": 28.0
   }
  ]
 }

@@ -17,6 +17,10 @@ def clamp(x, lo, hi):
     return max(lo, min(hi, x))
 
 
+def is_quiet(at):
+    return bool(at) and at.startswith("2025-01-11")
+
+
 def fx(name):
     return json.loads((FIX / f"{name}.json").read_text())
 
@@ -28,12 +32,12 @@ def meta():
 
 @app.get("/api/brief", response_model=Brief)
 def brief(at: str | None = None):
-    return fx("brief")
+    return fx("brief_quiet" if is_quiet(at) else "brief")
 
 
 @app.get("/api/line", response_model=Line)
 def line(at: str | None = None):
-    return fx("line")
+    return fx("line_quiet" if is_quiet(at) else "line")
 
 
 @app.get("/api/assets/{asset_id}", response_model=AssetDetail)

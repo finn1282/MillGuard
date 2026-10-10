@@ -7,17 +7,18 @@ import numpy as np
 
 from backend.api.models import (Action, Marker, Assumption, AssetDetail, Backtest, Brief, FeedbackOut,
                                 Line, LineAsset, Meta, Reason, Robustness)
-from backend.engine import cost
+from backend.engine import cost, text
 from backend.params import load, val
 
 OUT = Path(__file__).resolve().parents[2] / "contracts" / "fixtures"
 MYT = timezone(timedelta(hours=8))
-AT = datetime(2025, 10, 18, 19, 0, tzinfo=MYT)   # Saturday night; Sunday 06:00 is the planned stop
+AT = datetime(2025, 1, 14, 19, 0, tzinfo=MYT)   # boiler + press night; markers use 11, 13, 14 Jan
 START, END = datetime(2025, 1, 1, tzinfo=MYT), datetime(2025, 12, 31, 23, tzinfo=MYT)
+TARGET = {"run_to_failure": 1_240_000, "fixed_interval": 780_000, "millguard": 412_000}   # plan v1.3 sample totals
 ASSETS = [("press_1", "Press 1", "press"), ("press_2", "Press 2", "press"),
           ("press_3", "Press 3", "press"), ("press_4", "Press 4", "press"),
           ("boiler_1", "Boiler 1", "boiler")]
-RISK = {"press_1": 4.0, "press_2": 41.0, "press_3": 7.0, "press_4": 33.0, "boiler_1": 58.0}
+RISK = {"press_1": 4.0, "press_2": 41.0, "press_3": 7.0, "press_4": 33.0, "boiler_1": 28.0}
 STATUS = {"press_1": "ok", "press_2": "act", "press_3": "ok", "press_4": "watch", "boiler_1": "act"}
 iso = lambda d: d.isoformat()
 
@@ -26,64 +27,24 @@ def reason(en, ms, signal, d, c):
     return Reason(text_en=en, text_ms=ms, signal=signal, direction=d, contribution=c)
 
 
+def build_action(aid, asset_id, name, atype, fc, risk, horizon, at_risk, cost_to_act, rec, deadline, crit, t):
+    reasons = [Reason(text_en=en, text_ms=ms, signal=sig, direction=d, contribution=c)
+               for sig, d, c, en, ms in t["reasons"]]
+    return Action(id=aid, asset_id=asset_id, asset_name=name, asset_type=atype, fault_class=fc,
+                  risk_pct=risk, horizon_h=horizon, rm_at_risk=at_risk, rm_cost_to_act=cost_to_act,
+                  rm_saved_if_acted=at_risk - cost_to_act, recommendation=rec, deadline=iso(deadline),
+                  headline_en=t["headline_en"], headline_ms=t["headline_ms"], reasons=reasons,
+                  why_rank_en=t["why_rank_en"], why_rank_ms=t["why_rank_ms"], criticality=crit)
+
+
 def actions(p):
-    price = val(p, "economics", "cpo_price_rm_per_t")
-    mk = lambda fc: (cost.breakdown_cost(p, fc), cost.planned_cost(p, fc), cost.saved_if_acted(p, fc))
-    b, pl, sv = mk("boiler_steam")
-    boiler = Action(
-        id="act_boiler_1_0001", asset_id="boiler_1", asset_name="Boiler 1", asset_type="boiler",
-        fault_class="boiler_steam", risk_pct=58.0, horizon_h=24, rm_at_risk=b, rm_cost_to_act=pl,
-        rm_saved_if_acted=sv, recommendation="fix_now", deadline=iso(AT + timedelta(hours=2)),
-        headline_en="Boiler 1: steam temperature anomaly. Inspect now.",
-        headline_ms="Dandang 1: anomali suhu stim. Periksa sekarang.",
-        reasons=[
-            reason("Steam temperature has run 18 °C below its normal band for 4 hours",
-                   "Suhu stim 18 °C di bawah julat biasa selama 4 jam", "steam_temp", "down", 0.47),
-            reason("Steam pressure is swinging twice as much as usual",
-                   "Tekanan stim berayun dua kali ganda daripada biasa", "steam_pressure", "up", 0.33),
-            reason("Feedwater flow is falling while the mill load is steady",
-                   "Aliran air suapan menurun walaupun beban kilang stabil", "feedwater_flow", "down", 0.20)],
-        why_rank_en=f"Boiler stops the whole mill: about RM{round(cost.rm_per_mill_hour(p)):,} of CPO at risk every hour",
-        why_rank_ms=f"Dandang menghentikan seluruh kilang: kira-kira RM{round(cost.rm_per_mill_hour(p)):,} CPO berisiko setiap jam",
-        criticality="whole_mill")
-    b, pl, sv = mk("worm_wear")
-    worm = Action(
-        id="act_press_2_0001", asset_id="press_2", asset_name="Press 2", asset_type="press",
-        fault_class="worm_wear", risk_pct=41.0, horizon_h=48, rm_at_risk=b, rm_cost_to_act=pl,
-        rm_saved_if_acted=sv, recommendation="schedule_next_stop", deadline=iso(AT + timedelta(hours=11)),
-        headline_en="Press 2: worm wear. Change the worm at tomorrow's 06:00 stop.",
-        headline_ms="Penekan 2: haus skru cacing. Tukar skru pada henti terancang esok jam 06:00.",
-        reasons=[
-            reason("Motor current per tonne is 9% above Press 2's normal for 5 days",
-                   "Arus motor setiap tan 9% lebih tinggi daripada biasa bagi Penekan 2 selama 5 hari",
-                   "current_per_tonne", "up", 0.46),
-            reason("Oil lost in fibre rose to 3.6% (alarm line is 4%)",
-                   "Kehilangan minyak dalam serabut meningkat kepada 3.6% (garis amaran 4%)",
-                   "fibre_oil_loss", "up", 0.31),
-            reason("Worm has run 1,310 h since the last change; typical life is about 1,200 h",
-                   "Skru cacing telah beroperasi 1,310 jam sejak penggantian terakhir; hayat biasa kira-kira 1,200 jam",
-                   "hours_since_service", "up", 0.23)],
-        why_rank_en="Costs less than the boiler alert, but the fix is cheap and fits the planned stop",
-        why_rank_ms="Kos lebih rendah daripada amaran dandang, tetapi pembaikan murah dan muat dalam henti terancang",
-        criticality="partial")
-    b, pl, sv = mk("bearing")
-    bearing = Action(
-        id="act_press_4_0001", asset_id="press_4", asset_name="Press 4", asset_type="press",
-        fault_class="bearing", risk_pct=33.0, horizon_h=72, rm_at_risk=b, rm_cost_to_act=pl,
-        rm_saved_if_acted=sv, recommendation="monitor", deadline=iso(AT + timedelta(hours=36)),
-        headline_en="Press 4: early bearing signs. Keep watching.",
-        headline_ms="Penekan 4: tanda awal galas. Teruskan pemantauan.",
-        reasons=[
-            reason("Vibration kurtosis has risen for 3 days while RMS is still normal",
-                   "Kurtosis getaran meningkat selama 3 hari manakala RMS masih normal", "vibration_kurtosis", "up", 0.58),
-            reason("Gearbox oil temperature is 2 °C above its usual level",
-                   "Suhu minyak gear 2 °C lebih tinggi daripada biasa", "gearbox_oil_temp", "up", 0.24),
-            reason("Bearing has run 1,850 h since service",
-                   "Galas telah beroperasi 1,850 jam sejak servis", "hours_since_service", "up", 0.18)],
-        why_rank_en="One press is a quarter of the mill, so this ranks below the boiler and Press 2",
-        why_rank_ms="Satu penekan ialah suku kilang, jadi ia berada di bawah dandang dan Penekan 2",
-        criticality="partial")
-    return [boiler, worm, bearing]
+    """Fixture numbers are hand-set samples (plan v1.3); real values come from the pipeline."""
+    return [
+        build_action("act_boiler_1_0001", "boiler_1", "Boiler 1", "boiler", "boiler_steam", 28.0, 24,
+                     61000, 3000, "fix_now", AT.replace(hour=23), "whole_mill", text.BOILER_1),
+        build_action("act_press_2_0001", "press_2", "Press 2", "press", "worm_wear", 41.0, 48,
+                     21000, 3000, "schedule_next_stop", (AT + timedelta(days=1)).replace(hour=6),
+                     "partial", text.PRESS_2_WORM)]
 
 
 def line_assets():
@@ -100,17 +61,14 @@ def series(asset_id, window_h=168):
     pts = lambda v: [(iso(t), round(float(a), 3)) for t, a in zip(ts, v)]
     if asset_id == "boiler_1":
         ramp = np.clip((x - 0.8) / 0.2, 0, 1)
-        defs = [("steam_temp", "Steam temperature", "Suhu stim", "°C", 420 - 18 * ramp + n(1.2)),
-                ("steam_pressure", "Steam pressure", "Tekanan stim", "bar", 21 + n(0.15 + 0.5 * ramp)),
-                ("feedwater_flow", "Feedwater flow", "Aliran air suapan", "t/h", 38 - 4 * ramp + n(0.5))]
+        vals = {"steam_temp": 538 - 16 * ramp + n(1.0), "steam_pressure": 21 + n(0.15 + 0.5 * ramp),
+                "feedwater_flow": 38 - 4 * ramp + n(0.5)}
     else:
         up = x ** 2 if asset_id == "press_2" else np.zeros(window_h)
-        defs = [("current_per_tonne", "Motor current per tonne", "Arus motor setiap tan", "A/t",
-                 4.2 * (1 + 0.09 * up) + n(0.04)),
-                ("vibration_kurtosis", "Vibration kurtosis", "Kurtosis getaran", "",
-                 3.0 + (1.2 * x if asset_id == "press_4" else 0) + n(0.12)),
-                ("gearbox_oil_temp", "Gearbox oil temperature", "Suhu minyak gear", "°C",
-                 62 + (2 * x if sick else 0) + n(0.4))]
+        vals = {"current_per_tonne": 4.2 * (1 + 0.09 * up) + n(0.04),
+                "vibration_kurtosis": 3.0 + (1.2 * x if asset_id == "press_4" else 0) + n(0.12),
+                "gearbox_oil_temp": 62 + (2 * x if sick else 0) + n(0.4)}
+    defs = [(k, *text.SERIES[k], v) for k, v in vals.items()]
     from backend.api.models import Series
     return [Series(signal=s, label_en=en, label_ms=ms, unit=u, points=pts(v)) for s, en, ms, u, v in defs]
 
@@ -169,6 +127,9 @@ def backtest(p, cpo_price=None, miss_mult=1.0):
             pf += typ == "planned_fix"
             fa += typ == "false_alarm"
         cum[k] = np.cumsum(daily)
+        cum[k] = np.floor(cum[k] * TARGET[k] / cum[k][-1]) if not cpo_price and miss_mult == 1.0 else cum[k]
+        if not cpo_price and miss_mult == 1.0:
+            cum[k][-1] = TARGET[k]
         res.append(dict(id=k, total_cost_rm=int(cum[k][-1]), breakdowns=bd, planned_stops=int(pf),
                         false_alarms=int(fa), downtime_h=dt, lost_cpo_t=round(lost, 1)))
     from backend.api.models import PolicyResult
@@ -180,20 +141,19 @@ def backtest(p, cpo_price=None, miss_mult=1.0):
 
 
 def markers(bt):
-    names = {a: n for a, n, _ in ASSETS}
-    out = [Marker(t="2025-09-27T19:00:00+08:00", kind="bookmark", label_en="Quiet night: nothing needs you",
-                  label_ms="Malam tenang: tiada tindakan diperlukan"),
-           Marker(t="2025-10-16T11:00:00+08:00", kind="bookmark", asset_id="press_2",
-                  label_en="Press 2 worm-wear alert begins", label_ms="Amaran haus skru cacing Penekan 2 bermula"),
-           Marker(t=iso(AT), kind="bookmark", label_en="Boiler and press alerts on the same night",
-                  label_ms="Amaran dandang dan penekan pada malam yang sama")]
+    M, names = text.MARKERS, {a: n for a, n, _ in ASSETS}
+    day = lambda d: iso(datetime(2025, 1, d, 19, tzinfo=MYT))
+    out = [Marker(t=day(11), kind="bookmark", label_en=M["quiet_en"], label_ms=M["quiet_ms"]),
+           Marker(t=day(13), kind="bookmark", asset_id="press_2", label_en=M["onset_en"], label_ms=M["onset_ms"]),
+           Marker(t=day(14), kind="bookmark", label_en=M["both_en"], label_ms=M["both_ms"])]
     for e in bt.events:
+        nm = names[e.asset_id]
         if e.policy == "millguard" and e.type != "breakdown":
             out.append(Marker(t=e.t, kind="alert", asset_id=e.asset_id,
-                              label_en=f"{names[e.asset_id]}: MillGuard alert", label_ms=f"{names[e.asset_id]}: amaran MillGuard"))
+                              label_en=M["alert_en"].format(asset=nm), label_ms=M["alert_ms"].format(asset=nm)))
         if e.policy == "run_to_failure":
             out.append(Marker(t=e.t, kind="breakdown", asset_id=e.asset_id,
-                              label_en=f"{names[e.asset_id]}: breakdown", label_ms=f"{names[e.asset_id]}: kerosakan"))
+                              label_en=M["breakdown_en"].format(asset=nm), label_ms=M["breakdown_ms"].format(asset=nm)))
     return sorted(out, key=lambda m: m.t)
 
 
@@ -239,6 +199,12 @@ def main():
                                    false_alarms_per_week=0.8,
                                    note="PLACEHOLDER until the real MetroPT-3 run (plan step 8)."))
     write("feedback", FeedbackOut(ok=True))
+    write("brief_quiet", Brief(at=iso(AT.replace(day=11)), shift="night", actions=[], watching_count=1,
+                               suppressed_count=3))
+    quiet = [a.model_copy(update={"status": "ok", "risk_pct": 3.0}) for a in line_assets()]
+    write("line_quiet", Line(at=iso(AT.replace(day=11)), assets=quiet))
+    for a in acts:
+        assert a.reasons[0].signal in {x.signal for x in series(a.asset_id)}, a.id
     print("fixtures written to", OUT)
 
 

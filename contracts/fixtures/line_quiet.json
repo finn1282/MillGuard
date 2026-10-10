@@ -1,0 +1,50 @@
+{
+ "at": "2025-01-11T19:00:00+08:00",
+ "assets": [
+  {
+   "id": "press_1",
+   "name": "Press 1",
+   "type": "press",
+   "stage": "press",
+   "position": 1,
+   "status": "ok",
+   "risk_pct": 3.0
+  },
+  {
+   "id": "press_2",
+   "name": "Press 2",
+   "type": "press",
+   "stage": "press",
+   "position": 2,
+   "status": "ok",
+   "risk_pct": 3.0
+  },
+  {
+   "id": "press_3",
+   "name": "Press 3",
+   "type": "press",
+   "stage": "press",
+   "position": 3,
+   "status": "ok",
+   "risk_pct": 3.0
+  },
+  {
+   "id": "press_4",
+   "name": "Press 4",
+   "type": "press",
+   "stage": "press",
+   "position": 4,
+   "status": "ok",
+   "risk_pct": 3.0
+  },
+  {
+   "id": "boiler_1",
+   "name": "Boiler 1",
+   "type": "boiler",
+   "stage": "boiler",
+   "position": 0,
+   "status": "ok",
+   "risk_pct": 3.0
+  }
+ ]
+}

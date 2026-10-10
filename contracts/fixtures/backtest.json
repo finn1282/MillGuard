@@ -3,7 +3,7 @@
  "policies": [
   {
    "id": "run_to_failure",
-   "total_cost_rm": 1099856,
+   "total_cost_rm": 1240000,
    "breakdowns": 38,
    "planned_stops": 0,
    "false_alarms": 0,
@@ -12,7 +12,7 @@
   },
   {
    "id": "fixed_interval",
-   "total_cost_rm": 1044328,
+   "total_cost_rm": 780000,
    "breakdowns": 24,
    "planned_stops": 47,
    "false_alarms": 0,
@@ -21,7 +21,7 @@
   },
   {
    "id": "millguard",
-   "total_cost_rm": 318862,
+   "total_cost_rm": 412000,
    "breakdowns": 6,
    "planned_stops": 32,
    "false_alarms": 22,
@@ -59,7 +59,7 @@
    "cost": {
     "run_to_failure": 0,
     "fixed_interval": 0,
-    "millguard": 300
+    "millguard": 387
    }
   },
   {
@@ -67,7 +67,7 @@
    "cost": {
     "run_to_failure": 0,
     "fixed_interval": 0,
-    "millguard": 300
+    "millguard": 387
    }
   },
   {
@@ -75,7 +75,7 @@
    "cost": {
     "run_to_failure": 0,
     "fixed_interval": 0,
-    "millguard": 300
+    "millguard": 387
    }
   },
   {
@@ -83,7 +83,7 @@
    "cost": {
     "run_to_failure": 0,
     "fixed_interval": 0,
-    "millguard": 300
+    "millguard": 387
    }
   },
   {
@@ -91,7 +91,7 @@
    "cost": {
     "run_to_failure": 0,
     "fixed_interval": 0,
-    "millguard": 600
+    "millguard": 775
    }
   },
   {
@@ -99,7 +99,7 @@
    "cost": {
     "run_to_failure": 0,
     "fixed_interval": 0,
-    "millguard": 600
+    "millguard": 775
    }
   },
   {
@@ -107,7 +107,7 @@
    "cost": {
     "run_to_failure": 0,
     "fixed_interval": 0,
-    "millguard": 600
+    "millguard": 775
    }
   },
   {
@@ -115,7 +115,7 @@
    "cost": {
     "run_to_failure": 0,
     "fixed_interval": 0,
-    "millguard": 600
+    "millguard": 775
    }
   },
   {
@@ -123,7 +123,7 @@
    "cost": {
     "run_to_failure": 0,
     "fixed_interval": 0,
-    "millguard": 600
+    "millguard": 775
    }
   },
   {
@@ -131,7 +131,7 @@
    "cost": {
     "run_to_failure": 0,
     "fixed_interval": 0,
-    "millguard": 600
+    "millguard": 775
    }
   },
   {
@@ -139,7 +139,7 @@
    "cost": {
     "run_to_failure": 0,
     "fixed_interval": 0,
-    "millguard": 600
+    "millguard": 775
    }
   },
   {
@@ -147,7 +147,7 @@
    "cost": {
     "run_to_failure": 0,
     "fixed_interval": 0,
-    "millguard": 600
+    "millguard": 775
    }
   },
   {
@@ -155,7 +155,7 @@
    "cost": {
     "run_to_failure": 0,
     "fixed_interval": 0,
-    "millguard": 600
+    "millguard": 775
    }
   },
   {
@@ -163,7 +163,7 @@
    "cost": {
     "run_to_failure": 0,
     "fixed_interval": 0,
-    "millguard": 600
+    "millguard": 775
    }
   },
   {
@@ -171,7 +171,7 @@
    "cost": {
     "run_to_failure": 0,
     "fixed_interval": 0,
-    "millguard": 600
+    "millguard": 775
    }
   },
   {
@@ -179,7 +179,7 @@
    "cost": {
     "run_to_failure": 0,
     "fixed_interval": 0,
-    "millguard": 600
+    "millguard": 775
    }
   },
   {
@@ -187,7 +187,7 @@
    "cost": {
     "run_to_failure": 0,
     "fixed_interval": 0,
-    "millguard": 600
+    "millguard": 775
    }
   },
   {
@@ -195,7 +195,7 @@
    "cost": {
     "run_to_failure": 0,
     "fixed_interval": 0,
-    "millguard": 600
+    "millguard": 775
    }
   },
   {
@@ -203,7 +203,7 @@
    "cost": {
     "run_to_failure": 0,
     "fixed_interval": 0,
-    "millguard": 600
+    "millguard": 775
    }
   },
   {
@@ -211,7 +211,7 @@
    "cost": {
     "run_to_failure": 0,
     "fixed_interval": 0,
-    "millguard": 600
+    "millguard": 775
    }
   },
   {
@@ -219,7 +219,7 @@
    "cost": {
     "run_to_failure": 0,
     "fixed_interval": 0,
-    "millguard": 600
+    "millguard": 775
    }
   },
   {
@@ -227,7 +227,7 @@
    "cost": {
     "run_to_failure": 0,
     "fixed_interval": 0,
-    "millguard": 600
+    "millguard": 775
    }
   },
   {
@@ -235,2719 +235,2719 @@
    "cost": {
     "run_to_failure": 0,
     "fixed_interval": 0,
-    "millguard": 600
+    "millguard": 775
    }
   },
   {
    "t": "2025-01-27T00:00:00+08:00",
    "cost": {
     "run_to_failure": 0,
-    "fixed_interval": 6000,
-    "millguard": 600
+    "fixed_interval": 4481,
+    "millguard": 775
    }
   },
   {
    "t": "2025-01-28T00:00:00+08:00",
    "cost": {
     "run_to_failure": 0,
-    "fixed_interval": 6000,
-    "millguard": 600
+    "fixed_interval": 4481,
+    "millguard": 775
    }
   },
   {
    "t": "2025-01-29T00:00:00+08:00",
    "cost": {
     "run_to_failure": 0,
-    "fixed_interval": 6000,
-    "millguard": 600
+    "fixed_interval": 4481,
+    "millguard": 775
    }
   },
   {
    "t": "2025-01-30T00:00:00+08:00",
    "cost": {
     "run_to_failure": 0,
-    "fixed_interval": 6000,
-    "millguard": 5100
+    "fixed_interval": 4481,
+    "millguard": 6589
    }
   },
   {
    "t": "2025-01-31T00:00:00+08:00",
    "cost": {
     "run_to_failure": 0,
-    "fixed_interval": 6000,
-    "millguard": 5100
+    "fixed_interval": 4481,
+    "millguard": 6589
    }
   },
   {
    "t": "2025-02-01T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 22002,
-    "fixed_interval": 28002,
-    "millguard": 5100
+    "run_to_failure": 24805,
+    "fixed_interval": 20914,
+    "millguard": 6589
    }
   },
   {
    "t": "2025-02-02T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 22002,
-    "fixed_interval": 34002,
-    "millguard": 5100
+    "run_to_failure": 24805,
+    "fixed_interval": 25395,
+    "millguard": 6589
    }
   },
   {
    "t": "2025-02-03T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 22002,
-    "fixed_interval": 34002,
-    "millguard": 5100
+    "run_to_failure": 24805,
+    "fixed_interval": 25395,
+    "millguard": 6589
    }
   },
   {
    "t": "2025-02-04T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 22002,
-    "fixed_interval": 34002,
-    "millguard": 5100
+    "run_to_failure": 24805,
+    "fixed_interval": 25395,
+    "millguard": 6589
    }
   },
   {
    "t": "2025-02-05T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 22002,
-    "fixed_interval": 34002,
-    "millguard": 5100
+    "run_to_failure": 24805,
+    "fixed_interval": 25395,
+    "millguard": 6589
    }
   },
   {
    "t": "2025-02-06T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 22002,
-    "fixed_interval": 34002,
-    "millguard": 5100
+    "run_to_failure": 24805,
+    "fixed_interval": 25395,
+    "millguard": 6589
    }
   },
   {
    "t": "2025-02-07T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 22002,
-    "fixed_interval": 34002,
-    "millguard": 5100
+    "run_to_failure": 24805,
+    "fixed_interval": 25395,
+    "millguard": 6589
    }
   },
   {
    "t": "2025-02-08T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 22002,
-    "fixed_interval": 40002,
-    "millguard": 5100
+    "run_to_failure": 24805,
+    "fixed_interval": 29877,
+    "millguard": 6589
    }
   },
   {
    "t": "2025-02-09T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 22002,
-    "fixed_interval": 40002,
-    "millguard": 5400
+    "run_to_failure": 24805,
+    "fixed_interval": 29877,
+    "millguard": 6977
    }
   },
   {
    "t": "2025-02-10T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 22002,
-    "fixed_interval": 40002,
-    "millguard": 5400
+    "run_to_failure": 24805,
+    "fixed_interval": 29877,
+    "millguard": 6977
    }
   },
   {
    "t": "2025-02-11T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 22002,
-    "fixed_interval": 40002,
-    "millguard": 5400
+    "run_to_failure": 24805,
+    "fixed_interval": 29877,
+    "millguard": 6977
    }
   },
   {
    "t": "2025-02-12T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 22002,
-    "fixed_interval": 40002,
-    "millguard": 5400
+    "run_to_failure": 24805,
+    "fixed_interval": 29877,
+    "millguard": 6977
    }
   },
   {
    "t": "2025-02-13T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 22002,
-    "fixed_interval": 40002,
-    "millguard": 10200
+    "run_to_failure": 24805,
+    "fixed_interval": 29877,
+    "millguard": 13179
    }
   },
   {
    "t": "2025-02-14T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 22002,
-    "fixed_interval": 46002,
-    "millguard": 12700
+    "run_to_failure": 24805,
+    "fixed_interval": 34358,
+    "millguard": 16409
    }
   },
   {
    "t": "2025-02-15T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 44004,
-    "fixed_interval": 68004,
-    "millguard": 12700
+    "run_to_failure": 49611,
+    "fixed_interval": 50791,
+    "millguard": 16409
    }
   },
   {
    "t": "2025-02-16T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 63006,
-    "fixed_interval": 70504,
-    "millguard": 12700
+    "run_to_failure": 71034,
+    "fixed_interval": 52658,
+    "millguard": 16409
    }
   },
   {
    "t": "2025-02-17T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 63006,
-    "fixed_interval": 70504,
-    "millguard": 12700
+    "run_to_failure": 71034,
+    "fixed_interval": 52658,
+    "millguard": 16409
    }
   },
   {
    "t": "2025-02-18T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 63006,
-    "fixed_interval": 70504,
-    "millguard": 12700
+    "run_to_failure": 71034,
+    "fixed_interval": 52658,
+    "millguard": 16409
    }
   },
   {
    "t": "2025-02-19T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 63006,
-    "fixed_interval": 70504,
-    "millguard": 12700
+    "run_to_failure": 71034,
+    "fixed_interval": 52658,
+    "millguard": 16409
    }
   },
   {
    "t": "2025-02-20T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 63006,
-    "fixed_interval": 70504,
-    "millguard": 13000
+    "run_to_failure": 71034,
+    "fixed_interval": 52658,
+    "millguard": 16797
    }
   },
   {
    "t": "2025-02-21T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 63006,
-    "fixed_interval": 70504,
-    "millguard": 13000
+    "run_to_failure": 71034,
+    "fixed_interval": 52658,
+    "millguard": 16797
    }
   },
   {
    "t": "2025-02-22T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 63006,
-    "fixed_interval": 70504,
-    "millguard": 13000
+    "run_to_failure": 71034,
+    "fixed_interval": 52658,
+    "millguard": 16797
    }
   },
   {
    "t": "2025-02-23T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 63006,
-    "fixed_interval": 70504,
-    "millguard": 13000
+    "run_to_failure": 71034,
+    "fixed_interval": 52658,
+    "millguard": 16797
    }
   },
   {
    "t": "2025-02-24T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 63006,
-    "fixed_interval": 70504,
-    "millguard": 13000
+    "run_to_failure": 71034,
+    "fixed_interval": 52658,
+    "millguard": 16797
    }
   },
   {
    "t": "2025-02-25T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 63006,
-    "fixed_interval": 70504,
-    "millguard": 13000
+    "run_to_failure": 71034,
+    "fixed_interval": 52658,
+    "millguard": 16797
    }
   },
   {
    "t": "2025-02-26T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 63006,
-    "fixed_interval": 70504,
-    "millguard": 13000
+    "run_to_failure": 71034,
+    "fixed_interval": 52658,
+    "millguard": 16797
    }
   },
   {
    "t": "2025-02-27T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 63006,
-    "fixed_interval": 70504,
-    "millguard": 19000
+    "run_to_failure": 71034,
+    "fixed_interval": 52658,
+    "millguard": 24549
    }
   },
   {
    "t": "2025-02-28T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 63006,
-    "fixed_interval": 70504,
-    "millguard": 19000
+    "run_to_failure": 71034,
+    "fixed_interval": 52658,
+    "millguard": 24549
    }
   },
   {
    "t": "2025-03-01T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 87258,
-    "fixed_interval": 76504,
-    "millguard": 19000
+    "run_to_failure": 98376,
+    "fixed_interval": 57140,
+    "millguard": 24549
    }
   },
   {
    "t": "2025-03-02T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 87258,
-    "fixed_interval": 76504,
-    "millguard": 19000
+    "run_to_failure": 98376,
+    "fixed_interval": 57140,
+    "millguard": 24549
    }
   },
   {
    "t": "2025-03-03T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 87258,
-    "fixed_interval": 76504,
-    "millguard": 19000
+    "run_to_failure": 98376,
+    "fixed_interval": 57140,
+    "millguard": 24549
    }
   },
   {
    "t": "2025-03-04T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 87258,
-    "fixed_interval": 76504,
-    "millguard": 19000
+    "run_to_failure": 98376,
+    "fixed_interval": 57140,
+    "millguard": 24549
    }
   },
   {
    "t": "2025-03-05T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 87258,
-    "fixed_interval": 76504,
-    "millguard": 19000
+    "run_to_failure": 98376,
+    "fixed_interval": 57140,
+    "millguard": 24549
    }
   },
   {
    "t": "2025-03-06T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 87258,
-    "fixed_interval": 76504,
-    "millguard": 19000
+    "run_to_failure": 98376,
+    "fixed_interval": 57140,
+    "millguard": 24549
    }
   },
   {
    "t": "2025-03-07T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 87258,
-    "fixed_interval": 76504,
-    "millguard": 38002
+    "run_to_failure": 98376,
+    "fixed_interval": 57140,
+    "millguard": 49102
    }
   },
   {
    "t": "2025-03-08T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 87258,
-    "fixed_interval": 76504,
-    "millguard": 38002
+    "run_to_failure": 98376,
+    "fixed_interval": 57140,
+    "millguard": 49102
    }
   },
   {
    "t": "2025-03-09T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 106260,
-    "fixed_interval": 95506,
-    "millguard": 38002
+    "run_to_failure": 119799,
+    "fixed_interval": 71332,
+    "millguard": 49102
    }
   },
   {
    "t": "2025-03-10T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 106260,
-    "fixed_interval": 101506,
-    "millguard": 38002
+    "run_to_failure": 119799,
+    "fixed_interval": 75813,
+    "millguard": 49102
    }
   },
   {
    "t": "2025-03-11T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 106260,
-    "fixed_interval": 101506,
-    "millguard": 38002
+    "run_to_failure": 119799,
+    "fixed_interval": 75813,
+    "millguard": 49102
    }
   },
   {
    "t": "2025-03-12T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 106260,
-    "fixed_interval": 101506,
-    "millguard": 38002
+    "run_to_failure": 119799,
+    "fixed_interval": 75813,
+    "millguard": 49102
    }
   },
   {
    "t": "2025-03-13T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 106260,
-    "fixed_interval": 101506,
-    "millguard": 42502
+    "run_to_failure": 119799,
+    "fixed_interval": 75813,
+    "millguard": 54916
    }
   },
   {
    "t": "2025-03-14T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 106260,
-    "fixed_interval": 101506,
-    "millguard": 42502
+    "run_to_failure": 119799,
+    "fixed_interval": 75813,
+    "millguard": 54916
    }
   },
   {
    "t": "2025-03-15T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 128262,
-    "fixed_interval": 123508,
-    "millguard": 42502
+    "run_to_failure": 144605,
+    "fixed_interval": 92247,
+    "millguard": 54916
    }
   },
   {
    "t": "2025-03-16T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 128262,
-    "fixed_interval": 129508,
-    "millguard": 42502
+    "run_to_failure": 144605,
+    "fixed_interval": 96728,
+    "millguard": 54916
    }
   },
   {
    "t": "2025-03-17T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 128262,
-    "fixed_interval": 129508,
-    "millguard": 42502
+    "run_to_failure": 144605,
+    "fixed_interval": 96728,
+    "millguard": 54916
    }
   },
   {
    "t": "2025-03-18T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 128262,
-    "fixed_interval": 129508,
-    "millguard": 42502
+    "run_to_failure": 144605,
+    "fixed_interval": 96728,
+    "millguard": 54916
    }
   },
   {
    "t": "2025-03-19T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 128262,
-    "fixed_interval": 129508,
-    "millguard": 42502
+    "run_to_failure": 144605,
+    "fixed_interval": 96728,
+    "millguard": 54916
    }
   },
   {
    "t": "2025-03-20T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 128262,
-    "fixed_interval": 129508,
-    "millguard": 42502
+    "run_to_failure": 144605,
+    "fixed_interval": 96728,
+    "millguard": 54916
    }
   },
   {
    "t": "2025-03-21T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 128262,
-    "fixed_interval": 129508,
-    "millguard": 42502
+    "run_to_failure": 144605,
+    "fixed_interval": 96728,
+    "millguard": 54916
    }
   },
   {
    "t": "2025-03-22T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 128262,
-    "fixed_interval": 135508,
-    "millguard": 47002
+    "run_to_failure": 144605,
+    "fixed_interval": 101209,
+    "millguard": 60731
    }
   },
   {
    "t": "2025-03-23T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 128262,
-    "fixed_interval": 135508,
-    "millguard": 47002
+    "run_to_failure": 144605,
+    "fixed_interval": 101209,
+    "millguard": 60731
    }
   },
   {
    "t": "2025-03-24T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 150264,
-    "fixed_interval": 157510,
-    "millguard": 47002
+    "run_to_failure": 169410,
+    "fixed_interval": 117642,
+    "millguard": 60731
    }
   },
   {
    "t": "2025-03-25T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 150264,
-    "fixed_interval": 157510,
-    "millguard": 47002
+    "run_to_failure": 169410,
+    "fixed_interval": 117642,
+    "millguard": 60731
    }
   },
   {
    "t": "2025-03-26T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 150264,
-    "fixed_interval": 157510,
-    "millguard": 47002
+    "run_to_failure": 169410,
+    "fixed_interval": 117642,
+    "millguard": 60731
    }
   },
   {
    "t": "2025-03-27T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 150264,
-    "fixed_interval": 157510,
-    "millguard": 47002
+    "run_to_failure": 169410,
+    "fixed_interval": 117642,
+    "millguard": 60731
    }
   },
   {
    "t": "2025-03-28T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 150264,
-    "fixed_interval": 163510,
-    "millguard": 47002
+    "run_to_failure": 169410,
+    "fixed_interval": 122124,
+    "millguard": 60731
    }
   },
   {
    "t": "2025-03-29T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 150264,
-    "fixed_interval": 163510,
-    "millguard": 47002
+    "run_to_failure": 169410,
+    "fixed_interval": 122124,
+    "millguard": 60731
    }
   },
   {
    "t": "2025-03-30T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 150264,
-    "fixed_interval": 163510,
-    "millguard": 47002
+    "run_to_failure": 169410,
+    "fixed_interval": 122124,
+    "millguard": 60731
    }
   },
   {
    "t": "2025-03-31T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 150264,
-    "fixed_interval": 163510,
-    "millguard": 47002
+    "run_to_failure": 169410,
+    "fixed_interval": 122124,
+    "millguard": 60731
    }
   },
   {
    "t": "2025-04-01T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 150264,
-    "fixed_interval": 163510,
-    "millguard": 47002
+    "run_to_failure": 169410,
+    "fixed_interval": 122124,
+    "millguard": 60731
    }
   },
   {
    "t": "2025-04-02T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 150264,
-    "fixed_interval": 163510,
-    "millguard": 47002
+    "run_to_failure": 169410,
+    "fixed_interval": 122124,
+    "millguard": 60731
    }
   },
   {
    "t": "2025-04-03T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 150264,
-    "fixed_interval": 163510,
-    "millguard": 47002
+    "run_to_failure": 169410,
+    "fixed_interval": 122124,
+    "millguard": 60731
    }
   },
   {
    "t": "2025-04-04T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 150264,
-    "fixed_interval": 163510,
-    "millguard": 47002
+    "run_to_failure": 169410,
+    "fixed_interval": 122124,
+    "millguard": 60731
    }
   },
   {
    "t": "2025-04-05T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 150264,
-    "fixed_interval": 163510,
-    "millguard": 47002
+    "run_to_failure": 169410,
+    "fixed_interval": 122124,
+    "millguard": 60731
    }
   },
   {
    "t": "2025-04-06T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 150264,
-    "fixed_interval": 163510,
-    "millguard": 47002
+    "run_to_failure": 169410,
+    "fixed_interval": 122124,
+    "millguard": 60731
    }
   },
   {
    "t": "2025-04-07T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 150264,
-    "fixed_interval": 163510,
-    "millguard": 47002
+    "run_to_failure": 169410,
+    "fixed_interval": 122124,
+    "millguard": 60731
    }
   },
   {
    "t": "2025-04-08T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 150264,
-    "fixed_interval": 163510,
-    "millguard": 53002
+    "run_to_failure": 169410,
+    "fixed_interval": 122124,
+    "millguard": 68483
    }
   },
   {
    "t": "2025-04-09T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 150264,
-    "fixed_interval": 163510,
-    "millguard": 57502
+    "run_to_failure": 169410,
+    "fixed_interval": 122124,
+    "millguard": 74298
    }
   },
   {
    "t": "2025-04-10T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 174516,
-    "fixed_interval": 169510,
-    "millguard": 57802
+    "run_to_failure": 196752,
+    "fixed_interval": 126605,
+    "millguard": 74685
    }
   },
   {
    "t": "2025-04-11T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 196518,
-    "fixed_interval": 191512,
-    "millguard": 57802
+    "run_to_failure": 221558,
+    "fixed_interval": 143038,
+    "millguard": 74685
    }
   },
   {
    "t": "2025-04-12T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 196518,
-    "fixed_interval": 191512,
-    "millguard": 57802
+    "run_to_failure": 221558,
+    "fixed_interval": 143038,
+    "millguard": 74685
    }
   },
   {
    "t": "2025-04-13T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 196518,
-    "fixed_interval": 191512,
-    "millguard": 58102
+    "run_to_failure": 221558,
+    "fixed_interval": 143038,
+    "millguard": 75073
    }
   },
   {
    "t": "2025-04-14T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 196518,
-    "fixed_interval": 191512,
-    "millguard": 58102
+    "run_to_failure": 221558,
+    "fixed_interval": 143038,
+    "millguard": 75073
    }
   },
   {
    "t": "2025-04-15T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 196518,
-    "fixed_interval": 191512,
-    "millguard": 58102
+    "run_to_failure": 221558,
+    "fixed_interval": 143038,
+    "millguard": 75073
    }
   },
   {
    "t": "2025-04-16T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 196518,
-    "fixed_interval": 191512,
-    "millguard": 58102
+    "run_to_failure": 221558,
+    "fixed_interval": 143038,
+    "millguard": 75073
    }
   },
   {
    "t": "2025-04-17T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 196518,
-    "fixed_interval": 191512,
-    "millguard": 58102
+    "run_to_failure": 221558,
+    "fixed_interval": 143038,
+    "millguard": 75073
    }
   },
   {
    "t": "2025-04-18T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 196518,
-    "fixed_interval": 191512,
-    "millguard": 58102
+    "run_to_failure": 221558,
+    "fixed_interval": 143038,
+    "millguard": 75073
    }
   },
   {
    "t": "2025-04-19T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 196518,
-    "fixed_interval": 191512,
-    "millguard": 58402
+    "run_to_failure": 221558,
+    "fixed_interval": 143038,
+    "millguard": 75460
    }
   },
   {
    "t": "2025-04-20T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 196518,
-    "fixed_interval": 191512,
-    "millguard": 67402
+    "run_to_failure": 221558,
+    "fixed_interval": 143038,
+    "millguard": 87089
    }
   },
   {
    "t": "2025-04-21T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 196518,
-    "fixed_interval": 197512,
-    "millguard": 67402
+    "run_to_failure": 221558,
+    "fixed_interval": 147520,
+    "millguard": 87089
    }
   },
   {
    "t": "2025-04-22T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 225270,
-    "fixed_interval": 226264,
-    "millguard": 67402
+    "run_to_failure": 253973,
+    "fixed_interval": 168994,
+    "millguard": 87089
    }
   },
   {
    "t": "2025-04-23T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 225270,
-    "fixed_interval": 226264,
-    "millguard": 67402
+    "run_to_failure": 253973,
+    "fixed_interval": 168994,
+    "millguard": 87089
    }
   },
   {
    "t": "2025-04-24T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 225270,
-    "fixed_interval": 226264,
-    "millguard": 67702
+    "run_to_failure": 253973,
+    "fixed_interval": 168994,
+    "millguard": 87477
    }
   },
   {
    "t": "2025-04-25T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 225270,
-    "fixed_interval": 226264,
-    "millguard": 68002
+    "run_to_failure": 253973,
+    "fixed_interval": 168994,
+    "millguard": 87865
    }
   },
   {
    "t": "2025-04-26T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 225270,
-    "fixed_interval": 226264,
-    "millguard": 68002
+    "run_to_failure": 253973,
+    "fixed_interval": 168994,
+    "millguard": 87865
    }
   },
   {
    "t": "2025-04-27T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 225270,
-    "fixed_interval": 232264,
-    "millguard": 76002
+    "run_to_failure": 253973,
+    "fixed_interval": 173476,
+    "millguard": 98201
    }
   },
   {
    "t": "2025-04-28T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 225270,
-    "fixed_interval": 232264,
-    "millguard": 82002
+    "run_to_failure": 253973,
+    "fixed_interval": 173476,
+    "millguard": 105954
    }
   },
   {
    "t": "2025-04-29T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 359287,
-    "fixed_interval": 366281,
-    "millguard": 82002
+    "run_to_failure": 405067,
+    "fixed_interval": 273572,
+    "millguard": 105954
    }
   },
   {
    "t": "2025-04-30T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 383539,
-    "fixed_interval": 372281,
-    "millguard": 82002
+    "run_to_failure": 432409,
+    "fixed_interval": 278053,
+    "millguard": 105954
    }
   },
   {
    "t": "2025-05-01T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 383539,
-    "fixed_interval": 372281,
-    "millguard": 82002
+    "run_to_failure": 432409,
+    "fixed_interval": 278053,
+    "millguard": 105954
    }
   },
   {
    "t": "2025-05-02T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 383539,
-    "fixed_interval": 372281,
-    "millguard": 82002
+    "run_to_failure": 432409,
+    "fixed_interval": 278053,
+    "millguard": 105954
    }
   },
   {
    "t": "2025-05-03T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 383539,
-    "fixed_interval": 378281,
-    "millguard": 82002
+    "run_to_failure": 432409,
+    "fixed_interval": 282534,
+    "millguard": 105954
    }
   },
   {
    "t": "2025-05-04T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 383539,
-    "fixed_interval": 378281,
-    "millguard": 82002
+    "run_to_failure": 432409,
+    "fixed_interval": 282534,
+    "millguard": 105954
    }
   },
   {
    "t": "2025-05-05T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 383539,
-    "fixed_interval": 378281,
-    "millguard": 82002
+    "run_to_failure": 432409,
+    "fixed_interval": 282534,
+    "millguard": 105954
    }
   },
   {
    "t": "2025-05-06T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 383539,
-    "fixed_interval": 378281,
-    "millguard": 82002
+    "run_to_failure": 432409,
+    "fixed_interval": 282534,
+    "millguard": 105954
    }
   },
   {
    "t": "2025-05-07T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 383539,
-    "fixed_interval": 378281,
-    "millguard": 82002
+    "run_to_failure": 432409,
+    "fixed_interval": 282534,
+    "millguard": 105954
    }
   },
   {
    "t": "2025-05-08T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 383539,
-    "fixed_interval": 378281,
-    "millguard": 85502
+    "run_to_failure": 432409,
+    "fixed_interval": 282534,
+    "millguard": 110476
    }
   },
   {
    "t": "2025-05-09T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 383539,
-    "fixed_interval": 384281,
-    "millguard": 85802
+    "run_to_failure": 432409,
+    "fixed_interval": 287016,
+    "millguard": 110864
    }
   },
   {
    "t": "2025-05-10T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 404041,
-    "fixed_interval": 404783,
-    "millguard": 85802
+    "run_to_failure": 455524,
+    "fixed_interval": 302329,
+    "millguard": 110864
    }
   },
   {
    "t": "2025-05-11T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 404041,
-    "fixed_interval": 404783,
-    "millguard": 85802
+    "run_to_failure": 455524,
+    "fixed_interval": 302329,
+    "millguard": 110864
    }
   },
   {
    "t": "2025-05-12T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 404041,
-    "fixed_interval": 404783,
-    "millguard": 85802
+    "run_to_failure": 455524,
+    "fixed_interval": 302329,
+    "millguard": 110864
    }
   },
   {
    "t": "2025-05-13T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 404041,
-    "fixed_interval": 404783,
-    "millguard": 85802
+    "run_to_failure": 455524,
+    "fixed_interval": 302329,
+    "millguard": 110864
    }
   },
   {
    "t": "2025-05-14T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 404041,
-    "fixed_interval": 404783,
-    "millguard": 85802
+    "run_to_failure": 455524,
+    "fixed_interval": 302329,
+    "millguard": 110864
    }
   },
   {
    "t": "2025-05-15T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 404041,
-    "fixed_interval": 404783,
-    "millguard": 85802
+    "run_to_failure": 455524,
+    "fixed_interval": 302329,
+    "millguard": 110864
    }
   },
   {
    "t": "2025-05-16T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 404041,
-    "fixed_interval": 404783,
-    "millguard": 85802
+    "run_to_failure": 455524,
+    "fixed_interval": 302329,
+    "millguard": 110864
    }
   },
   {
    "t": "2025-05-17T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 404041,
-    "fixed_interval": 404783,
-    "millguard": 85802
+    "run_to_failure": 455524,
+    "fixed_interval": 302329,
+    "millguard": 110864
    }
   },
   {
    "t": "2025-05-18T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 404041,
-    "fixed_interval": 404783,
-    "millguard": 85802
+    "run_to_failure": 455524,
+    "fixed_interval": 302329,
+    "millguard": 110864
    }
   },
   {
    "t": "2025-05-19T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 404041,
-    "fixed_interval": 404783,
-    "millguard": 85802
+    "run_to_failure": 455524,
+    "fixed_interval": 302329,
+    "millguard": 110864
    }
   },
   {
    "t": "2025-05-20T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 404041,
-    "fixed_interval": 404783,
-    "millguard": 85802
+    "run_to_failure": 455524,
+    "fixed_interval": 302329,
+    "millguard": 110864
    }
   },
   {
    "t": "2025-05-21T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 404041,
-    "fixed_interval": 404783,
-    "millguard": 85802
+    "run_to_failure": 455524,
+    "fixed_interval": 302329,
+    "millguard": 110864
    }
   },
   {
    "t": "2025-05-22T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 404041,
-    "fixed_interval": 404783,
-    "millguard": 85802
+    "run_to_failure": 455524,
+    "fixed_interval": 302329,
+    "millguard": 110864
    }
   },
   {
    "t": "2025-05-23T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 404041,
-    "fixed_interval": 404783,
-    "millguard": 85802
+    "run_to_failure": 455524,
+    "fixed_interval": 302329,
+    "millguard": 110864
    }
   },
   {
    "t": "2025-05-24T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 404041,
-    "fixed_interval": 404783,
-    "millguard": 85802
+    "run_to_failure": 455524,
+    "fixed_interval": 302329,
+    "millguard": 110864
    }
   },
   {
    "t": "2025-05-25T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 404041,
-    "fixed_interval": 404783,
-    "millguard": 85802
+    "run_to_failure": 455524,
+    "fixed_interval": 302329,
+    "millguard": 110864
    }
   },
   {
    "t": "2025-05-26T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 404041,
-    "fixed_interval": 404783,
-    "millguard": 85802
+    "run_to_failure": 455524,
+    "fixed_interval": 302329,
+    "millguard": 110864
    }
   },
   {
    "t": "2025-05-27T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 404041,
-    "fixed_interval": 404783,
-    "millguard": 85802
+    "run_to_failure": 455524,
+    "fixed_interval": 302329,
+    "millguard": 110864
    }
   },
   {
    "t": "2025-05-28T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 404041,
-    "fixed_interval": 404783,
-    "millguard": 85802
+    "run_to_failure": 455524,
+    "fixed_interval": 302329,
+    "millguard": 110864
    }
   },
   {
    "t": "2025-05-29T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 404041,
-    "fixed_interval": 404783,
-    "millguard": 85802
+    "run_to_failure": 455524,
+    "fixed_interval": 302329,
+    "millguard": 110864
    }
   },
   {
    "t": "2025-05-30T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 404041,
-    "fixed_interval": 404783,
-    "millguard": 85802
+    "run_to_failure": 455524,
+    "fixed_interval": 302329,
+    "millguard": 110864
    }
   },
   {
    "t": "2025-05-31T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 404041,
-    "fixed_interval": 404783,
-    "millguard": 85802
+    "run_to_failure": 455524,
+    "fixed_interval": 302329,
+    "millguard": 110864
    }
   },
   {
    "t": "2025-06-01T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 404041,
-    "fixed_interval": 404783,
-    "millguard": 85802
+    "run_to_failure": 455524,
+    "fixed_interval": 302329,
+    "millguard": 110864
    }
   },
   {
    "t": "2025-06-02T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 404041,
-    "fixed_interval": 410783,
-    "millguard": 85802
+    "run_to_failure": 455524,
+    "fixed_interval": 306810,
+    "millguard": 110864
    }
   },
   {
    "t": "2025-06-03T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 404041,
-    "fixed_interval": 410783,
-    "millguard": 86102
+    "run_to_failure": 455524,
+    "fixed_interval": 306810,
+    "millguard": 111251
    }
   },
   {
    "t": "2025-06-04T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 404041,
-    "fixed_interval": 410783,
-    "millguard": 88602
+    "run_to_failure": 455524,
+    "fixed_interval": 306810,
+    "millguard": 114482
    }
   },
   {
    "t": "2025-06-05T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 404041,
-    "fixed_interval": 410783,
-    "millguard": 117354
+    "run_to_failure": 455524,
+    "fixed_interval": 306810,
+    "millguard": 151632
    }
   },
   {
    "t": "2025-06-06T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 423043,
-    "fixed_interval": 429785,
-    "millguard": 117354
+    "run_to_failure": 476947,
+    "fixed_interval": 321002,
+    "millguard": 151632
    }
   },
   {
    "t": "2025-06-07T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 451795,
-    "fixed_interval": 458537,
-    "millguard": 117354
+    "run_to_failure": 509362,
+    "fixed_interval": 342477,
+    "millguard": 151632
    }
   },
   {
    "t": "2025-06-08T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 451795,
-    "fixed_interval": 464537,
-    "millguard": 117354
+    "run_to_failure": 509362,
+    "fixed_interval": 346958,
+    "millguard": 151632
    }
   },
   {
    "t": "2025-06-09T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 451795,
-    "fixed_interval": 464537,
-    "millguard": 117354
+    "run_to_failure": 509362,
+    "fixed_interval": 346958,
+    "millguard": 151632
    }
   },
   {
    "t": "2025-06-10T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 451795,
-    "fixed_interval": 464537,
-    "millguard": 117354
+    "run_to_failure": 509362,
+    "fixed_interval": 346958,
+    "millguard": 151632
    }
   },
   {
    "t": "2025-06-11T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 451795,
-    "fixed_interval": 464537,
-    "millguard": 117354
+    "run_to_failure": 509362,
+    "fixed_interval": 346958,
+    "millguard": 151632
    }
   },
   {
    "t": "2025-06-12T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 451795,
-    "fixed_interval": 464537,
-    "millguard": 117354
+    "run_to_failure": 509362,
+    "fixed_interval": 346958,
+    "millguard": 151632
    }
   },
   {
    "t": "2025-06-13T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 451795,
-    "fixed_interval": 464537,
-    "millguard": 117354
+    "run_to_failure": 509362,
+    "fixed_interval": 346958,
+    "millguard": 151632
    }
   },
   {
    "t": "2025-06-14T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 451795,
-    "fixed_interval": 470537,
-    "millguard": 120854
+    "run_to_failure": 509362,
+    "fixed_interval": 351440,
+    "millguard": 156154
    }
   },
   {
    "t": "2025-06-15T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 451795,
-    "fixed_interval": 470537,
-    "millguard": 141356
+    "run_to_failure": 509362,
+    "fixed_interval": 351440,
+    "millguard": 182645
    }
   },
   {
    "t": "2025-06-16T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 472297,
-    "fixed_interval": 491039,
-    "millguard": 141356
+    "run_to_failure": 532477,
+    "fixed_interval": 366752,
+    "millguard": 182645
    }
   },
   {
    "t": "2025-06-17T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 492799,
-    "fixed_interval": 511541,
-    "millguard": 150356
+    "run_to_failure": 555591,
+    "fixed_interval": 382065,
+    "millguard": 194274
    }
   },
   {
    "t": "2025-06-18T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 492799,
-    "fixed_interval": 511541,
-    "millguard": 150356
+    "run_to_failure": 555591,
+    "fixed_interval": 382065,
+    "millguard": 194274
    }
   },
   {
    "t": "2025-06-19T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 521551,
-    "fixed_interval": 540293,
-    "millguard": 150356
+    "run_to_failure": 588007,
+    "fixed_interval": 403540,
+    "millguard": 194274
    }
   },
   {
    "t": "2025-06-20T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 521551,
-    "fixed_interval": 546293,
-    "millguard": 156356
+    "run_to_failure": 588007,
+    "fixed_interval": 408021,
+    "millguard": 202026
    }
   },
   {
    "t": "2025-06-21T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 521551,
-    "fixed_interval": 546293,
-    "millguard": 156356
+    "run_to_failure": 588007,
+    "fixed_interval": 408021,
+    "millguard": 202026
    }
   },
   {
    "t": "2025-06-22T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 545803,
-    "fixed_interval": 552293,
-    "millguard": 156356
+    "run_to_failure": 615349,
+    "fixed_interval": 412503,
+    "millguard": 202026
    }
   },
   {
    "t": "2025-06-23T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 545803,
-    "fixed_interval": 552293,
-    "millguard": 156356
+    "run_to_failure": 615349,
+    "fixed_interval": 412503,
+    "millguard": 202026
    }
   },
   {
    "t": "2025-06-24T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 545803,
-    "fixed_interval": 552293,
-    "millguard": 156356
+    "run_to_failure": 615349,
+    "fixed_interval": 412503,
+    "millguard": 202026
    }
   },
   {
    "t": "2025-06-25T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 545803,
-    "fixed_interval": 552293,
-    "millguard": 156356
+    "run_to_failure": 615349,
+    "fixed_interval": 412503,
+    "millguard": 202026
    }
   },
   {
    "t": "2025-06-26T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 545803,
-    "fixed_interval": 552293,
-    "millguard": 156356
+    "run_to_failure": 615349,
+    "fixed_interval": 412503,
+    "millguard": 202026
    }
   },
   {
    "t": "2025-06-27T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 545803,
-    "fixed_interval": 552293,
-    "millguard": 156356
+    "run_to_failure": 615349,
+    "fixed_interval": 412503,
+    "millguard": 202026
    }
   },
   {
    "t": "2025-06-28T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 545803,
-    "fixed_interval": 552293,
-    "millguard": 156356
+    "run_to_failure": 615349,
+    "fixed_interval": 412503,
+    "millguard": 202026
    }
   },
   {
    "t": "2025-06-29T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 545803,
-    "fixed_interval": 552293,
-    "millguard": 156356
+    "run_to_failure": 615349,
+    "fixed_interval": 412503,
+    "millguard": 202026
    }
   },
   {
    "t": "2025-06-30T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 545803,
-    "fixed_interval": 552293,
-    "millguard": 156656
+    "run_to_failure": 615349,
+    "fixed_interval": 412503,
+    "millguard": 202414
    }
   },
   {
    "t": "2025-07-01T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 545803,
-    "fixed_interval": 552293,
-    "millguard": 156656
+    "run_to_failure": 615349,
+    "fixed_interval": 412503,
+    "millguard": 202414
    }
   },
   {
    "t": "2025-07-02T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 545803,
-    "fixed_interval": 552293,
-    "millguard": 156656
+    "run_to_failure": 615349,
+    "fixed_interval": 412503,
+    "millguard": 202414
    }
   },
   {
    "t": "2025-07-03T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 545803,
-    "fixed_interval": 552293,
-    "millguard": 156656
+    "run_to_failure": 615349,
+    "fixed_interval": 412503,
+    "millguard": 202414
    }
   },
   {
    "t": "2025-07-04T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 545803,
-    "fixed_interval": 552293,
-    "millguard": 156656
+    "run_to_failure": 615349,
+    "fixed_interval": 412503,
+    "millguard": 202414
    }
   },
   {
    "t": "2025-07-05T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 545803,
-    "fixed_interval": 552293,
-    "millguard": 156656
+    "run_to_failure": 615349,
+    "fixed_interval": 412503,
+    "millguard": 202414
    }
   },
   {
    "t": "2025-07-06T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 545803,
-    "fixed_interval": 552293,
-    "millguard": 156656
+    "run_to_failure": 615349,
+    "fixed_interval": 412503,
+    "millguard": 202414
    }
   },
   {
    "t": "2025-07-07T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 545803,
-    "fixed_interval": 552293,
-    "millguard": 156656
+    "run_to_failure": 615349,
+    "fixed_interval": 412503,
+    "millguard": 202414
    }
   },
   {
    "t": "2025-07-08T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 545803,
-    "fixed_interval": 552293,
-    "millguard": 156956
+    "run_to_failure": 615349,
+    "fixed_interval": 412503,
+    "millguard": 202802
    }
   },
   {
    "t": "2025-07-09T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 545803,
-    "fixed_interval": 552293,
-    "millguard": 156956
+    "run_to_failure": 615349,
+    "fixed_interval": 412503,
+    "millguard": 202802
    }
   },
   {
    "t": "2025-07-10T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 545803,
-    "fixed_interval": 552293,
-    "millguard": 156956
+    "run_to_failure": 615349,
+    "fixed_interval": 412503,
+    "millguard": 202802
    }
   },
   {
    "t": "2025-07-11T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 545803,
-    "fixed_interval": 552293,
-    "millguard": 156956
+    "run_to_failure": 615349,
+    "fixed_interval": 412503,
+    "millguard": 202802
    }
   },
   {
    "t": "2025-07-12T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 545803,
-    "fixed_interval": 552293,
-    "millguard": 156956
+    "run_to_failure": 615349,
+    "fixed_interval": 412503,
+    "millguard": 202802
    }
   },
   {
    "t": "2025-07-13T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 545803,
-    "fixed_interval": 552293,
-    "millguard": 157256
+    "run_to_failure": 615349,
+    "fixed_interval": 412503,
+    "millguard": 203189
    }
   },
   {
    "t": "2025-07-14T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 545803,
-    "fixed_interval": 558293,
-    "millguard": 157256
+    "run_to_failure": 615349,
+    "fixed_interval": 416984,
+    "millguard": 203189
    }
   },
   {
    "t": "2025-07-15T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 545803,
-    "fixed_interval": 558293,
-    "millguard": 157256
+    "run_to_failure": 615349,
+    "fixed_interval": 416984,
+    "millguard": 203189
    }
   },
   {
    "t": "2025-07-16T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 545803,
-    "fixed_interval": 558293,
-    "millguard": 157256
+    "run_to_failure": 615349,
+    "fixed_interval": 416984,
+    "millguard": 203189
    }
   },
   {
    "t": "2025-07-17T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 545803,
-    "fixed_interval": 558293,
-    "millguard": 157256
+    "run_to_failure": 615349,
+    "fixed_interval": 416984,
+    "millguard": 203189
    }
   },
   {
    "t": "2025-07-18T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 545803,
-    "fixed_interval": 558293,
-    "millguard": 157556
+    "run_to_failure": 615349,
+    "fixed_interval": 416984,
+    "millguard": 203577
    }
   },
   {
    "t": "2025-07-19T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 545803,
-    "fixed_interval": 558293,
-    "millguard": 157556
+    "run_to_failure": 615349,
+    "fixed_interval": 416984,
+    "millguard": 203577
    }
   },
   {
    "t": "2025-07-20T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 545803,
-    "fixed_interval": 564293,
-    "millguard": 186308
+    "run_to_failure": 615349,
+    "fixed_interval": 421465,
+    "millguard": 240727
    }
   },
   {
    "t": "2025-07-21T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 545803,
-    "fixed_interval": 564293,
-    "millguard": 186308
+    "run_to_failure": 615349,
+    "fixed_interval": 421465,
+    "millguard": 240727
    }
   },
   {
    "t": "2025-07-22T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 574555,
-    "fixed_interval": 573293,
-    "millguard": 186308
+    "run_to_failure": 647764,
+    "fixed_interval": 428187,
+    "millguard": 240727
    }
   },
   {
    "t": "2025-07-23T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 574555,
-    "fixed_interval": 573293,
-    "millguard": 186308
+    "run_to_failure": 647764,
+    "fixed_interval": 428187,
+    "millguard": 240727
    }
   },
   {
    "t": "2025-07-24T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 574555,
-    "fixed_interval": 573293,
-    "millguard": 192308
+    "run_to_failure": 647764,
+    "fixed_interval": 428187,
+    "millguard": 248480
    }
   },
   {
    "t": "2025-07-25T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 574555,
-    "fixed_interval": 573293,
-    "millguard": 192308
+    "run_to_failure": 647764,
+    "fixed_interval": 428187,
+    "millguard": 248480
    }
   },
   {
    "t": "2025-07-26T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 598807,
-    "fixed_interval": 585293,
-    "millguard": 192308
+    "run_to_failure": 675107,
+    "fixed_interval": 437150,
+    "millguard": 248480
    }
   },
   {
    "t": "2025-07-27T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 598807,
-    "fixed_interval": 585293,
-    "millguard": 192308
+    "run_to_failure": 675107,
+    "fixed_interval": 437150,
+    "millguard": 248480
    }
   },
   {
    "t": "2025-07-28T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 598807,
-    "fixed_interval": 585293,
-    "millguard": 192308
+    "run_to_failure": 675107,
+    "fixed_interval": 437150,
+    "millguard": 248480
    }
   },
   {
    "t": "2025-07-29T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 598807,
-    "fixed_interval": 585293,
-    "millguard": 192308
+    "run_to_failure": 675107,
+    "fixed_interval": 437150,
+    "millguard": 248480
    }
   },
   {
    "t": "2025-07-30T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 598807,
-    "fixed_interval": 585293,
-    "millguard": 192308
+    "run_to_failure": 675107,
+    "fixed_interval": 437150,
+    "millguard": 248480
    }
   },
   {
    "t": "2025-07-31T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 598807,
-    "fixed_interval": 585293,
-    "millguard": 192308
+    "run_to_failure": 675107,
+    "fixed_interval": 437150,
+    "millguard": 248480
    }
   },
   {
    "t": "2025-08-01T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 598807,
-    "fixed_interval": 591293,
-    "millguard": 192308
+    "run_to_failure": 675107,
+    "fixed_interval": 441631,
+    "millguard": 248480
    }
   },
   {
    "t": "2025-08-02T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 598807,
-    "fixed_interval": 591293,
-    "millguard": 192308
+    "run_to_failure": 675107,
+    "fixed_interval": 441631,
+    "millguard": 248480
    }
   },
   {
    "t": "2025-08-03T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 598807,
-    "fixed_interval": 591293,
-    "millguard": 192308
+    "run_to_failure": 675107,
+    "fixed_interval": 441631,
+    "millguard": 248480
    }
   },
   {
    "t": "2025-08-04T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 598807,
-    "fixed_interval": 591293,
-    "millguard": 192308
+    "run_to_failure": 675107,
+    "fixed_interval": 441631,
+    "millguard": 248480
    }
   },
   {
    "t": "2025-08-05T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 598807,
-    "fixed_interval": 591293,
-    "millguard": 192308
+    "run_to_failure": 675107,
+    "fixed_interval": 441631,
+    "millguard": 248480
    }
   },
   {
    "t": "2025-08-06T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 598807,
-    "fixed_interval": 591293,
-    "millguard": 192308
+    "run_to_failure": 675107,
+    "fixed_interval": 441631,
+    "millguard": 248480
    }
   },
   {
    "t": "2025-08-07T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 598807,
-    "fixed_interval": 591293,
-    "millguard": 192308
+    "run_to_failure": 675107,
+    "fixed_interval": 441631,
+    "millguard": 248480
    }
   },
   {
    "t": "2025-08-08T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 598807,
-    "fixed_interval": 591293,
-    "millguard": 192308
+    "run_to_failure": 675107,
+    "fixed_interval": 441631,
+    "millguard": 248480
    }
   },
   {
    "t": "2025-08-09T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 598807,
-    "fixed_interval": 591293,
-    "millguard": 192308
+    "run_to_failure": 675107,
+    "fixed_interval": 441631,
+    "millguard": 248480
    }
   },
   {
    "t": "2025-08-10T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 598807,
-    "fixed_interval": 591293,
-    "millguard": 192308
+    "run_to_failure": 675107,
+    "fixed_interval": 441631,
+    "millguard": 248480
    }
   },
   {
    "t": "2025-08-11T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 598807,
-    "fixed_interval": 591293,
-    "millguard": 192308
+    "run_to_failure": 675107,
+    "fixed_interval": 441631,
+    "millguard": 248480
    }
   },
   {
    "t": "2025-08-12T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 598807,
-    "fixed_interval": 591293,
-    "millguard": 192308
+    "run_to_failure": 675107,
+    "fixed_interval": 441631,
+    "millguard": 248480
    }
   },
   {
    "t": "2025-08-13T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 598807,
-    "fixed_interval": 591293,
-    "millguard": 192308
+    "run_to_failure": 675107,
+    "fixed_interval": 441631,
+    "millguard": 248480
    }
   },
   {
    "t": "2025-08-14T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 598807,
-    "fixed_interval": 591293,
-    "millguard": 192308
+    "run_to_failure": 675107,
+    "fixed_interval": 441631,
+    "millguard": 248480
    }
   },
   {
    "t": "2025-08-15T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 598807,
-    "fixed_interval": 591293,
-    "millguard": 195808
+    "run_to_failure": 675107,
+    "fixed_interval": 441631,
+    "millguard": 253002
    }
   },
   {
    "t": "2025-08-16T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 598807,
-    "fixed_interval": 591293,
-    "millguard": 195808
+    "run_to_failure": 675107,
+    "fixed_interval": 441631,
+    "millguard": 253002
    }
   },
   {
    "t": "2025-08-17T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 619309,
-    "fixed_interval": 611795,
-    "millguard": 195808
+    "run_to_failure": 698221,
+    "fixed_interval": 456944,
+    "millguard": 253002
    }
   },
   {
    "t": "2025-08-18T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 619309,
-    "fixed_interval": 611795,
-    "millguard": 195808
+    "run_to_failure": 698221,
+    "fixed_interval": 456944,
+    "millguard": 253002
    }
   },
   {
    "t": "2025-08-19T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 619309,
-    "fixed_interval": 611795,
-    "millguard": 195808
+    "run_to_failure": 698221,
+    "fixed_interval": 456944,
+    "millguard": 253002
    }
   },
   {
    "t": "2025-08-20T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 619309,
-    "fixed_interval": 611795,
-    "millguard": 195808
+    "run_to_failure": 698221,
+    "fixed_interval": 456944,
+    "millguard": 253002
    }
   },
   {
    "t": "2025-08-21T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 619309,
-    "fixed_interval": 611795,
-    "millguard": 214810
+    "run_to_failure": 698221,
+    "fixed_interval": 456944,
+    "millguard": 277554
    }
   },
   {
    "t": "2025-08-22T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 619309,
-    "fixed_interval": 611795,
-    "millguard": 214810
+    "run_to_failure": 698221,
+    "fixed_interval": 456944,
+    "millguard": 277554
    }
   },
   {
    "t": "2025-08-23T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 638311,
-    "fixed_interval": 630797,
-    "millguard": 214810
+    "run_to_failure": 719644,
+    "fixed_interval": 471137,
+    "millguard": 277554
    }
   },
   {
    "t": "2025-08-24T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 638311,
-    "fixed_interval": 630797,
-    "millguard": 214810
+    "run_to_failure": 719644,
+    "fixed_interval": 471137,
+    "millguard": 277554
    }
   },
   {
    "t": "2025-08-25T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 638311,
-    "fixed_interval": 636797,
-    "millguard": 223810
+    "run_to_failure": 719644,
+    "fixed_interval": 475618,
+    "millguard": 289183
    }
   },
   {
    "t": "2025-08-26T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 638311,
-    "fixed_interval": 636797,
-    "millguard": 223810
+    "run_to_failure": 719644,
+    "fixed_interval": 475618,
+    "millguard": 289183
    }
   },
   {
    "t": "2025-08-27T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 667063,
-    "fixed_interval": 665549,
-    "millguard": 223810
+    "run_to_failure": 752060,
+    "fixed_interval": 497093,
+    "millguard": 289183
    }
   },
   {
    "t": "2025-08-28T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 667063,
-    "fixed_interval": 665549,
-    "millguard": 223810
+    "run_to_failure": 752060,
+    "fixed_interval": 497093,
+    "millguard": 289183
    }
   },
   {
    "t": "2025-08-29T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 667063,
-    "fixed_interval": 665549,
-    "millguard": 223810
+    "run_to_failure": 752060,
+    "fixed_interval": 497093,
+    "millguard": 289183
    }
   },
   {
    "t": "2025-08-30T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 667063,
-    "fixed_interval": 665549,
-    "millguard": 224110
+    "run_to_failure": 752060,
+    "fixed_interval": 497093,
+    "millguard": 289571
    }
   },
   {
    "t": "2025-08-31T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 667063,
-    "fixed_interval": 671549,
-    "millguard": 224110
+    "run_to_failure": 752060,
+    "fixed_interval": 501574,
+    "millguard": 289571
    }
   },
   {
    "t": "2025-09-01T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 667063,
-    "fixed_interval": 671549,
-    "millguard": 224110
+    "run_to_failure": 752060,
+    "fixed_interval": 501574,
+    "millguard": 289571
    }
   },
   {
    "t": "2025-09-02T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 667063,
-    "fixed_interval": 671549,
-    "millguard": 224410
+    "run_to_failure": 752060,
+    "fixed_interval": 501574,
+    "millguard": 289959
    }
   },
   {
    "t": "2025-09-03T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 667063,
-    "fixed_interval": 671549,
-    "millguard": 230410
+    "run_to_failure": 752060,
+    "fixed_interval": 501574,
+    "millguard": 297711
    }
   },
   {
    "t": "2025-09-04T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 667063,
-    "fixed_interval": 671549,
-    "millguard": 230410
+    "run_to_failure": 752060,
+    "fixed_interval": 501574,
+    "millguard": 297711
    }
   },
   {
    "t": "2025-09-05T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 691315,
-    "fixed_interval": 677549,
-    "millguard": 230410
+    "run_to_failure": 779402,
+    "fixed_interval": 506055,
+    "millguard": 297711
    }
   },
   {
    "t": "2025-09-06T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 691315,
-    "fixed_interval": 683549,
-    "millguard": 230410
+    "run_to_failure": 779402,
+    "fixed_interval": 510537,
+    "millguard": 297711
    }
   },
   {
    "t": "2025-09-07T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 691315,
-    "fixed_interval": 683549,
-    "millguard": 230410
+    "run_to_failure": 779402,
+    "fixed_interval": 510537,
+    "millguard": 297711
    }
   },
   {
    "t": "2025-09-08T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 691315,
-    "fixed_interval": 683549,
-    "millguard": 230410
+    "run_to_failure": 779402,
+    "fixed_interval": 510537,
+    "millguard": 297711
    }
   },
   {
    "t": "2025-09-09T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 691315,
-    "fixed_interval": 683549,
-    "millguard": 234910
+    "run_to_failure": 779402,
+    "fixed_interval": 510537,
+    "millguard": 303526
    }
   },
   {
    "t": "2025-09-10T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 691315,
-    "fixed_interval": 683549,
-    "millguard": 243410
+    "run_to_failure": 779402,
+    "fixed_interval": 510537,
+    "millguard": 314508
    }
   },
   {
    "t": "2025-09-11T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 713317,
-    "fixed_interval": 705551,
-    "millguard": 243410
+    "run_to_failure": 804208,
+    "fixed_interval": 526970,
+    "millguard": 314508
    }
   },
   {
    "t": "2025-09-12T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 756571,
-    "fixed_interval": 720051,
-    "millguard": 243410
+    "run_to_failure": 852973,
+    "fixed_interval": 537800,
+    "millguard": 314508
    }
   },
   {
    "t": "2025-09-13T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 756571,
-    "fixed_interval": 720051,
-    "millguard": 243410
+    "run_to_failure": 852973,
+    "fixed_interval": 537800,
+    "millguard": 314508
    }
   },
   {
    "t": "2025-09-14T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 756571,
-    "fixed_interval": 720051,
-    "millguard": 243410
+    "run_to_failure": 852973,
+    "fixed_interval": 537800,
+    "millguard": 314508
    }
   },
   {
    "t": "2025-09-15T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 756571,
-    "fixed_interval": 720051,
-    "millguard": 243410
+    "run_to_failure": 852973,
+    "fixed_interval": 537800,
+    "millguard": 314508
    }
   },
   {
    "t": "2025-09-16T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 756571,
-    "fixed_interval": 720051,
-    "millguard": 243410
+    "run_to_failure": 852973,
+    "fixed_interval": 537800,
+    "millguard": 314508
    }
   },
   {
    "t": "2025-09-17T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 756571,
-    "fixed_interval": 720051,
-    "millguard": 243410
+    "run_to_failure": 852973,
+    "fixed_interval": 537800,
+    "millguard": 314508
    }
   },
   {
    "t": "2025-09-18T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 756571,
-    "fixed_interval": 720051,
-    "millguard": 243410
+    "run_to_failure": 852973,
+    "fixed_interval": 537800,
+    "millguard": 314508
    }
   },
   {
    "t": "2025-09-19T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 756571,
-    "fixed_interval": 720051,
-    "millguard": 243410
+    "run_to_failure": 852973,
+    "fixed_interval": 537800,
+    "millguard": 314508
    }
   },
   {
    "t": "2025-09-20T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 756571,
-    "fixed_interval": 720051,
-    "millguard": 243410
+    "run_to_failure": 852973,
+    "fixed_interval": 537800,
+    "millguard": 314508
    }
   },
   {
    "t": "2025-09-21T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 756571,
-    "fixed_interval": 720051,
-    "millguard": 243410
+    "run_to_failure": 852973,
+    "fixed_interval": 537800,
+    "millguard": 314508
    }
   },
   {
    "t": "2025-09-22T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 756571,
-    "fixed_interval": 720051,
-    "millguard": 243410
+    "run_to_failure": 852973,
+    "fixed_interval": 537800,
+    "millguard": 314508
    }
   },
   {
    "t": "2025-09-23T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 756571,
-    "fixed_interval": 720051,
-    "millguard": 243410
+    "run_to_failure": 852973,
+    "fixed_interval": 537800,
+    "millguard": 314508
    }
   },
   {
    "t": "2025-09-24T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 756571,
-    "fixed_interval": 720051,
-    "millguard": 243410
+    "run_to_failure": 852973,
+    "fixed_interval": 537800,
+    "millguard": 314508
    }
   },
   {
    "t": "2025-09-25T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 756571,
-    "fixed_interval": 720051,
-    "millguard": 243410
+    "run_to_failure": 852973,
+    "fixed_interval": 537800,
+    "millguard": 314508
    }
   },
   {
    "t": "2025-09-26T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 756571,
-    "fixed_interval": 720051,
-    "millguard": 243410
+    "run_to_failure": 852973,
+    "fixed_interval": 537800,
+    "millguard": 314508
    }
   },
   {
    "t": "2025-09-27T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 756571,
-    "fixed_interval": 720051,
-    "millguard": 249410
+    "run_to_failure": 852973,
+    "fixed_interval": 537800,
+    "millguard": 322261
    }
   },
   {
    "t": "2025-09-28T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 756571,
-    "fixed_interval": 720051,
-    "millguard": 249410
+    "run_to_failure": 852973,
+    "fixed_interval": 537800,
+    "millguard": 322261
    }
   },
   {
    "t": "2025-09-29T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 887588,
-    "fixed_interval": 851068,
-    "millguard": 249410
+    "run_to_failure": 1000684,
+    "fixed_interval": 635655,
+    "millguard": 322261
    }
   },
   {
    "t": "2025-09-30T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 887588,
-    "fixed_interval": 851068,
-    "millguard": 249410
+    "run_to_failure": 1000684,
+    "fixed_interval": 635655,
+    "millguard": 322261
    }
   },
   {
    "t": "2025-10-01T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 887588,
-    "fixed_interval": 851068,
-    "millguard": 255410
+    "run_to_failure": 1000684,
+    "fixed_interval": 635655,
+    "millguard": 330013
    }
   },
   {
    "t": "2025-10-02T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 887588,
-    "fixed_interval": 851068,
-    "millguard": 255410
+    "run_to_failure": 1000684,
+    "fixed_interval": 635655,
+    "millguard": 330013
    }
   },
   {
    "t": "2025-10-03T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 911840,
-    "fixed_interval": 857068,
-    "millguard": 279662
+    "run_to_failure": 1028026,
+    "fixed_interval": 640137,
+    "millguard": 361349
    }
   },
   {
    "t": "2025-10-04T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 911840,
-    "fixed_interval": 857068,
-    "millguard": 279662
+    "run_to_failure": 1028026,
+    "fixed_interval": 640137,
+    "millguard": 361349
    }
   },
   {
    "t": "2025-10-05T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 936092,
-    "fixed_interval": 863068,
-    "millguard": 285662
+    "run_to_failure": 1055369,
+    "fixed_interval": 644618,
+    "millguard": 369102
    }
   },
   {
    "t": "2025-10-06T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 936092,
-    "fixed_interval": 869068,
-    "millguard": 285662
+    "run_to_failure": 1055369,
+    "fixed_interval": 649099,
+    "millguard": 369102
    }
   },
   {
    "t": "2025-10-07T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 960344,
-    "fixed_interval": 875068,
-    "millguard": 285662
+    "run_to_failure": 1082711,
+    "fixed_interval": 653581,
+    "millguard": 369102
    }
   },
   {
    "t": "2025-10-08T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 960344,
-    "fixed_interval": 875068,
-    "millguard": 285662
+    "run_to_failure": 1082711,
+    "fixed_interval": 653581,
+    "millguard": 369102
    }
   },
   {
    "t": "2025-10-09T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 960344,
-    "fixed_interval": 875068,
-    "millguard": 290162
+    "run_to_failure": 1082711,
+    "fixed_interval": 653581,
+    "millguard": 374916
    }
   },
   {
    "t": "2025-10-10T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 960344,
-    "fixed_interval": 875068,
-    "millguard": 293662
+    "run_to_failure": 1082711,
+    "fixed_interval": 653581,
+    "millguard": 379439
    }
   },
   {
    "t": "2025-10-11T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 982346,
-    "fixed_interval": 897070,
-    "millguard": 293662
+    "run_to_failure": 1107516,
+    "fixed_interval": 670014,
+    "millguard": 379439
    }
   },
   {
    "t": "2025-10-12T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1002848,
-    "fixed_interval": 923572,
-    "millguard": 293662
+    "run_to_failure": 1130631,
+    "fixed_interval": 689808,
+    "millguard": 379439
    }
   },
   {
    "t": "2025-10-13T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1002848,
-    "fixed_interval": 923572,
-    "millguard": 293662
+    "run_to_failure": 1130631,
+    "fixed_interval": 689808,
+    "millguard": 379439
    }
   },
   {
    "t": "2025-10-14T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1002848,
-    "fixed_interval": 923572,
-    "millguard": 293662
+    "run_to_failure": 1130631,
+    "fixed_interval": 689808,
+    "millguard": 379439
    }
   },
   {
    "t": "2025-10-15T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1002848,
-    "fixed_interval": 923572,
-    "millguard": 293662
+    "run_to_failure": 1130631,
+    "fixed_interval": 689808,
+    "millguard": 379439
    }
   },
   {
    "t": "2025-10-16T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1002848,
-    "fixed_interval": 923572,
-    "millguard": 293662
+    "run_to_failure": 1130631,
+    "fixed_interval": 689808,
+    "millguard": 379439
    }
   },
   {
    "t": "2025-10-17T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1002848,
-    "fixed_interval": 923572,
-    "millguard": 293662
+    "run_to_failure": 1130631,
+    "fixed_interval": 689808,
+    "millguard": 379439
    }
   },
   {
    "t": "2025-10-18T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1002848,
-    "fixed_interval": 929572,
-    "millguard": 293662
+    "run_to_failure": 1130631,
+    "fixed_interval": 694289,
+    "millguard": 379439
    }
   },
   {
    "t": "2025-10-19T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1002848,
-    "fixed_interval": 929572,
-    "millguard": 293962
+    "run_to_failure": 1130631,
+    "fixed_interval": 694289,
+    "millguard": 379826
    }
   },
   {
    "t": "2025-10-20T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1002848,
-    "fixed_interval": 929572,
-    "millguard": 293962
+    "run_to_failure": 1130631,
+    "fixed_interval": 694289,
+    "millguard": 379826
    }
   },
   {
    "t": "2025-10-21T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1002848,
-    "fixed_interval": 929572,
-    "millguard": 293962
+    "run_to_failure": 1130631,
+    "fixed_interval": 694289,
+    "millguard": 379826
    }
   },
   {
    "t": "2025-10-22T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1002848,
-    "fixed_interval": 929572,
-    "millguard": 293962
+    "run_to_failure": 1130631,
+    "fixed_interval": 694289,
+    "millguard": 379826
    }
   },
   {
    "t": "2025-10-23T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1002848,
-    "fixed_interval": 929572,
-    "millguard": 298762
+    "run_to_failure": 1130631,
+    "fixed_interval": 694289,
+    "millguard": 386028
    }
   },
   {
    "t": "2025-10-24T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1002848,
-    "fixed_interval": 935572,
-    "millguard": 298762
+    "run_to_failure": 1130631,
+    "fixed_interval": 698771,
+    "millguard": 386028
    }
   },
   {
    "t": "2025-10-25T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1024850,
-    "fixed_interval": 957574,
-    "millguard": 298762
+    "run_to_failure": 1155436,
+    "fixed_interval": 715204,
+    "millguard": 386028
    }
   },
   {
    "t": "2025-10-26T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1024850,
-    "fixed_interval": 957574,
-    "millguard": 298762
+    "run_to_failure": 1155436,
+    "fixed_interval": 715204,
+    "millguard": 386028
    }
   },
   {
    "t": "2025-10-27T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1024850,
-    "fixed_interval": 957574,
-    "millguard": 298762
+    "run_to_failure": 1155436,
+    "fixed_interval": 715204,
+    "millguard": 386028
    }
   },
   {
    "t": "2025-10-28T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1024850,
-    "fixed_interval": 957574,
-    "millguard": 298762
+    "run_to_failure": 1155436,
+    "fixed_interval": 715204,
+    "millguard": 386028
    }
   },
   {
    "t": "2025-10-29T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1024850,
-    "fixed_interval": 957574,
-    "millguard": 298762
+    "run_to_failure": 1155436,
+    "fixed_interval": 715204,
+    "millguard": 386028
    }
   },
   {
    "t": "2025-10-30T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1024850,
-    "fixed_interval": 957574,
-    "millguard": 298762
+    "run_to_failure": 1155436,
+    "fixed_interval": 715204,
+    "millguard": 386028
    }
   },
   {
    "t": "2025-10-31T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1024850,
-    "fixed_interval": 957574,
-    "millguard": 298762
+    "run_to_failure": 1155436,
+    "fixed_interval": 715204,
+    "millguard": 386028
    }
   },
   {
    "t": "2025-11-01T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1024850,
-    "fixed_interval": 957574,
-    "millguard": 298762
+    "run_to_failure": 1155436,
+    "fixed_interval": 715204,
+    "millguard": 386028
    }
   },
   {
    "t": "2025-11-02T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1024850,
-    "fixed_interval": 957574,
-    "millguard": 303262
+    "run_to_failure": 1155436,
+    "fixed_interval": 715204,
+    "millguard": 391843
    }
   },
   {
    "t": "2025-11-03T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1024850,
-    "fixed_interval": 957574,
-    "millguard": 303262
+    "run_to_failure": 1155436,
+    "fixed_interval": 715204,
+    "millguard": 391843
    }
   },
   {
    "t": "2025-11-04T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1046852,
-    "fixed_interval": 979576,
-    "millguard": 303262
+    "run_to_failure": 1180242,
+    "fixed_interval": 731637,
+    "millguard": 391843
    }
   },
   {
    "t": "2025-11-05T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1046852,
-    "fixed_interval": 979576,
-    "millguard": 312262
+    "run_to_failure": 1180242,
+    "fixed_interval": 731637,
+    "millguard": 403472
    }
   },
   {
    "t": "2025-11-06T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1046852,
-    "fixed_interval": 979576,
-    "millguard": 312262
+    "run_to_failure": 1180242,
+    "fixed_interval": 731637,
+    "millguard": 403472
    }
   },
   {
    "t": "2025-11-07T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1075604,
-    "fixed_interval": 1008328,
-    "millguard": 312262
+    "run_to_failure": 1212657,
+    "fixed_interval": 753111,
+    "millguard": 403472
    }
   },
   {
    "t": "2025-11-08T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1075604,
-    "fixed_interval": 1008328,
-    "millguard": 312262
+    "run_to_failure": 1212657,
+    "fixed_interval": 753111,
+    "millguard": 403472
    }
   },
   {
    "t": "2025-11-09T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1075604,
-    "fixed_interval": 1008328,
-    "millguard": 312262
+    "run_to_failure": 1212657,
+    "fixed_interval": 753111,
+    "millguard": 403472
    }
   },
   {
    "t": "2025-11-10T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1075604,
-    "fixed_interval": 1008328,
-    "millguard": 312262
+    "run_to_failure": 1212657,
+    "fixed_interval": 753111,
+    "millguard": 403472
    }
   },
   {
    "t": "2025-11-11T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1075604,
-    "fixed_interval": 1008328,
-    "millguard": 312262
+    "run_to_failure": 1212657,
+    "fixed_interval": 753111,
+    "millguard": 403472
    }
   },
   {
    "t": "2025-11-12T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1075604,
-    "fixed_interval": 1008328,
-    "millguard": 312262
+    "run_to_failure": 1212657,
+    "fixed_interval": 753111,
+    "millguard": 403472
    }
   },
   {
    "t": "2025-11-13T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1075604,
-    "fixed_interval": 1008328,
-    "millguard": 312262
+    "run_to_failure": 1212657,
+    "fixed_interval": 753111,
+    "millguard": 403472
    }
   },
   {
    "t": "2025-11-14T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1075604,
-    "fixed_interval": 1008328,
-    "millguard": 312262
+    "run_to_failure": 1212657,
+    "fixed_interval": 753111,
+    "millguard": 403472
    }
   },
   {
    "t": "2025-11-15T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1075604,
-    "fixed_interval": 1008328,
-    "millguard": 312562
+    "run_to_failure": 1212657,
+    "fixed_interval": 753111,
+    "millguard": 403859
    }
   },
   {
    "t": "2025-11-16T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1075604,
-    "fixed_interval": 1008328,
-    "millguard": 312562
+    "run_to_failure": 1212657,
+    "fixed_interval": 753111,
+    "millguard": 403859
    }
   },
   {
    "t": "2025-11-17T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1075604,
-    "fixed_interval": 1014328,
-    "millguard": 312562
+    "run_to_failure": 1212657,
+    "fixed_interval": 757593,
+    "millguard": 403859
    }
   },
   {
    "t": "2025-11-18T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1075604,
-    "fixed_interval": 1014328,
-    "millguard": 312562
+    "run_to_failure": 1212657,
+    "fixed_interval": 757593,
+    "millguard": 403859
    }
   },
   {
    "t": "2025-11-19T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1075604,
-    "fixed_interval": 1014328,
-    "millguard": 312562
+    "run_to_failure": 1212657,
+    "fixed_interval": 757593,
+    "millguard": 403859
    }
   },
   {
    "t": "2025-11-20T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1075604,
-    "fixed_interval": 1014328,
-    "millguard": 312562
+    "run_to_failure": 1212657,
+    "fixed_interval": 757593,
+    "millguard": 403859
    }
   },
   {
    "t": "2025-11-21T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1075604,
-    "fixed_interval": 1014328,
-    "millguard": 312562
+    "run_to_failure": 1212657,
+    "fixed_interval": 757593,
+    "millguard": 403859
    }
   },
   {
    "t": "2025-11-22T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1075604,
-    "fixed_interval": 1014328,
-    "millguard": 312562
+    "run_to_failure": 1212657,
+    "fixed_interval": 757593,
+    "millguard": 403859
    }
   },
   {
    "t": "2025-11-23T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1075604,
-    "fixed_interval": 1020328,
-    "millguard": 312562
+    "run_to_failure": 1212657,
+    "fixed_interval": 762074,
+    "millguard": 403859
    }
   },
   {
    "t": "2025-11-24T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1075604,
-    "fixed_interval": 1020328,
-    "millguard": 312562
+    "run_to_failure": 1212657,
+    "fixed_interval": 762074,
+    "millguard": 403859
    }
   },
   {
    "t": "2025-11-25T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1075604,
-    "fixed_interval": 1020328,
-    "millguard": 312862
+    "run_to_failure": 1212657,
+    "fixed_interval": 762074,
+    "millguard": 404247
    }
   },
   {
    "t": "2025-11-26T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1075604,
-    "fixed_interval": 1020328,
-    "millguard": 312862
+    "run_to_failure": 1212657,
+    "fixed_interval": 762074,
+    "millguard": 404247
    }
   },
   {
    "t": "2025-11-27T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1075604,
-    "fixed_interval": 1020328,
-    "millguard": 312862
+    "run_to_failure": 1212657,
+    "fixed_interval": 762074,
+    "millguard": 404247
    }
   },
   {
    "t": "2025-11-28T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1075604,
-    "fixed_interval": 1020328,
-    "millguard": 312862
+    "run_to_failure": 1212657,
+    "fixed_interval": 762074,
+    "millguard": 404247
    }
   },
   {
    "t": "2025-11-29T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1075604,
-    "fixed_interval": 1026328,
-    "millguard": 312862
+    "run_to_failure": 1212657,
+    "fixed_interval": 766555,
+    "millguard": 404247
    }
   },
   {
    "t": "2025-11-30T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1075604,
-    "fixed_interval": 1026328,
-    "millguard": 312862
+    "run_to_failure": 1212657,
+    "fixed_interval": 766555,
+    "millguard": 404247
    }
   },
   {
    "t": "2025-12-01T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1075604,
-    "fixed_interval": 1026328,
-    "millguard": 312862
+    "run_to_failure": 1212657,
+    "fixed_interval": 766555,
+    "millguard": 404247
    }
   },
   {
    "t": "2025-12-02T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1075604,
-    "fixed_interval": 1026328,
-    "millguard": 312862
+    "run_to_failure": 1212657,
+    "fixed_interval": 766555,
+    "millguard": 404247
    }
   },
   {
    "t": "2025-12-03T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1075604,
-    "fixed_interval": 1026328,
-    "millguard": 312862
+    "run_to_failure": 1212657,
+    "fixed_interval": 766555,
+    "millguard": 404247
    }
   },
   {
    "t": "2025-12-04T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1075604,
-    "fixed_interval": 1026328,
-    "millguard": 312862
+    "run_to_failure": 1212657,
+    "fixed_interval": 766555,
+    "millguard": 404247
    }
   },
   {
    "t": "2025-12-05T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1075604,
-    "fixed_interval": 1032328,
-    "millguard": 312862
+    "run_to_failure": 1212657,
+    "fixed_interval": 771037,
+    "millguard": 404247
    }
   },
   {
    "t": "2025-12-06T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1075604,
-    "fixed_interval": 1032328,
-    "millguard": 312862
+    "run_to_failure": 1212657,
+    "fixed_interval": 771037,
+    "millguard": 404247
    }
   },
   {
    "t": "2025-12-07T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1075604,
-    "fixed_interval": 1032328,
-    "millguard": 312862
+    "run_to_failure": 1212657,
+    "fixed_interval": 771037,
+    "millguard": 404247
    }
   },
   {
    "t": "2025-12-08T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1075604,
-    "fixed_interval": 1032328,
-    "millguard": 312862
+    "run_to_failure": 1212657,
+    "fixed_interval": 771037,
+    "millguard": 404247
    }
   },
   {
    "t": "2025-12-09T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1075604,
-    "fixed_interval": 1032328,
-    "millguard": 312862
+    "run_to_failure": 1212657,
+    "fixed_interval": 771037,
+    "millguard": 404247
    }
   },
   {
    "t": "2025-12-10T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1075604,
-    "fixed_interval": 1032328,
-    "millguard": 312862
+    "run_to_failure": 1212657,
+    "fixed_interval": 771037,
+    "millguard": 404247
    }
   },
   {
    "t": "2025-12-11T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1075604,
-    "fixed_interval": 1032328,
-    "millguard": 312862
+    "run_to_failure": 1212657,
+    "fixed_interval": 771037,
+    "millguard": 404247
    }
   },
   {
    "t": "2025-12-12T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1075604,
-    "fixed_interval": 1032328,
-    "millguard": 312862
+    "run_to_failure": 1212657,
+    "fixed_interval": 771037,
+    "millguard": 404247
    }
   },
   {
    "t": "2025-12-13T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1075604,
-    "fixed_interval": 1032328,
-    "millguard": 312862
+    "run_to_failure": 1212657,
+    "fixed_interval": 771037,
+    "millguard": 404247
    }
   },
   {
    "t": "2025-12-14T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1075604,
-    "fixed_interval": 1032328,
-    "millguard": 312862
+    "run_to_failure": 1212657,
+    "fixed_interval": 771037,
+    "millguard": 404247
    }
   },
   {
    "t": "2025-12-15T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1075604,
-    "fixed_interval": 1032328,
-    "millguard": 312862
+    "run_to_failure": 1212657,
+    "fixed_interval": 771037,
+    "millguard": 404247
    }
   },
   {
    "t": "2025-12-16T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1075604,
-    "fixed_interval": 1032328,
-    "millguard": 312862
+    "run_to_failure": 1212657,
+    "fixed_interval": 771037,
+    "millguard": 404247
    }
   },
   {
    "t": "2025-12-17T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1075604,
-    "fixed_interval": 1032328,
-    "millguard": 312862
+    "run_to_failure": 1212657,
+    "fixed_interval": 771037,
+    "millguard": 404247
    }
   },
   {
    "t": "2025-12-18T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1075604,
-    "fixed_interval": 1032328,
-    "millguard": 312862
+    "run_to_failure": 1212657,
+    "fixed_interval": 771037,
+    "millguard": 404247
    }
   },
   {
    "t": "2025-12-19T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1075604,
-    "fixed_interval": 1032328,
-    "millguard": 312862
+    "run_to_failure": 1212657,
+    "fixed_interval": 771037,
+    "millguard": 404247
    }
   },
   {
    "t": "2025-12-20T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1075604,
-    "fixed_interval": 1032328,
-    "millguard": 312862
+    "run_to_failure": 1212657,
+    "fixed_interval": 771037,
+    "millguard": 404247
    }
   },
   {
    "t": "2025-12-21T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1075604,
-    "fixed_interval": 1032328,
-    "millguard": 312862
+    "run_to_failure": 1212657,
+    "fixed_interval": 771037,
+    "millguard": 404247
    }
   },
   {
    "t": "2025-12-22T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1075604,
-    "fixed_interval": 1032328,
-    "millguard": 312862
+    "run_to_failure": 1212657,
+    "fixed_interval": 771037,
+    "millguard": 404247
    }
   },
   {
    "t": "2025-12-23T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1075604,
-    "fixed_interval": 1032328,
-    "millguard": 312862
+    "run_to_failure": 1212657,
+    "fixed_interval": 771037,
+    "millguard": 404247
    }
   },
   {
    "t": "2025-12-24T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1075604,
-    "fixed_interval": 1032328,
-    "millguard": 312862
+    "run_to_failure": 1212657,
+    "fixed_interval": 771037,
+    "millguard": 404247
    }
   },
   {
    "t": "2025-12-25T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1075604,
-    "fixed_interval": 1032328,
-    "millguard": 312862
+    "run_to_failure": 1212657,
+    "fixed_interval": 771037,
+    "millguard": 404247
    }
   },
   {
    "t": "2025-12-26T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1075604,
-    "fixed_interval": 1032328,
-    "millguard": 312862
+    "run_to_failure": 1212657,
+    "fixed_interval": 771037,
+    "millguard": 404247
    }
   },
   {
    "t": "2025-12-27T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1075604,
-    "fixed_interval": 1032328,
-    "millguard": 318862
+    "run_to_failure": 1212657,
+    "fixed_interval": 771037,
+    "millguard": 412000
    }
   },
   {
    "t": "2025-12-28T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1075604,
-    "fixed_interval": 1032328,
-    "millguard": 318862
+    "run_to_failure": 1212657,
+    "fixed_interval": 771037,
+    "millguard": 412000
    }
   },
   {
    "t": "2025-12-29T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1099856,
-    "fixed_interval": 1044328,
-    "millguard": 318862
+    "run_to_failure": 1240000,
+    "fixed_interval": 780000,
+    "millguard": 412000
    }
   },
   {
    "t": "2025-12-30T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1099856,
-    "fixed_interval": 1044328,
-    "millguard": 318862
+    "run_to_failure": 1240000,
+    "fixed_interval": 780000,
+    "millguard": 412000
    }
   },
   {
    "t": "2025-12-31T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1099856,
-    "fixed_interval": 1044328,
-    "millguard": 318862
+    "run_to_failure": 1240000,
+    "fixed_interval": 780000,
+    "millguard": 412000
    }
   }
  ],
