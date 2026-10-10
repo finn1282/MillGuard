@@ -1,6 +1,6 @@
 # MillGuard — Master Plan (Single Source of Truth)
 
-Version 1.8 · Sat 10 Oct 2026, 18:05 MYT · Team: 3 people, 2 computers (A = backend, B = design then frontend, third member = pitch) · Deadline: **Sun 11 Oct, 09:30 MYT**
+Version 1.11 · Sat 10 Oct 2026, 20:45 MYT · Team: 3 people, 2 computers (A = backend, B = design then frontend, third member = pitch) · Deadline: **Sun 11 Oct, 09:30 MYT**
 Owner of this file: the orchestrator chat. Agents read it, they do not rewrite it. Propose changes in `CHANGELOG.md` and the orchestrator merges them.
 
 ---
@@ -320,6 +320,9 @@ interface FaultGuide { fault_class: FaultClass; name_en: string; name_ms: string
   - `schedule_next_stop`: window = now → the planned stop **after** the next one (skipping this stop means running a week longer).
   - `horizon_h` = that window in hours; `risk_pct` = P(fail within it); `rm_at_risk` = risk × full breakdown cost; `rm_saved_if_acted` = `rm_at_risk − rm_cost_to_act` (min 0).
   - UI wording: "If not fixed at tomorrow's 06:00 stop: 74% chance it fails before the next one" and "Expected loss if you skip it: RM17,900 (74% × RM24,200 breakdown)". The full breakdown cost is `round(rm_at_risk / (risk_pct/100))`.
+- **v1.9 contract additions (20:15, additive):** `LineAsset.name_ms`, `Action.asset_name_ms` (one Malay term map `MS_TERM` in text.py: Penekan, Dandang), `Series.unit_ms`, `Outlook.note_en/ms`; v1.9b adds `Outlook.handled_at?` (time of the repair that closed the last alert). Series serve running hours only; every summary is computed from the served points (checked in `make fixtures`).
+- **Handled machines:** after an alert is acted on, the machine reads ok with risk 0 and a note ("Already handled …") until the risk clears. Known approximation (disclose if asked): the backtest replays fixed simulated telemetry, so signals after an early repair still show the old wear until the original failure time; we treat the part as renewed and don't model its slightly earlier next wear-out (median lead 63 h vs part life 700–2,000 h, a small bias in MillGuard's favour).
+- **Final demo bookmarks:** Quiet night 2025-07-30 19:00 (0 actions, 1 weak signal ignored); Whole mill 2025-09-14 03:00 (Boiler 1 feed-water fault, 99%, protects RM122,252); Act now 2025-09-29 15:00 (Press 2 cone hydraulic fault, 84%, 3 of 3 signs, protects RM6,096).
 - **v1.7 contract additions (18:00, requested by design; additive, no removals):**
   - `FingerprintCheck.expected` adds `"steady"`.
   - `Action` adds `rm_breakdown_cost` (explicit; UI never divides), `deadline_label_en/ms` (e.g. "tomorrow's 06:00 stop"), and `window_label_en/ms` describing the end of the risk window (e.g. "before the next stop, Sun 06:00"). `horizon_h` stays = the v1.6 risk window, **not** hours to the deadline.
@@ -470,7 +473,14 @@ millguard/
 
 **Build order:** Machine page → Mill → Impact → How it works.
 
-**P2 stretch — "Expert advice" on the Machine page (only if all P0 is green before 01:00):**
+**Expert advice — now IN SCOPE (v1.10, 20:40; P0 is green). Spec below replaces the stretch notes that follow.**
+- `POST /api/advice {asset_id, at, lang: "en" | "ms"}` → `{title, sections: [{heading, items: string[]}], sources: [{label, url?}], disclaimer, generated_at, cached: boolean, model}` (ask the model for JSON matching this shape; validate it with Pydantic and retry once on invalid JSON). Sections in this order: "Check first", "Step by step", "Safety", "Parts and tools", "Call the manufacturer if".
+- **LLM provider (v1.11):** Grafilab's OpenAI-compatible endpoint via the `openai` Python package: `base_url` from `LLM_BASE_URL` (default `https://llm.grafilab.ai/v1`), model from `LLM_MODEL` (default `gemini/gemini-3-flash`), key from `LLM_API_KEY` in `backend/.env` (never committed, printed or logged). Use `chat.completions.create` with a system + user message, `temperature` 0.3 (factual guidance, not creative), a 30 s timeout and one retry. All provider settings live in one module (`backend/advice/llm.py`) so the provider can be swapped by changing env vars only. Inputs are grounded only: the asset's diagnosis, fingerprint, fix plan, history and outlook, plus our notes in `backend/knowledge/*.md` (fault guide, FMEA findings and figures we cite, written in our own words with source links). The prompt forbids inventing manufacturer part numbers, torque values or procedures, and requires lock-out/tag-out in Safety for any machine stop.
+- Cache: responses stored by (asset, at, lang); `make fixtures` writes `advice_<asset>[_act|_quiet]_<lang>.json` for the 3 bookmarks so fixture mode and the demo never call the network. No key or network → `{cached: false}` with a friendly message, never a crash.
+- UI: "Get detailed advice" button under the fix plan; a panel with the sections, sources, and the label "AI-generated guidance — check against the manufacturer's manual and your SOP". Loading and error states. EN/BM follows the toggle.
+- Pitch: "Phase 2 grounds this in each mill's own manuals and SOPs."
+
+**Earlier stretch notes (superseded):**
 - An "Ask for detailed advice" button under the fix plan calls a new `POST /api/advice {asset_id, at}` that returns `{text_en, text_ms, sources[]}`.
 - Backend calls the Claude API with only grounded inputs: the diagnosis, fingerprint, fix plan, machine history, and (if we find them) public manufacturer manual excerpts for screw presses and boilers, stored in `backend/knowledge/` with their source links. No free-form guessing.
 - The UI labels it "AI-generated guidance — check against the manufacturer's manual" and lists sources; the generic fix plan stays the default.
