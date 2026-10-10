@@ -109,7 +109,7 @@ function MachineView({ id }: { id: string }) {
           <span className="font-semibold normal-case tracking-normal text-sm lg:text-[17px]">{bandRight}</span>
         </div>
         {wholeMill && a && (
-          <div className="flex items-start gap-3 px-4 lg:px-6 py-3 lg:py-3.5 bg-act-tint border-b border-[#F3C9AE] text-base lg:text-lg">
+          <div className="flex items-start gap-3 px-4 lg:px-6 py-3 lg:py-3.5 bg-act-tint border-b border-act-tint-border text-base lg:text-lg">
             <IconAct size={20} className="text-act mt-0.5" />
             <span><strong>{t("whyFirst")}</strong> {pick(a, "why_rank")}</span>
           </div>
@@ -236,7 +236,7 @@ function MachineView({ id }: { id: string }) {
 
           {a && (<>
             {/* pinned above the tab bar on mobile, inline on desktop */}
-            <div className="fixed lg:static inset-x-0 bottom-[var(--tabbar-h)] z-20 bg-card lg:bg-transparent border-t border-rule lg:border-0 shadow-[0_-6px_16px_rgba(22,25,28,.08)] lg:shadow-none px-4 py-3 lg:p-0">
+            <div className="fixed lg:static inset-x-0 bottom-[var(--tabbar-h)] z-20 bg-card lg:bg-transparent border-t border-rule lg:border-0 shadow-[0_-6px_16px_var(--shadow)] lg:shadow-none px-4 py-3 lg:p-0">
               <ActionButtons key={a.id} action={a} recorded={recorded} onRecorded={() => setRecorded(true)} />
             </div>
             <Useful key={`u-${a.id}`} actionId={a.id} onRecorded={() => setRecorded(true)} />

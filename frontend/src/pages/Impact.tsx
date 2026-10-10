@@ -73,7 +73,7 @@ function Main({ bt, compare, setCompare, loading, openDrawer }:
         </div>
       </div>
 
-      <div className="bg-ink text-paper rounded p-5 lg:px-7 lg:py-[26px] flex flex-wrap items-baseline justify-between gap-x-8 gap-y-1.5 lg:gap-y-3">
+      <div className="bg-navy text-paper rounded p-5 lg:px-7 lg:py-[26px] flex flex-wrap items-baseline justify-between gap-x-8 gap-y-1.5 lg:gap-y-3">
         <div className="min-w-0">
           <div className="text-[15px] lg:text-lg text-db-label">{t(`savedVs_${compare}` as Key)}</div>
           <div className="font-num font-extrabold text-db-protect tracking-tight leading-none text-[46px] lg:text-[80px]">RM{num(saved)}</div>
@@ -89,7 +89,7 @@ function Main({ bt, compare, setCompare, loading, openDrawer }:
       </div>
 
       <Strip bt={bt} before={before.id} after={after.id} />
-      <button onClick={openDrawer} className="self-start text-left bg-transparent border-0 p-0 text-[15px] lg:text-[17px] font-bold text-[#1D4ED8] hover:text-[#1E3A8A] underline-offset-2 hover:underline min-h-[44px]">
+      <button onClick={openDrawer} className="link-btn self-start">
         {t("seeSources")}
       </button>
     </div>
@@ -236,7 +236,7 @@ function Sliders({ params, setParams, reset, loading }:
     );
   };
   return (
-    <aside aria-labelledby="wi" className="sec basis-[320px] grow lg:max-w-[380px] rounded-t-2xl lg:rounded shadow-[0_-8px_24px_rgba(22,25,28,.12)] lg:shadow-none">
+    <aside aria-labelledby="wi" className="sec basis-[320px] grow lg:max-w-[380px] rounded-t-2xl lg:rounded shadow-[0_-8px_24px_var(--shadow)] lg:shadow-none">
       <div className="flex justify-between items-baseline gap-2">
         <h2 id="wi" className="m-0 text-[19px] lg:text-2xl font-extrabold">{t("whatIf")}</h2>
         {loading && <span role="status" className="text-sm text-muted">{t("updating")}</span>}

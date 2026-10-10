@@ -7,7 +7,7 @@ import { IconAct, IconWatch } from "./Icons";
 
 type State = { kind: "idle" } | { kind: "loading" } | { kind: "done"; a: AdviceOut } | { kind: "error" } | { kind: "offline"; msg?: string };
 
-// "Get detailed advice" under the fix plan (MASTER_PLAN.md §14). EN/BM follows the toggle.
+// "Get detailed advice" under the diagnosis (MASTER_PLAN.md §14). EN/BM follows the toggle.
 export function AdvicePanel({ assetId, at }: { assetId: string; at: string }) {
   const { t, lang } = useLang();
   const [open, setOpen] = useState(false);
@@ -51,7 +51,7 @@ export function AdvicePanel({ assetId, at }: { assetId: string; at: string }) {
       {st.kind === "offline" && <p className="m-0 text-base text-muted">{st.msg || t("adviceOffline")}</p>}
       {st.kind === "done" && <AdviceBody a={st.a} />}
       <button onClick={() => { setOpen(false); setSt({ kind: "idle" }); }}
-        className="self-start bg-transparent border-0 p-0 min-h-[44px] text-[15px] font-bold text-[#1D4ED8] hover:underline">{t("hideAdvice")}</button>
+        className="link-btn self-start">{t("hideAdvice")}</button>
     </section>
   );
 }
@@ -67,7 +67,7 @@ function AdviceBody({ a }: { a: AdviceOut }) {
       // Safety is flagged by position (3rd in the contract order) as well as by name, so BM headings work too.
       const safety = i === 2 || /^(safety|keselamatan)/i.test(s.heading);
       return (
-        <div key={i} className={safety ? "bg-act-tint border border-[#F3C9AE] rounded-[4px] p-3.5" : "border-t border-rule-soft pt-3"}>
+        <div key={i} className={safety ? "bg-act-tint border border-act-tint-border rounded-[4px] p-3.5" : "border-t border-rule-soft pt-3"}>
           <h4 className="m-0 mb-2 flex items-center gap-2 label text-ink">{safety && <IconAct size={16} className="text-act" />}{s.heading}</h4>
           <ul className="m-0 pl-5 flex flex-col gap-1.5 text-[15px] lg:text-[17px] leading-snug">
             {s.items.map((x, j) => <li key={j}>{x}</li>)}

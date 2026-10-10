@@ -42,7 +42,7 @@ export function Fingerprint({ d }: { d: Diagnosis }) {
         );
       })}
       {n < rows.length / 2 && (
-        <div className="flex gap-2.5 items-start bg-[#FFFBEB] border border-sample-border rounded-[4px] px-3 py-2.5 mt-2.5 mb-2 text-[15px] lg:text-base leading-snug text-watch-ink">
+        <div className="flex gap-2.5 items-start bg-watch-tint border border-sample-border rounded-[4px] px-3 py-2.5 mt-2.5 mb-2 text-[15px] lg:text-base leading-snug text-watch-ink">
           <IconWatch size={18} className="mt-0.5" />{t("early", { n, m: rows.length })}
         </div>
       )}

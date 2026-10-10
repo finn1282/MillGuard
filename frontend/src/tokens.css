@@ -1,4 +1,4 @@
-/* MillGuard — Direction B tokens. Contrast ratios are against #FFFFFF. */
+/* MillGuard — navy + cool white tokens. Text pairs are checked by scripts/contrast.mjs (WCAG AA 4.5:1). */
 
 :root {
   /* type */
@@ -6,38 +6,49 @@
   --font-num: 'JetBrains Mono', ui-monospace, monospace;   /* every RM, %, time, date */
 
   /* ground + ink */
-  --paper: #F3F1EC;        /* page background */
-  --paper-bar: #FBFAF7;    /* time bar */
+  --paper: #F6F8FB;        /* page background */
+  --paper-bar: #FFFFFF;    /* time bar */
   --card: #FFFFFF;
-  --rule: #D9D5CC;         /* card borders */
-  --rule-soft: #E6E2D9;    /* row dividers */
-  --ink: #16191C;          /* 17:1, also nav rail + decision bar background */
-  --ink-2: #2B3035;        /* body copy */
-  --muted: #545B61;        /* 6.6:1 secondary text */
-  --control-border: #9C978C;
+  --rule: #DCE3EC;         /* card borders */
+  --rule-soft: #E8EDF3;    /* row dividers */
+  --ink: #0F172A;          /* text, selected controls */
+  --ink-2: #1E293B;        /* body copy */
+  --muted: #475569;        /* secondary text */
+  --control-border: #94A3B8;
+  --navy: #0F2A4A;         /* nav rail, tab bar, decision bar, savings band */
+  --navy-2: #1B3A60;       /* hover on navy */
+  --navy-line: #2E4C72;    /* dividers on navy */
+  --link: #1D4ED8;
+  --link-hover: #1E3A8A;
+  --focus: #2563EB;
+  --overlay: rgba(15, 23, 42, .45);
+  --shadow: rgba(15, 23, 42, .10);
 
   /* status — always colour + icon + word */
-  --act: #C2410C;          /* 5.2:1 Act now chip/band, primary button */
-  --act-tint: #FFF1E8;     /* "Why first" strip, Act now rows on mobile map */
-  --loss: #9A3412;         /* 7.3:1 Expected loss figure, "Missed" */
-  --watch-bg: #FEF3C7;
-  --watch-ink: #78350F;    /* 8.4:1 on --watch-bg */
-  --watch-border: #D9A441;
-  --ok: #0F766E;           /* 5.5:1 Normal, matches, protected */
-  --ok-bg: #E6F4F1;
-  --ok-ink: #0B5D56;
-  --ok-border: #8FCBC2;
+  --act: #C2410C;          /* Act now chip/band, primary button */
+  --act-tint: #FFEDD5;     /* "Why first" strip, Act now rows on mobile map, safety box */
+  --act-tint-border: #FDBA74;
+  --loss: #9A3412;         /* Expected loss figure, "Missed" */
+  --watch-bg: #FEF9C3;
+  --watch-tint: #FEFCE8;   /* Watch rows, early-pattern note */
+  --watch-ink: #713F12;
+  --watch-border: #EAB308;
+  --ok: #15803D;           /* Normal, matches, protected */
+  --ok-bg: #DCFCE7;
+  --ok-ink: #14532D;
+  --ok-border: #86EFAC;
 
-  /* decision bar (dark) */
-  --db-label: #D5D8DA;
-  --db-sub: #AEB4B8;
+  /* on navy (rail, decision bar) */
+  --db-label: #E2E8F0;
+  --db-sub: #B6C4D6;
+  --db-num: #9FB3CC;       /* rail page numbers */
   --db-loss: #FDBA74;
-  --db-protect: #5EEAD4;
+  --db-protect: #86EFAC;
 
   /* sample badge */
-  --sample-bg: #FEF3C7;
-  --sample-ink: #78350F;
-  --sample-border: #F5D78E;
+  --sample-bg: #FEF9C3;
+  --sample-ink: #713F12;
+  --sample-border: #FACC15;
 
   /* shape */
   --radius: 6px;

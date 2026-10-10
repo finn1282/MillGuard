@@ -21,9 +21,9 @@ export function DecisionBar({ action, title }: { action: Action; title: string }
   const { t } = useLang();
   const atStop = action.recommendation === "schedule_next_stop";
   return (
-    <div className="bg-ink text-paper rounded p-[18px] lg:p-7 flex flex-col gap-3.5 lg:gap-[22px]">
+    <div className="bg-navy text-paper rounded p-[18px] lg:p-7 flex flex-col gap-3.5 lg:gap-[22px]">
       <p className="m-0 text-[21px] lg:text-[28px] font-extrabold leading-tight">{title}</p>
-      <div className="grid grid-cols-[minmax(0,1fr)_auto] gap-x-3 lg:gap-x-5 gap-y-2.5 lg:gap-y-3.5 border-t border-[#3A4046] pt-3.5 lg:pt-5 items-baseline">
+      <div className="grid grid-cols-[minmax(0,1fr)_auto] gap-x-3 lg:gap-x-5 gap-y-2.5 lg:gap-y-3.5 border-t border-navy-line pt-3.5 lg:pt-5 items-baseline">
         <Row cls="text-db-loss" value={rm(action.rm_at_risk)} label={<>
           <div className="text-[15px] lg:text-lg text-db-label">{t("expectedLoss")}</div>
           <div className="text-db-sub"><Maths m={action} wholeMill={action.criticality === "whole_mill"} /></div>

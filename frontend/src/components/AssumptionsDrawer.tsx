@@ -19,7 +19,7 @@ export function AssumptionsDrawer({ open, onClose }: { open: boolean; onClose: (
   return (
     <AnimatePresence>
       {open && (<>
-        <motion.div key="bg" className="fixed inset-0 z-40 bg-[rgba(22,25,28,.4)]" onClick={onClose}
+        <motion.div key="bg" className="fixed inset-0 z-40 bg-overlay" onClick={onClose}
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} />
         <motion.aside key="panel" role="dialog" aria-modal="true" aria-labelledby="asm-title"
           className="fixed z-50 inset-x-0 bottom-0 top-12 lg:top-0 lg:left-auto lg:w-[640px] bg-paper rounded-t-2xl lg:rounded-none flex flex-col"

@@ -11,7 +11,7 @@ import type { Action, AssetStatus, LineAsset } from "../lib/types";
 import { useApi } from "../lib/useApi";
 
 const BORDER: Record<AssetStatus, string> = { act: "border-2 border-act", watch: "border-2 border-watch-border", ok: "border border-rule" };
-const ROW_BG: Record<AssetStatus, string> = { act: "bg-act-tint", watch: "bg-[#FFFBEB]", ok: "" };
+const ROW_BG: Record<AssetStatus, string> = { act: "bg-act-tint", watch: "bg-watch-tint", ok: "" };
 const BEFORE: Key[] = ["st_ramp", "st_sterilizer", "st_thresher", "st_digesters"];
 
 export function Mill() {

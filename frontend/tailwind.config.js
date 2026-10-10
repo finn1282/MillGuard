@@ -1,4 +1,4 @@
-/** Colours come from the Direction B tokens in src/tokens.css. */
+/** Colours come from the tokens in src/tokens.css. */
 const v = (n) => `var(--${n})`;
 export default {
   content: ["./index.html", "./src/**/*.{ts,tsx}"],
@@ -7,9 +7,10 @@ export default {
     extend: {
       colors: Object.fromEntries([
         "paper", "paper-bar", "card", "rule", "rule-soft", "ink", "ink-2", "muted", "control-border",
-        "act", "act-tint", "loss", "watch-bg", "watch-ink", "watch-border",
+        "navy", "navy-2", "navy-line", "link", "link-hover", "focus", "overlay", "shadow",
+        "act", "act-tint", "act-tint-border", "loss", "watch-bg", "watch-tint", "watch-ink", "watch-border",
         "ok", "ok-bg", "ok-ink", "ok-border",
-        "db-label", "db-sub", "db-loss", "db-protect",
+        "db-label", "db-sub", "db-num", "db-loss", "db-protect",
         "sample-bg", "sample-ink", "sample-border",
       ].map((n) => [n, v(n)])),
       fontFamily: { ui: v("font-ui"), num: v("font-num") },
