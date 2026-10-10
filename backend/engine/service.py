@@ -295,7 +295,7 @@ class Service:
         if action:
             return {**{k: action[k] for k in ("fault_class", "risk_pct", "horizon_h", "rm_breakdown_cost", "rm_at_risk",
                                               "rm_cost_to_act", "rm_saved_if_acted", "window_label_en", "window_label_ms")},
-                    "note_en": "", "note_ms": ""}
+                    "note_en": "", "note_ms": "", "handled_at": None}
         h = self.idx(t)
         tr = self._trig[aid]
         stop = t + pd.Timedelta(hours=decide.hours_to_stop(t, val(self.p, "alerting", "min_lead_h")) + 168)
@@ -308,14 +308,14 @@ class Service:
         if fixed:
             tc, day = fixed["t_close"], (DAY_EN[fixed["t_close"].dayofweek], DAY_MS[fixed["t_close"].dayofweek])
             return dict(fault_class=fc, risk_pct=0.0, horizon_h=168, rm_breakdown_cost=full, rm_at_risk=0, rm_cost_to_act=plan,
-                        rm_saved_if_acted=0, window_label_en=w_en, window_label_ms=w_ms,
+                        rm_saved_if_acted=0, window_label_en=w_en, window_label_ms=w_ms, handled_at=iso(tc),
                         note_en=text.OUTLOOK_HANDLED[0].format(day=day[0], clock=f"{tc:%H:%M}"), note_ms=text.OUTLOOK_HANDLED[1].format(day=day[1], clock=f"{tc:%H:%M}"))
         pct = min(99, round(decide.p_before(tr["p24"][h], tr["p72"][h], tr["p168"][h], 168) * 100))
         at_risk = round(pct / 100 * full)
         saved = max(0, at_risk - plan)
         return dict(fault_class=fc, risk_pct=pct, horizon_h=168, rm_breakdown_cost=full, rm_at_risk=at_risk,
                     rm_cost_to_act=plan, rm_saved_if_acted=saved, window_label_en=w_en, window_label_ms=w_ms,
-                    note_en=text.OUTLOOK_NOTE[0] if saved else "", note_ms=text.OUTLOOK_NOTE[1] if saved else "")
+                    note_en=text.OUTLOOK_NOTE[0] if saved else "", note_ms=text.OUTLOOK_NOTE[1] if saved else "", handled_at=None)
 
     def _diagnosis(self, aid, cur, status, t, action):
         if status == "ok":

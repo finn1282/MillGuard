@@ -3520,6 +3520,7 @@
   "window_label_en": "before the planned stop after next, Sunday 06:00 (counted up to 168 hours)",
   "window_label_ms": "sebelum henti terancang selepas yang seterusnya, Ahad jam 06:00 (dikira sehingga 168 jam)",
   "note_en": "",
-  "note_ms": ""
+  "note_ms": "",
+  "handled_at": null
  }
 }

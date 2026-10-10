@@ -3646,6 +3646,7 @@
   "window_label_en": "before the next planned stop, Sunday 06:00",
   "window_label_ms": "sebelum henti terancang seterusnya, Ahad jam 06:00",
   "note_en": "",
-  "note_ms": ""
+  "note_ms": "",
+  "handled_at": null
  }
 }

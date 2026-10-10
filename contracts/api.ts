@@ -117,7 +117,7 @@ export interface Outlook {
   fault_class: FaultClass; risk_pct: number; horizon_h: number; rm_breakdown_cost: number;
   rm_at_risk: number; rm_cost_to_act: number; rm_saved_if_acted: number;
   window_label_en: string; window_label_ms: string;
-  note_en?: string; note_ms?: string; // v1.9: why a non-alert machine shows a saving, or that it was just repaired
+  handled_at?: string | null; /* v1.9b: repair time that closed the last alert; fade the chart after it */ note_en?: string; note_ms?: string; // v1.9: why a non-alert machine shows a saving, or that it was just repaired
 }
 
 export interface PolicyResult {

@@ -220,6 +220,7 @@ class Outlook(BaseModel):
     window_label_ms: str
     note_en: str = ""   # v1.9: why a non-alert machine shows a saving, or that it was just repaired
     note_ms: str = ""
+    handled_at: str | None = None   # v1.9b: time of the repair that closed the last alert (machine reads ok after it)
 
 
 class AssetDetail(BaseModel):

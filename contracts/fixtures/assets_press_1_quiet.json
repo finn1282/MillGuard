@@ -3489,6 +3489,7 @@
   "window_label_en": "before the planned stop after next, Sunday 06:00 (counted up to 168 hours)",
   "window_label_ms": "sebelum henti terancang selepas yang seterusnya, Ahad jam 06:00 (dikira sehingga 168 jam)",
   "note_en": "Already handled on Monday at 23:00. No new alert until the risk clears; the figures restart from zero.",
-  "note_ms": "Sudah ditangani pada Isnin jam 23:00. Tiada amaran baharu sehingga risiko reda; angka bermula semula dari sifar."
+  "note_ms": "Sudah ditangani pada Isnin jam 23:00. Tiada amaran baharu sehingga risiko reda; angka bermula semula dari sifar.",
+  "handled_at": "2025-07-28T23:00:00+08:00"
  }
 }
