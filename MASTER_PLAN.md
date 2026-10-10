@@ -1,6 +1,6 @@
 # MillGuard — Master Plan (Single Source of Truth)
 
-Version 1.7 · Sat 10 Oct 2026, 18:00 MYT · Team: 3 people, 2 computers (A = backend, B = design then frontend, third member = pitch) · Deadline: **Sun 11 Oct, 09:30 MYT**
+Version 1.8 · Sat 10 Oct 2026, 18:05 MYT · Team: 3 people, 2 computers (A = backend, B = design then frontend, third member = pitch) · Deadline: **Sun 11 Oct, 09:30 MYT**
 Owner of this file: the orchestrator chat. Agents read it, they do not rewrite it. Propose changes in `CHANGELOG.md` and the orchestrator merges them.
 
 ---
@@ -476,6 +476,27 @@ millguard/
 - The UI labels it "AI-generated guidance — check against the manufacturer's manual" and lists sources; the generic fix plan stays the default.
 - Pitch framing even if not built: "Phase 2 connects MillGuard to each mill's own equipment manuals and SOPs."
 - Risk: needs an API key and network at demo time, so it falls back to a cached answer for the demo bookmarks.
+
+## 15. Messaging alerts (18:05; P1, after backend P0 is green)
+
+**Channel:** Telegram for the demo; WhatsApp Business in the production roadmap (needs Meta business verification and approved templates, too risky tonight).
+
+**What gets sent (same content as the app, EN or BM per subscriber):**
+- **New Act-now alert:** "⚠️ Press 2 · Hydraulic cone fault · 84% chance it fails before the next stop · Fix now · Protects RM6,096". Then the top reason and a link to the Machine page (only if the frontend has a public URL).
+- **Shift brief at 19:00:** the attention list, or "Nothing needs you tonight".
+- **Inline buttons:** Fix now / Schedule / Keep watching → recorded via the same feedback logic as `POST /api/feedback`.
+- One message per alert id (no repeats); max 5 per shift, same alert budget as the app.
+
+**Design:**
+- `backend/notify/telegram_bot.py` using python-telegram-bot with **long polling** (no public URL needed; runs on Computer A next to the API). `/start` subscribes a chat; `/bm` and `/en` switch language; `/brief` sends the current brief.
+- Token and allowed chat IDs in `.env` (never committed). A Telegram **group** for the demo; judges join via a QR code on a slide.
+- Message text built from the same `text.py` templates as the API, so app and message always match.
+- **Contract v1.8 (additive):** `POST /api/notify {at, kind: "alert" | "brief"}` → `{ok, sent: number}` (sends what the replay clock shows at `at`); `GET /api/notify/status` → `{enabled, channel, subscribers}`.
+- **Frontend:** a small "Send to phone" button in the time bar, shown only when `/api/notify/status` says enabled. Presenter use only.
+
+**Demo moment:** at the Act-now bookmark, press "Send to phone"; the message lands on the judges' phones in the group; tap "Schedule" on the phone.
+
+**Production roadmap:** an hourly job sends new alerts automatically; WhatsApp Business Cloud API with approved templates; SMS fallback for areas with weak data coverage.
 
 ## 13. Sources (new this round)
 
