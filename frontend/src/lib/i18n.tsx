@@ -99,7 +99,7 @@ const S = {
   useful: ["Was this useful?", "Adakah ini berguna?"],
   usefulYes: ["Useful", "Berguna"],
   usefulNo: ["Not useful", "Tidak berguna"],
-  recorded: ["Recorded", "Direkodkan"],
+  recorded: ["Thanks, recorded. Feedback is used to tune alerts.", "Terima kasih, telah direkodkan. Maklum balas digunakan untuk menala amaran."],
   lastService: ["Last service", "Servis terakhir"],
   hoursAgo: ["{h} hours ago", "{h} jam lalu"],
   machines: ["Machines", "Mesin"],

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
 import { ActionButtons, Useful } from "../components/ActionButtons";
 import { AdvicePanel } from "../components/AdvicePanel";
@@ -47,6 +47,8 @@ function MachineView({ id }: { id: string }) {
   const faults = useApi(api.faults, []);
   const line = useApi(at ? () => api.line(at) : null, [at]);
   const sticky = useStickyTop(24);
+  const [recorded, setRecorded] = useState(false);
+  useEffect(() => setRecorded(false), [id, at]);
 
   if (res.error) return <ErrorBox error={res.error} retry={res.retry} />;
   if (!res.data) return <Loading />;
@@ -235,9 +237,9 @@ function MachineView({ id }: { id: string }) {
           {a && (<>
             {/* pinned above the tab bar on mobile, inline on desktop */}
             <div className="fixed lg:static inset-x-0 bottom-[var(--tabbar-h)] z-20 bg-card lg:bg-transparent border-t border-rule lg:border-0 shadow-[0_-6px_16px_rgba(22,25,28,.08)] lg:shadow-none px-4 py-3 lg:p-0">
-              <ActionButtons key={a.id} action={a} />
+              <ActionButtons key={a.id} action={a} recorded={recorded} onRecorded={() => setRecorded(true)} />
             </div>
-            <Useful key={`u-${a.id}`} actionId={a.id} />
+            <Useful key={`u-${a.id}`} actionId={a.id} onRecorded={() => setRecorded(true)} />
           </>)}
         </section>
       </div>
