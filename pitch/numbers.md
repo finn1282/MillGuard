@@ -40,20 +40,21 @@ All results are from simulated mills (mill 10 is unseen in training) unless mark
 | MetroPT-3 real compressor, 4 air-leak failures | 0 of 4 flagged before they started; 0.1 false alarms per week | /api/robustness |
 | Real coal-fired boiler, steam excursions 10-15 min ahead | 7 of 16 caught, precision 17.4%, 38.5 false alarms per day. No usable skill (AUC 0.54). | /api/robustness extra[] |
 
-## Stress test (mill 10, no retraining, thresholds unchanged)
-| Condition | Caught | Schedule + MillGuard | Fixed schedule |
-|---|---|---|---|
-| No perturbation (reference) | 72/110 | RM1,563,350 | RM2,814,203 |
-| Sensor noise x2 | 73/110 | RM1,614,806 | RM2,814,203 |
-| 20% of readings missing | 72/110 | RM1,567,124 | RM2,814,203 |
-| 40% of readings missing | 74/110 | RM1,597,202 | RM2,814,203 |
-| Slow sensor drift (+10% over the year on current and vibration) | 72/110 | RM1,556,024 | RM2,814,203 |
-| 25% of work orders with the wrong fault class | 69/110 | RM1,604,730 | RM2,814,203 |
+## Stress test (mill 10, nothing retrained on mill 10, thresholds unchanged; models trained with noise x2 and drift copies of mills 1-9)
+| Condition | Caught | False alarms/week | Schedule + MillGuard | Fixed schedule |
+|---|---|---|---|---|
+| No perturbation (reference) | 72/110 | 0.31 | RM1,563,350 | RM2,814,203 |
+| Sensor noise x2 | 73/110 | 0.67 | RM1,614,806 | RM2,814,203 |
+| Sensor noise x3 | 48/110 | 5.81 | RM3,164,774 | RM2,814,203 |
+| 20% of readings missing | 72/110 | 0.84 | RM1,567,124 | RM2,814,203 |
+| 40% of readings missing | 74/110 | 1.50 | RM1,597,202 | RM2,814,203 |
+| Slow sensor drift (+10% over the year on current and vibration) | 72/110 | 0.33 | RM1,556,024 | RM2,814,203 |
+| 25% of work orders with the wrong fault class | 69/110 | 0.40 | RM1,604,730 | RM2,814,203 |
 
-**Why noise ×3 is not on the slide:** at ×3 the model catches only 48 of 110 failures and mostly stops alerting, so its cost (RM3,164,774) comes from the fixed schedule underneath, not from MillGuard. It is in /api/robustness extra[] and backend/artifacts/stress_table.json if a judge asks. Noise ×2 (worse than fixed) is on the slide on purpose: MillGuard needs reasonably clean sensors or retraining on the mill's own data.
+**Say it plainly:** the models were trained with noisy (x2) and drifting copies of the training mills, so those rows test conditions it learned. Noise x3 is beyond training: it catches 48 of 110 at 5.8 false alarms a week and costs RM3,164,774, more than the fixed schedule (RM2,814,203). That is the limit: past it a mill needs better sensors, and the sensor-health checks flag it. When readings go missing, catches hold but false alarms rise (see the column above).
 
 ## Assumptions to say out loud
-- Mills are simulated; warning periods before failure (worm 300 h, gearbox 400 h, bearing 150 h, cone 200 h) are assumed.
+- Mills are simulated. The bearing warning period (98.5 h) is measured on NASA/IMS run-to-failure bearings; the other warning periods (worm, gearbox, cone) are assumed.
 - Crew inspection finds the real fault 50% of the time when the predicted class is wrong (`inspection_finds_wrong_class`; slider = `inspection_accuracy`).
 - Alert threshold uses a false-alarm multiplier fitted on training mills only; nothing is tuned on mill 10.
 - Press fault fingerprints use the machine's own previous 30 days as 'normal'.

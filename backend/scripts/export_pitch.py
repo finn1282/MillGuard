@@ -1,4 +1,4 @@
-"""Slide-ready assets into pitch/: cumulative-cost chart, stress-test table (no noise x3 row), catch-by-class table, numbers.md.
+"""Slide-ready assets into pitch/: cumulative-cost chart, stress-test table (all rows, noise x3 marked as the limit), catch-by-class table, numbers.md.
 Every number comes from the same Service the API uses (or artifacts it reads). Run after `make all`: make pitch."""
 import json
 from pathlib import Path
@@ -34,36 +34,38 @@ def chart(bt):
 
 
 def table_png(path, title, head, rows, widths, note=None, hl=None):
-    fig, ax = plt.subplots(figsize=(10, 0.55 * (len(rows) + 2.6)), dpi=160); ax.axis("off")
-    tb = ax.table(cellText=rows, colLabels=head, loc="center", cellLoc="center", colWidths=widths)
+    two_line = any("\n" in h for h in head)
+    fig, ax = plt.subplots(figsize=(10, 0.5 * (len(rows) + 1.6 + (0.9 if two_line else 0))), dpi=160); ax.axis("off")
+    tb = ax.table(cellText=rows, colLabels=head, loc="upper center", cellLoc="center", colWidths=widths)
     tb.auto_set_font_size(False); tb.set_fontsize(11); tb.scale(1, 1.7)
     for (r, c), cell in tb.get_celld().items():
         cell.set_edgecolor("#dddddd")
         if r == 0:
-            cell.set_facecolor("#1f2a37"); cell.set_text_props(color="white", weight="bold")
+            cell.set_height(cell.get_height() * (2.0 if two_line else 1.3))   # room for two-line headers
+            cell.set_facecolor("#0B4F3C"); cell.set_text_props(color="white", weight="bold", fontsize=10.5, linespacing=1.25)
         elif hl and hl(r - 1, c, rows):
             cell.set_text_props(color="#b3261e", weight="bold")
-    ax.set_title(title, fontsize=13, weight="bold", loc="left")
+    ax.set_title(title, fontsize=13, weight="bold", loc="left", pad=14)
     if note:
-        fig.text(0.01, 0.01, note, fontsize=8, color="#555555")
-    fig.tight_layout(); fig.savefig(path); plt.close(fig)
+        fig.text(0.01, 0.015, note, fontsize=8, color="#555555")
+    fig.tight_layout(rect=(0, 0.04 if note else 0, 1, 1)); fig.savefig(path, bbox_inches="tight", pad_inches=0.25); plt.close(fig)
 
 
-SHORT = {"baseline": "No perturbation (reference)", "noise2": "Sensor noise ×2", "miss20": "20% of readings missing",
+SHORT = {"baseline": "No perturbation (reference)", "noise2": "Sensor noise ×2", "noise3": "Sensor noise ×3 (beyond training)", "miss20": "20% of readings missing",
          "miss40": "40% of readings missing", "drift": "Slow sensor drift (+10% a year)", "wo25": "25% wrong work-order classes"}
 
 
 def stress(bt):
-    rows = [r for r in json.loads((ART / "stress_table.json").read_text()) if r["key"] != "noise3"]
+    rows = json.loads((ART / "stress_table.json").read_text())
     body = []
     for r in rows:
         sp, fx = r["cost"]["schedule_plus_millguard"], r["cost"]["fixed_interval"]
         body.append([SHORT[r["key"]], f"{r['caught']}/{r['total']}", f"{r['fa_week']:.1f}", rm(sp), rm(fx),
                      rm(abs(fx - sp)) + (" cheaper" if sp < fx else " more costly")])
-    table_png(OUT / "stress_test.png", "Stress test on unseen mill 10: same models, same thresholds, no retraining",
+    table_png(OUT / "stress_test.png", "Stress test on unseen mill 10: same models and thresholds, nothing retrained on mill 10",
               ["Condition", "Failures\ncaught", "False alarms\nper week", "Schedule +\nMillGuard", "Fixed\nschedule", "Schedule + MillGuard\nvs fixed schedule"],
               body, [0.30, 0.10, 0.12, 0.14, 0.13, 0.21],
-              note="Sensor noise ×3 is left off this slide (see numbers.md). Reference row = no perturbation.",
+              note="Models were trained on mills 1-9 plus noisy (x2) and drifting copies of them; noise x3 is beyond training. Reference row = no perturbation.",
               hl=lambda r, c, rows: c == 5 and "more costly" in rows[r][5])
     return rows
 
@@ -75,7 +77,7 @@ def catch(tm):
     body.append(["All faults", f"{got}/{tot}", f"{100 * got / tot:.0f}%", ""])
     table_png(OUT / "catch_by_fault_class.png", "Failures caught before they happen, by fault class (unseen mill 10, 2025)",
               ["Fault class", "Caught / total", "Catch rate", "Median warning"], body, [0.34, 0.22, 0.22, 0.22],
-              note=f"{tm['false_alarms_per_week']} false alarms per week. Warning periods in the simulator are assumed (params.yaml).")
+              note=f"{tm['false_alarms_per_week']} false alarms per week. Bearing warning period measured on NASA/IMS run-to-failure bearings; other warning periods assumed (params.yaml).")
     (OUT / "catch_by_fault_class.md").write_text("| Fault class | Caught / total | Median warning |\n|---|---|---|\n" +
                                                  "\n".join(f"| {r[0]} | {r[1]} | {r[3]} |" for r in body) + "\n")
     return body
@@ -119,15 +121,15 @@ def numbers(s, bt, strict, tm, stress_rows):
     for e in rob["extra"]:
         if e["dataset"].startswith("Real coal"):
             L.append(f"| Real coal-fired boiler, steam excursions 10-15 min ahead | {e['events_caught']} of {e['events_total']} caught, precision {e['precision_pct']}%, {e['false_alarms_per_day']} false alarms per day. No usable skill (AUC 0.54). | /api/robustness extra[] |")
-    L += ["", "## Stress test (mill 10, no retraining, thresholds unchanged)", "| Condition | Caught | Schedule + MillGuard | Fixed schedule |", "|---|---|---|---|"]
+    L += ["", "## Stress test (mill 10, nothing retrained on mill 10, thresholds unchanged; models trained with noise x2 and drift copies of mills 1-9)", "| Condition | Caught | False alarms/week | Schedule + MillGuard | Fixed schedule |", "|---|---|---|---|---|"]
     for r in stress_rows:
-        L.append(f"| {r['label']} | {r['caught']}/{r['total']} | {rm(r['cost']['schedule_plus_millguard'])} | {rm(r['cost']['fixed_interval'])} |")
+        L.append(f"| {r['label']} | {r['caught']}/{r['total']} | {r['fa_week']:.2f} | {rm(r['cost']['schedule_plus_millguard'])} | {rm(r['cost']['fixed_interval'])} |")
     n3 = next(r for r in json.loads((ART / "stress_table.json").read_text()) if r["key"] == "noise3")
-    L += ["", "**Why noise ×3 is not on the slide:** at ×3 the model catches only "
-          f"{n3['caught']} of {n3['total']} failures and mostly stops alerting, so its cost ({rm(n3['cost']['schedule_plus_millguard'])}) comes from the fixed schedule underneath, "
-          "not from MillGuard. It is in /api/robustness extra[] and backend/artifacts/stress_table.json if a judge asks. "
-          "Noise ×2 (worse than fixed) is on the slide on purpose: MillGuard needs reasonably clean sensors or retraining on the mill's own data.",
-          "", "## Assumptions to say out loud", "- Mills are simulated; warning periods before failure (worm 300 h, gearbox 400 h, bearing 150 h, cone 200 h) are assumed.",
+    L += ["", "**Say it plainly:** the models were trained with noisy (x2) and drifting copies of the training mills, so those rows test conditions it learned. "
+          f"Noise x3 is beyond training: it catches {n3['caught']} of {n3['total']} at {n3['fa_week']:.1f} false alarms a week and costs {rm(n3['cost']['schedule_plus_millguard'])}, "
+          f"more than the fixed schedule ({rm(n3['cost']['fixed_interval'])}). That is the limit: past it a mill needs better sensors, and the sensor-health checks flag it. "
+          "When readings go missing, catches hold but false alarms rise (see the column above).",
+          "", "## Assumptions to say out loud", f"- Mills are simulated. The bearing warning period ({val(p, 'simulator', 'pf_h_bearing')} h) is measured on NASA/IMS run-to-failure bearings; the other warning periods (worm, gearbox, cone) are assumed.",
           "- Crew inspection finds the real fault 50% of the time when the predicted class is wrong (`inspection_finds_wrong_class`; slider = `inspection_accuracy`).",
           "- Alert threshold uses a false-alarm multiplier fitted on training mills only; nothing is tuned on mill 10.",
           "- Press fault fingerprints use the machine's own previous 30 days as 'normal'."]
