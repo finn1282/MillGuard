@@ -56,6 +56,28 @@ def check(out):
     print("fixture check ok: every summary sits inside its series, no English left in Malay text")
 
 
+GRID = dict(cpo_price=[3800, 4292.5, 5000], miss_cost_mult=[0.5, 1, 3], alert_budget=[3, 5, 10], inspection_accuracy=[0, 0.5, 1])
+
+
+def grid_name(c, m, b, a):
+    return f"cpo{c:g}_miss{m:g}_bud{b:g}_acc{a:g}"
+
+
+def backtest_grid(s):
+    d = OUT / "backtest_grid"
+    d.mkdir(exist_ok=True)
+    index = []
+    for c in GRID["cpo_price"]:
+        for m in GRID["miss_cost_mult"]:
+            for b in GRID["alert_budget"]:
+                for a in GRID["inspection_accuracy"]:
+                    name = grid_name(c, m, b, a)
+                    (d / f"{name}.json").write_text(json.dumps(Backtest(**s.backtest(c, m, b, "run_to_failure", a)).model_dump(mode="json"), ensure_ascii=False))
+                    index.append(dict(file=f"{name}.json", cpo_price=c, miss_cost_mult=m, alert_budget=b, inspection_accuracy=a))
+    (d / "index.json").write_text(json.dumps(dict(axes=GRID, files=index), indent=1))
+    print(f"backtest grid: {len(index)} files")
+
+
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     s = Service()
@@ -79,6 +101,7 @@ def main():
     write("notify", NotifyOut(ok=False, sent=0))
     (OUT / "bookmarks.json").write_text(json.dumps(at, indent=1))
     print("fixtures (real snapshot) written to", OUT, at)
+    backtest_grid(s)
     check(OUT)
 
 

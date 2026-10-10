@@ -1,0 +1,593 @@
+{
+ "axes": {
+  "cpo_price": [
+   3800,
+   4292.5,
+   5000
+  ],
+  "miss_cost_mult": [
+   0.5,
+   1,
+   3
+  ],
+  "alert_budget": [
+   3,
+   5,
+   10
+  ],
+  "inspection_accuracy": [
+   0,
+   0.5,
+   1
+  ]
+ },
+ "files": [
+  {
+   "file": "cpo3800_miss0.5_bud3_acc0.json",
+   "cpo_price": 3800,
+   "miss_cost_mult": 0.5,
+   "alert_budget": 3,
+   "inspection_accuracy": 0
+  },
+  {
+   "file": "cpo3800_miss0.5_bud3_acc0.5.json",
+   "cpo_price": 3800,
+   "miss_cost_mult": 0.5,
+   "alert_budget": 3,
+   "inspection_accuracy": 0.5
+  },
+  {
+   "file": "cpo3800_miss0.5_bud3_acc1.json",
+   "cpo_price": 3800,
+   "miss_cost_mult": 0.5,
+   "alert_budget": 3,
+   "inspection_accuracy": 1
+  },
+  {
+   "file": "cpo3800_miss0.5_bud5_acc0.json",
+   "cpo_price": 3800,
+   "miss_cost_mult": 0.5,
+   "alert_budget": 5,
+   "inspection_accuracy": 0
+  },
+  {
+   "file": "cpo3800_miss0.5_bud5_acc0.5.json",
+   "cpo_price": 3800,
+   "miss_cost_mult": 0.5,
+   "alert_budget": 5,
+   "inspection_accuracy": 0.5
+  },
+  {
+   "file": "cpo3800_miss0.5_bud5_acc1.json",
+   "cpo_price": 3800,
+   "miss_cost_mult": 0.5,
+   "alert_budget": 5,
+   "inspection_accuracy": 1
+  },
+  {
+   "file": "cpo3800_miss0.5_bud10_acc0.json",
+   "cpo_price": 3800,
+   "miss_cost_mult": 0.5,
+   "alert_budget": 10,
+   "inspection_accuracy": 0
+  },
+  {
+   "file": "cpo3800_miss0.5_bud10_acc0.5.json",
+   "cpo_price": 3800,
+   "miss_cost_mult": 0.5,
+   "alert_budget": 10,
+   "inspection_accuracy": 0.5
+  },
+  {
+   "file": "cpo3800_miss0.5_bud10_acc1.json",
+   "cpo_price": 3800,
+   "miss_cost_mult": 0.5,
+   "alert_budget": 10,
+   "inspection_accuracy": 1
+  },
+  {
+   "file": "cpo3800_miss1_bud3_acc0.json",
+   "cpo_price": 3800,
+   "miss_cost_mult": 1,
+   "alert_budget": 3,
+   "inspection_accuracy": 0
+  },
+  {
+   "file": "cpo3800_miss1_bud3_acc0.5.json",
+   "cpo_price": 3800,
+   "miss_cost_mult": 1,
+   "alert_budget": 3,
+   "inspection_accuracy": 0.5
+  },
+  {
+   "file": "cpo3800_miss1_bud3_acc1.json",
+   "cpo_price": 3800,
+   "miss_cost_mult": 1,
+   "alert_budget": 3,
+   "inspection_accuracy": 1
+  },
+  {
+   "file": "cpo3800_miss1_bud5_acc0.json",
+   "cpo_price": 3800,
+   "miss_cost_mult": 1,
+   "alert_budget": 5,
+   "inspection_accuracy": 0
+  },
+  {
+   "file": "cpo3800_miss1_bud5_acc0.5.json",
+   "cpo_price": 3800,
+   "miss_cost_mult": 1,
+   "alert_budget": 5,
+   "inspection_accuracy": 0.5
+  },
+  {
+   "file": "cpo3800_miss1_bud5_acc1.json",
+   "cpo_price": 3800,
+   "miss_cost_mult": 1,
+   "alert_budget": 5,
+   "inspection_accuracy": 1
+  },
+  {
+   "file": "cpo3800_miss1_bud10_acc0.json",
+   "cpo_price": 3800,
+   "miss_cost_mult": 1,
+   "alert_budget": 10,
+   "inspection_accuracy": 0
+  },
+  {
+   "file": "cpo3800_miss1_bud10_acc0.5.json",
+   "cpo_price": 3800,
+   "miss_cost_mult": 1,
+   "alert_budget": 10,
+   "inspection_accuracy": 0.5
+  },
+  {
+   "file": "cpo3800_miss1_bud10_acc1.json",
+   "cpo_price": 3800,
+   "miss_cost_mult": 1,
+   "alert_budget": 10,
+   "inspection_accuracy": 1
+  },
+  {
+   "file": "cpo3800_miss3_bud3_acc0.json",
+   "cpo_price": 3800,
+   "miss_cost_mult": 3,
+   "alert_budget": 3,
+   "inspection_accuracy": 0
+  },
+  {
+   "file": "cpo3800_miss3_bud3_acc0.5.json",
+   "cpo_price": 3800,
+   "miss_cost_mult": 3,
+   "alert_budget": 3,
+   "inspection_accuracy": 0.5
+  },
+  {
+   "file": "cpo3800_miss3_bud3_acc1.json",
+   "cpo_price": 3800,
+   "miss_cost_mult": 3,
+   "alert_budget": 3,
+   "inspection_accuracy": 1
+  },
+  {
+   "file": "cpo3800_miss3_bud5_acc0.json",
+   "cpo_price": 3800,
+   "miss_cost_mult": 3,
+   "alert_budget": 5,
+   "inspection_accuracy": 0
+  },
+  {
+   "file": "cpo3800_miss3_bud5_acc0.5.json",
+   "cpo_price": 3800,
+   "miss_cost_mult": 3,
+   "alert_budget": 5,
+   "inspection_accuracy": 0.5
+  },
+  {
+   "file": "cpo3800_miss3_bud5_acc1.json",
+   "cpo_price": 3800,
+   "miss_cost_mult": 3,
+   "alert_budget": 5,
+   "inspection_accuracy": 1
+  },
+  {
+   "file": "cpo3800_miss3_bud10_acc0.json",
+   "cpo_price": 3800,
+   "miss_cost_mult": 3,
+   "alert_budget": 10,
+   "inspection_accuracy": 0
+  },
+  {
+   "file": "cpo3800_miss3_bud10_acc0.5.json",
+   "cpo_price": 3800,
+   "miss_cost_mult": 3,
+   "alert_budget": 10,
+   "inspection_accuracy": 0.5
+  },
+  {
+   "file": "cpo3800_miss3_bud10_acc1.json",
+   "cpo_price": 3800,
+   "miss_cost_mult": 3,
+   "alert_budget": 10,
+   "inspection_accuracy": 1
+  },
+  {
+   "file": "cpo4292.5_miss0.5_bud3_acc0.json",
+   "cpo_price": 4292.5,
+   "miss_cost_mult": 0.5,
+   "alert_budget": 3,
+   "inspection_accuracy": 0
+  },
+  {
+   "file": "cpo4292.5_miss0.5_bud3_acc0.5.json",
+   "cpo_price": 4292.5,
+   "miss_cost_mult": 0.5,
+   "alert_budget": 3,
+   "inspection_accuracy": 0.5
+  },
+  {
+   "file": "cpo4292.5_miss0.5_bud3_acc1.json",
+   "cpo_price": 4292.5,
+   "miss_cost_mult": 0.5,
+   "alert_budget": 3,
+   "inspection_accuracy": 1
+  },
+  {
+   "file": "cpo4292.5_miss0.5_bud5_acc0.json",
+   "cpo_price": 4292.5,
+   "miss_cost_mult": 0.5,
+   "alert_budget": 5,
+   "inspection_accuracy": 0
+  },
+  {
+   "file": "cpo4292.5_miss0.5_bud5_acc0.5.json",
+   "cpo_price": 4292.5,
+   "miss_cost_mult": 0.5,
+   "alert_budget": 5,
+   "inspection_accuracy": 0.5
+  },
+  {
+   "file": "cpo4292.5_miss0.5_bud5_acc1.json",
+   "cpo_price": 4292.5,
+   "miss_cost_mult": 0.5,
+   "alert_budget": 5,
+   "inspection_accuracy": 1
+  },
+  {
+   "file": "cpo4292.5_miss0.5_bud10_acc0.json",
+   "cpo_price": 4292.5,
+   "miss_cost_mult": 0.5,
+   "alert_budget": 10,
+   "inspection_accuracy": 0
+  },
+  {
+   "file": "cpo4292.5_miss0.5_bud10_acc0.5.json",
+   "cpo_price": 4292.5,
+   "miss_cost_mult": 0.5,
+   "alert_budget": 10,
+   "inspection_accuracy": 0.5
+  },
+  {
+   "file": "cpo4292.5_miss0.5_bud10_acc1.json",
+   "cpo_price": 4292.5,
+   "miss_cost_mult": 0.5,
+   "alert_budget": 10,
+   "inspection_accuracy": 1
+  },
+  {
+   "file": "cpo4292.5_miss1_bud3_acc0.json",
+   "cpo_price": 4292.5,
+   "miss_cost_mult": 1,
+   "alert_budget": 3,
+   "inspection_accuracy": 0
+  },
+  {
+   "file": "cpo4292.5_miss1_bud3_acc0.5.json",
+   "cpo_price": 4292.5,
+   "miss_cost_mult": 1,
+   "alert_budget": 3,
+   "inspection_accuracy": 0.5
+  },
+  {
+   "file": "cpo4292.5_miss1_bud3_acc1.json",
+   "cpo_price": 4292.5,
+   "miss_cost_mult": 1,
+   "alert_budget": 3,
+   "inspection_accuracy": 1
+  },
+  {
+   "file": "cpo4292.5_miss1_bud5_acc0.json",
+   "cpo_price": 4292.5,
+   "miss_cost_mult": 1,
+   "alert_budget": 5,
+   "inspection_accuracy": 0
+  },
+  {
+   "file": "cpo4292.5_miss1_bud5_acc0.5.json",
+   "cpo_price": 4292.5,
+   "miss_cost_mult": 1,
+   "alert_budget": 5,
+   "inspection_accuracy": 0.5
+  },
+  {
+   "file": "cpo4292.5_miss1_bud5_acc1.json",
+   "cpo_price": 4292.5,
+   "miss_cost_mult": 1,
+   "alert_budget": 5,
+   "inspection_accuracy": 1
+  },
+  {
+   "file": "cpo4292.5_miss1_bud10_acc0.json",
+   "cpo_price": 4292.5,
+   "miss_cost_mult": 1,
+   "alert_budget": 10,
+   "inspection_accuracy": 0
+  },
+  {
+   "file": "cpo4292.5_miss1_bud10_acc0.5.json",
+   "cpo_price": 4292.5,
+   "miss_cost_mult": 1,
+   "alert_budget": 10,
+   "inspection_accuracy": 0.5
+  },
+  {
+   "file": "cpo4292.5_miss1_bud10_acc1.json",
+   "cpo_price": 4292.5,
+   "miss_cost_mult": 1,
+   "alert_budget": 10,
+   "inspection_accuracy": 1
+  },
+  {
+   "file": "cpo4292.5_miss3_bud3_acc0.json",
+   "cpo_price": 4292.5,
+   "miss_cost_mult": 3,
+   "alert_budget": 3,
+   "inspection_accuracy": 0
+  },
+  {
+   "file": "cpo4292.5_miss3_bud3_acc0.5.json",
+   "cpo_price": 4292.5,
+   "miss_cost_mult": 3,
+   "alert_budget": 3,
+   "inspection_accuracy": 0.5
+  },
+  {
+   "file": "cpo4292.5_miss3_bud3_acc1.json",
+   "cpo_price": 4292.5,
+   "miss_cost_mult": 3,
+   "alert_budget": 3,
+   "inspection_accuracy": 1
+  },
+  {
+   "file": "cpo4292.5_miss3_bud5_acc0.json",
+   "cpo_price": 4292.5,
+   "miss_cost_mult": 3,
+   "alert_budget": 5,
+   "inspection_accuracy": 0
+  },
+  {
+   "file": "cpo4292.5_miss3_bud5_acc0.5.json",
+   "cpo_price": 4292.5,
+   "miss_cost_mult": 3,
+   "alert_budget": 5,
+   "inspection_accuracy": 0.5
+  },
+  {
+   "file": "cpo4292.5_miss3_bud5_acc1.json",
+   "cpo_price": 4292.5,
+   "miss_cost_mult": 3,
+   "alert_budget": 5,
+   "inspection_accuracy": 1
+  },
+  {
+   "file": "cpo4292.5_miss3_bud10_acc0.json",
+   "cpo_price": 4292.5,
+   "miss_cost_mult": 3,
+   "alert_budget": 10,
+   "inspection_accuracy": 0
+  },
+  {
+   "file": "cpo4292.5_miss3_bud10_acc0.5.json",
+   "cpo_price": 4292.5,
+   "miss_cost_mult": 3,
+   "alert_budget": 10,
+   "inspection_accuracy": 0.5
+  },
+  {
+   "file": "cpo4292.5_miss3_bud10_acc1.json",
+   "cpo_price": 4292.5,
+   "miss_cost_mult": 3,
+   "alert_budget": 10,
+   "inspection_accuracy": 1
+  },
+  {
+   "file": "cpo5000_miss0.5_bud3_acc0.json",
+   "cpo_price": 5000,
+   "miss_cost_mult": 0.5,
+   "alert_budget": 3,
+   "inspection_accuracy": 0
+  },
+  {
+   "file": "cpo5000_miss0.5_bud3_acc0.5.json",
+   "cpo_price": 5000,
+   "miss_cost_mult": 0.5,
+   "alert_budget": 3,
+   "inspection_accuracy": 0.5
+  },
+  {
+   "file": "cpo5000_miss0.5_bud3_acc1.json",
+   "cpo_price": 5000,
+   "miss_cost_mult": 0.5,
+   "alert_budget": 3,
+   "inspection_accuracy": 1
+  },
+  {
+   "file": "cpo5000_miss0.5_bud5_acc0.json",
+   "cpo_price": 5000,
+   "miss_cost_mult": 0.5,
+   "alert_budget": 5,
+   "inspection_accuracy": 0
+  },
+  {
+   "file": "cpo5000_miss0.5_bud5_acc0.5.json",
+   "cpo_price": 5000,
+   "miss_cost_mult": 0.5,
+   "alert_budget": 5,
+   "inspection_accuracy": 0.5
+  },
+  {
+   "file": "cpo5000_miss0.5_bud5_acc1.json",
+   "cpo_price": 5000,
+   "miss_cost_mult": 0.5,
+   "alert_budget": 5,
+   "inspection_accuracy": 1
+  },
+  {
+   "file": "cpo5000_miss0.5_bud10_acc0.json",
+   "cpo_price": 5000,
+   "miss_cost_mult": 0.5,
+   "alert_budget": 10,
+   "inspection_accuracy": 0
+  },
+  {
+   "file": "cpo5000_miss0.5_bud10_acc0.5.json",
+   "cpo_price": 5000,
+   "miss_cost_mult": 0.5,
+   "alert_budget": 10,
+   "inspection_accuracy": 0.5
+  },
+  {
+   "file": "cpo5000_miss0.5_bud10_acc1.json",
+   "cpo_price": 5000,
+   "miss_cost_mult": 0.5,
+   "alert_budget": 10,
+   "inspection_accuracy": 1
+  },
+  {
+   "file": "cpo5000_miss1_bud3_acc0.json",
+   "cpo_price": 5000,
+   "miss_cost_mult": 1,
+   "alert_budget": 3,
+   "inspection_accuracy": 0
+  },
+  {
+   "file": "cpo5000_miss1_bud3_acc0.5.json",
+   "cpo_price": 5000,
+   "miss_cost_mult": 1,
+   "alert_budget": 3,
+   "inspection_accuracy": 0.5
+  },
+  {
+   "file": "cpo5000_miss1_bud3_acc1.json",
+   "cpo_price": 5000,
+   "miss_cost_mult": 1,
+   "alert_budget": 3,
+   "inspection_accuracy": 1
+  },
+  {
+   "file": "cpo5000_miss1_bud5_acc0.json",
+   "cpo_price": 5000,
+   "miss_cost_mult": 1,
+   "alert_budget": 5,
+   "inspection_accuracy": 0
+  },
+  {
+   "file": "cpo5000_miss1_bud5_acc0.5.json",
+   "cpo_price": 5000,
+   "miss_cost_mult": 1,
+   "alert_budget": 5,
+   "inspection_accuracy": 0.5
+  },
+  {
+   "file": "cpo5000_miss1_bud5_acc1.json",
+   "cpo_price": 5000,
+   "miss_cost_mult": 1,
+   "alert_budget": 5,
+   "inspection_accuracy": 1
+  },
+  {
+   "file": "cpo5000_miss1_bud10_acc0.json",
+   "cpo_price": 5000,
+   "miss_cost_mult": 1,
+   "alert_budget": 10,
+   "inspection_accuracy": 0
+  },
+  {
+   "file": "cpo5000_miss1_bud10_acc0.5.json",
+   "cpo_price": 5000,
+   "miss_cost_mult": 1,
+   "alert_budget": 10,
+   "inspection_accuracy": 0.5
+  },
+  {
+   "file": "cpo5000_miss1_bud10_acc1.json",
+   "cpo_price": 5000,
+   "miss_cost_mult": 1,
+   "alert_budget": 10,
+   "inspection_accuracy": 1
+  },
+  {
+   "file": "cpo5000_miss3_bud3_acc0.json",
+   "cpo_price": 5000,
+   "miss_cost_mult": 3,
+   "alert_budget": 3,
+   "inspection_accuracy": 0
+  },
+  {
+   "file": "cpo5000_miss3_bud3_acc0.5.json",
+   "cpo_price": 5000,
+   "miss_cost_mult": 3,
+   "alert_budget": 3,
+   "inspection_accuracy": 0.5
+  },
+  {
+   "file": "cpo5000_miss3_bud3_acc1.json",
+   "cpo_price": 5000,
+   "miss_cost_mult": 3,
+   "alert_budget": 3,
+   "inspection_accuracy": 1
+  },
+  {
+   "file": "cpo5000_miss3_bud5_acc0.json",
+   "cpo_price": 5000,
+   "miss_cost_mult": 3,
+   "alert_budget": 5,
+   "inspection_accuracy": 0
+  },
+  {
+   "file": "cpo5000_miss3_bud5_acc0.5.json",
+   "cpo_price": 5000,
+   "miss_cost_mult": 3,
+   "alert_budget": 5,
+   "inspection_accuracy": 0.5
+  },
+  {
+   "file": "cpo5000_miss3_bud5_acc1.json",
+   "cpo_price": 5000,
+   "miss_cost_mult": 3,
+   "alert_budget": 5,
+   "inspection_accuracy": 1
+  },
+  {
+   "file": "cpo5000_miss3_bud10_acc0.json",
+   "cpo_price": 5000,
+   "miss_cost_mult": 3,
+   "alert_budget": 10,
+   "inspection_accuracy": 0
+  },
+  {
+   "file": "cpo5000_miss3_bud10_acc0.5.json",
+   "cpo_price": 5000,
+   "miss_cost_mult": 3,
+   "alert_budget": 10,
+   "inspection_accuracy": 0.5
+  },
+  {
+   "file": "cpo5000_miss3_bud10_acc1.json",
+   "cpo_price": 5000,
+   "miss_cost_mult": 3,
+   "alert_budget": 10,
+   "inspection_accuracy": 1
+  }
+ ]
+}
