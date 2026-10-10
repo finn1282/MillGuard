@@ -21,6 +21,7 @@ class Action(BaseModel):
     id: str
     asset_id: str
     asset_name: str
+    asset_name_ms: str   # v1.9
     asset_type: Literal["press", "boiler"]
     fault_class: FaultClass
     risk_pct: float
@@ -82,6 +83,7 @@ class LineAsset(BaseModel):
     risk_pct: float
     summary_en: str
     summary_ms: str
+    name_ms: str   # v1.9
 
 
 class Line(BaseModel):
@@ -94,6 +96,7 @@ class Series(BaseModel):
     label_en: str
     label_ms: str
     unit: str
+    unit_ms: str = ""            # v1.9: unit in Malay where it is a word (hours -> jam)
     points: list[tuple[str, float]]
     limit: float | None = None   # v1.7: alarm line, if the signal has one
     summary_en: str = ""         # v1.7: e.g. "4.1 to 4.6 A/t over 7 days"
@@ -215,6 +218,8 @@ class Outlook(BaseModel):
     rm_saved_if_acted: int
     window_label_en: str
     window_label_ms: str
+    note_en: str = ""   # v1.9: why a non-alert machine shows a saving, or that it was just repaired
+    note_ms: str = ""
 
 
 class AssetDetail(BaseModel):

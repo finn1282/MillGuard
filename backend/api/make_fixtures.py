@@ -1,6 +1,7 @@
 """Snapshot of the real API at the three demo bookmarks plus the real backtest -> contracts/fixtures/*.json.
 Fixture mode (MILLGUARD_STUB=1) is the demo backup, so it shows true numbers. Run `make all` first."""
 import json
+import re
 from pathlib import Path
 
 from backend.api.models import (AssetDetail, Assumption, Backtest, Brief, FeedbackOut, Line, Marker, Meta, NotifyOut, NotifyStatus, Robustness)
@@ -16,6 +17,43 @@ def write(name, data):
     elif hasattr(data, "model_dump"):
         data = data.model_dump(mode="json")
     (OUT / f"{name}.json").write_text(json.dumps(data, indent=1, ensure_ascii=False))
+
+
+NUM = re.compile(r"^(-?\d+(?:\.(\d+))?) (?:to|kepada) (-?\d+(?:\.(\d+))?)")
+ENGLISH_IN_MS = re.compile(r"\b(hours?|days?|over|alarms?|since|the|and|is|are|per|Press|Boiler)\b")
+
+
+def check(out):
+    """Fail if any series summary quotes numbers outside its own served points, or Malay text still holds English words."""
+    bad = []
+    for f in sorted(out.glob("assets_*.json")):
+        for s in json.loads(f.read_text())["series"]:
+            v = [p[1] for p in s["points"]]
+            for key in ("summary_en", "summary_ms"):
+                m = NUM.match(s[key])
+                if not v or not m:
+                    bad.append(f"{f.name} {s['signal']}: cannot read {s[key]!r}")
+                    continue
+                tol = 0.5 * 10 ** -len(m.group(2) or "") + 0.0005
+                for x in (float(m.group(1)), float(m.group(3))):
+                    if not min(v) - tol <= x <= max(v) + tol:
+                        bad.append(f"{f.name} {s['signal']}: {s[key]!r} outside points {min(v)}..{max(v)}")
+            if s["unit_ms"] not in s["summary_ms"]:
+                bad.append(f"{f.name} {s['signal']}: unit_ms {s['unit_ms']!r} missing from summary_ms")
+    for f in sorted(out.glob("*.json")):
+        def walk(x, k=""):
+            if isinstance(x, dict):
+                for a, b in x.items():
+                    walk(b, a)
+            elif isinstance(x, list):
+                for b in x:
+                    walk(b, k)
+            elif isinstance(x, str) and (k.endswith("_ms") or k == "name_ms") and ENGLISH_IN_MS.search(x):
+                bad.append(f"{f.name} {k}: {x!r}")
+        walk(json.loads(f.read_text()))
+    if bad:
+        raise SystemExit("fixture check failed:\n" + "\n".join(bad[:40]) + f"\n({len(bad)} problems)")
+    print("fixture check ok: every summary sits inside its series, no English left in Malay text")
 
 
 def main():
@@ -41,6 +79,7 @@ def main():
     write("notify", NotifyOut(ok=False, sent=0))
     (OUT / "bookmarks.json").write_text(json.dumps(at, indent=1))
     print("fixtures (real snapshot) written to", OUT, at)
+    check(OUT)
 
 
 if __name__ == "__main__":

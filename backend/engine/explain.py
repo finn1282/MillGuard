@@ -44,16 +44,19 @@ class Explainer:
         ranked = sorted(score, key=score.get, reverse=True)
         telemetry = [g for g in ranked if g in text.SIGNAL_LABEL]
         order = telemetry[:1] + [g for g in ranked if g not in telemetry[:1]]
-        out = [(g, score[g]) for g in order[:3]]
-        total = sum(v for _, v in out) or 1.0
         res = []
-        for g, v in out:
-            en, ms, d = self.sentence(g, row, asset_name)
-            res.append(dict(text_en=en, text_ms=ms, signal=g, direction=d, contribution=round(float(v / total), 3)))
-        return res
+        for g in order:
+            sent = self.sentence(g, row, asset_name)
+            if sent:   # a reason whose change rounds to 0% says nothing: skip it and use the next one
+                res.append((g, score[g], sent))
+            if len(res) == 3:
+                break
+        total = sum(v for _, v, _ in res) or 1.0
+        return [dict(text_en=en, text_ms=ms, signal=g, direction=d, contribution=round(float(v / total), 3))
+                for g, v, (en, ms, d) in res]
 
     def sentence(self, g, row, asset):
-        asset_ms = asset.replace("Press", "Penekan").replace("Boiler", "Dandang")
+        asset_ms = text.name_ms(asset)
         if g == "hours_since_service":
             h = row.get("h_since_worm", np.nan)
             h = row.get("h_since_wo", np.nan) if pd.isna(h) else h
@@ -61,6 +64,8 @@ class Explainer:
             return (text.REASON_SERVICE_EN.format(h=h, asset=asset), text.REASON_SERVICE_MS.format(h=h, asset=asset_ms), "up")
         if g == "alarms":
             n = row.get("errors24", 0)
+            if round(n) == 0:
+                return None
             return text.REASON_ALARMS_EN.format(n=n, asset=asset), text.REASON_ALARMS_MS.format(n=n, asset=asset_ms), "up"
         if g == "load":
             return text.REASON_LOAD_EN.format(asset=asset), text.REASON_LOAD_MS.format(asset=asset_ms), "up"
@@ -75,5 +80,7 @@ class Explainer:
             if not np.isnan(v):
                 return text.REASON_FIBRE_EN.format(v=v), text.REASON_FIBRE_MS.format(v=v), d
         pct = abs(rel) * 100
+        if round(pct) == 0:
+            return None
         return (text.REASON_REL_EN.format(label=lab_en, pct=pct, word=text.WORD_EN[d], asset=asset),
                 text.REASON_REL_MS.format(label=lab_ms, pct=pct, word=text.WORD_MS[d], asset=asset_ms), d)

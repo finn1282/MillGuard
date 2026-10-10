@@ -13,7 +13,7 @@ export interface Reason {
 }
 
 export interface Action {
-  id: string; asset_id: string; asset_name: string; asset_type: "press" | "boiler";
+  id: string; asset_id: string; asset_name: string; asset_name_ms: string /* v1.9 */; asset_type: "press" | "boiler";
   fault_class: FaultClass; risk_pct: number; horizon_h: number;
   rm_at_risk: number; rm_cost_to_act: number; rm_saved_if_acted: number;
   recommendation: Recommendation; deadline: string;
@@ -46,6 +46,7 @@ export interface LineAsset {
   stage: "press" | "boiler"; position: number; // 1-4 for presses, 0 for boiler
   status: AssetStatus; risk_pct: number;
   summary_en: string; summary_ms: string; // v1.5, e.g. "Worm wearing" / "Normal"
+  name_ms: string; // v1.9, e.g. "Penekan 2"
 }
 
 // GET /api/line?at=
@@ -55,6 +56,7 @@ export interface Series {
   signal: string; label_en: string; label_ms: string; unit: string;
   points: [string, number][]; // [t, value]
   limit?: number | null; summary_en?: string; summary_ms?: string; // v1.7
+  unit_ms?: string; // v1.9: Malay unit where it is a word (hours -> jam), else same as unit
 }
 
 // GET /api/assets/{id}?at=&window_h=168
@@ -115,6 +117,7 @@ export interface Outlook {
   fault_class: FaultClass; risk_pct: number; horizon_h: number; rm_breakdown_cost: number;
   rm_at_risk: number; rm_cost_to_act: number; rm_saved_if_acted: number;
   window_label_en: string; window_label_ms: string;
+  note_en?: string; note_ms?: string; // v1.9: why a non-alert machine shows a saving, or that it was just repaired
 }
 
 export interface PolicyResult {

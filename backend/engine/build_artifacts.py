@@ -27,7 +27,7 @@ def write_tables():
 
 def headline(p, ep):
     fc = ep.fault_class
-    nm_en, nm_ms = NAME[ep.asset_id], NAME[ep.asset_id].replace("Press", "Penekan").replace("Boiler", "Dandang")
+    nm_en, nm_ms = NAME[ep.asset_id], text.name_ms(NAME[ep.asset_id])
     f_en, f_ms = text.FAULT_LABEL[fc]; ph_en, ph_ms = text.FIX_PHRASE[fc]
     if ep.recommendation == "fix_now":
         return (text.HEADLINE_FIX_EN.format(asset=nm_en, fault=f_en.capitalize(), phrase=ph_en),
@@ -63,15 +63,18 @@ def build_actions(p, fit):
         if r.fail_idx is not None and not pd.isna(r.fail_idx):
             t_close = min(t_close, pd.Timestamp("2025-01-01") + pd.Timedelta(hours=int(r.fail_idx)))
         en, ms = headline(p, r)
+        hold = r.t_close   # the decision layer will not re-alert before this (risk must clear, or the would-be failure pass)
+        if r.outcome == "prevented":
+            hold = pd.Timestamp("2025-01-01") + pd.Timedelta(hours=int(r.fail_idx) + decide.POST_FAIL_H)
         out.append(dict(
-            id=f"act_{r.asset_id}_{r.t_open:%Y%m%d%H}", asset_id=r.asset_id, asset_name=NAME[r.asset_id], asset_type=atype,
+            id=f"act_{r.asset_id}_{r.t_open:%Y%m%d%H}", asset_id=r.asset_id, asset_name=NAME[r.asset_id], asset_name_ms=text.name_ms(NAME[r.asset_id]), asset_type=atype,
             fault_class=r.fault_class, risk_pct=round(float(risk * 100), 0),
             horizon_h=int(horizon), rm_at_risk=int(r.rm_at_risk), rm_cost_to_act=int(r.rm_cost_to_act),
             rm_saved_if_acted=int(r.rm_saved), recommendation=r.recommendation, deadline=iso(r.t_repair),
             headline_en=en, headline_ms=ms, reasons=ex.reasons(MILL, r.asset_id, r.t_open, NAME[r.asset_id]),
             criticality="whole_mill" if atype == "boiler" else "partial",
             t_open=iso(r.t_open), t_close=iso(t_close), t_candidate=iso(r.t_candidate),
-            internal=dict(outcome=r.outcome, fail_idx=None if r.fail_idx is None or pd.isna(r.fail_idx) else int(r.fail_idx))))
+            internal=dict(t_hold=iso(max(hold, t_close)), outcome=r.outcome, fail_idx=None if r.fail_idx is None or pd.isna(r.fail_idx) else int(r.fail_idx))))
     fails = pd.read_parquet(ART / "mill10_failures.parquet")
     (ART / "test_mill.json").write_text(json.dumps(backtest.test_mill_table(ep, fails), indent=1))
     (ART / "actions.json").write_text(json.dumps(out, indent=1, ensure_ascii=False))
@@ -82,9 +85,12 @@ def build_markers(svc: Service, ep):
     M = text.MARKERS
     nights = [t for t in svc.times if t.hour == 19 and t >= pd.Timestamp("2025-02-01")]
     briefs = {t: svc.brief(iso(t)) for t in nights}
-    quiet = [t for t, b in briefs.items() if not b["actions"]]
+    # quiet = no action, and waiting is cheaper for every machine (no outlook saving); prefer nights with something being watched
+    quiet = [t for t, b in briefs.items() if not b["actions"]
+             and all(svc._outlook(a, ty, None, t)["rm_saved_if_acted"] == 0 for a, _, ty, _ in ASSETS)]
     q = ([t for t in quiet if briefs[t]["watching_count"] and briefs[t]["suppressed_count"]] or
          [t for t in quiet if briefs[t]["watching_count"] or briefs[t]["suppressed_count"]] or quiet)
+    print(f"quiet nights: {len(quiet)} (with watching/suppressed: {len([t for t in quiet if briefs[t]['watching_count'] or briefs[t]['suppressed_count']])})")
     q_t = q[len(q) // 3] if q else nights[0]
     gradual = {"worm_wear", "bearing", "gearbox_shaft", "hydraulic_cone"}
     cands = []   # (matches, saved, -hour, t, action): true-positive alerts on gradual faults, every hour of their window
@@ -114,17 +120,17 @@ def build_markers(svc: Service, ep):
     nm = NAME[act_asset["asset_id"]]; f_en, f_ms = text.FAULT_LABEL[act_asset["fault_class"]]
     out = [dict(t=iso(q_t), kind="bookmark", label_en=M["quiet_en"], label_ms=M["quiet_ms"]),
            dict(t=iso(onset), kind="bookmark", asset_id=act_asset["asset_id"],
-                label_en=M["act_en"].format(asset=nm, fault=f_en), label_ms=M["act_ms"].format(asset=nm.replace("Press", "Penekan"), fault=f_ms))]
+                label_en=M["act_en"].format(asset=nm, fault=f_en), label_ms=M["act_ms"].format(asset=text.name_ms(nm), fault=f_ms))]
     if both_t is not None:
         out.append(dict(t=iso(both_t), kind="bookmark", label_en=M["both_en"], label_ms=M["both_ms"]))
     for r in ep.itertuples():
         nm = NAME[r.asset_id]
         out.append(dict(t=iso(r.t_open), kind="alert", asset_id=r.asset_id,
-                        label_en=M["alert_en"].format(asset=nm), label_ms=M["alert_ms"].format(asset=nm)))
+                        label_en=M["alert_en"].format(asset=nm), label_ms=M["alert_ms"].format(asset=text.name_ms(nm))))
     for r in svc.fails.itertuples():
         nm = NAME[r.asset_id]
         out.append(dict(t=iso(r.t), kind="breakdown", asset_id=r.asset_id,
-                        label_en=M["breakdown_en"].format(asset=nm), label_ms=M["breakdown_ms"].format(asset=nm)))
+                        label_en=M["breakdown_en"].format(asset=nm), label_ms=M["breakdown_ms"].format(asset=text.name_ms(nm))))
     out.sort(key=lambda m: m["t"])
     (ART / "markers.json").write_text(json.dumps(out, indent=1, ensure_ascii=False))
     print("bookmarks:", [(m["t"], m["label_en"]) for m in out if m["kind"] == "bookmark"],

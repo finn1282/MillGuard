@@ -6,6 +6,7 @@
    "id": "act_press_2_2025092915",
    "asset_id": "press_2",
    "asset_name": "Press 2",
+   "asset_name_ms": "Penekan 2",
    "asset_type": "press",
    "fault_class": "hydraulic_cone",
    "risk_pct": 84.0,
@@ -23,21 +24,21 @@
      "text_ms": "Tekanan hidraulik kon 5% lebih tinggi daripada biasa bagi Penekan 2",
      "signal": "cone_pressure",
      "direction": "up",
-     "contribution": 0.889
-    },
-    {
-     "text_en": "Motor current is 0% below Press 2's normal",
-     "text_ms": "Arus motor 0% lebih rendah daripada biasa bagi Penekan 2",
-     "signal": "motor_current",
-     "direction": "down",
-     "contribution": 0.075
+     "contribution": 0.927
     },
     {
      "text_en": "Oil lost in fibre is 2.5% (alarm line is 4%)",
      "text_ms": "Kehilangan minyak dalam serabut ialah 2.5% (garis amaran 4%)",
      "signal": "fibre_oil_loss",
      "direction": "down",
-     "contribution": 0.036
+     "contribution": 0.037
+    },
+    {
+     "text_en": "Motor current per tonne is 1% above Press 2's normal",
+     "text_ms": "Arus motor setiap tan 1% lebih tinggi daripada biasa bagi Penekan 2",
+     "signal": "current_per_tonne",
+     "direction": "up",
+     "contribution": 0.035
     }
    ],
    "why_rank_en": "Biggest ringgit saving tonight",
@@ -51,6 +52,6 @@
   }
  ],
  "rm_protected_total": 6096,
- "watching_count": 1,
- "suppressed_count": 1
+ "watching_count": 0,
+ "suppressed_count": 0
 }

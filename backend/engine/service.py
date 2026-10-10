@@ -61,6 +61,7 @@ class Service:
         self.thr = {t: decide.risk_threshold(self.p, t, self.fit["k"][t]) for t in ("press", "boiler")}
         self._trig = self._trigger_arrays()
         self._bt_cache = {}
+        self._handled = [(a["asset_id"], a["t_close"], pd.Timestamp(a["internal"]["t_hold"]).tz_localize(None), a) for a in self.actions]
 
     # ---- helpers
     def _trigger_arrays(self):
@@ -87,6 +88,11 @@ class Service:
     def active(self, t):
         return [a for a in self.actions if a["t_open"] <= t < a["t_close"]]
 
+    def handled(self, aid, t):
+        """The alert whose work was done and which the decision layer will not repeat yet (risk not cleared, or the would-be
+        failure not passed). The replay signals still look old (the simulator does not reset them), so the machine reads ok."""
+        return next((a for x, lo, hi, a in self._handled if x == aid and lo <= t < hi), None)
+
     def status(self, t):
         """Per asset: (status, risk_pct, suppressed_flag)."""
         h = self.idx(t)
@@ -96,8 +102,9 @@ class Service:
             tr = self._trig[aid]
             thr = self.thr[atype]
             recent = tr["trig"][max(0, h - 23): h + 1]
-            s = "act" if aid in act else ("watch" if tr["trig"][h] >= 0.5 * thr else "ok")
-            sup = aid not in act and bool((recent > thr).any())
+            fixed = self.handled(aid, t) is not None
+            s = "act" if aid in act else "ok" if fixed else ("watch" if tr["trig"][h] >= 0.5 * thr else "ok")
+            sup = aid not in act and not fixed and bool((recent > thr).any())
             res[aid] = (s, float(tr["trig"][h]) * 100, sup)
         return res
 
@@ -120,7 +127,7 @@ class Service:
         # one rounding, at the source: the same whole-number risk on the card, line, asset detail and outlook
         risk = self._money(dict(cur), cur, t)["risk_pct"] if cur else self._outlook(a, ty, None, t)["risk_pct"]
         summ = text.SUMMARY[fc] if fc else text.SUMMARY_OK
-        return dict(id=a, name=n, type=ty, stage=ty, position=pos, status=st[0], risk_pct=float(risk),
+        return dict(id=a, name=n, name_ms=text.name_ms(n), type=ty, stage=ty, position=pos, status=st[0], risk_pct=float(risk),
                     summary_en=summ[0], summary_ms=summ[1])
 
     def _top_class(self, aid, t):
@@ -169,7 +176,13 @@ class Service:
             (text.WHY_TOP_EN, text.WHY_TOP_MS) if rank == 0 else (text.WHY_LOWER_EN, text.WHY_LOWER_MS)
         out = {k: v for k, v in a.items() if k not in ("t_open", "t_close", "t_candidate", "internal")}
         out.update(why_rank_en=why[0], why_rank_ms=why[1])
-        return self._money(out, a, t) if t is not None else out
+        if t is None:
+            return out
+        hs = self._last_service(a["asset_id"], a["asset_name"], t)["hours_since"]   # one value for the reason and last_service
+        name = a["asset_name"]
+        out["reasons"] = [dict(r, text_en=text.REASON_SERVICE_EN.format(h=hs, asset=name), text_ms=text.REASON_SERVICE_MS.format(h=hs, asset=text.name_ms(name)))
+                          if r["signal"] == "hours_since_service" else r for r in a["reasons"]]
+        return self._money(out, a, t)
 
     def _money(self, out, a, t):
         """rm_at_risk = expected loss if you wait = P(fail before deadline) x full breakdown cost."""
@@ -207,12 +220,14 @@ class Service:
         g = self.tel[(self.tel.asset_id == aid) & (self.tel.t > t - pd.Timedelta(hours=window_h)) & (self.tel.t <= t)]
         sigs = PRESS_SERIES if ty == "press" else BOILER_SERIES
         series = []
+        lo_t = t - pd.Timedelta(hours=window_h)
         for s in sigs:
-            d = g[["t", s]].dropna()
+            d = fingerprint.running_signal(self.tel, aid, s)   # running hours only; feed-water flow per tonne of fruit
+            d = d[(d.index > lo_t) & (d.index <= t)]
             if d.empty:
                 continue
-            en, ms = text.SIGNAL_LABEL.get(s, (s, s))
-            series.append(self._series(s, en, ms, SERIES_UNIT[s], d.t, d[s], window_h))
+            (en, ms), unit = text.SERIES_LABEL.get(s, (text.SIGNAL_LABEL.get(s, (s, s)), SERIES_UNIT[s]))
+            series.append(self._series(s, en, ms, unit, d.index, d.values, window_h))
         lo = t - pd.Timedelta(hours=window_h)
         wins = [dict(start=iso(max(a["t_open"], lo)), end=iso(min(a["t_close"], t))) for a in self.actions
                 if a["asset_id"] == aid and a["t_close"] > lo and a["t_open"] <= t]
@@ -231,14 +246,16 @@ class Service:
                     diagnosis=diag, fix=fix, history=self._history(aid, t))
 
     def _series(self, sig, en, ms, unit, ts, vals, window_h):
-        v = np.asarray(vals, dtype=float)
+        v = np.round(np.asarray(vals, dtype=float), 3)   # summary is computed from exactly these served points
         k = min(24, max(1, len(v) // 4))
-        a, b = float(np.nanmean(v[:k])), float(np.nanmean(v[-k:]))
-        dec = 1 if abs(b) < 100 else 0
-        s_en, s_ms = (x.format(a=f"{a:.{dec}f}", b=f"{b:.{dec}f}", unit=unit, days=round(window_h / 24)).replace("  ", " ")
-                      for x in text.SERIES_SUMMARY)
-        return dict(signal=sig, label_en=en, label_ms=ms, unit=unit, limit=text.SERIES_LIMIT.get(sig),
-                    summary_en=s_en, summary_ms=s_ms, points=[[iso(a_), round(float(b_), 3)] for a_, b_ in zip(ts, v)])
+        a, b = float(v[:k].mean()), float(v[-k:].mean())
+        top = float(np.abs(v).max())
+        dec = 3 if top < 1 else 2 if top < 10 else 1 if top < 100 else 0
+        unit_ms = text.UNIT_MS.get(unit, unit)
+        s_en, s_ms = (x.format(a=f"{a:.{dec}f}", b=f"{b:.{dec}f}", unit=u, days=round(window_h / 24)).replace("  ", " ")
+                      for x, u in zip(text.SERIES_SUMMARY, (unit, unit_ms)))
+        return dict(signal=sig, label_en=en, label_ms=ms, unit=unit, unit_ms=unit_ms, limit=text.SERIES_LIMIT.get(sig),
+                    summary_en=s_en, summary_ms=s_ms, points=[[iso(a_), float(b_)] for a_, b_ in zip(ts, v)])
 
     def _extra_series(self, sig, aid, t, window_h):
         hrs = pd.date_range(t - pd.Timedelta(hours=window_h - 1), t, freq="h")
@@ -264,7 +281,7 @@ class Service:
             return dict(t=iso(T0), what_en=en, what_ms=ms, hours_since=float((t - T0) / pd.Timedelta(hours=1)))
         r = m.iloc[-1]
         f_en, f_ms = text.FAULT_LABEL[r.fault_class]
-        ms_name = name.replace("Press", "Penekan").replace("Boiler", "Dandang")
+        ms_name = text.name_ms(name)
         return dict(t=iso(r.t), what_en=text.LAST_SERVICE["press"][0].format(asset=name, fault=f_en),
                     what_ms=text.LAST_SERVICE["press"][1].format(asset=ms_name, fault=f_ms),
                     hours_since=float((t - r.t) / pd.Timedelta(hours=1)))
@@ -276,20 +293,29 @@ class Service:
     def _outlook(self, aid, atype, action, t):
         """At-risk and cost figures for any status: the live action if there is one, else the most likely fault."""
         if action:
-            return {k: action[k] for k in ("fault_class", "risk_pct", "horizon_h", "rm_breakdown_cost", "rm_at_risk",
-                                           "rm_cost_to_act", "rm_saved_if_acted", "window_label_en", "window_label_ms")}
+            return {**{k: action[k] for k in ("fault_class", "risk_pct", "horizon_h", "rm_breakdown_cost", "rm_at_risk",
+                                              "rm_cost_to_act", "rm_saved_if_acted", "window_label_en", "window_label_ms")},
+                    "note_en": "", "note_ms": ""}
         h = self.idx(t)
         tr = self._trig[aid]
-        fc = self._top_class(aid, t)
-        if (atype == "boiler") != (fc in ("boiler_steam", "boiler_water")):
-            fc = "boiler_steam" if atype == "boiler" else "worm_wear"
-        pct = min(99, round(decide.p_before(tr["p24"][h], tr["p72"][h], tr["p168"][h], 168) * 100))
-        full = cost.breakdown_cost(self.p, fc)
-        at_risk, plan = round(pct / 100 * full), cost.planned_cost(self.p, fc)
         stop = t + pd.Timedelta(hours=decide.hours_to_stop(t, val(self.p, "alerting", "min_lead_h")) + 168)
         w_en, w_ms = (x.format(day=n[stop.dayofweek]) for x, n in zip(text.WINDOW_AFTER, (DAY_EN, DAY_MS)))
+        fixed = self.handled(aid, t)
+        fc = fixed["fault_class"] if fixed else self._top_class(aid, t)
+        if (atype == "boiler") != (fc in ("boiler_steam", "boiler_water")):
+            fc = "boiler_steam" if atype == "boiler" else "worm_wear"
+        full, plan = cost.breakdown_cost(self.p, fc), cost.planned_cost(self.p, fc)
+        if fixed:
+            tc, day = fixed["t_close"], (DAY_EN[fixed["t_close"].dayofweek], DAY_MS[fixed["t_close"].dayofweek])
+            return dict(fault_class=fc, risk_pct=0.0, horizon_h=168, rm_breakdown_cost=full, rm_at_risk=0, rm_cost_to_act=plan,
+                        rm_saved_if_acted=0, window_label_en=w_en, window_label_ms=w_ms,
+                        note_en=text.OUTLOOK_HANDLED[0].format(day=day[0], clock=f"{tc:%H:%M}"), note_ms=text.OUTLOOK_HANDLED[1].format(day=day[1], clock=f"{tc:%H:%M}"))
+        pct = min(99, round(decide.p_before(tr["p24"][h], tr["p72"][h], tr["p168"][h], 168) * 100))
+        at_risk = round(pct / 100 * full)
+        saved = max(0, at_risk - plan)
         return dict(fault_class=fc, risk_pct=pct, horizon_h=168, rm_breakdown_cost=full, rm_at_risk=at_risk,
-                    rm_cost_to_act=plan, rm_saved_if_acted=max(0, at_risk - plan), window_label_en=w_en, window_label_ms=w_ms)
+                    rm_cost_to_act=plan, rm_saved_if_acted=saved, window_label_en=w_en, window_label_ms=w_ms,
+                    note_en=text.OUTLOOK_NOTE[0] if saved else "", note_ms=text.OUTLOOK_NOTE[1] if saved else "")
 
     def _diagnosis(self, aid, cur, status, t, action):
         if status == "ok":

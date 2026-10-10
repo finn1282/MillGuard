@@ -10,7 +10,8 @@
    "status": "ok",
    "risk_pct": 6.0,
    "summary_en": "Normal",
-   "summary_ms": "Normal"
+   "summary_ms": "Normal",
+   "name_ms": "Penekan 1"
   },
   {
    "id": "press_2",
@@ -21,7 +22,8 @@
    "status": "ok",
    "risk_pct": 4.0,
    "summary_en": "Normal",
-   "summary_ms": "Normal"
+   "summary_ms": "Normal",
+   "name_ms": "Penekan 2"
   },
   {
    "id": "press_3",
@@ -32,7 +34,8 @@
    "status": "ok",
    "risk_pct": 4.0,
    "summary_en": "Normal",
-   "summary_ms": "Normal"
+   "summary_ms": "Normal",
+   "name_ms": "Penekan 3"
   },
   {
    "id": "press_4",
@@ -43,7 +46,8 @@
    "status": "ok",
    "risk_pct": 4.0,
    "summary_en": "Normal",
-   "summary_ms": "Normal"
+   "summary_ms": "Normal",
+   "name_ms": "Penekan 4"
   },
   {
    "id": "boiler_1",
@@ -54,7 +58,8 @@
    "status": "act",
    "risk_pct": 99.0,
    "summary_en": "Feed-water drifting",
-   "summary_ms": "Air suapan menyimpang"
+   "summary_ms": "Air suapan menyimpang",
+   "name_ms": "Dandang 1"
   }
  ]
 }

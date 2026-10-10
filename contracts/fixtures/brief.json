@@ -6,6 +6,7 @@
    "id": "act_boiler_1_2025091403",
    "asset_id": "boiler_1",
    "asset_name": "Boiler 1",
+   "asset_name_ms": "Dandang 1",
    "asset_type": "boiler",
    "fault_class": "boiler_water",
    "risk_pct": 99.0,
@@ -26,8 +27,8 @@
      "contribution": 0.874
     },
     {
-     "text_en": "0 hours since the last logged service on Boiler 1",
-     "text_ms": "0 jam sejak servis terakhir direkodkan bagi Dandang 1",
+     "text_en": "6,147 hours since the last logged service on Boiler 1",
+     "text_ms": "6,147 jam sejak servis terakhir direkodkan bagi Dandang 1",
      "signal": "hours_since_service",
      "direction": "up",
      "contribution": 0.107

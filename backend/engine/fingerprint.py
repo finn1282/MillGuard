@@ -18,7 +18,7 @@ PCT_MIN, Z_MIN, UNSTABLE_X, SPIKE_Z = 0.5, 1.5, 1.3, 4.0
 BOILER_UP_C = 500.0   # steam above this = boiler firing (stopped hours read about 10% lower)
 
 
-def _signal(tel, aid, sig):
+def running_signal(tel, aid, sig):
     g = tel[tel.asset_id == aid].set_index("t")
     if aid.startswith("press"):
         return g[sig].where(g.throughput_tph > 3).dropna()
@@ -30,7 +30,7 @@ def _signal(tel, aid, sig):
 
 
 def _series(tel, aid, sig, t):
-    s = _signal(tel, aid, sig)
+    s = running_signal(tel, aid, sig)
     lo = t - pd.Timedelta(hours=WIN_H)
     return s[(s.index > lo - pd.Timedelta(days=BASE_D)) & (s.index <= lo)], s[(s.index > lo) & (s.index <= t)]
 

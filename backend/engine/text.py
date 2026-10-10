@@ -1,5 +1,15 @@
 """All user-facing strings (EN + BM). Edit here when the design's final wording arrives."""
 
+MS_TERM = {"Press": "Penekan", "Boiler": "Dandang"}   # the one place for Malay machine terms (native-speaker check may change it)
+UNIT_MS = {"hours": "jam", "alarms": "penggera"}
+
+
+def name_ms(name):
+    for en, ms in MS_TERM.items():
+        name = name.replace(en, ms)
+    return name
+
+
 BOILER_1 = dict(
     headline_en="Boiler 1: steam temperature drifting. Check feed-water dosing and blowdown now.",
     headline_ms="Dandang 1: suhu stim menyimpang. Semak dos air suapan dan blowdown sekarang.",
@@ -297,6 +307,11 @@ LAST_SERVICE = {"press": ("Last repair logged on {asset}: {fault}", "Pembaikan t
 NEXT_CHECK = ("Next planned stop", "Henti terancang seterusnya")
 SERIES_SUMMARY = ("{a} to {b} {unit} over {days} days", "{a} kepada {b} {unit} dalam {days} hari")
 SERIES_LIMIT = {"fibre_oil_loss": 4.0, "gearbox_oil_temp": 80.0, "vib_rms": 3.2, "cone_pressure": 57.0, "steam_temp": 530.0}
+SERIES_LABEL = {"feedwater_flow": (("Feed-water flow per tonne of fruit", "Aliran air suapan setiap tan buah"), "t/t")}
+OUTLOOK_NOTE = ("Looks 168 hours (7 days) ahead, further than the alert rule. Not confirmed yet, so no alert.",
+                "Melihat 168 jam (7 hari) ke hadapan, lebih jauh daripada peraturan amaran. Belum disahkan, jadi tiada amaran.")
+OUTLOOK_HANDLED = ("Already handled on {day} at {clock}. No new alert until the risk clears; the figures restart from zero.",
+                   "Sudah ditangani pada {day} jam {clock}. Tiada amaran baharu sehingga risiko reda; angka bermula semula dari sifar.")
 EXTRA_SERIES = {   # reason signals that are not raw telemetry: label (EN, MS), unit
     "hours_since_service": (("Hours since the last logged repair", "Jam sejak pembaikan terakhir direkodkan"), "hours"),
     "alarms": (("Controller alarms per day", "Penggera pengawal setiap hari"), "alarms"),

@@ -11,7 +11,7 @@ def _t(key, lang, **kw):
 
 
 def asset_name(name, lang):
-    return name if lang == "en" else name.replace("Press", "Penekan").replace("Boiler", "Dandang")
+    return name if lang == "en" else text.name_ms(name)
 
 
 def _rec(a, lang):
