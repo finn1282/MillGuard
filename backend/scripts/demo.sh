@@ -4,6 +4,9 @@ PY=${1:-.venv/bin/python}
 $PY -m uvicorn backend.api.main:app --host 0.0.0.0 --port 8000 &
 API=$!
 trap 'kill $API 2>/dev/null' EXIT INT TERM
-$PY -m backend.notify.telegram_bot
-# bot disabled (no token): keep the API running
-wait $API
+# restart the bot if it dies (network drop); it exits at once when there is no token
+while kill -0 $API 2>/dev/null; do
+    $PY -m backend.notify.telegram_bot
+    [ $? -eq 3 ] && wait $API   # no token: keep only the API
+    sleep 5
+done

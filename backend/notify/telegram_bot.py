@@ -74,13 +74,13 @@ def main():
     tok = store.token()
     if not tok:
         print("TELEGRAM_BOT_TOKEN is not set in backend/.env; the bot is disabled.")
-        return
+        raise SystemExit(3)
     app = Application.builder().token(tok).build()
     for name, fn in (("start", start), ("en", en), ("bm", bm), ("brief", brief)):
         app.add_handler(CommandHandler(name, fn))
     app.add_handler(CallbackQueryHandler(button, pattern=r"^fb\|"))
     print("MillGuard bot polling (Ctrl+C to stop)")
-    app.run_polling()
+    app.run_polling(bootstrap_retries=-1)   # keep retrying if the network is down at start
 
 
 if __name__ == "__main__":
