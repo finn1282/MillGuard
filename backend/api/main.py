@@ -41,10 +41,10 @@ def meta():
 
 
 @app.get("/api/brief", response_model=Brief)
-def brief(at: str | None = None, alert_budget: int = 5):
+def brief(at: str | None = None):
     if STUB:
         return fx("brief_quiet" if is_quiet(at) else "brief")
-    return svc.brief(at, int(clamp(alert_budget, 1, 10)))
+    return svc.brief(at)
 
 
 @app.get("/api/line", response_model=Line)
