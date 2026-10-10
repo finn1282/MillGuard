@@ -8,7 +8,7 @@
    "stage": "press",
    "position": 1,
    "status": "ok",
-   "risk_pct": 1.4,
+   "risk_pct": 6.0,
    "summary_en": "Normal",
    "summary_ms": "Normal"
   },
@@ -19,7 +19,7 @@
    "stage": "press",
    "position": 2,
    "status": "ok",
-   "risk_pct": 1.8,
+   "risk_pct": 4.0,
    "summary_en": "Normal",
    "summary_ms": "Normal"
   },
@@ -30,7 +30,7 @@
    "stage": "press",
    "position": 3,
    "status": "ok",
-   "risk_pct": 1.0,
+   "risk_pct": 4.0,
    "summary_en": "Normal",
    "summary_ms": "Normal"
   },
@@ -41,7 +41,7 @@
    "stage": "press",
    "position": 4,
    "status": "ok",
-   "risk_pct": 1.4,
+   "risk_pct": 4.0,
    "summary_en": "Normal",
    "summary_ms": "Normal"
   },

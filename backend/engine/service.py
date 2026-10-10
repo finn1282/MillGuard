@@ -117,9 +117,10 @@ class Service:
     def _line_asset(self, a, n, ty, pos, st, t):
         cur = next((x for x in self.active(t) if x["asset_id"] == a), None)
         fc = cur["fault_class"] if cur else self._top_class(a, t) if st[0] == "watch" else None
-        risk = self._window(cur, t)[1] * 100 if cur else st[1]
+        # one rounding, at the source: the same whole-number risk on the card, line, asset detail and outlook
+        risk = self._money(dict(cur), cur, t)["risk_pct"] if cur else self._outlook(a, ty, None, t)["risk_pct"]
         summ = text.SUMMARY[fc] if fc else text.SUMMARY_OK
-        return dict(id=a, name=n, type=ty, stage=ty, position=pos, status=st[0], risk_pct=round(min(risk, 99.0), 1),
+        return dict(id=a, name=n, type=ty, stage=ty, position=pos, status=st[0], risk_pct=float(risk),
                     summary_en=summ[0], summary_ms=summ[1])
 
     def _top_class(self, aid, t):

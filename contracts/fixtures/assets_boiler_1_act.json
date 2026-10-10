@@ -6,12 +6,12 @@
   "stage": "boiler",
   "position": 0,
   "status": "watch",
-  "risk_pct": 3.0,
+  "risk_pct": 4.0,
   "summary_en": "Feed-water drifting",
   "summary_ms": "Air suapan menyimpang"
  },
  "status": "watch",
- "risk_pct": 3.0,
+ "risk_pct": 4.0,
  "series": [
   {
    "signal": "steam_temp",

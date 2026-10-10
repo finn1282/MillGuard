@@ -62,7 +62,7 @@ def asset(asset_id: str, at: str | None = None, window_h: int = 168):
     if STUB:
         try:
             v = variant(at)
-            return fx(f"assets_{asset_id}" + (v if v != "_quiet" else ""))
+            return fx(f"assets_{asset_id}{v}")
         except FileNotFoundError:
             raise HTTPException(404, "unknown asset")
     out = svc.asset(asset_id, at, int(clamp(window_h, 24, 720)))

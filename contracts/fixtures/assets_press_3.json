@@ -6,12 +6,12 @@
   "stage": "press",
   "position": 3,
   "status": "ok",
-  "risk_pct": 1.0,
+  "risk_pct": 4.0,
   "summary_en": "Normal",
   "summary_ms": "Normal"
  },
  "status": "ok",
- "risk_pct": 1.0,
+ "risk_pct": 4.0,
  "series": [
   {
    "signal": "current_per_tonne",

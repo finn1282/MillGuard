@@ -6,12 +6,12 @@
   "stage": "press",
   "position": 2,
   "status": "act",
-  "risk_pct": 83.7,
+  "risk_pct": 84.0,
   "summary_en": "Cone pressure unstable",
   "summary_ms": "Tekanan kon tidak stabil"
  },
  "status": "act",
- "risk_pct": 83.7,
+ "risk_pct": 84.0,
  "series": [
   {
    "signal": "current_per_tonne",

@@ -29,9 +29,8 @@ def main():
     for key, suffix in (("both", ""), ("act", "_act"), ("quiet", "_quiet")):
         write(f"brief{suffix}", Brief(**s.brief(at[key])))
         write(f"line{suffix}", Line(**s.line(at[key])))
-        if key != "quiet":
-            for aid, *_ in ASSETS:
-                write(f"assets_{aid}{suffix}", AssetDetail(**s.asset(aid, at[key])))
+        for aid, *_ in ASSETS:
+            write(f"assets_{aid}{suffix}", AssetDetail(**s.asset(aid, at[key])))
     write("backtest", Backtest(**s.backtest()))
     write("replay_markers", [Marker(**m) for m in s.markers()])
     write("assumptions", [Assumption(**a) for a in s.assumptions()])

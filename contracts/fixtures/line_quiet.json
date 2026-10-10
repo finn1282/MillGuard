@@ -8,7 +8,7 @@
    "stage": "press",
    "position": 1,
    "status": "watch",
-   "risk_pct": 27.4,
+   "risk_pct": 67.0,
    "summary_en": "Worm wearing",
    "summary_ms": "Skru cacing haus"
   },
@@ -19,7 +19,7 @@
    "stage": "press",
    "position": 2,
    "status": "ok",
-   "risk_pct": 1.6,
+   "risk_pct": 4.0,
    "summary_en": "Normal",
    "summary_ms": "Normal"
   },
@@ -30,7 +30,7 @@
    "stage": "press",
    "position": 3,
    "status": "ok",
-   "risk_pct": 2.2,
+   "risk_pct": 41.0,
    "summary_en": "Normal",
    "summary_ms": "Normal"
   },
@@ -41,7 +41,7 @@
    "stage": "press",
    "position": 4,
    "status": "watch",
-   "risk_pct": 92.1,
+   "risk_pct": 99.0,
    "summary_en": "Worm wearing",
    "summary_ms": "Skru cacing haus"
   },
@@ -52,7 +52,7 @@
    "stage": "boiler",
    "position": 0,
    "status": "watch",
-   "risk_pct": 4.8,
+   "risk_pct": 5.0,
    "summary_en": "Feed-water drifting",
    "summary_ms": "Air suapan menyimpang"
   }
