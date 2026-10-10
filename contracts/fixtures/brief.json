@@ -24,7 +24,7 @@
      "text_ms": "Kekonduksian air suapan 9% lebih tinggi daripada biasa bagi Dandang 1",
      "signal": "feedwater_cond",
      "direction": "up",
-     "contribution": 0.889
+     "contribution": 0.891
     },
     {
      "text_en": "164 hours since the last logged service on Boiler 1",
@@ -32,13 +32,6 @@
      "signal": "hours_since_service",
      "direction": "up",
      "contribution": 0.109
-    },
-    {
-     "text_en": "Recent load on Boiler 1 differs from its usual pattern",
-     "text_ms": "Beban terkini pada Dandang 1 berbeza daripada corak biasa",
-     "signal": "load",
-     "direction": "up",
-     "contribution": 0.002
     }
    ],
    "why_rank_en": "Boiler stops the whole mill, so it comes first",

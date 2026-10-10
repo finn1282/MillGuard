@@ -10,6 +10,7 @@ from backend.api.models import FeedbackIn
 from backend.engine import text
 from backend.notify import messages, store
 
+logging.basicConfig(level=logging.WARNING)
 logging.getLogger("httpx").setLevel(logging.WARNING)   # httpx logs the bot URL, which contains the token
 svc = None
 
@@ -62,12 +63,18 @@ async def brief(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
 
 async def button(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
     q = update.callback_query
+    print("bot: button tap received", q.data.split("|")[-1] if q.data else "", flush=True)   # no ids or tokens
     _, action_id, decision = q.data.split("|")
     record(FeedbackIn(action_id=action_id, decision=decision), source="telegram")   # same path as POST /api/feedback
     lang = _lang(q.message.chat.id)
     choice = text.NOTIFY["buttons"][decision][messages.LANG[lang]]
     await q.answer(text.NOTIFY["recorded"][messages.LANG[lang]].format(choice=choice))
     await q.edit_message_reply_markup(InlineKeyboardMarkup([[InlineKeyboardButton("✔ " + choice, callback_data="done")]]))
+
+
+async def other(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
+    print("bot: other callback received", flush=True)
+    await update.callback_query.answer()
 
 
 def main():
@@ -79,7 +86,8 @@ def main():
     for name, fn in (("start", start), ("en", en), ("bm", bm), ("brief", brief)):
         app.add_handler(CommandHandler(name, fn))
     app.add_handler(CallbackQueryHandler(button, pattern=r"^fb\|"))
-    print("MillGuard bot polling (Ctrl+C to stop)")
+    app.add_handler(CallbackQueryHandler(other, pattern=r"^(?!fb\|)"))
+    print("MillGuard bot polling (Ctrl+C to stop)", flush=True)
     app.run_polling(bootstrap_retries=-1)   # keep retrying if the network is down at start
 
 

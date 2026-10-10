@@ -33,7 +33,7 @@ class Action(BaseModel):
     deadline: str
     headline_en: str
     headline_ms: str
-    reasons: list[Reason] = Field(min_length=3, max_length=3)
+    reasons: list[Reason] = Field(min_length=2, max_length=3)   # v1.12
     why_rank_en: str
     why_rank_ms: str
     criticality: Literal["whole_mill", "partial"]

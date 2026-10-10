@@ -202,7 +202,8 @@ class Service:
                          text_en=text.REASON_REL_EN.format(label=lab[0], pct=pct, word=text.WORD_EN[d], asset=name),
                          text_ms=text.REASON_REL_MS.format(label=lab[1], pct=pct, word=text.WORD_MS[d], asset=text.name_ms(name)))
             out.append(r)
-        out = out[:3]
+        specific = [r for r in out if r["signal"] != "load"]   # "differs from its usual pattern" says nothing: drop, do not pad
+        out = (specific if len(specific) >= 2 else out)[:3]
         total = sum(r["contribution"] for r in out) or 1.0
         return [dict(r, contribution=round(r["contribution"] / total, 3)) for r in out]
 

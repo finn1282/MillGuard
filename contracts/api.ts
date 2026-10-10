@@ -18,7 +18,7 @@ export interface Action {
   rm_at_risk: number; rm_cost_to_act: number; rm_saved_if_acted: number;
   recommendation: Recommendation; deadline: string;
   headline_en: string; headline_ms: string;
-  reasons: Reason[]; // exactly 3
+  reasons: Reason[]; // 2 to 3 (v1.12); generic reasons are dropped, not padded
   why_rank_en: string; why_rank_ms: string;
   criticality: "whole_mill" | "partial";
   rm_breakdown_cost: number; // v1.7: full breakdown cost; the UI never divides
