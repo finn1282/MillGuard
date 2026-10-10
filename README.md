@@ -34,6 +34,16 @@ Other targets:
 5. Tapping Fix now / Schedule / Keep watching records feedback through the same code as `POST /api/feedback`.
 Without a token everything still runs; `enabled` is false and nothing is sent.
 
+## Demo checklist (`make demo`)
+
+`make demo` starts the API (port 8000) and the Telegram bot together; Ctrl+C stops both.
+1. `make all` has been run once on this machine (artifacts exist) and `make fixtures` output is committed.
+2. `backend/.env` has the bot token; the demo group has sent `/start` (`GET /api/notify/status` shows `enabled: true`, `subscribers: 1+`).
+3. Open the frontend; check the time bar bookmarks: Quiet night, Whole mill, Press 2 act now.
+4. At Press 2 act now press "Send to phone"; tap Schedule on the phone.
+5. Backup: `MILLGUARD_STUB=1 make demo` serves the real-snapshot fixtures if live artifacts are missing.
+6. Slide assets: `make pitch` rewrites `pitch/` (charts, tables, `numbers.md`).
+
 ## How it is built
 
 - `backend/sim/` simulator: 10 mills, calendar 2025, hourly; 4 presses + 1 boiler; hidden component lives; assumed P-F warning periods (`params.yaml`).

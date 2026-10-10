@@ -12,3 +12,4 @@ pyyaml
 ucimlrepo
 python-telegram-bot
 httpx
+matplotlib
