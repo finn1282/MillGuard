@@ -9,18 +9,19 @@ const lum = (hex) => {
 };
 const ratio = (a, b) => { const [x, y] = [lum(a), lum(b)].sort((p, q) => q - p); return (x + 0.05) / (y + 0.05); };
 
-// [text, background, minimum]; 3 = icon or large-only use.
+// [text, background, minimum]; 3 = icons, focus rings, the active-nav bar and large numbers only.
 const pairs = [
   ["ink", "paper"], ["ink", "card"], ["ink-2", "card"], ["ink-2", "paper"],
-  ["muted", "card"], ["muted", "paper"], ["muted", "rule-soft"], ["muted", "act-tint"], ["muted", "watch-tint"],
-  ["paper", "ink"], ["muted", "paper-bar"],
+  ["muted", "card"], ["muted", "paper"], ["muted", "rule-soft"], ["muted", "act-tint"], ["muted", "watch-tint"], ["muted", "paper-bar"],
   ["white", "act"], ["act", "card"], ["act", "act-tint", 3], ["ink", "act-tint"], ["loss", "card"], ["loss", "paper"],
   ["watch-ink", "watch-bg"], ["watch-ink", "watch-tint"], ["ink", "watch-tint"],
   ["ok", "card"], ["ok", "paper"], ["ok", "ok-bg", 3], ["ok-ink", "ok-bg"],
   ["link", "card"], ["link", "paper"], ["link-hover", "card"],
-  ["paper", "navy"], ["db-label", "navy"], ["db-sub", "navy"], ["db-num", "navy"], ["db-loss", "navy"], ["db-protect", "navy"],
-  ["db-label", "navy-2"], ["sample-ink", "sample-bg"],
-  ["focus", "card", 3],
+  ["white", "brand"], ["white", "brand-2"], ["db-label", "brand"], ["db-sub", "brand"],
+  ["db-loss", "brand"], ["db-protect", "brand"], ["gold", "brand"],
+  ["gold-ink", "card"], ["gold-ink", "paper"], ["info", "card"], ["info", "paper"],
+  ["sample-ink", "sample-bg"],
+  ["focus", "card", 3], ["focus", "paper", 3], ["gold", "brand", 3], ["gold", "brand-2", 3], ["gold", "ink", 3],
 ].map(([f, b, min = 4.5]) => [f, b, vars[f], vars[b], min]);
 
 const src = readFileSync(here("../src/lib/faultColors.ts"), "utf8");

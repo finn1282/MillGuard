@@ -1,4 +1,4 @@
-/* MillGuard — navy + cool white tokens. Text pairs are checked by scripts/contrast.mjs (WCAG AA 4.5:1). */
+/* MillGuard — palm green + oil gold tokens (MillGuard's own palette). Text pairs are checked by scripts/contrast.mjs (WCAG AA). */
 
 :root {
   /* type */
@@ -6,49 +6,53 @@
   --font-num: 'JetBrains Mono', ui-monospace, monospace;   /* every RM, %, time, date */
 
   /* ground + ink */
-  --paper: #F6F8FB;        /* page background */
+  --paper: #F5F8F4;        /* page background, light green-white */
   --paper-bar: #FFFFFF;    /* time bar */
   --card: #FFFFFF;
-  --rule: #DCE3EC;         /* card borders */
-  --rule-soft: #E8EDF3;    /* row dividers */
-  --ink: #0F172A;          /* text, selected controls */
-  --ink-2: #1E293B;        /* body copy */
-  --muted: #475569;        /* secondary text */
-  --control-border: #94A3B8;
-  --navy: #0F2A4A;         /* nav rail, tab bar, decision bar, savings band */
-  --navy-2: #1B3A60;       /* hover on navy */
-  --navy-line: #2E4C72;    /* dividers on navy */
-  --link: #1D4ED8;
-  --link-hover: #1E3A8A;
-  --focus: #2563EB;
-  --overlay: rgba(15, 23, 42, .45);
-  --shadow: rgba(15, 23, 42, .10);
+  --rule: #D5E1D8;         /* card borders */
+  --rule-soft: #E6EEE8;    /* row dividers */
+  --ink: #13201A;          /* text */
+  --ink-2: #24332B;        /* body copy */
+  --muted: #4A5A50;        /* secondary text */
+  --control-border: #8FA597;
+
+  /* brand */
+  --brand: #0B4F3C;        /* palm green: nav rail, tab bar, decision bar, savings band, primary actions */
+  --brand-2: #127A5B;      /* hover/active on brand surfaces */
+  --brand-line: #2C6B57;   /* dividers on brand */
+  --gold: #F5C451;         /* oil gold: figures and highlights on green, active nav, focus on dark */
+  --gold-ink: #8A6100;     /* gold as text on light backgrounds */
+  --info: #0E7490;         /* info / simulated accents */
+  --link: #127A5B;
+  --link-hover: #0B4F3C;
+  --focus: #127A5B;
+  --overlay: rgba(19, 32, 26, .45);
+  --shadow: rgba(19, 32, 26, .10);
 
   /* status — always colour + icon + word */
-  --act: #C2410C;          /* Act now chip/band, primary button */
+  --act: #C2410C;          /* Act now chip/band, Fix now button */
   --act-tint: #FFEDD5;     /* "Why first" strip, Act now rows on mobile map, safety box */
   --act-tint-border: #FDBA74;
   --loss: #9A3412;         /* Expected loss figure, "Missed" */
-  --watch-bg: #FEF9C3;
-  --watch-tint: #FEFCE8;   /* Watch rows, early-pattern note */
-  --watch-ink: #713F12;
-  --watch-border: #EAB308;
+  --watch-bg: #FEF3C7;
+  --watch-tint: #FFFBEB;   /* Watch rows, early-pattern note */
+  --watch-ink: #854D0E;
+  --watch-border: #E5B85C;
   --ok: #15803D;           /* Normal, matches, protected */
-  --ok-bg: #DCFCE7;
-  --ok-ink: #14532D;
-  --ok-border: #86EFAC;
+  --ok-bg: #E7F6EC;
+  --ok-ink: #166534;
+  --ok-border: #9ED3B0;
 
-  /* on navy (rail, decision bar) */
-  --db-label: #E2E8F0;
-  --db-sub: #B6C4D6;
-  --db-num: #9FB3CC;       /* rail page numbers */
+  /* on palm green (rail, decision bar, savings band) */
+  --db-label: #D7E8DF;
+  --db-sub: #A9C7B8;       /* subtext, rail page numbers */
   --db-loss: #FDBA74;
-  --db-protect: #86EFAC;
+  --db-protect: #F5C451;
 
-  /* sample badge */
-  --sample-bg: #FEF9C3;
-  --sample-ink: #713F12;
-  --sample-border: #FACC15;
+  /* sample badge (amber) */
+  --sample-bg: #FEF3C7;
+  --sample-ink: #78350F;
+  --sample-border: #F5D78E;
 
   /* shape */
   --radius: 6px;

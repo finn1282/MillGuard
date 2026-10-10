@@ -65,7 +65,7 @@ function Main({ bt, compare, setCompare, loading, openDrawer }:
             {(Object.keys(BEFORE) as Compare[]).map((c, i) => (
               <button key={c} aria-pressed={compare === c} onClick={() => setCompare(c)}
                 className={`min-h-[44px] px-3 lg:px-3.5 py-1.5 text-[15px] lg:text-base font-bold leading-tight ${i ? "border-t lg:border-t-0 lg:border-l border-rule" : ""}
-                  ${compare === c ? "bg-ink text-paper" : "bg-transparent text-ink"}`}>
+                  ${compare === c ? "bg-brand text-white" : "bg-transparent text-ink"}`}>
                 {t(`pol_${BEFORE[c]}` as Key)}
               </button>
             ))}
@@ -73,7 +73,7 @@ function Main({ bt, compare, setCompare, loading, openDrawer }:
         </div>
       </div>
 
-      <div className="bg-navy text-paper rounded p-5 lg:px-7 lg:py-[26px] flex flex-wrap items-baseline justify-between gap-x-8 gap-y-1.5 lg:gap-y-3">
+      <div className="bg-brand text-white rounded p-5 lg:px-7 lg:py-[26px] flex flex-wrap items-baseline justify-between gap-x-8 gap-y-1.5 lg:gap-y-3">
         <div className="min-w-0">
           <div className="text-[15px] lg:text-lg text-db-label">{t(`savedVs_${compare}` as Key)}</div>
           <div className="font-num font-extrabold text-db-protect tracking-tight leading-none text-[46px] lg:text-[80px]">RM{num(saved)}</div>
@@ -179,7 +179,7 @@ function Strip({ bt, before, after }: { bt: Backtest; before: PolicyId; after: P
         <h2 className="m-0 text-lg lg:text-[22px] font-extrabold">{t("twelveMonths")}</h2>
         <div className="flex gap-4 items-center flex-wrap">
           <span className="hidden lg:flex">{legend}</span>
-          <button onClick={play} className="btn bg-ink text-paper min-h-[44px] lg:min-h-[48px] text-sm lg:text-base inline-flex gap-2 items-center">
+          <button onClick={play} className="btn btn-primary min-h-[44px] lg:min-h-[48px] text-sm lg:text-base inline-flex gap-2 items-center">
             {playing ? <IconPause size={14} /> : <IconPlay size={14} />}{t(playing ? "pauseYear" : "playYear")}
           </button>
         </div>
@@ -216,7 +216,7 @@ function Sliders({ params, setParams, reset, loading }:
           </div>
           <input id={`s-${k}`} type="range" min={0} max={axis.length - 1} step={1} value={i} aria-valuetext={fmt(axis[i])}
             onChange={(e) => setParams({ ...params, [k]: axis[Number(e.target.value)] })}
-            className="w-full h-11 accent-[var(--ink)]" />
+            className="w-full h-11 accent-[var(--brand)]" />
           <div className="flex justify-between text-sm lg:text-base text-muted">{axis.map((x) => <span key={x}>{fmt(x)}</span>)}</div>
         </div>
       );
@@ -229,7 +229,7 @@ function Sliders({ params, setParams, reset, loading }:
       </div>
       <input id={`s-${k}`} type="range" min={min} max={max} step={step} value={params[k]}
         onChange={(e) => setParams({ ...params, [k]: Number(e.target.value) })}
-        className="w-full h-11 accent-[var(--ink)] disabled:opacity-50" />
+        className="w-full h-11 accent-[var(--brand)] disabled:opacity-50" />
       <div className="flex justify-between text-sm lg:text-base text-muted"><span>{fmt(min)}</span><span>{fmt(max)}</span></div>
     </div>
     );

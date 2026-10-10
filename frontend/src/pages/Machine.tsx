@@ -95,7 +95,7 @@ function MachineView({ id }: { id: string }) {
             {peers.map((p) => (
               <Link key={p.id} to={`/machine/${p.id}`} aria-current={p.id === id ? "page" : undefined}
                 className={`inline-flex items-center gap-1.5 min-h-[40px] px-2.5 rounded border text-sm font-bold no-underline
-                  ${p.id === id ? "bg-ink text-paper border-ink" : "bg-card text-ink border-rule"}`}>
+                  ${p.id === id ? "bg-brand text-white border-brand" : "bg-card text-ink border-rule"}`}>
                 <StatusIcon status={p.status} size={14} />{name(p)}
               </Link>
             ))}
@@ -251,7 +251,7 @@ function MachineView({ id }: { id: string }) {
 function H2({ id, letter, children }: { id: string; letter: string; children: React.ReactNode }) {
   return (
     <h2 id={id} className="m-0 mt-1.5 lg:mt-0 text-xl lg:text-[26px] font-extrabold flex items-center gap-2 lg:gap-2.5">
-      <span className="font-num text-[13px] lg:text-base bg-ink text-paper rounded-[4px] px-[7px] lg:px-2 py-0.5 lg:py-[3px]">{letter}</span>
+      <span className="font-num text-[13px] lg:text-base bg-brand text-white rounded-[4px] px-[7px] lg:px-2 py-0.5 lg:py-[3px]">{letter}</span>
       {children}
     </h2>
   );

@@ -23,6 +23,8 @@ export const IconPlay = ({ size = 16 }: P) => (
 export const IconPause = ({ size = 16 }: P) => (
   <svg width={size} height={size} viewBox="0 0 16 16" fill="currentColor" aria-hidden><path d="M3 2h4v12H3zM9 2h4v12H9z" /></svg>
 );
+// MillGuard mark: one arching palm frond, three strokes.
+export const PalmMark = (p: P) => <Svg {...p} sw={2.2}><path d="M4 21C7 14 12 8.5 20 5" /><path d="M9.5 13.5C7 13.6 4.8 12.4 3.5 9.8M13.4 9.6c.2-2.5 1.6-4.6 4-6" /><path d="M13 13.6c2.6.6 4.6 2.3 5.5 5" /></Svg>;
 export const IconChevron = ({ left, ...p }: P & { left?: boolean }) => (
   <Svg {...p} sw={2.6}><path d={left ? "M15 5l-7 7 7 7" : "M9 5l7 7-7 7"} /></Svg>
 );

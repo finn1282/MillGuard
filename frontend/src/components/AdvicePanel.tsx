@@ -37,7 +37,7 @@ export function AdvicePanel({ assetId, at }: { assetId: string; at: string }) {
         <div role="status" className="flex flex-col gap-3 py-1">
           <p className="m-0 text-base lg:text-lg font-bold">{t("adviceLoading")}</p>
           <div className="h-1.5 bg-paper rounded-chip overflow-hidden" aria-hidden>
-            <div className="h-full w-1/3 bg-ink rounded-chip animate-[advice_1.6s_ease-in-out_infinite]" />
+            <div className="h-full w-1/3 bg-brand rounded-chip animate-[advice_1.6s_ease-in-out_infinite]" />
           </div>
           <p className="m-0 text-sm lg:text-base text-muted font-num">{t("adviceWait", { s: secs })}</p>
         </div>
