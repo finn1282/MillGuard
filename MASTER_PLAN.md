@@ -556,4 +556,6 @@ Owner: orchestrator chat. Task prompts live in the orchestrator's plan; each age
 
 **Demo (Phase 2, 4 min):** gateway stream of mill 10 → Press 2 alert on Telegram → Schedule → faulty-sensor scenario (no false alarm) → judge picks a fault scenario → Impact page.
 
+**Fixed-schedule baseline** = published per-component RCM intervals (Ishak et al. 2024: worm 525 h, bearing 533 h, shaft 400 h), untuned; cone and electrical run to failure.
+
 **Honesty line (README and UI):** no palm oil mill publishes sensor data; readings are simulated; economics from MPOB 2025; failure rates from published real-mill records; real industrial datasets used for checks.

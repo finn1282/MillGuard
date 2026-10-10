@@ -130,10 +130,17 @@ def notify_status():
 @app.post("/api/notify", response_model=NotifyOut)
 def notify(body: NotifyIn):
     if STUB:
-        return {"ok": False, "sent": 0}
+        return fx("notify_schedule") if body.kind == "schedule" else {"ok": False, "sent": 0}
     from backend.notify import send
     try:
+        if body.kind == "schedule":
+            res = send.schedule(svc, body.at, body.action_id)
+            if res is None:
+                raise HTTPException(404, "action not found")
+            return {"ok": res[0], "sent": res[1]}
         ok, sent = send.notify(svc, body.at, body.kind)
+    except HTTPException:
+        raise
     except Exception:   # a Telegram or network problem must never take the API down
         return {"ok": False, "sent": 0}
     return {"ok": ok, "sent": sent}

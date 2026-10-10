@@ -1,6 +1,7 @@
 """Telegram bot (long polling, no public URL): /start /en /bm /brief and the Fix now / Schedule / Keep watching buttons.
 Token: TELEGRAM_BOT_TOKEN in backend/.env. Run: make bot."""
 import logging
+import asyncio
 import os
 
 from telegram.error import Conflict
@@ -10,6 +11,7 @@ from telegram.ext import Application, CallbackQueryHandler, CommandHandler, Cont
 from backend.api.feedback import record
 from backend.api.models import FeedbackIn
 from backend.engine import text
+from backend.notify import send
 from backend.notify import messages, store
 
 logging.basicConfig(level=logging.WARNING)
@@ -70,6 +72,10 @@ async def button(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
     record(FeedbackIn(action_id=action_id, decision=decision), source="telegram")   # same path as POST /api/feedback
     lang = _lang(q.message.chat.id)
     choice = text.NOTIFY["buttons"][decision][messages.LANG[lang]]
+    if decision == "schedule_next_stop":   # close the loop: tell the whole group
+        action = next((x for x in _service().brief(store.last_at())["actions"] if x["id"] == action_id), None)
+        if action:
+            await asyncio.to_thread(send.schedule_message, action)
     await q.answer(text.NOTIFY["recorded"][messages.LANG[lang]].format(choice=choice))
     await q.edit_message_reply_markup(InlineKeyboardMarkup([[InlineKeyboardButton("✔ " + choice, callback_data="done")]]))
 

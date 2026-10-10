@@ -336,6 +336,8 @@ NOTIFY = {
     "when": {"night": ("tonight", "malam ini"), "day": ("today", "hari ini")},
     "buttons": {"fix_now": ("Fix now", "Baiki sekarang"), "schedule_next_stop": ("Schedule", "Jadualkan"),
                 "monitor": ("Keep watching", "Terus pantau")},
+    "scheduled": ("📅 Scheduled by the shift supervisor — {asset}: {fault}. Do it at {deadline} (planned stop). Expected loss avoided: RM{saved:,}. Engineers on this group have been notified.",
+                  "📅 Dijadualkan oleh penyelia syif — {asset}: {fault}. Buat pada {deadline} (henti terancang). Kerugian dielakkan: RM{saved:,}. Jurutera dalam kumpulan ini telah dimaklumkan."),
     "recorded": ("Recorded: {choice}. Thank you.", "Direkodkan: {choice}. Terima kasih."),
     "start": ("Subscribed to MillGuard alerts (English). Use /bm for Bahasa Malaysia, /brief for the current brief.",
               "Dilanggan kepada amaran MillGuard (Bahasa Malaysia). Guna /en untuk bahasa Inggeris, /brief untuk ringkasan semasa."),

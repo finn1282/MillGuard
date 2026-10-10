@@ -20,7 +20,7 @@ def load(name):
 
 def test_fixtures_match_models():
     single = {"meta": m.Meta, "backtest": m.Backtest, "robustness": m.Robustness, "feedback": m.FeedbackOut,
-              "notify": m.NotifyOut, "notify_status": m.NotifyStatus}
+              "notify": m.NotifyOut, "notify_schedule": m.NotifyOut, "notify_status": m.NotifyStatus}
     for name, model in single.items():
         model(**load(name))
     for name, model in (("assumptions", m.Assumption), ("faults", m.FaultGuide), ("replay_markers", m.Marker)):
@@ -110,3 +110,25 @@ def test_advice_never_crashes_without_key(monkeypatch):
     o = engine.advise(s, act["asset_id"], act["t_open"].isoformat(), "en", use_cache=False)
     assert o.cached is False and o.sections == [] and o.message
     assert engine.advise(s, "nope", None, "ms").message
+
+
+def test_notify_schedule_v113(monkeypatch, tmp_path):
+    if not PRED.exists():
+        pytest.skip("run `make all` first")
+    from fastapi.testclient import TestClient
+    from backend.api.main import app, STUB
+    from backend.notify import messages, store
+    if STUB:
+        pytest.skip("stub mode")
+    monkeypatch.setattr(store, "token", lambda: None)   # no token: ok false, sent 0, no crash
+    monkeypatch.setattr("backend.api.feedback.ART", tmp_path)
+    c, at = TestClient(app), load("bookmarks")["act"]
+    assert c.post("/api/notify", json={"kind": "schedule", "at": at}).status_code == 422
+    assert c.post("/api/notify", json={"kind": "schedule", "at": at, "action_id": "nope"}).status_code == 404
+    a = load("brief_act")["actions"][0]
+    r = c.post("/api/notify", json={"kind": "schedule", "at": at, "action_id": a["id"]})
+    assert r.status_code == 200 and r.json() == {"ok": False, "sent": 0}
+    assert "schedule_next_stop" in (tmp_path / "feedback.jsonl").read_text()
+    for lang in ("en", "ms"):
+        msg = messages.scheduled_text(a, lang)
+        assert a[f"deadline_label_{lang}"] in msg and f"RM{a['rm_saved_if_acted']:,}" in msg

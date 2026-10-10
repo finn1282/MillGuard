@@ -175,7 +175,9 @@ export interface FeedbackIn { action_id: string; useful?: boolean; decision?: Re
 export interface FeedbackOut { ok: boolean }
 
 // v1.8 (additive). POST /api/notify sends what the replay clock shows at `at` to Telegram subscribers.
-export interface NotifyIn { at?: string; kind: "alert" | "brief" }
+// v1.13 (additive): kind "schedule" + action_id (required, else 422; 404 if the action is not in the brief at `at`) tells every subscriber
+// the supervisor scheduled that action and records feedback "schedule_next_stop". Ignores alert dedupe and the shift budget.
+export interface NotifyIn { at?: string; kind: "alert" | "brief" | "schedule"; action_id?: string }
 export interface NotifyOut { ok: boolean; sent: number } // ok=false, sent=0 when the bot is not configured
 // GET /api/notify/status. The "Send to phone" button is shown only when enabled.
 export interface NotifyStatus { enabled: boolean; channel: string; subscribers: number }

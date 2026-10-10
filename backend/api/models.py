@@ -1,7 +1,7 @@
 """API contract v1 (MASTER_PLAN section 7). contracts/api.ts mirrors this file."""
 from typing import Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, model_validator
 
 FaultClass = Literal["worm_wear", "bearing", "gearbox_shaft", "hydraulic_cone",
                      "electrical", "boiler_steam", "boiler_water", "unknown"]
@@ -344,7 +344,14 @@ class FeedbackOut(BaseModel):
 
 class NotifyIn(BaseModel):
     at: str | None = None
-    kind: Literal["alert", "brief"]
+    kind: Literal["alert", "brief", "schedule"]
+    action_id: str | None = None   # v1.13: required when kind == "schedule"
+
+    @model_validator(mode="after")
+    def _need_action(self):
+        if self.kind == "schedule" and not self.action_id:
+            raise ValueError("action_id is required when kind is 'schedule'")
+        return self
 
 
 class NotifyOut(BaseModel):

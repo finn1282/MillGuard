@@ -27,6 +27,11 @@ def alert_text(a, lang):
               reason=a["reasons"][0][f"text_{lang}"], deadline=a[f"deadline_label_{lang}"])
 
 
+def scheduled_text(a, lang):
+    return _t("scheduled", lang, asset=asset_name(a["asset_name"], lang), fault=text.FAULT_LABEL[a["fault_class"]][LANG[lang]],
+              deadline=a[f"deadline_label_{lang}"], saved=a["rm_saved_if_acted"])
+
+
 def brief_text(b, lang):
     shift = text.NOTIFY["shift"][b["shift"]][LANG[lang]]
     clock = pd.Timestamp(b["at"]).strftime("%d/%m %H:%M")

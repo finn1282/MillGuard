@@ -127,6 +127,7 @@ def main():
     write("feedback", FeedbackOut(ok=True))
     write("notify_status", NotifyStatus(enabled=False, channel="telegram", subscribers=0))
     write("notify", NotifyOut(ok=False, sent=0))
+    write("notify_schedule", NotifyOut(ok=True, sent=3))
     (OUT / "bookmarks.json").write_text(json.dumps(at, indent=1))
     print("fixtures (real snapshot) written to", OUT, at)
     backtest_grid(s)
