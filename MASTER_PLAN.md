@@ -5,12 +5,11 @@ Owner of this file: the orchestrator chat. Agents read it, they do not rewrite i
 
 ---
 
-## STATUS — FROZEN (23:00, tag `demo-v1` = commit 4180c7a)
+## STATUS — v2 BUILD (unfrozen 00:15, Sun 11 Oct). Rollback point: tag `demo-v1`.
 
-- Build complete; bug fixes and docs only from here. Contract final = v1.12 (`Action.reasons` is 2–3; generic reasons dropped).
-- Verified independently on a fresh clone of `demo-v1` (Linux): `make setup` 19 s, `make all` 3 min 44 s, then `make check` ALL PASS. Headline numbers reproduce exactly (RM972,848 / RM723,550 / RM557,570 / RM421,040; 34 / 10 / 12 / 3 breakdowns; 22 of 34 caught; 63 h median warning; 1.3 false alarms/week) and so do the 3 bookmarks. Tiny cross-platform differences in a few per-alert risk figures (±1–3 points) and model AP (±0.004); demo fixtures unaffected.
-- The alert-budget slider was removed from the UI (the limit never bound); the feedback-tuned threshold (P1) moved to the roadmap.
-- Demo: `make demo-all` (live) or `make demo-offline` / GitHub Pages (fixtures). Run sheet in the orchestrator chat.
+- The freeze is lifted. Section 16 lists tonight's work and overrides earlier sections where they conflict.
+- Contract changes are allowed again (v1.13, v1.14), same rule: Pydantic models + contracts/api.ts + fixtures + one CHANGELOG line.
+- Headline numbers WILL change (A0 recalibration, A4 real bearing data). The demo-v1 numbers are history, not targets.
 
 ---
 
@@ -534,3 +533,27 @@ millguard/
 - Thai mill sensor study — fibre oil loss threshold 4%: https://www.scielo.org.za/pdf/sajie/v36n1/07.pdf
 - Paderborn Bearing DataCenter (CC BY-NC 4.0): https://mb.uni-paderborn.de/kat/forschung/kat-datacenter/bearing-datacenter
 - All other sources: see `MillGuard_Full_Hackathon_Plan.md`.
+
+---
+
+## 16. Overnight v2 (00:15, Sun 11 Oct) — overrides sections 2.3, 6, 14 and 15 where they conflict
+
+Owner: orchestrator chat. Task prompts live in the orchestrator's plan; each agent gets its task as a prompt.
+
+**Backend (Computer A), in order:**
+- A0 (branch recal): component lives from real mill failure records (worm, bearing, shaft lognormal fits, Ishak et al. SENTI UGM 2024, cross-checked with Yudistia 2026, Ramadhana 2026, Wahyuny 2021); noise-augmented training, adopted only on training-mill evidence. Never decide on mill 10 results.
+- A1: contract v1.13 — POST /api/notify kind "schedule" + action_id; Telegram "engineers notified" message; bot Schedule button posts it to the group.
+- A2: contract v1.14 — gateway: POST /api/ingest (sensor-health checks: range, stuck, spike, missing → sensor alert, never a machine alert), GET /api/live, POST /api/live/start|stop, GET /api/scenarios (mill10, bearing_p3, worm_p1, boiler_water, bad_sensor), POST /api/upload (CSV). Every served value is scored by the trained models. Auto-push new alerts to Telegram.
+- A4: bearing warning period and vibration ramp derived from NASA/IMS run-to-failure bearings (replaces the assumed 150 h).
+
+**Frontend (Computer B):**
+- B1: navy + cool white palette (WCAG AA); Mill page shows only the 4 presses and Boiler 1 (no unmonitored stations); Machine page drops the fix plan and "Was this useful?" but KEEPS the AI advice panel (moved under the diagnosis); Schedule → Telegram toast; How page keeps only the fault guide (colour-coded per fault class), the test-mill card and an assumptions button — the five steps, data honesty and robustness sections are removed.
+- B3: new Gateway page (scenario picker, CSV upload, speed, start/stop, live payload log) and LIVE mode in the time bar with alert and sensor-check toasts.
+
+**Deployment (D1, D2):** backend as a Hugging Face Docker Space (API + bot + streamer, artifacts built locally and uploaded; write endpoints need X-Demo-Key); frontend on GitHub Pages against that API, with ?api= override and automatic fallback to fixtures. Only one Telegram poller (the Space) once deployed.
+
+**Folder ownership still holds** (A: backend/ + contracts/, B: frontend/). Exceptions: D1 may add Dockerfile and deploy/ at the root; D2 may edit .github/workflows/pages.yml.
+
+**Demo (Phase 2, 4 min):** gateway stream of mill 10 → Press 2 alert on Telegram → Schedule → faulty-sensor scenario (no false alarm) → judge picks a fault scenario → Impact page.
+
+**Honesty line (README and UI):** no palm oil mill publishes sensor data; readings are simulated; economics from MPOB 2025; failure rates from published real-mill records; real industrial datasets used for checks.

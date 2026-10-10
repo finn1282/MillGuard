@@ -21,3 +21,4 @@ Contract or scope changes, one line each.
 - 2026-10-10: contract v1.12: Action.reasons is 2 to 3 (was exactly 3); generic 'load differs' reasons are dropped instead of padding.
 - 2026-10-10: contract final = v1.12 (no change); MASTER_PLAN.md replaced by the final plan.
 - 2026-10-10: docs/config patch (demo-v1.1, no behaviour change): LLM_* in backend/.env.example; two artifact-dependent tests skip with "run `make all` first" when artifacts are missing; README run order setup, all, check, demo-all.
+- 2026-10-11 00:15: freeze lifted; MASTER_PLAN section 16 (overnight v2) added; rollback tag demo-v1.
