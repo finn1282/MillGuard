@@ -13,7 +13,8 @@ URL = "https://archive.ics.uci.edu/static/public/791/metropt+3+dataset.zip"
 
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
-    raw = urllib.request.urlopen(URL, timeout=600).read()
+    local = OUT / "metropt3.zip"   # `make fetch-metropt` resumes this with curl; the UCI server can be slow
+    raw = local.read_bytes() if local.exists() else urllib.request.urlopen(URL, timeout=600).read()
     with zipfile.ZipFile(io.BytesIO(raw)) as z:
         name = next(n for n in z.namelist() if n.lower().endswith(".csv"))
         df = pd.read_csv(z.open(name))
