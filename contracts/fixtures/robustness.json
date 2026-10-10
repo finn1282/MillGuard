@@ -5,5 +5,18 @@
  "median_lead_h": 0.0,
  "false_alarms_per_week": 0.1,
  "note": "Real compressor data, unsupervised. Isolation Forest fit on healthy Feb 2020; threshold set on healthy March for <=0.5 episodes/week and <=2% of hours alerting; scored on Apr-Aug (4 air-leak failures). Caught = alert opened 0-72 h before the failure start; 1 more failure(s) were flagged only after they had started. Features include compressor duty cycle, load cycles per hour and mean ON length (v1.4 retry; did not change the outcome). Same persistence and hysteresis rules as the mill pipeline. Threshold was fixed on healthy data, not tuned on the failures.",
- "extra": []
+ "extra": [
+  {
+   "dataset": "Real coal-fired boiler (Zhejiang, 5 days)",
+   "task_en": "Predict steam temperature leaving 530-545 C",
+   "task_ms": "Ramal suhu stim keluar daripada 530-545 C",
+   "lead_min": 10,
+   "events_total": 16,
+   "events_caught": 7,
+   "precision_pct": 17.4,
+   "false_alarms_per_day": 38.5,
+   "split": "Time-based: first 3 days train, next day sets the alert threshold, last ~2 days test (nothing tuned on test)",
+   "note": "Real data, 5 s readings averaged to 1 min; steam temperature itself is NOT an input. An alert means an excursion starts 10-15 min later; only predicts new excursions (steam in band at alert time). Random alerting would be right 11% of the time. Test AUC 0.54 (0.5 = no skill): with 5 days of one boiler the model finds no usable early warning, and adding the steam temperature history did not help. Data downloaded by script, not redistributed."
+  }
+ ]
 }

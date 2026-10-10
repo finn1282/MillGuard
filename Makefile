@@ -17,3 +17,5 @@ roi:
 fetch-metropt:
 	mkdir -p backend/data/metropt && curl -L -C - --retry 20 -o backend/data/metropt/metropt3.zip "https://archive.ics.uci.edu/static/public/791/metropt+3+dataset.zip"
 	$(PY) -m backend.scripts.fetch_metropt
+fetch-boiler:
+	$(PY) -m backend.scripts.fetch_boiler

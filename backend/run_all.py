@@ -76,6 +76,13 @@ def main(skip_sim=False):
               f"false alarms/week {r['false_alarms_per_week']}")
     except Exception as e:   # robustness check must not break the main pipeline
         print("MetroPT-3 step skipped:", e)
+    try:
+        from backend.robustness import boiler_real
+        from backend.scripts import fetch_boiler
+        fetch_boiler.main()
+        boiler_real.main()
+    except Exception as e:
+        print("Real boiler step skipped:", e)
 
 
 if __name__ == "__main__":

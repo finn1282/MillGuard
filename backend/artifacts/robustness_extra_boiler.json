@@ -1,0 +1,12 @@
+{
+ "dataset": "Real coal-fired boiler (Zhejiang, 5 days)",
+ "task_en": "Predict steam temperature leaving 530-545 C",
+ "task_ms": "Ramal suhu stim keluar daripada 530-545 C",
+ "lead_min": 10,
+ "events_total": 16,
+ "events_caught": 7,
+ "precision_pct": 17.4,
+ "false_alarms_per_day": 38.5,
+ "split": "Time-based: first 3 days train, next day sets the alert threshold, last ~2 days test (nothing tuned on test)",
+ "note": "Real data, 5 s readings averaged to 1 min; steam temperature itself is NOT an input. An alert means an excursion starts 10-15 min later; only predicts new excursions (steam in band at alert time). Random alerting would be right 11% of the time. Test AUC 0.54 (0.5 = no skill): with 5 days of one boiler the model finds no usable early warning, and adding the steam temperature history did not help. Data downloaded by script, not redistributed."
+}
