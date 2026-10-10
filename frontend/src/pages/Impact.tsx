@@ -75,7 +75,7 @@ function Main({ bt, compare, setCompare, loading, openDrawer }:
 
       <div className="bg-ink text-paper rounded p-5 lg:px-7 lg:py-[26px] flex flex-wrap items-baseline justify-between gap-x-8 gap-y-1.5 lg:gap-y-3">
         <div className="min-w-0">
-          <div className="text-[15px] lg:text-lg text-db-label">{t("savedPerYear")}</div>
+          <div className="text-[15px] lg:text-lg text-db-label">{t(`savedVs_${compare}` as Key)}</div>
           <div className="font-num font-extrabold text-db-protect tracking-tight leading-none text-[46px] lg:text-[80px]">RM{num(saved)}</div>
         </div>
         <div className="text-[19px] lg:text-[26px] font-extrabold">
