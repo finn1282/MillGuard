@@ -58,7 +58,7 @@ alerting:
   horizon_h:       {value: 72,  unit: h,     source: "Plan 4.1", status: validated}
   hysteresis_ratio: {value: 0.6, unit: x threshold, source: "Clear below 60% of threshold", status: assumed}
   inspection_finds_wrong_class: {value: 0.5, unit: probability, source: "If the predicted class is wrong, the crew inspection still finds the real fault this often", status: assumed}
-  fix_now_response_h: {value: 2, unit: h, source: "Time from fix-now alert to repair done", status: assumed}
+  fix_now_response_h: {value: 4, unit: h, source: "Time from fix-now alert to repair done", status: assumed}
   clear_hours:     {value: 6, unit: h, source: "Alert clears after this many hours below hysteresis level", status: assumed}
   min_lead_h:      {value: 6,   unit: h,     source: "Alert only if time remains to act", status: assumed}
   fixed_interval_h: {value: 1000, unit: h,   source: "Fixed-interval policy; near RCM worm interval ~1,217 h", status: assumed}

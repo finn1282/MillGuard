@@ -47,3 +47,63 @@ SERIES = {
     "vibration_kurtosis": ("Vibration kurtosis", "Kurtosis getaran", ""),
     "gearbox_oil_temp": ("Gearbox oil temperature", "Suhu minyak gear", "°C"),
 }
+
+# ---- engine templates (SHAP reasons, headlines, rank explanations) ----
+SIGNAL_LABEL = {   # signal -> (EN, MS)
+    "current_per_tonne": ("Motor current per tonne", "Arus motor setiap tan"),
+    "motor_current": ("Motor current", "Arus motor"),
+    "cone_pressure": ("Cone hydraulic pressure", "Tekanan hidraulik kon"),
+    "gearbox_oil_temp": ("Gearbox oil temperature", "Suhu minyak gear"),
+    "vib_rms": ("Vibration level (RMS)", "Tahap getaran (RMS)"),
+    "vib_kurtosis": ("Vibration spikiness (kurtosis)", "Kemuncakan getaran (kurtosis)"),
+    "fibre_oil_loss": ("Oil lost in fibre", "Kehilangan minyak dalam serabut"),
+    "steam_temp": ("Steam temperature", "Suhu stim"),
+    "steam_pressure": ("Steam pressure", "Tekanan stim"),
+    "feedwater_flow": ("Feed-water flow", "Aliran air suapan"),
+    "feedwater_cond": ("Feed-water conductivity", "Kekonduksian air suapan"),
+}
+REASON_REL_EN = "{label} is {pct:.0f}% {word} {asset}'s normal"
+REASON_REL_MS = "{label} {pct:.0f}% {word} biasa bagi {asset}"
+WORD_EN = {"up": "above", "down": "below"}
+WORD_MS = {"up": "lebih tinggi daripada", "down": "lebih rendah daripada"}
+REASON_FIBRE_EN = "Oil lost in fibre is {v:.1f}% (alarm line is 4%)"
+REASON_FIBRE_MS = "Kehilangan minyak dalam serabut ialah {v:.1f}% (garis amaran 4%)"
+REASON_SERVICE_EN = "{h:,.0f} h since the last logged service on {asset}"
+REASON_SERVICE_MS = "{h:,.0f} jam sejak servis terakhir direkodkan bagi {asset}"
+REASON_ALARMS_EN = "{n:.0f} controller alarms on {asset} in the last 24 h"
+REASON_ALARMS_MS = "{n:.0f} penggera pengawal pada {asset} dalam 24 jam lepas"
+REASON_LOAD_EN = "Recent load on {asset} differs from its usual pattern"
+REASON_LOAD_MS = "Beban terkini pada {asset} berbeza daripada corak biasa"
+
+FAULT_LABEL = {   # class -> (EN, MS)
+    "worm_wear": ("worm wear", "haus skru cacing"), "bearing": ("bearing wear", "haus galas"),
+    "gearbox_shaft": ("gearbox or shaft fault", "kerosakan gear atau aci"),
+    "hydraulic_cone": ("cone hydraulic fault", "kerosakan hidraulik kon"),
+    "electrical": ("electrical fault", "kerosakan elektrik"),
+    "boiler_steam": ("steam temperature drift", "sisihan suhu stim"),
+    "boiler_water": ("feed-water quality drift", "sisihan kualiti air suapan"),
+    "unknown": ("unusual behaviour", "tingkah laku luar biasa"),
+}
+FIX_PHRASE = {
+    "worm_wear": ("Change the worm", "Tukar skru cacing"), "bearing": ("Replace the bearing", "Tukar galas"),
+    "gearbox_shaft": ("Inspect the gearbox and shaft", "Periksa gear dan aci"),
+    "hydraulic_cone": ("Check the cone hydraulics", "Semak hidraulik kon"),
+    "electrical": ("Check the motor and wiring", "Semak motor dan pendawaian"),
+    "boiler_steam": ("Check feed-water dosing and blowdown", "Semak dos air suapan dan blowdown"),
+    "boiler_water": ("Check water treatment and boiler tubes", "Semak rawatan air dan tiub dandang"),
+    "unknown": ("Inspect the machine", "Periksa mesin"),
+}
+HEADLINE_FIX_EN = "{asset}: {fault}. {phrase} now."
+HEADLINE_FIX_MS = "{asset}: {fault}. {phrase} sekarang."
+HEADLINE_SCHED_EN = "{asset}: {fault}. {phrase} at {when}."
+HEADLINE_SCHED_MS = "{asset}: {fault}. {phrase} pada {when}."
+WHEN_TOMORROW = ("tomorrow's 06:00 stop", "henti terancang esok jam 06:00")
+WHEN_DAY = ("the {day} 06:00 stop", "henti terancang {day} jam 06:00")
+WHY_WHOLE_EN = "Boiler stops the whole mill, so it comes first"
+WHY_WHOLE_MS = "Dandang menghentikan seluruh kilang, jadi ia diutamakan"
+WHY_TOP_EN = "Biggest ringgit saving tonight"
+WHY_TOP_MS = "Penjimatan ringgit terbesar malam ini"
+WHY_PARTIAL_EN = "One press is a quarter of the mill, so it ranks below the boiler"
+WHY_PARTIAL_MS = "Satu penekan ialah suku kilang, jadi ia di bawah dandang"
+WHY_LOWER_EN = "Smaller saving than the actions above it"
+WHY_LOWER_MS = "Penjimatan lebih kecil daripada tindakan di atas"

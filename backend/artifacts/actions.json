@@ -1,0 +1,3010 @@
+[
+ {
+  "id": "act_press_2_2025010115",
+  "asset_id": "press_2",
+  "asset_name": "Press 2",
+  "asset_type": "press",
+  "fault_class": "worm_wear",
+  "risk_pct": 49.0,
+  "horizon_h": 168,
+  "rm_at_risk": 24252,
+  "rm_cost_to_act": 6000,
+  "rm_saved_if_acted": 18252,
+  "recommendation": "schedule_next_stop",
+  "deadline": "2025-01-05T06:00:00+08:00",
+  "headline_en": "Press 2: Worm wear. Change the worm at the Sunday 06:00 stop.",
+  "headline_ms": "Penekan 2: Haus skru cacing. Tukar skru cacing pada henti terancang Ahad jam 06:00.",
+  "reasons": [
+   {
+    "text_en": "Oil lost in fibre is 3.8% (alarm line is 4%)",
+    "text_ms": "Kehilangan minyak dalam serabut ialah 3.8% (garis amaran 4%)",
+    "signal": "fibre_oil_loss",
+    "direction": "up",
+    "contribution": 0.587
+   },
+   {
+    "text_en": "Motor current per tonne is 0% above Press 2's normal",
+    "text_ms": "Arus motor setiap tan 0% lebih tinggi daripada biasa bagi Penekan 2",
+    "signal": "current_per_tonne",
+    "direction": "up",
+    "contribution": 0.284
+   },
+   {
+    "text_en": "Gearbox oil temperature is 0% above Press 2's normal",
+    "text_ms": "Suhu minyak gear 0% lebih tinggi daripada biasa bagi Penekan 2",
+    "signal": "gearbox_oil_temp",
+    "direction": "up",
+    "contribution": 0.129
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-01-01T15:00:00+08:00",
+  "t_close": "2025-01-05T06:00:00+08:00",
+  "t_candidate": "2025-01-01T15:00:00+08:00",
+  "internal": {
+   "outcome": "false_alarm",
+   "fail_idx": null
+  }
+ },
+ {
+  "id": "act_press_4_2025011518",
+  "asset_id": "press_4",
+  "asset_name": "Press 4",
+  "asset_type": "press",
+  "fault_class": "electrical",
+  "risk_pct": 41.0,
+  "horizon_h": 168,
+  "rm_at_risk": 19002,
+  "rm_cost_to_act": 2500,
+  "rm_saved_if_acted": 16502,
+  "recommendation": "schedule_next_stop",
+  "deadline": "2025-01-19T06:00:00+08:00",
+  "headline_en": "Press 4: Electrical fault. Check the motor and wiring at the Sunday 06:00 stop.",
+  "headline_ms": "Penekan 4: Kerosakan elektrik. Semak motor dan pendawaian pada henti terancang Ahad jam 06:00.",
+  "reasons": [
+   {
+    "text_en": "Motor current per tonne is 0% above Press 4's normal",
+    "text_ms": "Arus motor setiap tan 0% lebih tinggi daripada biasa bagi Penekan 4",
+    "signal": "current_per_tonne",
+    "direction": "up",
+    "contribution": 0.685
+   },
+   {
+    "text_en": "Motor current is 1% above Press 4's normal",
+    "text_ms": "Arus motor 1% lebih tinggi daripada biasa bagi Penekan 4",
+    "signal": "motor_current",
+    "direction": "up",
+    "contribution": 0.18
+   },
+   {
+    "text_en": "Oil lost in fibre is 3.0% (alarm line is 4%)",
+    "text_ms": "Kehilangan minyak dalam serabut ialah 3.0% (garis amaran 4%)",
+    "signal": "fibre_oil_loss",
+    "direction": "up",
+    "contribution": 0.135
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-01-15T18:00:00+08:00",
+  "t_close": "2025-01-16T15:00:00+08:00",
+  "t_candidate": "2025-01-15T18:00:00+08:00",
+  "internal": {
+   "outcome": "late",
+   "fail_idx": 375
+  }
+ },
+ {
+  "id": "act_press_2_2025011522",
+  "asset_id": "press_2",
+  "asset_name": "Press 2",
+  "asset_type": "press",
+  "fault_class": "unknown",
+  "risk_pct": 31.0,
+  "horizon_h": 168,
+  "rm_at_risk": 19752,
+  "rm_cost_to_act": 3000,
+  "rm_saved_if_acted": 16752,
+  "recommendation": "schedule_next_stop",
+  "deadline": "2025-01-19T06:00:00+08:00",
+  "headline_en": "Press 2: Unusual behaviour. Inspect the machine at the Sunday 06:00 stop.",
+  "headline_ms": "Penekan 2: Tingkah laku luar biasa. Periksa mesin pada henti terancang Ahad jam 06:00.",
+  "reasons": [
+   {
+    "text_en": "Oil lost in fibre is 4.0% (alarm line is 4%)",
+    "text_ms": "Kehilangan minyak dalam serabut ialah 4.0% (garis amaran 4%)",
+    "signal": "fibre_oil_loss",
+    "direction": "up",
+    "contribution": 0.638
+   },
+   {
+    "text_en": "Motor current is 7% below Press 2's normal",
+    "text_ms": "Arus motor 7% lebih rendah daripada biasa bagi Penekan 2",
+    "signal": "motor_current",
+    "direction": "down",
+    "contribution": 0.218
+   },
+   {
+    "text_en": "Gearbox oil temperature is 0% above Press 2's normal",
+    "text_ms": "Suhu minyak gear 0% lebih tinggi daripada biasa bagi Penekan 2",
+    "signal": "gearbox_oil_temp",
+    "direction": "up",
+    "contribution": 0.144
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-01-15T22:00:00+08:00",
+  "t_close": "2025-01-17T18:00:00+08:00",
+  "t_candidate": "2025-01-15T22:00:00+08:00",
+  "internal": {
+   "outcome": "false_alarm",
+   "fail_idx": null
+  }
+ },
+ {
+  "id": "act_press_2_2025011814",
+  "asset_id": "press_2",
+  "asset_name": "Press 2",
+  "asset_type": "press",
+  "fault_class": "electrical",
+  "risk_pct": 34.0,
+  "horizon_h": 168,
+  "rm_at_risk": 19002,
+  "rm_cost_to_act": 2500,
+  "rm_saved_if_acted": 16502,
+  "recommendation": "schedule_next_stop",
+  "deadline": "2025-01-19T06:00:00+08:00",
+  "headline_en": "Press 2: Electrical fault. Check the motor and wiring at tomorrow's 06:00 stop.",
+  "headline_ms": "Penekan 2: Kerosakan elektrik. Semak motor dan pendawaian pada henti terancang esok jam 06:00.",
+  "reasons": [
+   {
+    "text_en": "Oil lost in fibre is 2.9% (alarm line is 4%)",
+    "text_ms": "Kehilangan minyak dalam serabut ialah 2.9% (garis amaran 4%)",
+    "signal": "fibre_oil_loss",
+    "direction": "down",
+    "contribution": 0.525
+   },
+   {
+    "text_en": "Motor current is 5% below Press 2's normal",
+    "text_ms": "Arus motor 5% lebih rendah daripada biasa bagi Penekan 2",
+    "signal": "motor_current",
+    "direction": "down",
+    "contribution": 0.239
+   },
+   {
+    "text_en": "Gearbox oil temperature is 1% above Press 2's normal",
+    "text_ms": "Suhu minyak gear 1% lebih tinggi daripada biasa bagi Penekan 2",
+    "signal": "gearbox_oil_temp",
+    "direction": "up",
+    "contribution": 0.237
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-01-18T14:00:00+08:00",
+  "t_close": "2025-01-19T06:00:00+08:00",
+  "t_candidate": "2025-01-18T14:00:00+08:00",
+  "internal": {
+   "outcome": "false_alarm",
+   "fail_idx": null
+  }
+ },
+ {
+  "id": "act_press_3_2025012703",
+  "asset_id": "press_3",
+  "asset_name": "Press 3",
+  "asset_type": "press",
+  "fault_class": "electrical",
+  "risk_pct": 31.0,
+  "horizon_h": 168,
+  "rm_at_risk": 19002,
+  "rm_cost_to_act": 2500,
+  "rm_saved_if_acted": 16502,
+  "recommendation": "schedule_next_stop",
+  "deadline": "2025-02-02T06:00:00+08:00",
+  "headline_en": "Press 3: Electrical fault. Check the motor and wiring at the Sunday 06:00 stop.",
+  "headline_ms": "Penekan 3: Kerosakan elektrik. Semak motor dan pendawaian pada henti terancang Ahad jam 06:00.",
+  "reasons": [
+   {
+    "text_en": "Oil lost in fibre is 3.4% (alarm line is 4%)",
+    "text_ms": "Kehilangan minyak dalam serabut ialah 3.4% (garis amaran 4%)",
+    "signal": "fibre_oil_loss",
+    "direction": "up",
+    "contribution": 0.464
+   },
+   {
+    "text_en": "Motor current per tonne is 2% above Press 3's normal",
+    "text_ms": "Arus motor setiap tan 2% lebih tinggi daripada biasa bagi Penekan 3",
+    "signal": "current_per_tonne",
+    "direction": "up",
+    "contribution": 0.35
+   },
+   {
+    "text_en": "Motor current is 1% above Press 3's normal",
+    "text_ms": "Arus motor 1% lebih tinggi daripada biasa bagi Penekan 3",
+    "signal": "motor_current",
+    "direction": "up",
+    "contribution": 0.186
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-01-27T03:00:00+08:00",
+  "t_close": "2025-01-28T00:00:00+08:00",
+  "t_candidate": "2025-01-27T03:00:00+08:00",
+  "internal": {
+   "outcome": "false_alarm",
+   "fail_idx": null
+  }
+ },
+ {
+  "id": "act_press_1_2025020902",
+  "asset_id": "press_1",
+  "asset_name": "Press 1",
+  "asset_type": "press",
+  "fault_class": "unknown",
+  "risk_pct": 26.0,
+  "horizon_h": 168,
+  "rm_at_risk": 19752,
+  "rm_cost_to_act": 3000,
+  "rm_saved_if_acted": 16752,
+  "recommendation": "schedule_next_stop",
+  "deadline": "2025-02-16T06:00:00+08:00",
+  "headline_en": "Press 1: Unusual behaviour. Inspect the machine at the Sunday 06:00 stop.",
+  "headline_ms": "Penekan 1: Tingkah laku luar biasa. Periksa mesin pada henti terancang Ahad jam 06:00.",
+  "reasons": [
+   {
+    "text_en": "Motor current per tonne is 1% above Press 1's normal",
+    "text_ms": "Arus motor setiap tan 1% lebih tinggi daripada biasa bagi Penekan 1",
+    "signal": "current_per_tonne",
+    "direction": "up",
+    "contribution": 0.508
+   },
+   {
+    "text_en": "Motor current is 0% above Press 1's normal",
+    "text_ms": "Arus motor 0% lebih tinggi daripada biasa bagi Penekan 1",
+    "signal": "motor_current",
+    "direction": "up",
+    "contribution": 0.326
+   },
+   {
+    "text_en": "Oil lost in fibre is 3.1% (alarm line is 4%)",
+    "text_ms": "Kehilangan minyak dalam serabut ialah 3.1% (garis amaran 4%)",
+    "signal": "fibre_oil_loss",
+    "direction": "up",
+    "contribution": 0.166
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-02-09T02:00:00+08:00",
+  "t_close": "2025-02-11T17:00:00+08:00",
+  "t_candidate": "2025-02-09T02:00:00+08:00",
+  "internal": {
+   "outcome": "false_alarm",
+   "fail_idx": null
+  }
+ },
+ {
+  "id": "act_press_4_2025021016",
+  "asset_id": "press_4",
+  "asset_name": "Press 4",
+  "asset_type": "press",
+  "fault_class": "electrical",
+  "risk_pct": 26.0,
+  "horizon_h": 168,
+  "rm_at_risk": 19002,
+  "rm_cost_to_act": 2500,
+  "rm_saved_if_acted": 16502,
+  "recommendation": "schedule_next_stop",
+  "deadline": "2025-02-16T06:00:00+08:00",
+  "headline_en": "Press 4: Electrical fault. Check the motor and wiring at the Sunday 06:00 stop.",
+  "headline_ms": "Penekan 4: Kerosakan elektrik. Semak motor dan pendawaian pada henti terancang Ahad jam 06:00.",
+  "reasons": [
+   {
+    "text_en": "Oil lost in fibre is 3.0% (alarm line is 4%)",
+    "text_ms": "Kehilangan minyak dalam serabut ialah 3.0% (garis amaran 4%)",
+    "signal": "fibre_oil_loss",
+    "direction": "down",
+    "contribution": 0.385
+   },
+   {
+    "text_en": "Motor current per tonne is 1% above Press 4's normal",
+    "text_ms": "Arus motor setiap tan 1% lebih tinggi daripada biasa bagi Penekan 4",
+    "signal": "current_per_tonne",
+    "direction": "up",
+    "contribution": 0.361
+   },
+   {
+    "text_en": "Motor current is 1% below Press 4's normal",
+    "text_ms": "Arus motor 1% lebih rendah daripada biasa bagi Penekan 4",
+    "signal": "motor_current",
+    "direction": "down",
+    "contribution": 0.254
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-02-10T16:00:00+08:00",
+  "t_close": "2025-02-13T03:00:00+08:00",
+  "t_candidate": "2025-02-10T16:00:00+08:00",
+  "internal": {
+   "outcome": "false_alarm",
+   "fail_idx": null
+  }
+ },
+ {
+  "id": "act_press_1_2025021823",
+  "asset_id": "press_1",
+  "asset_name": "Press 1",
+  "asset_type": "press",
+  "fault_class": "worm_wear",
+  "risk_pct": 46.0,
+  "horizon_h": 168,
+  "rm_at_risk": 24252,
+  "rm_cost_to_act": 6000,
+  "rm_saved_if_acted": 18252,
+  "recommendation": "schedule_next_stop",
+  "deadline": "2025-02-23T06:00:00+08:00",
+  "headline_en": "Press 1: Worm wear. Change the worm at the Sunday 06:00 stop.",
+  "headline_ms": "Penekan 1: Haus skru cacing. Tukar skru cacing pada henti terancang Ahad jam 06:00.",
+  "reasons": [
+   {
+    "text_en": "Motor current per tonne is 1% above Press 1's normal",
+    "text_ms": "Arus motor setiap tan 1% lebih tinggi daripada biasa bagi Penekan 1",
+    "signal": "current_per_tonne",
+    "direction": "up",
+    "contribution": 0.393
+   },
+   {
+    "text_en": "Oil lost in fibre is 3.5% (alarm line is 4%)",
+    "text_ms": "Kehilangan minyak dalam serabut ialah 3.5% (garis amaran 4%)",
+    "signal": "fibre_oil_loss",
+    "direction": "up",
+    "contribution": 0.335
+   },
+   {
+    "text_en": "Motor current is 0% below Press 1's normal",
+    "text_ms": "Arus motor 0% lebih rendah daripada biasa bagi Penekan 1",
+    "signal": "motor_current",
+    "direction": "down",
+    "contribution": 0.272
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-02-18T23:00:00+08:00",
+  "t_close": "2025-02-23T06:00:00+08:00",
+  "t_candidate": "2025-02-18T23:00:00+08:00",
+  "internal": {
+   "outcome": "false_alarm",
+   "fail_idx": null
+  }
+ },
+ {
+  "id": "act_press_4_2025030110",
+  "asset_id": "press_4",
+  "asset_name": "Press 4",
+  "asset_type": "press",
+  "fault_class": "electrical",
+  "risk_pct": 31.0,
+  "horizon_h": 168,
+  "rm_at_risk": 19002,
+  "rm_cost_to_act": 2500,
+  "rm_saved_if_acted": 16502,
+  "recommendation": "schedule_next_stop",
+  "deadline": "2025-03-02T06:00:00+08:00",
+  "headline_en": "Press 4: Electrical fault. Check the motor and wiring at tomorrow's 06:00 stop.",
+  "headline_ms": "Penekan 4: Kerosakan elektrik. Semak motor dan pendawaian pada henti terancang esok jam 06:00.",
+  "reasons": [
+   {
+    "text_en": "Motor current per tonne is 1% above Press 4's normal",
+    "text_ms": "Arus motor setiap tan 1% lebih tinggi daripada biasa bagi Penekan 4",
+    "signal": "current_per_tonne",
+    "direction": "up",
+    "contribution": 0.316
+   },
+   {
+    "text_en": "1,051 h since the last logged service on Press 4",
+    "text_ms": "1,051 jam sejak servis terakhir direkodkan bagi Penekan 4",
+    "signal": "hours_since_service",
+    "direction": "up",
+    "contribution": 0.457
+   },
+   {
+    "text_en": "Oil lost in fibre is 3.2% (alarm line is 4%)",
+    "text_ms": "Kehilangan minyak dalam serabut ialah 3.2% (garis amaran 4%)",
+    "signal": "fibre_oil_loss",
+    "direction": "up",
+    "contribution": 0.227
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-03-01T10:00:00+08:00",
+  "t_close": "2025-03-02T02:00:00+08:00",
+  "t_candidate": "2025-03-01T10:00:00+08:00",
+  "internal": {
+   "outcome": "false_alarm",
+   "fail_idx": null
+  }
+ },
+ {
+  "id": "act_press_4_2025030222",
+  "asset_id": "press_4",
+  "asset_name": "Press 4",
+  "asset_type": "press",
+  "fault_class": "worm_wear",
+  "risk_pct": 31.0,
+  "horizon_h": 168,
+  "rm_at_risk": 24252,
+  "rm_cost_to_act": 6000,
+  "rm_saved_if_acted": 18252,
+  "recommendation": "schedule_next_stop",
+  "deadline": "2025-03-09T06:00:00+08:00",
+  "headline_en": "Press 4: Worm wear. Change the worm at the Sunday 06:00 stop.",
+  "headline_ms": "Penekan 4: Haus skru cacing. Tukar skru cacing pada henti terancang Ahad jam 06:00.",
+  "reasons": [
+   {
+    "text_en": "Oil lost in fibre is 3.5% (alarm line is 4%)",
+    "text_ms": "Kehilangan minyak dalam serabut ialah 3.5% (garis amaran 4%)",
+    "signal": "fibre_oil_loss",
+    "direction": "up",
+    "contribution": 0.451
+   },
+   {
+    "text_en": "1,087 h since the last logged service on Press 4",
+    "text_ms": "1,087 jam sejak servis terakhir direkodkan bagi Penekan 4",
+    "signal": "hours_since_service",
+    "direction": "up",
+    "contribution": 0.355
+   },
+   {
+    "text_en": "Motor current per tonne is 0% above Press 4's normal",
+    "text_ms": "Arus motor setiap tan 0% lebih tinggi daripada biasa bagi Penekan 4",
+    "signal": "current_per_tonne",
+    "direction": "up",
+    "contribution": 0.194
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-03-02T22:00:00+08:00",
+  "t_close": "2025-03-04T04:00:00+08:00",
+  "t_candidate": "2025-03-02T22:00:00+08:00",
+  "internal": {
+   "outcome": "false_alarm",
+   "fail_idx": null
+  }
+ },
+ {
+  "id": "act_press_2_2025030417",
+  "asset_id": "press_2",
+  "asset_name": "Press 2",
+  "asset_type": "press",
+  "fault_class": "electrical",
+  "risk_pct": 49.0,
+  "horizon_h": 168,
+  "rm_at_risk": 19002,
+  "rm_cost_to_act": 10126,
+  "rm_saved_if_acted": 8876,
+  "recommendation": "fix_now",
+  "deadline": "2025-03-04T21:00:00+08:00",
+  "headline_en": "Press 2: Electrical fault. Check the motor and wiring now.",
+  "headline_ms": "Penekan 2: Kerosakan elektrik. Semak motor dan pendawaian sekarang.",
+  "reasons": [
+   {
+    "text_en": "Motor current per tonne is 2% above Press 2's normal",
+    "text_ms": "Arus motor setiap tan 2% lebih tinggi daripada biasa bagi Penekan 2",
+    "signal": "current_per_tonne",
+    "direction": "up",
+    "contribution": 0.741
+   },
+   {
+    "text_en": "1,174 h since the last logged service on Press 2",
+    "text_ms": "1,174 jam sejak servis terakhir direkodkan bagi Penekan 2",
+    "signal": "hours_since_service",
+    "direction": "up",
+    "contribution": 0.162
+   },
+   {
+    "text_en": "Gearbox oil temperature is 1% above Press 2's normal",
+    "text_ms": "Suhu minyak gear 1% lebih tinggi daripada biasa bagi Penekan 2",
+    "signal": "gearbox_oil_temp",
+    "direction": "up",
+    "contribution": 0.097
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-03-04T17:00:00+08:00",
+  "t_close": "2025-03-04T21:00:00+08:00",
+  "t_candidate": "2025-03-04T17:00:00+08:00",
+  "internal": {
+   "outcome": "prevented",
+   "fail_idx": 1536
+  }
+ },
+ {
+  "id": "act_press_2_2025032400",
+  "asset_id": "press_2",
+  "asset_name": "Press 2",
+  "asset_type": "press",
+  "fault_class": "worm_wear",
+  "risk_pct": 31.0,
+  "horizon_h": 168,
+  "rm_at_risk": 24252,
+  "rm_cost_to_act": 6000,
+  "rm_saved_if_acted": 18252,
+  "recommendation": "schedule_next_stop",
+  "deadline": "2025-03-30T06:00:00+08:00",
+  "headline_en": "Press 2: Worm wear. Change the worm at the Sunday 06:00 stop.",
+  "headline_ms": "Penekan 2: Haus skru cacing. Tukar skru cacing pada henti terancang Ahad jam 06:00.",
+  "reasons": [
+   {
+    "text_en": "Oil lost in fibre is 3.6% (alarm line is 4%)",
+    "text_ms": "Kehilangan minyak dalam serabut ialah 3.6% (garis amaran 4%)",
+    "signal": "fibre_oil_loss",
+    "direction": "up",
+    "contribution": 0.583
+   },
+   {
+    "text_en": "Motor current per tonne is 3% above Press 2's normal",
+    "text_ms": "Arus motor setiap tan 3% lebih tinggi daripada biasa bagi Penekan 2",
+    "signal": "current_per_tonne",
+    "direction": "up",
+    "contribution": 0.271
+   },
+   {
+    "text_en": "Gearbox oil temperature is 1% above Press 2's normal",
+    "text_ms": "Suhu minyak gear 1% lebih tinggi daripada biasa bagi Penekan 2",
+    "signal": "gearbox_oil_temp",
+    "direction": "up",
+    "contribution": 0.146
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-03-24T00:00:00+08:00",
+  "t_close": "2025-03-26T23:00:00+08:00",
+  "t_candidate": "2025-03-24T00:00:00+08:00",
+  "internal": {
+   "outcome": "late",
+   "fail_idx": 2070
+  }
+ },
+ {
+  "id": "act_press_1_2025032619",
+  "asset_id": "press_1",
+  "asset_name": "Press 1",
+  "asset_type": "press",
+  "fault_class": "electrical",
+  "risk_pct": 26.0,
+  "horizon_h": 168,
+  "rm_at_risk": 19002,
+  "rm_cost_to_act": 2500,
+  "rm_saved_if_acted": 16502,
+  "recommendation": "schedule_next_stop",
+  "deadline": "2025-03-30T06:00:00+08:00",
+  "headline_en": "Press 1: Electrical fault. Check the motor and wiring at the Sunday 06:00 stop.",
+  "headline_ms": "Penekan 1: Kerosakan elektrik. Semak motor dan pendawaian pada henti terancang Ahad jam 06:00.",
+  "reasons": [
+   {
+    "text_en": "Oil lost in fibre is 2.7% (alarm line is 4%)",
+    "text_ms": "Kehilangan minyak dalam serabut ialah 2.7% (garis amaran 4%)",
+    "signal": "fibre_oil_loss",
+    "direction": "down",
+    "contribution": 0.371
+   },
+   {
+    "text_en": "Vibration spikiness (kurtosis) is 0% above Press 1's normal",
+    "text_ms": "Kemuncakan getaran (kurtosis) 0% lebih tinggi daripada biasa bagi Penekan 1",
+    "signal": "vib_kurtosis",
+    "direction": "up",
+    "contribution": 0.347
+   },
+   {
+    "text_en": "Motor current is 5% below Press 1's normal",
+    "text_ms": "Arus motor 5% lebih rendah daripada biasa bagi Penekan 1",
+    "signal": "motor_current",
+    "direction": "down",
+    "contribution": 0.282
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-03-26T19:00:00+08:00",
+  "t_close": "2025-03-28T17:00:00+08:00",
+  "t_candidate": "2025-03-26T19:00:00+08:00",
+  "internal": {
+   "outcome": "false_alarm",
+   "fail_idx": null
+  }
+ },
+ {
+  "id": "act_press_3_2025040113",
+  "asset_id": "press_3",
+  "asset_name": "Press 3",
+  "asset_type": "press",
+  "fault_class": "electrical",
+  "risk_pct": 31.0,
+  "horizon_h": 168,
+  "rm_at_risk": 19002,
+  "rm_cost_to_act": 10126,
+  "rm_saved_if_acted": 8876,
+  "recommendation": "fix_now",
+  "deadline": "2025-04-01T17:00:00+08:00",
+  "headline_en": "Press 3: Electrical fault. Check the motor and wiring now.",
+  "headline_ms": "Penekan 3: Kerosakan elektrik. Semak motor dan pendawaian sekarang.",
+  "reasons": [
+   {
+    "text_en": "Motor current per tonne is 3% above Press 3's normal",
+    "text_ms": "Arus motor setiap tan 3% lebih tinggi daripada biasa bagi Penekan 3",
+    "signal": "current_per_tonne",
+    "direction": "up",
+    "contribution": 0.694
+   },
+   {
+    "text_en": "1,342 h since the last logged service on Press 3",
+    "text_ms": "1,342 jam sejak servis terakhir direkodkan bagi Penekan 3",
+    "signal": "hours_since_service",
+    "direction": "up",
+    "contribution": 0.157
+   },
+   {
+    "text_en": "Motor current is 6% above Press 3's normal",
+    "text_ms": "Arus motor 6% lebih tinggi daripada biasa bagi Penekan 3",
+    "signal": "motor_current",
+    "direction": "up",
+    "contribution": 0.15
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-04-01T13:00:00+08:00",
+  "t_close": "2025-04-01T17:00:00+08:00",
+  "t_candidate": "2025-04-01T13:00:00+08:00",
+  "internal": {
+   "outcome": "prevented",
+   "fail_idx": 2183
+  }
+ },
+ {
+  "id": "act_press_3_2025040221",
+  "asset_id": "press_3",
+  "asset_name": "Press 3",
+  "asset_type": "press",
+  "fault_class": "electrical",
+  "risk_pct": 26.0,
+  "horizon_h": 168,
+  "rm_at_risk": 19002,
+  "rm_cost_to_act": 2500,
+  "rm_saved_if_acted": 16502,
+  "recommendation": "schedule_next_stop",
+  "deadline": "2025-04-06T06:00:00+08:00",
+  "headline_en": "Press 3: Electrical fault. Check the motor and wiring at the Sunday 06:00 stop.",
+  "headline_ms": "Penekan 3: Kerosakan elektrik. Semak motor dan pendawaian pada henti terancang Ahad jam 06:00.",
+  "reasons": [
+   {
+    "text_en": "Motor current per tonne is 0% above Press 3's normal",
+    "text_ms": "Arus motor setiap tan 0% lebih tinggi daripada biasa bagi Penekan 3",
+    "signal": "current_per_tonne",
+    "direction": "up",
+    "contribution": 0.79
+   },
+   {
+    "text_en": "1,374 h since the last logged service on Press 3",
+    "text_ms": "1,374 jam sejak servis terakhir direkodkan bagi Penekan 3",
+    "signal": "hours_since_service",
+    "direction": "up",
+    "contribution": 0.179
+   },
+   {
+    "text_en": "Motor current is 2% above Press 3's normal",
+    "text_ms": "Arus motor 2% lebih tinggi daripada biasa bagi Penekan 3",
+    "signal": "motor_current",
+    "direction": "up",
+    "contribution": 0.031
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-04-02T21:00:00+08:00",
+  "t_close": "2025-04-03T03:00:00+08:00",
+  "t_candidate": "2025-04-02T21:00:00+08:00",
+  "internal": {
+   "outcome": "false_alarm",
+   "fail_idx": null
+  }
+ },
+ {
+  "id": "act_press_3_2025041615",
+  "asset_id": "press_3",
+  "asset_name": "Press 3",
+  "asset_type": "press",
+  "fault_class": "electrical",
+  "risk_pct": 34.0,
+  "horizon_h": 168,
+  "rm_at_risk": 19002,
+  "rm_cost_to_act": 10126,
+  "rm_saved_if_acted": 8876,
+  "recommendation": "fix_now",
+  "deadline": "2025-04-16T19:00:00+08:00",
+  "headline_en": "Press 3: Electrical fault. Check the motor and wiring now.",
+  "headline_ms": "Penekan 3: Kerosakan elektrik. Semak motor dan pendawaian sekarang.",
+  "reasons": [
+   {
+    "text_en": "Motor current per tonne is 3% above Press 3's normal",
+    "text_ms": "Arus motor setiap tan 3% lebih tinggi daripada biasa bagi Penekan 3",
+    "signal": "current_per_tonne",
+    "direction": "up",
+    "contribution": 0.76
+   },
+   {
+    "text_en": "Oil lost in fibre is 3.2% (alarm line is 4%)",
+    "text_ms": "Kehilangan minyak dalam serabut ialah 3.2% (garis amaran 4%)",
+    "signal": "fibre_oil_loss",
+    "direction": "up",
+    "contribution": 0.127
+   },
+   {
+    "text_en": "Motor current is 6% above Press 3's normal",
+    "text_ms": "Arus motor 6% lebih tinggi daripada biasa bagi Penekan 3",
+    "signal": "motor_current",
+    "direction": "up",
+    "contribution": 0.114
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-04-16T15:00:00+08:00",
+  "t_close": "2025-04-16T19:00:00+08:00",
+  "t_candidate": "2025-04-16T15:00:00+08:00",
+  "internal": {
+   "outcome": "prevented",
+   "fail_idx": 2551
+  }
+ },
+ {
+  "id": "act_press_3_2025050201",
+  "asset_id": "press_3",
+  "asset_name": "Press 3",
+  "asset_type": "press",
+  "fault_class": "worm_wear",
+  "risk_pct": 26.0,
+  "horizon_h": 168,
+  "rm_at_risk": 24252,
+  "rm_cost_to_act": 6000,
+  "rm_saved_if_acted": 18252,
+  "recommendation": "schedule_next_stop",
+  "deadline": "2025-05-04T06:00:00+08:00",
+  "headline_en": "Press 3: Worm wear. Change the worm at the Sunday 06:00 stop.",
+  "headline_ms": "Penekan 3: Haus skru cacing. Tukar skru cacing pada henti terancang Ahad jam 06:00.",
+  "reasons": [
+   {
+    "text_en": "Oil lost in fibre is 3.3% (alarm line is 4%)",
+    "text_ms": "Kehilangan minyak dalam serabut ialah 3.3% (garis amaran 4%)",
+    "signal": "fibre_oil_loss",
+    "direction": "up",
+    "contribution": 0.401
+   },
+   {
+    "text_en": "Motor current is 4% above Press 3's normal",
+    "text_ms": "Arus motor 4% lebih tinggi daripada biasa bagi Penekan 3",
+    "signal": "motor_current",
+    "direction": "up",
+    "contribution": 0.345
+   },
+   {
+    "text_en": "Motor current per tonne is 2% above Press 3's normal",
+    "text_ms": "Arus motor setiap tan 2% lebih tinggi daripada biasa bagi Penekan 3",
+    "signal": "current_per_tonne",
+    "direction": "up",
+    "contribution": 0.254
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-05-02T01:00:00+08:00",
+  "t_close": "2025-05-02T18:00:00+08:00",
+  "t_candidate": "2025-05-02T01:00:00+08:00",
+  "internal": {
+   "outcome": "false_alarm",
+   "fail_idx": null
+  }
+ },
+ {
+  "id": "act_press_2_2025050221",
+  "asset_id": "press_2",
+  "asset_name": "Press 2",
+  "asset_type": "press",
+  "fault_class": "electrical",
+  "risk_pct": 31.0,
+  "horizon_h": 168,
+  "rm_at_risk": 19002,
+  "rm_cost_to_act": 2500,
+  "rm_saved_if_acted": 16502,
+  "recommendation": "schedule_next_stop",
+  "deadline": "2025-05-04T06:00:00+08:00",
+  "headline_en": "Press 2: Electrical fault. Check the motor and wiring at the Sunday 06:00 stop.",
+  "headline_ms": "Penekan 2: Kerosakan elektrik. Semak motor dan pendawaian pada henti terancang Ahad jam 06:00.",
+  "reasons": [
+   {
+    "text_en": "Gearbox oil temperature is 1% above Press 2's normal",
+    "text_ms": "Suhu minyak gear 1% lebih tinggi daripada biasa bagi Penekan 2",
+    "signal": "gearbox_oil_temp",
+    "direction": "up",
+    "contribution": 0.412
+   },
+   {
+    "text_en": "Oil lost in fibre is 3.3% (alarm line is 4%)",
+    "text_ms": "Kehilangan minyak dalam serabut ialah 3.3% (garis amaran 4%)",
+    "signal": "fibre_oil_loss",
+    "direction": "up",
+    "contribution": 0.33
+   },
+   {
+    "text_en": "Motor current per tonne is 3% above Press 2's normal",
+    "text_ms": "Arus motor setiap tan 3% lebih tinggi daripada biasa bagi Penekan 2",
+    "signal": "current_per_tonne",
+    "direction": "up",
+    "contribution": 0.258
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-05-02T21:00:00+08:00",
+  "t_close": "2025-05-04T06:00:00+08:00",
+  "t_candidate": "2025-05-02T21:00:00+08:00",
+  "internal": {
+   "outcome": "false_alarm",
+   "fail_idx": null
+  }
+ },
+ {
+  "id": "act_press_1_2025050600",
+  "asset_id": "press_1",
+  "asset_name": "Press 1",
+  "asset_type": "press",
+  "fault_class": "worm_wear",
+  "risk_pct": 31.0,
+  "horizon_h": 168,
+  "rm_at_risk": 24252,
+  "rm_cost_to_act": 6000,
+  "rm_saved_if_acted": 18252,
+  "recommendation": "schedule_next_stop",
+  "deadline": "2025-05-11T06:00:00+08:00",
+  "headline_en": "Press 1: Worm wear. Change the worm at the Sunday 06:00 stop.",
+  "headline_ms": "Penekan 1: Haus skru cacing. Tukar skru cacing pada henti terancang Ahad jam 06:00.",
+  "reasons": [
+   {
+    "text_en": "Oil lost in fibre is 3.5% (alarm line is 4%)",
+    "text_ms": "Kehilangan minyak dalam serabut ialah 3.5% (garis amaran 4%)",
+    "signal": "fibre_oil_loss",
+    "direction": "up",
+    "contribution": 0.551
+   },
+   {
+    "text_en": "1,024 h since the last logged service on Press 1",
+    "text_ms": "1,024 jam sejak servis terakhir direkodkan bagi Penekan 1",
+    "signal": "hours_since_service",
+    "direction": "up",
+    "contribution": 0.318
+   },
+   {
+    "text_en": "Cone hydraulic pressure is 2% above Press 1's normal",
+    "text_ms": "Tekanan hidraulik kon 2% lebih tinggi daripada biasa bagi Penekan 1",
+    "signal": "cone_pressure",
+    "direction": "up",
+    "contribution": 0.132
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-05-06T00:00:00+08:00",
+  "t_close": "2025-05-08T23:00:00+08:00",
+  "t_candidate": "2025-05-06T00:00:00+08:00",
+  "internal": {
+   "outcome": "false_alarm",
+   "fail_idx": null
+  }
+ },
+ {
+  "id": "act_press_3_2025051103",
+  "asset_id": "press_3",
+  "asset_name": "Press 3",
+  "asset_type": "press",
+  "fault_class": "worm_wear",
+  "risk_pct": 26.0,
+  "horizon_h": 168,
+  "rm_at_risk": 24252,
+  "rm_cost_to_act": 6000,
+  "rm_saved_if_acted": 18252,
+  "recommendation": "schedule_next_stop",
+  "deadline": "2025-05-18T06:00:00+08:00",
+  "headline_en": "Press 3: Worm wear. Change the worm at the Sunday 06:00 stop.",
+  "headline_ms": "Penekan 3: Haus skru cacing. Tukar skru cacing pada henti terancang Ahad jam 06:00.",
+  "reasons": [
+   {
+    "text_en": "Oil lost in fibre is 3.7% (alarm line is 4%)",
+    "text_ms": "Kehilangan minyak dalam serabut ialah 3.7% (garis amaran 4%)",
+    "signal": "fibre_oil_loss",
+    "direction": "up",
+    "contribution": 0.677
+   },
+   {
+    "text_en": "Motor current per tonne is 4% above Press 3's normal",
+    "text_ms": "Arus motor setiap tan 4% lebih tinggi daripada biasa bagi Penekan 3",
+    "signal": "current_per_tonne",
+    "direction": "up",
+    "contribution": 0.178
+   },
+   {
+    "text_en": "Gearbox oil temperature is 2% above Press 3's normal",
+    "text_ms": "Suhu minyak gear 2% lebih tinggi daripada biasa bagi Penekan 3",
+    "signal": "gearbox_oil_temp",
+    "direction": "up",
+    "contribution": 0.146
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-05-11T03:00:00+08:00",
+  "t_close": "2025-05-17T00:00:00+08:00",
+  "t_candidate": "2025-05-11T03:00:00+08:00",
+  "internal": {
+   "outcome": "late",
+   "fail_idx": 3264
+  }
+ },
+ {
+  "id": "act_press_1_2025051200",
+  "asset_id": "press_1",
+  "asset_name": "Press 1",
+  "asset_type": "press",
+  "fault_class": "worm_wear",
+  "risk_pct": 31.0,
+  "horizon_h": 168,
+  "rm_at_risk": 24252,
+  "rm_cost_to_act": 6000,
+  "rm_saved_if_acted": 18252,
+  "recommendation": "schedule_next_stop",
+  "deadline": "2025-05-18T06:00:00+08:00",
+  "headline_en": "Press 1: Worm wear. Change the worm at the Sunday 06:00 stop.",
+  "headline_ms": "Penekan 1: Haus skru cacing. Tukar skru cacing pada henti terancang Ahad jam 06:00.",
+  "reasons": [
+   {
+    "text_en": "Oil lost in fibre is 3.5% (alarm line is 4%)",
+    "text_ms": "Kehilangan minyak dalam serabut ialah 3.5% (garis amaran 4%)",
+    "signal": "fibre_oil_loss",
+    "direction": "up",
+    "contribution": 0.52
+   },
+   {
+    "text_en": "Motor current per tonne is 4% above Press 1's normal",
+    "text_ms": "Arus motor setiap tan 4% lebih tinggi daripada biasa bagi Penekan 1",
+    "signal": "current_per_tonne",
+    "direction": "up",
+    "contribution": 0.256
+   },
+   {
+    "text_en": "1,168 h since the last logged service on Press 1",
+    "text_ms": "1,168 jam sejak servis terakhir direkodkan bagi Penekan 1",
+    "signal": "hours_since_service",
+    "direction": "up",
+    "contribution": 0.224
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-05-12T00:00:00+08:00",
+  "t_close": "2025-05-18T06:00:00+08:00",
+  "t_candidate": "2025-05-12T00:00:00+08:00",
+  "internal": {
+   "outcome": "false_alarm",
+   "fail_idx": null
+  }
+ },
+ {
+  "id": "act_press_3_2025052101",
+  "asset_id": "press_3",
+  "asset_name": "Press 3",
+  "asset_type": "press",
+  "fault_class": "hydraulic_cone",
+  "risk_pct": 31.0,
+  "horizon_h": 168,
+  "rm_at_risk": 20502,
+  "rm_cost_to_act": 3500,
+  "rm_saved_if_acted": 17002,
+  "recommendation": "schedule_next_stop",
+  "deadline": "2025-05-25T06:00:00+08:00",
+  "headline_en": "Press 3: Cone hydraulic fault. Check the cone hydraulics at the Sunday 06:00 stop.",
+  "headline_ms": "Penekan 3: Kerosakan hidraulik kon. Semak hidraulik kon pada henti terancang Ahad jam 06:00.",
+  "reasons": [
+   {
+    "text_en": "Oil lost in fibre is 2.7% (alarm line is 4%)",
+    "text_ms": "Kehilangan minyak dalam serabut ialah 2.7% (garis amaran 4%)",
+    "signal": "fibre_oil_loss",
+    "direction": "down",
+    "contribution": 0.39
+   },
+   {
+    "text_en": "Motor current is 3% below Press 3's normal",
+    "text_ms": "Arus motor 3% lebih rendah daripada biasa bagi Penekan 3",
+    "signal": "motor_current",
+    "direction": "down",
+    "contribution": 0.308
+   },
+   {
+    "text_en": "Cone hydraulic pressure is 1% above Press 3's normal",
+    "text_ms": "Tekanan hidraulik kon 1% lebih tinggi daripada biasa bagi Penekan 3",
+    "signal": "cone_pressure",
+    "direction": "up",
+    "contribution": 0.302
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-05-21T01:00:00+08:00",
+  "t_close": "2025-05-21T23:00:00+08:00",
+  "t_candidate": "2025-05-21T01:00:00+08:00",
+  "internal": {
+   "outcome": "false_alarm",
+   "fail_idx": null
+  }
+ },
+ {
+  "id": "act_press_2_2025052316",
+  "asset_id": "press_2",
+  "asset_name": "Press 2",
+  "asset_type": "press",
+  "fault_class": "electrical",
+  "risk_pct": 31.0,
+  "horizon_h": 168,
+  "rm_at_risk": 19002,
+  "rm_cost_to_act": 10126,
+  "rm_saved_if_acted": 8876,
+  "recommendation": "fix_now",
+  "deadline": "2025-05-23T20:00:00+08:00",
+  "headline_en": "Press 2: Electrical fault. Check the motor and wiring now.",
+  "headline_ms": "Penekan 2: Kerosakan elektrik. Semak motor dan pendawaian sekarang.",
+  "reasons": [
+   {
+    "text_en": "Motor current per tonne is 5% below Press 2's normal",
+    "text_ms": "Arus motor setiap tan 5% lebih rendah daripada biasa bagi Penekan 2",
+    "signal": "current_per_tonne",
+    "direction": "down",
+    "contribution": 0.761
+   },
+   {
+    "text_en": "Motor current is 5% below Press 2's normal",
+    "text_ms": "Arus motor 5% lebih rendah daripada biasa bagi Penekan 2",
+    "signal": "motor_current",
+    "direction": "down",
+    "contribution": 0.18
+   },
+   {
+    "text_en": "Cone hydraulic pressure is 1% below Press 2's normal",
+    "text_ms": "Tekanan hidraulik kon 1% lebih rendah daripada biasa bagi Penekan 2",
+    "signal": "cone_pressure",
+    "direction": "down",
+    "contribution": 0.059
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-05-23T16:00:00+08:00",
+  "t_close": "2025-05-23T20:00:00+08:00",
+  "t_candidate": "2025-05-23T16:00:00+08:00",
+  "internal": {
+   "outcome": "prevented",
+   "fail_idx": 3430
+  }
+ },
+ {
+  "id": "act_press_4_2025061405",
+  "asset_id": "press_4",
+  "asset_name": "Press 4",
+  "asset_type": "press",
+  "fault_class": "worm_wear",
+  "risk_pct": 26.0,
+  "horizon_h": 168,
+  "rm_at_risk": 24252,
+  "rm_cost_to_act": 6000,
+  "rm_saved_if_acted": 18252,
+  "recommendation": "schedule_next_stop",
+  "deadline": "2025-06-15T06:00:00+08:00",
+  "headline_en": "Press 4: Worm wear. Change the worm at tomorrow's 06:00 stop.",
+  "headline_ms": "Penekan 4: Haus skru cacing. Tukar skru cacing pada henti terancang esok jam 06:00.",
+  "reasons": [
+   {
+    "text_en": "Oil lost in fibre is 3.5% (alarm line is 4%)",
+    "text_ms": "Kehilangan minyak dalam serabut ialah 3.5% (garis amaran 4%)",
+    "signal": "fibre_oil_loss",
+    "direction": "up",
+    "contribution": 0.575
+   },
+   {
+    "text_en": "2,206 h since the last logged service on Press 4",
+    "text_ms": "2,206 jam sejak servis terakhir direkodkan bagi Penekan 4",
+    "signal": "hours_since_service",
+    "direction": "up",
+    "contribution": 0.232
+   },
+   {
+    "text_en": "Cone hydraulic pressure is 1% above Press 4's normal",
+    "text_ms": "Tekanan hidraulik kon 1% lebih tinggi daripada biasa bagi Penekan 4",
+    "signal": "cone_pressure",
+    "direction": "up",
+    "contribution": 0.193
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-06-14T05:00:00+08:00",
+  "t_close": "2025-06-15T06:00:00+08:00",
+  "t_candidate": "2025-06-14T05:00:00+08:00",
+  "internal": {
+   "outcome": "false_alarm",
+   "fail_idx": null
+  }
+ },
+ {
+  "id": "act_press_3_2025062319",
+  "asset_id": "press_3",
+  "asset_name": "Press 3",
+  "asset_type": "press",
+  "fault_class": "bearing",
+  "risk_pct": 46.0,
+  "horizon_h": 168,
+  "rm_at_risk": 22002,
+  "rm_cost_to_act": 4500,
+  "rm_saved_if_acted": 17502,
+  "recommendation": "schedule_next_stop",
+  "deadline": "2025-06-29T06:00:00+08:00",
+  "headline_en": "Press 3: Bearing wear. Replace the bearing at the Sunday 06:00 stop.",
+  "headline_ms": "Penekan 3: Haus galas. Tukar galas pada henti terancang Ahad jam 06:00.",
+  "reasons": [
+   {
+    "text_en": "Motor current per tonne is 4% above Press 3's normal",
+    "text_ms": "Arus motor setiap tan 4% lebih tinggi daripada biasa bagi Penekan 3",
+    "signal": "current_per_tonne",
+    "direction": "up",
+    "contribution": 0.666
+   },
+   {
+    "text_en": "Gearbox oil temperature is 0% above Press 3's normal",
+    "text_ms": "Suhu minyak gear 0% lebih tinggi daripada biasa bagi Penekan 3",
+    "signal": "gearbox_oil_temp",
+    "direction": "up",
+    "contribution": 0.18
+   },
+   {
+    "text_en": "Vibration spikiness (kurtosis) is 8% above Press 3's normal",
+    "text_ms": "Kemuncakan getaran (kurtosis) 8% lebih tinggi daripada biasa bagi Penekan 3",
+    "signal": "vib_kurtosis",
+    "direction": "up",
+    "contribution": 0.155
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-06-23T19:00:00+08:00",
+  "t_close": "2025-06-25T03:00:00+08:00",
+  "t_candidate": "2025-06-23T19:00:00+08:00",
+  "internal": {
+   "outcome": "false_alarm",
+   "fail_idx": null
+  }
+ },
+ {
+  "id": "act_press_3_2025062513",
+  "asset_id": "press_3",
+  "asset_name": "Press 3",
+  "asset_type": "press",
+  "fault_class": "bearing",
+  "risk_pct": 34.0,
+  "horizon_h": 168,
+  "rm_at_risk": 22002,
+  "rm_cost_to_act": 4500,
+  "rm_saved_if_acted": 17502,
+  "recommendation": "schedule_next_stop",
+  "deadline": "2025-06-29T06:00:00+08:00",
+  "headline_en": "Press 3: Bearing wear. Replace the bearing at the Sunday 06:00 stop.",
+  "headline_ms": "Penekan 3: Haus galas. Tukar galas pada henti terancang Ahad jam 06:00.",
+  "reasons": [
+   {
+    "text_en": "Motor current per tonne is 5% above Press 3's normal",
+    "text_ms": "Arus motor setiap tan 5% lebih tinggi daripada biasa bagi Penekan 3",
+    "signal": "current_per_tonne",
+    "direction": "up",
+    "contribution": 0.51
+   },
+   {
+    "text_en": "Gearbox oil temperature is 1% above Press 3's normal",
+    "text_ms": "Suhu minyak gear 1% lebih tinggi daripada biasa bagi Penekan 3",
+    "signal": "gearbox_oil_temp",
+    "direction": "up",
+    "contribution": 0.309
+   },
+   {
+    "text_en": "Cone hydraulic pressure is 3% above Press 3's normal",
+    "text_ms": "Tekanan hidraulik kon 3% lebih tinggi daripada biasa bagi Penekan 3",
+    "signal": "cone_pressure",
+    "direction": "up",
+    "contribution": 0.181
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-06-25T13:00:00+08:00",
+  "t_close": "2025-06-26T18:00:00+08:00",
+  "t_candidate": "2025-06-25T13:00:00+08:00",
+  "internal": {
+   "outcome": "false_alarm",
+   "fail_idx": null
+  }
+ },
+ {
+  "id": "act_press_3_2025062900",
+  "asset_id": "press_3",
+  "asset_name": "Press 3",
+  "asset_type": "press",
+  "fault_class": "worm_wear",
+  "risk_pct": 26.0,
+  "horizon_h": 168,
+  "rm_at_risk": 24252,
+  "rm_cost_to_act": 6000,
+  "rm_saved_if_acted": 18252,
+  "recommendation": "schedule_next_stop",
+  "deadline": "2025-06-29T06:00:00+08:00",
+  "headline_en": "Press 3: Worm wear. Change the worm at the Sunday 06:00 stop.",
+  "headline_ms": "Penekan 3: Haus skru cacing. Tukar skru cacing pada henti terancang Ahad jam 06:00.",
+  "reasons": [
+   {
+    "text_en": "Motor current is 5% above Press 3's normal",
+    "text_ms": "Arus motor 5% lebih tinggi daripada biasa bagi Penekan 3",
+    "signal": "motor_current",
+    "direction": "up",
+    "contribution": 0.274
+   },
+   {
+    "text_en": "1,032 h since the last logged service on Press 3",
+    "text_ms": "1,032 jam sejak servis terakhir direkodkan bagi Penekan 3",
+    "signal": "hours_since_service",
+    "direction": "up",
+    "contribution": 0.455
+   },
+   {
+    "text_en": "Oil lost in fibre is 3.4% (alarm line is 4%)",
+    "text_ms": "Kehilangan minyak dalam serabut ialah 3.4% (garis amaran 4%)",
+    "signal": "fibre_oil_loss",
+    "direction": "up",
+    "contribution": 0.271
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-06-29T00:00:00+08:00",
+  "t_close": "2025-06-29T06:00:00+08:00",
+  "t_candidate": "2025-06-29T00:00:00+08:00",
+  "internal": {
+   "outcome": "false_alarm",
+   "fail_idx": null
+  }
+ },
+ {
+  "id": "act_press_1_2025070519",
+  "asset_id": "press_1",
+  "asset_name": "Press 1",
+  "asset_type": "press",
+  "fault_class": "worm_wear",
+  "risk_pct": 41.0,
+  "horizon_h": 168,
+  "rm_at_risk": 24252,
+  "rm_cost_to_act": 6000,
+  "rm_saved_if_acted": 18252,
+  "recommendation": "schedule_next_stop",
+  "deadline": "2025-07-06T06:00:00+08:00",
+  "headline_en": "Press 1: Worm wear. Change the worm at tomorrow's 06:00 stop.",
+  "headline_ms": "Penekan 1: Haus skru cacing. Tukar skru cacing pada henti terancang esok jam 06:00.",
+  "reasons": [
+   {
+    "text_en": "Oil lost in fibre is 3.4% (alarm line is 4%)",
+    "text_ms": "Kehilangan minyak dalam serabut ialah 3.4% (garis amaran 4%)",
+    "signal": "fibre_oil_loss",
+    "direction": "up",
+    "contribution": 0.561
+   },
+   {
+    "text_en": "2,483 h since the last logged service on Press 1",
+    "text_ms": "2,483 jam sejak servis terakhir direkodkan bagi Penekan 1",
+    "signal": "hours_since_service",
+    "direction": "up",
+    "contribution": 0.301
+   },
+   {
+    "text_en": "Vibration level (RMS) is 0% above Press 1's normal",
+    "text_ms": "Tahap getaran (RMS) 0% lebih tinggi daripada biasa bagi Penekan 1",
+    "signal": "vib_rms",
+    "direction": "up",
+    "contribution": 0.138
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-07-05T19:00:00+08:00",
+  "t_close": "2025-07-06T06:00:00+08:00",
+  "t_candidate": "2025-07-05T19:00:00+08:00",
+  "internal": {
+   "outcome": "false_alarm",
+   "fail_idx": null
+  }
+ },
+ {
+  "id": "act_press_2_2025071114",
+  "asset_id": "press_2",
+  "asset_name": "Press 2",
+  "asset_type": "press",
+  "fault_class": "hydraulic_cone",
+  "risk_pct": 33.0,
+  "horizon_h": 168,
+  "rm_at_risk": 20502,
+  "rm_cost_to_act": 3500,
+  "rm_saved_if_acted": 17002,
+  "recommendation": "schedule_next_stop",
+  "deadline": "2025-07-13T06:00:00+08:00",
+  "headline_en": "Press 2: Cone hydraulic fault. Check the cone hydraulics at the Sunday 06:00 stop.",
+  "headline_ms": "Penekan 2: Kerosakan hidraulik kon. Semak hidraulik kon pada henti terancang Ahad jam 06:00.",
+  "reasons": [
+   {
+    "text_en": "Oil lost in fibre is 3.3% (alarm line is 4%)",
+    "text_ms": "Kehilangan minyak dalam serabut ialah 3.3% (garis amaran 4%)",
+    "signal": "fibre_oil_loss",
+    "direction": "up",
+    "contribution": 0.445
+   },
+   {
+    "text_en": "Motor current per tonne is 4% above Press 2's normal",
+    "text_ms": "Arus motor setiap tan 4% lebih tinggi daripada biasa bagi Penekan 2",
+    "signal": "current_per_tonne",
+    "direction": "up",
+    "contribution": 0.285
+   },
+   {
+    "text_en": "Vibration level (RMS) is 1% below Press 2's normal",
+    "text_ms": "Tahap getaran (RMS) 1% lebih rendah daripada biasa bagi Penekan 2",
+    "signal": "vib_rms",
+    "direction": "down",
+    "contribution": 0.27
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-07-11T14:00:00+08:00",
+  "t_close": "2025-07-13T04:00:00+08:00",
+  "t_candidate": "2025-07-11T14:00:00+08:00",
+  "internal": {
+   "outcome": "false_alarm",
+   "fail_idx": null
+  }
+ },
+ {
+  "id": "act_press_2_2025071323",
+  "asset_id": "press_2",
+  "asset_name": "Press 2",
+  "asset_type": "press",
+  "fault_class": "hydraulic_cone",
+  "risk_pct": 36.0,
+  "horizon_h": 168,
+  "rm_at_risk": 20502,
+  "rm_cost_to_act": 3500,
+  "rm_saved_if_acted": 17002,
+  "recommendation": "schedule_next_stop",
+  "deadline": "2025-07-20T06:00:00+08:00",
+  "headline_en": "Press 2: Cone hydraulic fault. Check the cone hydraulics at the Sunday 06:00 stop.",
+  "headline_ms": "Penekan 2: Kerosakan hidraulik kon. Semak hidraulik kon pada henti terancang Ahad jam 06:00.",
+  "reasons": [
+   {
+    "text_en": "Motor current per tonne is 6% above Press 2's normal",
+    "text_ms": "Arus motor setiap tan 6% lebih tinggi daripada biasa bagi Penekan 2",
+    "signal": "current_per_tonne",
+    "direction": "up",
+    "contribution": 0.391
+   },
+   {
+    "text_en": "Oil lost in fibre is 3.3% (alarm line is 4%)",
+    "text_ms": "Kehilangan minyak dalam serabut ialah 3.3% (garis amaran 4%)",
+    "signal": "fibre_oil_loss",
+    "direction": "up",
+    "contribution": 0.348
+   },
+   {
+    "text_en": "Vibration level (RMS) is 1% below Press 2's normal",
+    "text_ms": "Tahap getaran (RMS) 1% lebih rendah daripada biasa bagi Penekan 2",
+    "signal": "vib_rms",
+    "direction": "down",
+    "contribution": 0.261
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-07-13T23:00:00+08:00",
+  "t_close": "2025-07-14T22:00:00+08:00",
+  "t_candidate": "2025-07-13T23:00:00+08:00",
+  "internal": {
+   "outcome": "false_alarm",
+   "fail_idx": null
+  }
+ },
+ {
+  "id": "act_press_3_2025071923",
+  "asset_id": "press_3",
+  "asset_name": "Press 3",
+  "asset_type": "press",
+  "fault_class": "hydraulic_cone",
+  "risk_pct": 36.0,
+  "horizon_h": 168,
+  "rm_at_risk": 20502,
+  "rm_cost_to_act": 3500,
+  "rm_saved_if_acted": 17002,
+  "recommendation": "schedule_next_stop",
+  "deadline": "2025-07-20T06:00:00+08:00",
+  "headline_en": "Press 3: Cone hydraulic fault. Check the cone hydraulics at tomorrow's 06:00 stop.",
+  "headline_ms": "Penekan 3: Kerosakan hidraulik kon. Semak hidraulik kon pada henti terancang esok jam 06:00.",
+  "reasons": [
+   {
+    "text_en": "Motor current is 2% below Press 3's normal",
+    "text_ms": "Arus motor 2% lebih rendah daripada biasa bagi Penekan 3",
+    "signal": "motor_current",
+    "direction": "down",
+    "contribution": 0.462
+   },
+   {
+    "text_en": "Vibration spikiness (kurtosis) is 2% above Press 3's normal",
+    "text_ms": "Kemuncakan getaran (kurtosis) 2% lebih tinggi daripada biasa bagi Penekan 3",
+    "signal": "vib_kurtosis",
+    "direction": "up",
+    "contribution": 0.292
+   },
+   {
+    "text_en": "Gearbox oil temperature is 0% above Press 3's normal",
+    "text_ms": "Suhu minyak gear 0% lebih tinggi daripada biasa bagi Penekan 3",
+    "signal": "gearbox_oil_temp",
+    "direction": "up",
+    "contribution": 0.246
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-07-19T23:00:00+08:00",
+  "t_close": "2025-07-20T06:00:00+08:00",
+  "t_candidate": "2025-07-19T23:00:00+08:00",
+  "internal": {
+   "outcome": "false_alarm",
+   "fail_idx": null
+  }
+ },
+ {
+  "id": "act_press_2_2025072004",
+  "asset_id": "press_2",
+  "asset_name": "Press 2",
+  "asset_type": "press",
+  "fault_class": "worm_wear",
+  "risk_pct": 26.0,
+  "horizon_h": 168,
+  "rm_at_risk": 24252,
+  "rm_cost_to_act": 6000,
+  "rm_saved_if_acted": 18252,
+  "recommendation": "schedule_next_stop",
+  "deadline": "2025-07-27T06:00:00+08:00",
+  "headline_en": "Press 2: Worm wear. Change the worm at the Sunday 06:00 stop.",
+  "headline_ms": "Penekan 2: Haus skru cacing. Tukar skru cacing pada henti terancang Ahad jam 06:00.",
+  "reasons": [
+   {
+    "text_en": "Motor current per tonne is 7% above Press 2's normal",
+    "text_ms": "Arus motor setiap tan 7% lebih tinggi daripada biasa bagi Penekan 2",
+    "signal": "current_per_tonne",
+    "direction": "up",
+    "contribution": 0.64
+   },
+   {
+    "text_en": "Oil lost in fibre is 3.4% (alarm line is 4%)",
+    "text_ms": "Kehilangan minyak dalam serabut ialah 3.4% (garis amaran 4%)",
+    "signal": "fibre_oil_loss",
+    "direction": "up",
+    "contribution": 0.269
+   },
+   {
+    "text_en": "Cone hydraulic pressure is 1% below Press 2's normal",
+    "text_ms": "Tekanan hidraulik kon 1% lebih rendah daripada biasa bagi Penekan 2",
+    "signal": "cone_pressure",
+    "direction": "down",
+    "contribution": 0.091
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-07-20T04:00:00+08:00",
+  "t_close": "2025-07-21T20:00:00+08:00",
+  "t_candidate": "2025-07-20T04:00:00+08:00",
+  "internal": {
+   "outcome": "false_alarm",
+   "fail_idx": null
+  }
+ },
+ {
+  "id": "act_press_2_2025072617",
+  "asset_id": "press_2",
+  "asset_name": "Press 2",
+  "asset_type": "press",
+  "fault_class": "worm_wear",
+  "risk_pct": 26.0,
+  "horizon_h": 168,
+  "rm_at_risk": 24252,
+  "rm_cost_to_act": 6000,
+  "rm_saved_if_acted": 18252,
+  "recommendation": "schedule_next_stop",
+  "deadline": "2025-07-27T06:00:00+08:00",
+  "headline_en": "Press 2: Worm wear. Change the worm at tomorrow's 06:00 stop.",
+  "headline_ms": "Penekan 2: Haus skru cacing. Tukar skru cacing pada henti terancang esok jam 06:00.",
+  "reasons": [
+   {
+    "text_en": "Oil lost in fibre is 3.5% (alarm line is 4%)",
+    "text_ms": "Kehilangan minyak dalam serabut ialah 3.5% (garis amaran 4%)",
+    "signal": "fibre_oil_loss",
+    "direction": "up",
+    "contribution": 0.533
+   },
+   {
+    "text_en": "Motor current per tonne is 7% above Press 2's normal",
+    "text_ms": "Arus motor setiap tan 7% lebih tinggi daripada biasa bagi Penekan 2",
+    "signal": "current_per_tonne",
+    "direction": "up",
+    "contribution": 0.267
+   },
+   {
+    "text_en": "Vibration level (RMS) is 2% below Press 2's normal",
+    "text_ms": "Tahap getaran (RMS) 2% lebih rendah daripada biasa bagi Penekan 2",
+    "signal": "vib_rms",
+    "direction": "down",
+    "contribution": 0.2
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-07-26T17:00:00+08:00",
+  "t_close": "2025-07-27T06:00:00+08:00",
+  "t_candidate": "2025-07-26T17:00:00+08:00",
+  "internal": {
+   "outcome": "false_alarm",
+   "fail_idx": null
+  }
+ },
+ {
+  "id": "act_press_2_2025081718",
+  "asset_id": "press_2",
+  "asset_name": "Press 2",
+  "asset_type": "press",
+  "fault_class": "hydraulic_cone",
+  "risk_pct": 32.0,
+  "horizon_h": 168,
+  "rm_at_risk": 20502,
+  "rm_cost_to_act": 11126,
+  "rm_saved_if_acted": 9376,
+  "recommendation": "fix_now",
+  "deadline": "2025-08-17T22:00:00+08:00",
+  "headline_en": "Press 2: Cone hydraulic fault. Check the cone hydraulics now.",
+  "headline_ms": "Penekan 2: Kerosakan hidraulik kon. Semak hidraulik kon sekarang.",
+  "reasons": [
+   {
+    "text_en": "Motor current per tonne is 4% below Press 2's normal",
+    "text_ms": "Arus motor setiap tan 4% lebih rendah daripada biasa bagi Penekan 2",
+    "signal": "current_per_tonne",
+    "direction": "down",
+    "contribution": 0.775
+   },
+   {
+    "text_en": "Cone hydraulic pressure is 4% above Press 2's normal",
+    "text_ms": "Tekanan hidraulik kon 4% lebih tinggi daripada biasa bagi Penekan 2",
+    "signal": "cone_pressure",
+    "direction": "up",
+    "contribution": 0.114
+   },
+   {
+    "text_en": "Oil lost in fibre is 2.7% (alarm line is 4%)",
+    "text_ms": "Kehilangan minyak dalam serabut ialah 2.7% (garis amaran 4%)",
+    "signal": "fibre_oil_loss",
+    "direction": "down",
+    "contribution": 0.111
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-08-17T18:00:00+08:00",
+  "t_close": "2025-08-17T22:00:00+08:00",
+  "t_candidate": "2025-08-17T18:00:00+08:00",
+  "internal": {
+   "outcome": "false_alarm",
+   "fail_idx": null
+  }
+ },
+ {
+  "id": "act_press_3_2025081720",
+  "asset_id": "press_3",
+  "asset_name": "Press 3",
+  "asset_type": "press",
+  "fault_class": "bearing",
+  "risk_pct": 31.0,
+  "horizon_h": 168,
+  "rm_at_risk": 22002,
+  "rm_cost_to_act": 4500,
+  "rm_saved_if_acted": 17502,
+  "recommendation": "schedule_next_stop",
+  "deadline": "2025-08-24T06:00:00+08:00",
+  "headline_en": "Press 3: Bearing wear. Replace the bearing at the Sunday 06:00 stop.",
+  "headline_ms": "Penekan 3: Haus galas. Tukar galas pada henti terancang Ahad jam 06:00.",
+  "reasons": [
+   {
+    "text_en": "Oil lost in fibre is 3.5% (alarm line is 4%)",
+    "text_ms": "Kehilangan minyak dalam serabut ialah 3.5% (garis amaran 4%)",
+    "signal": "fibre_oil_loss",
+    "direction": "up",
+    "contribution": 0.538
+   },
+   {
+    "text_en": "Motor current per tonne is 6% above Press 3's normal",
+    "text_ms": "Arus motor setiap tan 6% lebih tinggi daripada biasa bagi Penekan 3",
+    "signal": "current_per_tonne",
+    "direction": "up",
+    "contribution": 0.298
+   },
+   {
+    "text_en": "Vibration spikiness (kurtosis) is 3% above Press 3's normal",
+    "text_ms": "Kemuncakan getaran (kurtosis) 3% lebih tinggi daripada biasa bagi Penekan 3",
+    "signal": "vib_kurtosis",
+    "direction": "up",
+    "contribution": 0.165
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-08-17T20:00:00+08:00",
+  "t_close": "2025-08-18T05:00:00+08:00",
+  "t_candidate": "2025-08-17T20:00:00+08:00",
+  "internal": {
+   "outcome": "misclassified",
+   "fail_idx": 5591
+  }
+ },
+ {
+  "id": "act_press_3_2025081901",
+  "asset_id": "press_3",
+  "asset_name": "Press 3",
+  "asset_type": "press",
+  "fault_class": "worm_wear",
+  "risk_pct": 26.0,
+  "horizon_h": 168,
+  "rm_at_risk": 24252,
+  "rm_cost_to_act": 6000,
+  "rm_saved_if_acted": 18252,
+  "recommendation": "schedule_next_stop",
+  "deadline": "2025-08-24T06:00:00+08:00",
+  "headline_en": "Press 3: Worm wear. Change the worm at the Sunday 06:00 stop.",
+  "headline_ms": "Penekan 3: Haus skru cacing. Tukar skru cacing pada henti terancang Ahad jam 06:00.",
+  "reasons": [
+   {
+    "text_en": "Oil lost in fibre is 3.7% (alarm line is 4%)",
+    "text_ms": "Kehilangan minyak dalam serabut ialah 3.7% (garis amaran 4%)",
+    "signal": "fibre_oil_loss",
+    "direction": "up",
+    "contribution": 0.49
+   },
+   {
+    "text_en": "Motor current per tonne is 8% above Press 3's normal",
+    "text_ms": "Arus motor setiap tan 8% lebih tinggi daripada biasa bagi Penekan 3",
+    "signal": "current_per_tonne",
+    "direction": "up",
+    "contribution": 0.316
+   },
+   {
+    "text_en": "Vibration spikiness (kurtosis) is 5% above Press 3's normal",
+    "text_ms": "Kemuncakan getaran (kurtosis) 5% lebih tinggi daripada biasa bagi Penekan 3",
+    "signal": "vib_kurtosis",
+    "direction": "up",
+    "contribution": 0.194
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-08-19T01:00:00+08:00",
+  "t_close": "2025-08-21T23:00:00+08:00",
+  "t_candidate": "2025-08-19T01:00:00+08:00",
+  "internal": {
+   "outcome": "late",
+   "fail_idx": 5591
+  }
+ },
+ {
+  "id": "act_press_4_2025082702",
+  "asset_id": "press_4",
+  "asset_name": "Press 4",
+  "asset_type": "press",
+  "fault_class": "electrical",
+  "risk_pct": 31.0,
+  "horizon_h": 168,
+  "rm_at_risk": 19002,
+  "rm_cost_to_act": 2500,
+  "rm_saved_if_acted": 16502,
+  "recommendation": "schedule_next_stop",
+  "deadline": "2025-08-31T06:00:00+08:00",
+  "headline_en": "Press 4: Electrical fault. Check the motor and wiring at the Sunday 06:00 stop.",
+  "headline_ms": "Penekan 4: Kerosakan elektrik. Semak motor dan pendawaian pada henti terancang Ahad jam 06:00.",
+  "reasons": [
+   {
+    "text_en": "Oil lost in fibre is 3.3% (alarm line is 4%)",
+    "text_ms": "Kehilangan minyak dalam serabut ialah 3.3% (garis amaran 4%)",
+    "signal": "fibre_oil_loss",
+    "direction": "up",
+    "contribution": 0.43
+   },
+   {
+    "text_en": "Vibration spikiness (kurtosis) is 4% above Press 4's normal",
+    "text_ms": "Kemuncakan getaran (kurtosis) 4% lebih tinggi daripada biasa bagi Penekan 4",
+    "signal": "vib_kurtosis",
+    "direction": "up",
+    "contribution": 0.301
+   },
+   {
+    "text_en": "1,529 h since the last logged service on Press 4",
+    "text_ms": "1,529 jam sejak servis terakhir direkodkan bagi Penekan 4",
+    "signal": "hours_since_service",
+    "direction": "up",
+    "contribution": 0.27
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-08-27T02:00:00+08:00",
+  "t_close": "2025-08-31T06:00:00+08:00",
+  "t_candidate": "2025-08-27T02:00:00+08:00",
+  "internal": {
+   "outcome": "false_alarm",
+   "fail_idx": null
+  }
+ },
+ {
+  "id": "act_press_3_2025082901",
+  "asset_id": "press_3",
+  "asset_name": "Press 3",
+  "asset_type": "press",
+  "fault_class": "electrical",
+  "risk_pct": 31.0,
+  "horizon_h": 168,
+  "rm_at_risk": 19002,
+  "rm_cost_to_act": 2500,
+  "rm_saved_if_acted": 16502,
+  "recommendation": "schedule_next_stop",
+  "deadline": "2025-08-31T06:00:00+08:00",
+  "headline_en": "Press 3: Electrical fault. Check the motor and wiring at the Sunday 06:00 stop.",
+  "headline_ms": "Penekan 3: Kerosakan elektrik. Semak motor dan pendawaian pada henti terancang Ahad jam 06:00.",
+  "reasons": [
+   {
+    "text_en": "Motor current per tonne is 2% below Press 3's normal",
+    "text_ms": "Arus motor setiap tan 2% lebih rendah daripada biasa bagi Penekan 3",
+    "signal": "current_per_tonne",
+    "direction": "down",
+    "contribution": 0.606
+   },
+   {
+    "text_en": "Motor current is 2% below Press 3's normal",
+    "text_ms": "Arus motor 2% lebih rendah daripada biasa bagi Penekan 3",
+    "signal": "motor_current",
+    "direction": "down",
+    "contribution": 0.262
+   },
+   {
+    "text_en": "Oil lost in fibre is 2.8% (alarm line is 4%)",
+    "text_ms": "Kehilangan minyak dalam serabut ialah 2.8% (garis amaran 4%)",
+    "signal": "fibre_oil_loss",
+    "direction": "down",
+    "contribution": 0.132
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-08-29T01:00:00+08:00",
+  "t_close": "2025-08-30T00:00:00+08:00",
+  "t_candidate": "2025-08-29T01:00:00+08:00",
+  "internal": {
+   "outcome": "late",
+   "fail_idx": 5784
+  }
+ },
+ {
+  "id": "act_press_1_2025090616",
+  "asset_id": "press_1",
+  "asset_name": "Press 1",
+  "asset_type": "press",
+  "fault_class": "electrical",
+  "risk_pct": 31.0,
+  "horizon_h": 168,
+  "rm_at_risk": 19002,
+  "rm_cost_to_act": 2500,
+  "rm_saved_if_acted": 16502,
+  "recommendation": "schedule_next_stop",
+  "deadline": "2025-09-07T06:00:00+08:00",
+  "headline_en": "Press 1: Electrical fault. Check the motor and wiring at tomorrow's 06:00 stop.",
+  "headline_ms": "Penekan 1: Kerosakan elektrik. Semak motor dan pendawaian pada henti terancang esok jam 06:00.",
+  "reasons": [
+   {
+    "text_en": "Motor current per tonne is 4% above Press 1's normal",
+    "text_ms": "Arus motor setiap tan 4% lebih tinggi daripada biasa bagi Penekan 1",
+    "signal": "current_per_tonne",
+    "direction": "up",
+    "contribution": 0.436
+   },
+   {
+    "text_en": "Vibration spikiness (kurtosis) is 10% above Press 1's normal",
+    "text_ms": "Kemuncakan getaran (kurtosis) 10% lebih tinggi daripada biasa bagi Penekan 1",
+    "signal": "vib_kurtosis",
+    "direction": "up",
+    "contribution": 0.391
+   },
+   {
+    "text_en": "3,992 h since the last logged service on Press 1",
+    "text_ms": "3,992 jam sejak servis terakhir direkodkan bagi Penekan 1",
+    "signal": "hours_since_service",
+    "direction": "up",
+    "contribution": 0.173
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-09-06T16:00:00+08:00",
+  "t_close": "2025-09-07T06:00:00+08:00",
+  "t_candidate": "2025-09-06T16:00:00+08:00",
+  "internal": {
+   "outcome": "false_alarm",
+   "fail_idx": null
+  }
+ },
+ {
+  "id": "act_press_1_2025090717",
+  "asset_id": "press_1",
+  "asset_name": "Press 1",
+  "asset_type": "press",
+  "fault_class": "worm_wear",
+  "risk_pct": 31.0,
+  "horizon_h": 168,
+  "rm_at_risk": 24252,
+  "rm_cost_to_act": 6000,
+  "rm_saved_if_acted": 18252,
+  "recommendation": "schedule_next_stop",
+  "deadline": "2025-09-14T06:00:00+08:00",
+  "headline_en": "Press 1: Worm wear. Change the worm at the Sunday 06:00 stop.",
+  "headline_ms": "Penekan 1: Haus skru cacing. Tukar skru cacing pada henti terancang Ahad jam 06:00.",
+  "reasons": [
+   {
+    "text_en": "Vibration spikiness (kurtosis) is 10% above Press 1's normal",
+    "text_ms": "Kemuncakan getaran (kurtosis) 10% lebih tinggi daripada biasa bagi Penekan 1",
+    "signal": "vib_kurtosis",
+    "direction": "up",
+    "contribution": 0.442
+   },
+   {
+    "text_en": "Motor current per tonne is 4% above Press 1's normal",
+    "text_ms": "Arus motor setiap tan 4% lebih tinggi daripada biasa bagi Penekan 1",
+    "signal": "current_per_tonne",
+    "direction": "up",
+    "contribution": 0.379
+   },
+   {
+    "text_en": "4,017 h since the last logged service on Press 1",
+    "text_ms": "4,017 jam sejak servis terakhir direkodkan bagi Penekan 1",
+    "signal": "hours_since_service",
+    "direction": "up",
+    "contribution": 0.179
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-09-07T17:00:00+08:00",
+  "t_close": "2025-09-14T06:00:00+08:00",
+  "t_candidate": "2025-09-07T17:00:00+08:00",
+  "internal": {
+   "outcome": "false_alarm",
+   "fail_idx": null
+  }
+ },
+ {
+  "id": "act_boiler_1_2025091403",
+  "asset_id": "boiler_1",
+  "asset_name": "Boiler 1",
+  "asset_type": "boiler",
+  "fault_class": "boiler_water",
+  "risk_pct": 95.0,
+  "horizon_h": 168,
+  "rm_at_risk": 126517,
+  "rm_cost_to_act": 3000,
+  "rm_saved_if_acted": 123517,
+  "recommendation": "fix_now",
+  "deadline": "2025-09-14T07:00:00+08:00",
+  "headline_en": "Boiler 1: Feed-water quality drift. Check water treatment and boiler tubes now.",
+  "headline_ms": "Dandang 1: Sisihan kualiti air suapan. Semak rawatan air dan tiub dandang sekarang.",
+  "reasons": [
+   {
+    "text_en": "Feed-water conductivity is 40% above Boiler 1's normal",
+    "text_ms": "Kekonduksian air suapan 40% lebih tinggi daripada biasa bagi Dandang 1",
+    "signal": "feedwater_cond",
+    "direction": "up",
+    "contribution": 0.875
+   },
+   {
+    "text_en": "0 h since the last logged service on Boiler 1",
+    "text_ms": "0 jam sejak servis terakhir direkodkan bagi Dandang 1",
+    "signal": "hours_since_service",
+    "direction": "up",
+    "contribution": 0.09
+   },
+   {
+    "text_en": "Steam pressure is 1% below Boiler 1's normal",
+    "text_ms": "Tekanan stim 1% lebih rendah daripada biasa bagi Dandang 1",
+    "signal": "steam_pressure",
+    "direction": "down",
+    "contribution": 0.035
+   }
+  ],
+  "criticality": "whole_mill",
+  "t_open": "2025-09-14T03:00:00+08:00",
+  "t_close": "2025-09-14T07:00:00+08:00",
+  "t_candidate": "2025-09-14T03:00:00+08:00",
+  "internal": {
+   "outcome": "prevented",
+   "fail_idx": 6187
+  }
+ },
+ {
+  "id": "act_press_2_2025091502",
+  "asset_id": "press_2",
+  "asset_name": "Press 2",
+  "asset_type": "press",
+  "fault_class": "hydraulic_cone",
+  "risk_pct": 31.0,
+  "horizon_h": 168,
+  "rm_at_risk": 20502,
+  "rm_cost_to_act": 3500,
+  "rm_saved_if_acted": 17002,
+  "recommendation": "schedule_next_stop",
+  "deadline": "2025-09-21T06:00:00+08:00",
+  "headline_en": "Press 2: Cone hydraulic fault. Check the cone hydraulics at the Sunday 06:00 stop.",
+  "headline_ms": "Penekan 2: Kerosakan hidraulik kon. Semak hidraulik kon pada henti terancang Ahad jam 06:00.",
+  "reasons": [
+   {
+    "text_en": "Oil lost in fibre is 3.6% (alarm line is 4%)",
+    "text_ms": "Kehilangan minyak dalam serabut ialah 3.6% (garis amaran 4%)",
+    "signal": "fibre_oil_loss",
+    "direction": "up",
+    "contribution": 0.409
+   },
+   {
+    "text_en": "Motor current per tonne is 7% above Press 2's normal",
+    "text_ms": "Arus motor setiap tan 7% lebih tinggi daripada biasa bagi Penekan 2",
+    "signal": "current_per_tonne",
+    "direction": "up",
+    "contribution": 0.407
+   },
+   {
+    "text_en": "Vibration level (RMS) is 1% below Press 2's normal",
+    "text_ms": "Tahap getaran (RMS) 1% lebih rendah daripada biasa bagi Penekan 2",
+    "signal": "vib_rms",
+    "direction": "down",
+    "contribution": 0.184
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-09-15T02:00:00+08:00",
+  "t_close": "2025-09-20T03:00:00+08:00",
+  "t_candidate": "2025-09-15T02:00:00+08:00",
+  "internal": {
+   "outcome": "late",
+   "fail_idx": 6291
+  }
+ },
+ {
+  "id": "act_press_1_2025092322",
+  "asset_id": "press_1",
+  "asset_name": "Press 1",
+  "asset_type": "press",
+  "fault_class": "hydraulic_cone",
+  "risk_pct": 31.0,
+  "horizon_h": 168,
+  "rm_at_risk": 20502,
+  "rm_cost_to_act": 3500,
+  "rm_saved_if_acted": 17002,
+  "recommendation": "schedule_next_stop",
+  "deadline": "2025-09-28T06:00:00+08:00",
+  "headline_en": "Press 1: Cone hydraulic fault. Check the cone hydraulics at the Sunday 06:00 stop.",
+  "headline_ms": "Penekan 1: Kerosakan hidraulik kon. Semak hidraulik kon pada henti terancang Ahad jam 06:00.",
+  "reasons": [
+   {
+    "text_en": "Vibration spikiness (kurtosis) is 17% above Press 1's normal",
+    "text_ms": "Kemuncakan getaran (kurtosis) 17% lebih tinggi daripada biasa bagi Penekan 1",
+    "signal": "vib_kurtosis",
+    "direction": "up",
+    "contribution": 0.347
+   },
+   {
+    "text_en": "Motor current is 3% below Press 1's normal",
+    "text_ms": "Arus motor 3% lebih rendah daripada biasa bagi Penekan 1",
+    "signal": "motor_current",
+    "direction": "down",
+    "contribution": 0.332
+   },
+   {
+    "text_en": "Oil lost in fibre is 3.4% (alarm line is 4%)",
+    "text_ms": "Kehilangan minyak dalam serabut ialah 3.4% (garis amaran 4%)",
+    "signal": "fibre_oil_loss",
+    "direction": "up",
+    "contribution": 0.32
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-09-23T22:00:00+08:00",
+  "t_close": "2025-09-26T13:00:00+08:00",
+  "t_candidate": "2025-09-23T22:00:00+08:00",
+  "internal": {
+   "outcome": "false_alarm",
+   "fail_idx": null
+  }
+ },
+ {
+  "id": "act_press_4_2025092513",
+  "asset_id": "press_4",
+  "asset_name": "Press 4",
+  "asset_type": "press",
+  "fault_class": "bearing",
+  "risk_pct": 26.0,
+  "horizon_h": 168,
+  "rm_at_risk": 22002,
+  "rm_cost_to_act": 4500,
+  "rm_saved_if_acted": 17502,
+  "recommendation": "schedule_next_stop",
+  "deadline": "2025-09-28T06:00:00+08:00",
+  "headline_en": "Press 4: Bearing wear. Replace the bearing at the Sunday 06:00 stop.",
+  "headline_ms": "Penekan 4: Haus galas. Tukar galas pada henti terancang Ahad jam 06:00.",
+  "reasons": [
+   {
+    "text_en": "Motor current per tonne is 4% below Press 4's normal",
+    "text_ms": "Arus motor setiap tan 4% lebih rendah daripada biasa bagi Penekan 4",
+    "signal": "current_per_tonne",
+    "direction": "down",
+    "contribution": 0.388
+   },
+   {
+    "text_en": "Motor current is 4% below Press 4's normal",
+    "text_ms": "Arus motor 4% lebih rendah daripada biasa bagi Penekan 4",
+    "signal": "motor_current",
+    "direction": "down",
+    "contribution": 0.357
+   },
+   {
+    "text_en": "Vibration spikiness (kurtosis) is 4% above Press 4's normal",
+    "text_ms": "Kemuncakan getaran (kurtosis) 4% lebih tinggi daripada biasa bagi Penekan 4",
+    "signal": "vib_kurtosis",
+    "direction": "up",
+    "contribution": 0.256
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-09-25T13:00:00+08:00",
+  "t_close": "2025-09-28T06:00:00+08:00",
+  "t_candidate": "2025-09-25T13:00:00+08:00",
+  "internal": {
+   "outcome": "false_alarm",
+   "fail_idx": null
+  }
+ },
+ {
+  "id": "act_press_1_2025092818",
+  "asset_id": "press_1",
+  "asset_name": "Press 1",
+  "asset_type": "press",
+  "fault_class": "hydraulic_cone",
+  "risk_pct": 28.0,
+  "horizon_h": 168,
+  "rm_at_risk": 20502,
+  "rm_cost_to_act": 3500,
+  "rm_saved_if_acted": 17002,
+  "recommendation": "schedule_next_stop",
+  "deadline": "2025-10-05T06:00:00+08:00",
+  "headline_en": "Press 1: Cone hydraulic fault. Check the cone hydraulics at the Sunday 06:00 stop.",
+  "headline_ms": "Penekan 1: Kerosakan hidraulik kon. Semak hidraulik kon pada henti terancang Ahad jam 06:00.",
+  "reasons": [
+   {
+    "text_en": "Vibration spikiness (kurtosis) is 23% above Press 1's normal",
+    "text_ms": "Kemuncakan getaran (kurtosis) 23% lebih tinggi daripada biasa bagi Penekan 1",
+    "signal": "vib_kurtosis",
+    "direction": "up",
+    "contribution": 0.39
+   },
+   {
+    "text_en": "Gearbox oil temperature is 1% below Press 1's normal",
+    "text_ms": "Suhu minyak gear 1% lebih rendah daripada biasa bagi Penekan 1",
+    "signal": "gearbox_oil_temp",
+    "direction": "down",
+    "contribution": 0.312
+   },
+   {
+    "text_en": "Motor current is 3% below Press 1's normal",
+    "text_ms": "Arus motor 3% lebih rendah daripada biasa bagi Penekan 1",
+    "signal": "motor_current",
+    "direction": "down",
+    "contribution": 0.299
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-09-28T18:00:00+08:00",
+  "t_close": "2025-10-01T00:00:00+08:00",
+  "t_candidate": "2025-09-28T18:00:00+08:00",
+  "internal": {
+   "outcome": "false_alarm",
+   "fail_idx": null
+  }
+ },
+ {
+  "id": "act_press_3_2025092904",
+  "asset_id": "press_3",
+  "asset_name": "Press 3",
+  "asset_type": "press",
+  "fault_class": "electrical",
+  "risk_pct": 28.0,
+  "horizon_h": 168,
+  "rm_at_risk": 19002,
+  "rm_cost_to_act": 2500,
+  "rm_saved_if_acted": 16502,
+  "recommendation": "schedule_next_stop",
+  "deadline": "2025-10-05T06:00:00+08:00",
+  "headline_en": "Press 3: Electrical fault. Check the motor and wiring at the Sunday 06:00 stop.",
+  "headline_ms": "Penekan 3: Kerosakan elektrik. Semak motor dan pendawaian pada henti terancang Ahad jam 06:00.",
+  "reasons": [
+   {
+    "text_en": "Motor current per tonne is 3% above Press 3's normal",
+    "text_ms": "Arus motor setiap tan 3% lebih tinggi daripada biasa bagi Penekan 3",
+    "signal": "current_per_tonne",
+    "direction": "up",
+    "contribution": 0.629
+   },
+   {
+    "text_en": "Vibration spikiness (kurtosis) is 1% above Press 3's normal",
+    "text_ms": "Kemuncakan getaran (kurtosis) 1% lebih tinggi daripada biasa bagi Penekan 3",
+    "signal": "vib_kurtosis",
+    "direction": "up",
+    "contribution": 0.229
+   },
+   {
+    "text_en": "Gearbox oil temperature is 1% below Press 3's normal",
+    "text_ms": "Suhu minyak gear 1% lebih rendah daripada biasa bagi Penekan 3",
+    "signal": "gearbox_oil_temp",
+    "direction": "down",
+    "contribution": 0.142
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-09-29T04:00:00+08:00",
+  "t_close": "2025-09-30T13:00:00+08:00",
+  "t_candidate": "2025-09-29T04:00:00+08:00",
+  "internal": {
+   "outcome": "false_alarm",
+   "fail_idx": null
+  }
+ },
+ {
+  "id": "act_press_4_2025100805",
+  "asset_id": "press_4",
+  "asset_name": "Press 4",
+  "asset_type": "press",
+  "fault_class": "bearing",
+  "risk_pct": 26.0,
+  "horizon_h": 168,
+  "rm_at_risk": 22002,
+  "rm_cost_to_act": 4500,
+  "rm_saved_if_acted": 17502,
+  "recommendation": "schedule_next_stop",
+  "deadline": "2025-10-12T06:00:00+08:00",
+  "headline_en": "Press 4: Bearing wear. Replace the bearing at the Sunday 06:00 stop.",
+  "headline_ms": "Penekan 4: Haus galas. Tukar galas pada henti terancang Ahad jam 06:00.",
+  "reasons": [
+   {
+    "text_en": "Gearbox oil temperature is 0% below Press 4's normal",
+    "text_ms": "Suhu minyak gear 0% lebih rendah daripada biasa bagi Penekan 4",
+    "signal": "gearbox_oil_temp",
+    "direction": "down",
+    "contribution": 0.407
+   },
+   {
+    "text_en": "Motor current is 2% above Press 4's normal",
+    "text_ms": "Arus motor 2% lebih tinggi daripada biasa bagi Penekan 4",
+    "signal": "motor_current",
+    "direction": "up",
+    "contribution": 0.318
+   },
+   {
+    "text_en": "Vibration spikiness (kurtosis) is 3% above Press 4's normal",
+    "text_ms": "Kemuncakan getaran (kurtosis) 3% lebih tinggi daripada biasa bagi Penekan 4",
+    "signal": "vib_kurtosis",
+    "direction": "up",
+    "contribution": 0.275
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-10-08T05:00:00+08:00",
+  "t_close": "2025-10-09T08:00:00+08:00",
+  "t_candidate": "2025-10-08T05:00:00+08:00",
+  "internal": {
+   "outcome": "false_alarm",
+   "fail_idx": null
+  }
+ },
+ {
+  "id": "act_press_3_2025101220",
+  "asset_id": "press_3",
+  "asset_name": "Press 3",
+  "asset_type": "press",
+  "fault_class": "worm_wear",
+  "risk_pct": 31.0,
+  "horizon_h": 168,
+  "rm_at_risk": 24252,
+  "rm_cost_to_act": 6000,
+  "rm_saved_if_acted": 18252,
+  "recommendation": "schedule_next_stop",
+  "deadline": "2025-10-19T06:00:00+08:00",
+  "headline_en": "Press 3: Worm wear. Change the worm at the Sunday 06:00 stop.",
+  "headline_ms": "Penekan 3: Haus skru cacing. Tukar skru cacing pada henti terancang Ahad jam 06:00.",
+  "reasons": [
+   {
+    "text_en": "Oil lost in fibre is 3.4% (alarm line is 4%)",
+    "text_ms": "Kehilangan minyak dalam serabut ialah 3.4% (garis amaran 4%)",
+    "signal": "fibre_oil_loss",
+    "direction": "up",
+    "contribution": 0.498
+   },
+   {
+    "text_en": "Motor current per tonne is 6% above Press 3's normal",
+    "text_ms": "Arus motor setiap tan 6% lebih tinggi daripada biasa bagi Penekan 3",
+    "signal": "current_per_tonne",
+    "direction": "up",
+    "contribution": 0.391
+   },
+   {
+    "text_en": "Vibration spikiness (kurtosis) is 3% below Press 3's normal",
+    "text_ms": "Kemuncakan getaran (kurtosis) 3% lebih rendah daripada biasa bagi Penekan 3",
+    "signal": "vib_kurtosis",
+    "direction": "down",
+    "contribution": 0.111
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-10-12T20:00:00+08:00",
+  "t_close": "2025-10-19T06:00:00+08:00",
+  "t_candidate": "2025-10-12T20:00:00+08:00",
+  "internal": {
+   "outcome": "false_alarm",
+   "fail_idx": null
+  }
+ },
+ {
+  "id": "act_press_4_2025102523",
+  "asset_id": "press_4",
+  "asset_name": "Press 4",
+  "asset_type": "press",
+  "fault_class": "hydraulic_cone",
+  "risk_pct": 31.0,
+  "horizon_h": 168,
+  "rm_at_risk": 20502,
+  "rm_cost_to_act": 3500,
+  "rm_saved_if_acted": 17002,
+  "recommendation": "schedule_next_stop",
+  "deadline": "2025-10-26T06:00:00+08:00",
+  "headline_en": "Press 4: Cone hydraulic fault. Check the cone hydraulics at tomorrow's 06:00 stop.",
+  "headline_ms": "Penekan 4: Kerosakan hidraulik kon. Semak hidraulik kon pada henti terancang esok jam 06:00.",
+  "reasons": [
+   {
+    "text_en": "Oil lost in fibre is 3.7% (alarm line is 4%)",
+    "text_ms": "Kehilangan minyak dalam serabut ialah 3.7% (garis amaran 4%)",
+    "signal": "fibre_oil_loss",
+    "direction": "up",
+    "contribution": 0.555
+   },
+   {
+    "text_en": "Motor current per tonne is 7% above Press 4's normal",
+    "text_ms": "Arus motor setiap tan 7% lebih tinggi daripada biasa bagi Penekan 4",
+    "signal": "current_per_tonne",
+    "direction": "up",
+    "contribution": 0.253
+   },
+   {
+    "text_en": "Cone hydraulic pressure is 2% below Press 4's normal",
+    "text_ms": "Tekanan hidraulik kon 2% lebih rendah daripada biasa bagi Penekan 4",
+    "signal": "cone_pressure",
+    "direction": "down",
+    "contribution": 0.191
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-10-25T23:00:00+08:00",
+  "t_close": "2025-10-26T06:00:00+08:00",
+  "t_candidate": "2025-10-25T23:00:00+08:00",
+  "internal": {
+   "outcome": "misclassified",
+   "fail_idx": 7201
+  }
+ },
+ {
+  "id": "act_press_2_2025102714",
+  "asset_id": "press_2",
+  "asset_name": "Press 2",
+  "asset_type": "press",
+  "fault_class": "worm_wear",
+  "risk_pct": 41.0,
+  "horizon_h": 168,
+  "rm_at_risk": 24252,
+  "rm_cost_to_act": 6000,
+  "rm_saved_if_acted": 18252,
+  "recommendation": "schedule_next_stop",
+  "deadline": "2025-11-02T06:00:00+08:00",
+  "headline_en": "Press 2: Worm wear. Change the worm at the Sunday 06:00 stop.",
+  "headline_ms": "Penekan 2: Haus skru cacing. Tukar skru cacing pada henti terancang Ahad jam 06:00.",
+  "reasons": [
+   {
+    "text_en": "Oil lost in fibre is 3.4% (alarm line is 4%)",
+    "text_ms": "Kehilangan minyak dalam serabut ialah 3.4% (garis amaran 4%)",
+    "signal": "fibre_oil_loss",
+    "direction": "up",
+    "contribution": 0.401
+   },
+   {
+    "text_en": "Motor current per tonne is 6% above Press 2's normal",
+    "text_ms": "Arus motor setiap tan 6% lebih tinggi daripada biasa bagi Penekan 2",
+    "signal": "current_per_tonne",
+    "direction": "up",
+    "contribution": 0.313
+   },
+   {
+    "text_en": "Vibration level (RMS) is 4% below Press 2's normal",
+    "text_ms": "Tahap getaran (RMS) 4% lebih rendah daripada biasa bagi Penekan 2",
+    "signal": "vib_rms",
+    "direction": "down",
+    "contribution": 0.287
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-10-27T14:00:00+08:00",
+  "t_close": "2025-11-01T23:00:00+08:00",
+  "t_candidate": "2025-10-27T14:00:00+08:00",
+  "internal": {
+   "outcome": "late",
+   "fail_idx": 7319
+  }
+ },
+ {
+  "id": "act_press_4_2025103102",
+  "asset_id": "press_4",
+  "asset_name": "Press 4",
+  "asset_type": "press",
+  "fault_class": "hydraulic_cone",
+  "risk_pct": 26.0,
+  "horizon_h": 168,
+  "rm_at_risk": 20502,
+  "rm_cost_to_act": 3500,
+  "rm_saved_if_acted": 17002,
+  "recommendation": "schedule_next_stop",
+  "deadline": "2025-11-02T06:00:00+08:00",
+  "headline_en": "Press 4: Cone hydraulic fault. Check the cone hydraulics at the Sunday 06:00 stop.",
+  "headline_ms": "Penekan 4: Kerosakan hidraulik kon. Semak hidraulik kon pada henti terancang Ahad jam 06:00.",
+  "reasons": [
+   {
+    "text_en": "Motor current is 2% below Press 4's normal",
+    "text_ms": "Arus motor 2% lebih rendah daripada biasa bagi Penekan 4",
+    "signal": "motor_current",
+    "direction": "down",
+    "contribution": 0.434
+   },
+   {
+    "text_en": "Vibration spikiness (kurtosis) is 5% above Press 4's normal",
+    "text_ms": "Kemuncakan getaran (kurtosis) 5% lebih tinggi daripada biasa bagi Penekan 4",
+    "signal": "vib_kurtosis",
+    "direction": "up",
+    "contribution": 0.298
+   },
+   {
+    "text_en": "Gearbox oil temperature is 1% below Press 4's normal",
+    "text_ms": "Suhu minyak gear 1% lebih rendah daripada biasa bagi Penekan 4",
+    "signal": "gearbox_oil_temp",
+    "direction": "down",
+    "contribution": 0.268
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-10-31T02:00:00+08:00",
+  "t_close": "2025-11-02T06:00:00+08:00",
+  "t_candidate": "2025-10-31T02:00:00+08:00",
+  "internal": {
+   "outcome": "prevented",
+   "fail_idx": 7365
+  }
+ },
+ {
+  "id": "act_press_1_2025103102",
+  "asset_id": "press_1",
+  "asset_name": "Press 1",
+  "asset_type": "press",
+  "fault_class": "electrical",
+  "risk_pct": 33.0,
+  "horizon_h": 168,
+  "rm_at_risk": 19002,
+  "rm_cost_to_act": 2500,
+  "rm_saved_if_acted": 16502,
+  "recommendation": "schedule_next_stop",
+  "deadline": "2025-11-02T06:00:00+08:00",
+  "headline_en": "Press 1: Electrical fault. Check the motor and wiring at the Sunday 06:00 stop.",
+  "headline_ms": "Penekan 1: Kerosakan elektrik. Semak motor dan pendawaian pada henti terancang Ahad jam 06:00.",
+  "reasons": [
+   {
+    "text_en": "Vibration spikiness (kurtosis) is 43% above Press 1's normal",
+    "text_ms": "Kemuncakan getaran (kurtosis) 43% lebih tinggi daripada biasa bagi Penekan 1",
+    "signal": "vib_kurtosis",
+    "direction": "up",
+    "contribution": 0.507
+   },
+   {
+    "text_en": "919 h since the last logged service on Press 1",
+    "text_ms": "919 jam sejak servis terakhir direkodkan bagi Penekan 1",
+    "signal": "hours_since_service",
+    "direction": "up",
+    "contribution": 0.294
+   },
+   {
+    "text_en": "Motor current per tonne is 3% above Press 1's normal",
+    "text_ms": "Arus motor setiap tan 3% lebih tinggi daripada biasa bagi Penekan 1",
+    "signal": "current_per_tonne",
+    "direction": "up",
+    "contribution": 0.198
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-10-31T02:00:00+08:00",
+  "t_close": "2025-11-02T06:00:00+08:00",
+  "t_candidate": "2025-10-31T02:00:00+08:00",
+  "internal": {
+   "outcome": "false_alarm",
+   "fail_idx": null
+  }
+ },
+ {
+  "id": "act_press_4_2025110405",
+  "asset_id": "press_4",
+  "asset_name": "Press 4",
+  "asset_type": "press",
+  "fault_class": "hydraulic_cone",
+  "risk_pct": 46.0,
+  "horizon_h": 168,
+  "rm_at_risk": 20502,
+  "rm_cost_to_act": 3500,
+  "rm_saved_if_acted": 17002,
+  "recommendation": "schedule_next_stop",
+  "deadline": "2025-11-09T06:00:00+08:00",
+  "headline_en": "Press 4: Cone hydraulic fault. Check the cone hydraulics at the Sunday 06:00 stop.",
+  "headline_ms": "Penekan 4: Kerosakan hidraulik kon. Semak hidraulik kon pada henti terancang Ahad jam 06:00.",
+  "reasons": [
+   {
+    "text_en": "Motor current per tonne is 6% above Press 4's normal",
+    "text_ms": "Arus motor setiap tan 6% lebih tinggi daripada biasa bagi Penekan 4",
+    "signal": "current_per_tonne",
+    "direction": "up",
+    "contribution": 0.698
+   },
+   {
+    "text_en": "Motor current is 6% above Press 4's normal",
+    "text_ms": "Arus motor 6% lebih tinggi daripada biasa bagi Penekan 4",
+    "signal": "motor_current",
+    "direction": "up",
+    "contribution": 0.2
+   },
+   {
+    "text_en": "Oil lost in fibre is 2.9% (alarm line is 4%)",
+    "text_ms": "Kehilangan minyak dalam serabut ialah 2.9% (garis amaran 4%)",
+    "signal": "fibre_oil_loss",
+    "direction": "down",
+    "contribution": 0.102
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-11-04T05:00:00+08:00",
+  "t_close": "2025-11-05T06:00:00+08:00",
+  "t_candidate": "2025-11-04T05:00:00+08:00",
+  "internal": {
+   "outcome": "false_alarm",
+   "fail_idx": null
+  }
+ },
+ {
+  "id": "act_boiler_1_2025112212",
+  "asset_id": "boiler_1",
+  "asset_name": "Boiler 1",
+  "asset_type": "boiler",
+  "fault_class": "boiler_water",
+  "risk_pct": 29.0,
+  "horizon_h": 18,
+  "rm_at_risk": 126517,
+  "rm_cost_to_act": 3000,
+  "rm_saved_if_acted": 123517,
+  "recommendation": "fix_now",
+  "deadline": "2025-11-22T16:00:00+08:00",
+  "headline_en": "Boiler 1: Feed-water quality drift. Check water treatment and boiler tubes now.",
+  "headline_ms": "Dandang 1: Sisihan kualiti air suapan. Semak rawatan air dan tiub dandang sekarang.",
+  "reasons": [
+   {
+    "text_en": "Steam temperature is 2% below Boiler 1's normal",
+    "text_ms": "Suhu stim 2% lebih rendah daripada biasa bagi Dandang 1",
+    "signal": "steam_temp",
+    "direction": "down",
+    "contribution": 0.414
+   },
+   {
+    "text_en": "Feed-water flow is 14% below Boiler 1's normal",
+    "text_ms": "Aliran air suapan 14% lebih rendah daripada biasa bagi Dandang 1",
+    "signal": "feedwater_flow",
+    "direction": "down",
+    "contribution": 0.349
+   },
+   {
+    "text_en": "Steam pressure is 1% below Boiler 1's normal",
+    "text_ms": "Tekanan stim 1% lebih rendah daripada biasa bagi Dandang 1",
+    "signal": "steam_pressure",
+    "direction": "down",
+    "contribution": 0.237
+   }
+  ],
+  "criticality": "whole_mill",
+  "t_open": "2025-11-22T12:00:00+08:00",
+  "t_close": "2025-11-22T16:00:00+08:00",
+  "t_candidate": "2025-11-22T12:00:00+08:00",
+  "internal": {
+   "outcome": "prevented",
+   "fail_idx": 7819
+  }
+ },
+ {
+  "id": "act_press_1_2025120419",
+  "asset_id": "press_1",
+  "asset_name": "Press 1",
+  "asset_type": "press",
+  "fault_class": "electrical",
+  "risk_pct": 41.0,
+  "horizon_h": 168,
+  "rm_at_risk": 19002,
+  "rm_cost_to_act": 2500,
+  "rm_saved_if_acted": 16502,
+  "recommendation": "schedule_next_stop",
+  "deadline": "2025-12-07T06:00:00+08:00",
+  "headline_en": "Press 1: Electrical fault. Check the motor and wiring at the Sunday 06:00 stop.",
+  "headline_ms": "Penekan 1: Kerosakan elektrik. Semak motor dan pendawaian pada henti terancang Ahad jam 06:00.",
+  "reasons": [
+   {
+    "text_en": "Vibration spikiness (kurtosis) is 70% above Press 1's normal",
+    "text_ms": "Kemuncakan getaran (kurtosis) 70% lebih tinggi daripada biasa bagi Penekan 1",
+    "signal": "vib_kurtosis",
+    "direction": "up",
+    "contribution": 0.401
+   },
+   {
+    "text_en": "Oil lost in fibre is 2.6% (alarm line is 4%)",
+    "text_ms": "Kehilangan minyak dalam serabut ialah 2.6% (garis amaran 4%)",
+    "signal": "fibre_oil_loss",
+    "direction": "down",
+    "contribution": 0.337
+   },
+   {
+    "text_en": "Vibration level (RMS) is 21% above Press 1's normal",
+    "text_ms": "Tahap getaran (RMS) 21% lebih tinggi daripada biasa bagi Penekan 1",
+    "signal": "vib_rms",
+    "direction": "up",
+    "contribution": 0.262
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-12-04T19:00:00+08:00",
+  "t_close": "2025-12-07T06:00:00+08:00",
+  "t_candidate": "2025-12-04T19:00:00+08:00",
+  "internal": {
+   "outcome": "false_alarm",
+   "fail_idx": null
+  }
+ },
+ {
+  "id": "act_press_1_2025120903",
+  "asset_id": "press_1",
+  "asset_name": "Press 1",
+  "asset_type": "press",
+  "fault_class": "electrical",
+  "risk_pct": 31.0,
+  "horizon_h": 168,
+  "rm_at_risk": 19002,
+  "rm_cost_to_act": 2500,
+  "rm_saved_if_acted": 16502,
+  "recommendation": "schedule_next_stop",
+  "deadline": "2025-12-14T06:00:00+08:00",
+  "headline_en": "Press 1: Electrical fault. Check the motor and wiring at the Sunday 06:00 stop.",
+  "headline_ms": "Penekan 1: Kerosakan elektrik. Semak motor dan pendawaian pada henti terancang Ahad jam 06:00.",
+  "reasons": [
+   {
+    "text_en": "Vibration spikiness (kurtosis) is 75% above Press 1's normal",
+    "text_ms": "Kemuncakan getaran (kurtosis) 75% lebih tinggi daripada biasa bagi Penekan 1",
+    "signal": "vib_kurtosis",
+    "direction": "up",
+    "contribution": 0.564
+   },
+   {
+    "text_en": "Vibration level (RMS) is 32% above Press 1's normal",
+    "text_ms": "Tahap getaran (RMS) 32% lebih tinggi daripada biasa bagi Penekan 1",
+    "signal": "vib_rms",
+    "direction": "up",
+    "contribution": 0.324
+   },
+   {
+    "text_en": "Motor current is 0% below Press 1's normal",
+    "text_ms": "Arus motor 0% lebih rendah daripada biasa bagi Penekan 1",
+    "signal": "motor_current",
+    "direction": "down",
+    "contribution": 0.112
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-12-09T03:00:00+08:00",
+  "t_close": "2025-12-10T06:00:00+08:00",
+  "t_candidate": "2025-12-09T03:00:00+08:00",
+  "internal": {
+   "outcome": "false_alarm",
+   "fail_idx": null
+  }
+ },
+ {
+  "id": "act_press_2_2025121100",
+  "asset_id": "press_2",
+  "asset_name": "Press 2",
+  "asset_type": "press",
+  "fault_class": "worm_wear",
+  "risk_pct": 34.0,
+  "horizon_h": 168,
+  "rm_at_risk": 24252,
+  "rm_cost_to_act": 6000,
+  "rm_saved_if_acted": 18252,
+  "recommendation": "schedule_next_stop",
+  "deadline": "2025-12-14T06:00:00+08:00",
+  "headline_en": "Press 2: Worm wear. Change the worm at the Sunday 06:00 stop.",
+  "headline_ms": "Penekan 2: Haus skru cacing. Tukar skru cacing pada henti terancang Ahad jam 06:00.",
+  "reasons": [
+   {
+    "text_en": "Oil lost in fibre is 3.7% (alarm line is 4%)",
+    "text_ms": "Kehilangan minyak dalam serabut ialah 3.7% (garis amaran 4%)",
+    "signal": "fibre_oil_loss",
+    "direction": "up",
+    "contribution": 0.642
+   },
+   {
+    "text_en": "Motor current per tonne is 4% above Press 2's normal",
+    "text_ms": "Arus motor setiap tan 4% lebih tinggi daripada biasa bagi Penekan 2",
+    "signal": "current_per_tonne",
+    "direction": "up",
+    "contribution": 0.248
+   },
+   {
+    "text_en": "Motor current is 5% above Press 2's normal",
+    "text_ms": "Arus motor 5% lebih tinggi daripada biasa bagi Penekan 2",
+    "signal": "motor_current",
+    "direction": "up",
+    "contribution": 0.11
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-12-11T00:00:00+08:00",
+  "t_close": "2025-12-14T00:00:00+08:00",
+  "t_candidate": "2025-12-11T00:00:00+08:00",
+  "internal": {
+   "outcome": "false_alarm",
+   "fail_idx": null
+  }
+ },
+ {
+  "id": "act_press_1_2025121302",
+  "asset_id": "press_1",
+  "asset_name": "Press 1",
+  "asset_type": "press",
+  "fault_class": "electrical",
+  "risk_pct": 41.0,
+  "horizon_h": 168,
+  "rm_at_risk": 19002,
+  "rm_cost_to_act": 2500,
+  "rm_saved_if_acted": 16502,
+  "recommendation": "schedule_next_stop",
+  "deadline": "2025-12-14T06:00:00+08:00",
+  "headline_en": "Press 1: Electrical fault. Check the motor and wiring at tomorrow's 06:00 stop.",
+  "headline_ms": "Penekan 1: Kerosakan elektrik. Semak motor dan pendawaian pada henti terancang esok jam 06:00.",
+  "reasons": [
+   {
+    "text_en": "Vibration level (RMS) is 40% above Press 1's normal",
+    "text_ms": "Tahap getaran (RMS) 40% lebih tinggi daripada biasa bagi Penekan 1",
+    "signal": "vib_rms",
+    "direction": "up",
+    "contribution": 0.468
+   },
+   {
+    "text_en": "Vibration spikiness (kurtosis) is 76% above Press 1's normal",
+    "text_ms": "Kemuncakan getaran (kurtosis) 76% lebih tinggi daripada biasa bagi Penekan 1",
+    "signal": "vib_kurtosis",
+    "direction": "up",
+    "contribution": 0.427
+   },
+   {
+    "text_en": "Motor current is 1% below Press 1's normal",
+    "text_ms": "Arus motor 1% lebih rendah daripada biasa bagi Penekan 1",
+    "signal": "motor_current",
+    "direction": "down",
+    "contribution": 0.104
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-12-13T02:00:00+08:00",
+  "t_close": "2025-12-14T06:00:00+08:00",
+  "t_candidate": "2025-12-13T02:00:00+08:00",
+  "internal": {
+   "outcome": "false_alarm",
+   "fail_idx": null
+  }
+ },
+ {
+  "id": "act_press_3_2025121409",
+  "asset_id": "press_3",
+  "asset_name": "Press 3",
+  "asset_type": "press",
+  "fault_class": "electrical",
+  "risk_pct": 26.0,
+  "horizon_h": 168,
+  "rm_at_risk": 19002,
+  "rm_cost_to_act": 2500,
+  "rm_saved_if_acted": 16502,
+  "recommendation": "schedule_next_stop",
+  "deadline": "2025-12-21T06:00:00+08:00",
+  "headline_en": "Press 3: Electrical fault. Check the motor and wiring at the Sunday 06:00 stop.",
+  "headline_ms": "Penekan 3: Kerosakan elektrik. Semak motor dan pendawaian pada henti terancang Ahad jam 06:00.",
+  "reasons": [
+   {
+    "text_en": "Motor current per tonne is 4% above Press 3's normal",
+    "text_ms": "Arus motor setiap tan 4% lebih tinggi daripada biasa bagi Penekan 3",
+    "signal": "current_per_tonne",
+    "direction": "up",
+    "contribution": 0.665
+   },
+   {
+    "text_en": "2,746 h since the last logged service on Press 3",
+    "text_ms": "2,746 jam sejak servis terakhir direkodkan bagi Penekan 3",
+    "signal": "hours_since_service",
+    "direction": "up",
+    "contribution": 0.255
+   },
+   {
+    "text_en": "Motor current is 2% above Press 3's normal",
+    "text_ms": "Arus motor 2% lebih tinggi daripada biasa bagi Penekan 3",
+    "signal": "motor_current",
+    "direction": "up",
+    "contribution": 0.08
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-12-14T09:00:00+08:00",
+  "t_close": "2025-12-15T04:00:00+08:00",
+  "t_candidate": "2025-12-14T09:00:00+08:00",
+  "internal": {
+   "outcome": "false_alarm",
+   "fail_idx": null
+  }
+ },
+ {
+  "id": "act_press_2_2025121510",
+  "asset_id": "press_2",
+  "asset_name": "Press 2",
+  "asset_type": "press",
+  "fault_class": "worm_wear",
+  "risk_pct": 31.0,
+  "horizon_h": 168,
+  "rm_at_risk": 24252,
+  "rm_cost_to_act": 6000,
+  "rm_saved_if_acted": 18252,
+  "recommendation": "schedule_next_stop",
+  "deadline": "2025-12-21T06:00:00+08:00",
+  "headline_en": "Press 2: Worm wear. Change the worm at the Sunday 06:00 stop.",
+  "headline_ms": "Penekan 2: Haus skru cacing. Tukar skru cacing pada henti terancang Ahad jam 06:00.",
+  "reasons": [
+   {
+    "text_en": "Oil lost in fibre is 3.8% (alarm line is 4%)",
+    "text_ms": "Kehilangan minyak dalam serabut ialah 3.8% (garis amaran 4%)",
+    "signal": "fibre_oil_loss",
+    "direction": "up",
+    "contribution": 0.586
+   },
+   {
+    "text_en": "1,043 h since the last logged service on Press 2",
+    "text_ms": "1,043 jam sejak servis terakhir direkodkan bagi Penekan 2",
+    "signal": "hours_since_service",
+    "direction": "up",
+    "contribution": 0.215
+   },
+   {
+    "text_en": "Motor current per tonne is 5% above Press 2's normal",
+    "text_ms": "Arus motor setiap tan 5% lebih tinggi daripada biasa bagi Penekan 2",
+    "signal": "current_per_tonne",
+    "direction": "up",
+    "contribution": 0.199
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-12-15T10:00:00+08:00",
+  "t_close": "2025-12-21T06:00:00+08:00",
+  "t_candidate": "2025-12-15T10:00:00+08:00",
+  "internal": {
+   "outcome": "false_alarm",
+   "fail_idx": null
+  }
+ },
+ {
+  "id": "act_press_3_2025121616",
+  "asset_id": "press_3",
+  "asset_name": "Press 3",
+  "asset_type": "press",
+  "fault_class": "electrical",
+  "risk_pct": 31.0,
+  "horizon_h": 168,
+  "rm_at_risk": 19002,
+  "rm_cost_to_act": 2500,
+  "rm_saved_if_acted": 16502,
+  "recommendation": "schedule_next_stop",
+  "deadline": "2025-12-21T06:00:00+08:00",
+  "headline_en": "Press 3: Electrical fault. Check the motor and wiring at the Sunday 06:00 stop.",
+  "headline_ms": "Penekan 3: Kerosakan elektrik. Semak motor dan pendawaian pada henti terancang Ahad jam 06:00.",
+  "reasons": [
+   {
+    "text_en": "Motor current per tonne is 3% above Press 3's normal",
+    "text_ms": "Arus motor setiap tan 3% lebih tinggi daripada biasa bagi Penekan 3",
+    "signal": "current_per_tonne",
+    "direction": "up",
+    "contribution": 0.351
+   },
+   {
+    "text_en": "2,801 h since the last logged service on Press 3",
+    "text_ms": "2,801 jam sejak servis terakhir direkodkan bagi Penekan 3",
+    "signal": "hours_since_service",
+    "direction": "up",
+    "contribution": 0.494
+   },
+   {
+    "text_en": "Vibration level (RMS) is 2% above Press 3's normal",
+    "text_ms": "Tahap getaran (RMS) 2% lebih tinggi daripada biasa bagi Penekan 3",
+    "signal": "vib_rms",
+    "direction": "up",
+    "contribution": 0.155
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-12-16T16:00:00+08:00",
+  "t_close": "2025-12-18T06:00:00+08:00",
+  "t_candidate": "2025-12-16T16:00:00+08:00",
+  "internal": {
+   "outcome": "false_alarm",
+   "fail_idx": null
+  }
+ },
+ {
+  "id": "act_press_3_2025122018",
+  "asset_id": "press_3",
+  "asset_name": "Press 3",
+  "asset_type": "press",
+  "fault_class": "worm_wear",
+  "risk_pct": 33.0,
+  "horizon_h": 168,
+  "rm_at_risk": 24252,
+  "rm_cost_to_act": 6000,
+  "rm_saved_if_acted": 18252,
+  "recommendation": "schedule_next_stop",
+  "deadline": "2025-12-21T06:00:00+08:00",
+  "headline_en": "Press 3: Worm wear. Change the worm at tomorrow's 06:00 stop.",
+  "headline_ms": "Penekan 3: Haus skru cacing. Tukar skru cacing pada henti terancang esok jam 06:00.",
+  "reasons": [
+   {
+    "text_en": "Motor current per tonne is 5% above Press 3's normal",
+    "text_ms": "Arus motor setiap tan 5% lebih tinggi daripada biasa bagi Penekan 3",
+    "signal": "current_per_tonne",
+    "direction": "up",
+    "contribution": 0.343
+   },
+   {
+    "text_en": "Oil lost in fibre is 3.3% (alarm line is 4%)",
+    "text_ms": "Kehilangan minyak dalam serabut ialah 3.3% (garis amaran 4%)",
+    "signal": "fibre_oil_loss",
+    "direction": "up",
+    "contribution": 0.333
+   },
+   {
+    "text_en": "2,899 h since the last logged service on Press 3",
+    "text_ms": "2,899 jam sejak servis terakhir direkodkan bagi Penekan 3",
+    "signal": "hours_since_service",
+    "direction": "up",
+    "contribution": 0.324
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-12-20T18:00:00+08:00",
+  "t_close": "2025-12-21T06:00:00+08:00",
+  "t_candidate": "2025-12-20T18:00:00+08:00",
+  "internal": {
+   "outcome": "false_alarm",
+   "fail_idx": null
+  }
+ },
+ {
+  "id": "act_press_4_2025122103",
+  "asset_id": "press_4",
+  "asset_name": "Press 4",
+  "asset_type": "press",
+  "fault_class": "hydraulic_cone",
+  "risk_pct": 41.0,
+  "horizon_h": 168,
+  "rm_at_risk": 20502,
+  "rm_cost_to_act": 3500,
+  "rm_saved_if_acted": 17002,
+  "recommendation": "schedule_next_stop",
+  "deadline": "2025-12-28T06:00:00+08:00",
+  "headline_en": "Press 4: Cone hydraulic fault. Check the cone hydraulics at the Sunday 06:00 stop.",
+  "headline_ms": "Penekan 4: Kerosakan hidraulik kon. Semak hidraulik kon pada henti terancang Ahad jam 06:00.",
+  "reasons": [
+   {
+    "text_en": "Vibration level (RMS) is 1% above Press 4's normal",
+    "text_ms": "Tahap getaran (RMS) 1% lebih tinggi daripada biasa bagi Penekan 4",
+    "signal": "vib_rms",
+    "direction": "up",
+    "contribution": 0.358
+   },
+   {
+    "text_en": "Motor current per tonne is 2% above Press 4's normal",
+    "text_ms": "Arus motor setiap tan 2% lebih tinggi daripada biasa bagi Penekan 4",
+    "signal": "current_per_tonne",
+    "direction": "up",
+    "contribution": 0.336
+   },
+   {
+    "text_en": "Cone hydraulic pressure is 1% below Press 4's normal",
+    "text_ms": "Tekanan hidraulik kon 1% lebih rendah daripada biasa bagi Penekan 4",
+    "signal": "cone_pressure",
+    "direction": "down",
+    "contribution": 0.306
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-12-21T03:00:00+08:00",
+  "t_close": "2025-12-24T06:00:00+08:00",
+  "t_candidate": "2025-12-21T03:00:00+08:00",
+  "internal": {
+   "outcome": "false_alarm",
+   "fail_idx": null
+  }
+ },
+ {
+  "id": "act_press_4_2025122718",
+  "asset_id": "press_4",
+  "asset_name": "Press 4",
+  "asset_type": "press",
+  "fault_class": "hydraulic_cone",
+  "risk_pct": 31.0,
+  "horizon_h": 168,
+  "rm_at_risk": 20502,
+  "rm_cost_to_act": 3500,
+  "rm_saved_if_acted": 17002,
+  "recommendation": "schedule_next_stop",
+  "deadline": "2025-12-28T06:00:00+08:00",
+  "headline_en": "Press 4: Cone hydraulic fault. Check the cone hydraulics at tomorrow's 06:00 stop.",
+  "headline_ms": "Penekan 4: Kerosakan hidraulik kon. Semak hidraulik kon pada henti terancang esok jam 06:00.",
+  "reasons": [
+   {
+    "text_en": "Gearbox oil temperature is 2% below Press 4's normal",
+    "text_ms": "Suhu minyak gear 2% lebih rendah daripada biasa bagi Penekan 4",
+    "signal": "gearbox_oil_temp",
+    "direction": "down",
+    "contribution": 0.351
+   },
+   {
+    "text_en": "Motor current per tonne is 2% above Press 4's normal",
+    "text_ms": "Arus motor setiap tan 2% lebih tinggi daripada biasa bagi Penekan 4",
+    "signal": "current_per_tonne",
+    "direction": "up",
+    "contribution": 0.331
+   },
+   {
+    "text_en": "Oil lost in fibre is 3.4% (alarm line is 4%)",
+    "text_ms": "Kehilangan minyak dalam serabut ialah 3.4% (garis amaran 4%)",
+    "signal": "fibre_oil_loss",
+    "direction": "up",
+    "contribution": 0.318
+   }
+  ],
+  "criticality": "partial",
+  "t_open": "2025-12-27T18:00:00+08:00",
+  "t_close": "2025-12-28T06:00:00+08:00",
+  "t_candidate": "2025-12-27T18:00:00+08:00",
+  "internal": {
+   "outcome": "false_alarm",
+   "fail_idx": null
+  }
+ }
+]

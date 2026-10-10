@@ -5,7 +5,7 @@ import sys
 import numpy as np
 import pandas as pd
 
-from backend.engine import backtest, fit_policy
+from backend.engine import backtest, build_artifacts, fit_policy
 from backend.models import train
 from backend.params import load
 from backend.sim import simulate
@@ -58,6 +58,7 @@ def main(skip_sim=False):
     pred = pd.read_parquet(DATA / "predictions.parquet")
     pred[pred.mill_id == MILL].to_parquet(ART / "mill10_predictions.parquet")
     ep.to_parquet(ART / "episodes.parquet")
+    build_artifacts.main()
 
 
 if __name__ == "__main__":
