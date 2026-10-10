@@ -1,6 +1,6 @@
 # MillGuard — Master Plan (Single Source of Truth)
 
-Version 1.6 · Sat 10 Oct 2026, 17:45 MYT · Team: 3 people, 2 computers (A = backend, B = design then frontend, third member = pitch) · Deadline: **Sun 11 Oct, 09:30 MYT**
+Version 1.7 · Sat 10 Oct 2026, 18:00 MYT · Team: 3 people, 2 computers (A = backend, B = design then frontend, third member = pitch) · Deadline: **Sun 11 Oct, 09:30 MYT**
 Owner of this file: the orchestrator chat. Agents read it, they do not rewrite it. Propose changes in `CHANGELOG.md` and the orchestrator merges them.
 
 ---
@@ -320,6 +320,18 @@ interface FaultGuide { fault_class: FaultClass; name_en: string; name_ms: string
   - `schedule_next_stop`: window = now → the planned stop **after** the next one (skipping this stop means running a week longer).
   - `horizon_h` = that window in hours; `risk_pct` = P(fail within it); `rm_at_risk` = risk × full breakdown cost; `rm_saved_if_acted` = `rm_at_risk − rm_cost_to_act` (min 0).
   - UI wording: "If not fixed at tomorrow's 06:00 stop: 74% chance it fails before the next one" and "Expected loss if you skip it: RM17,900 (74% × RM24,200 breakdown)". The full breakdown cost is `round(rm_at_risk / (risk_pct/100))`.
+- **v1.7 contract additions (18:00, requested by design; additive, no removals):**
+  - `FingerprintCheck.expected` adds `"steady"`.
+  - `Action` adds `rm_breakdown_cost` (explicit; UI never divides), `deadline_label_en/ms` (e.g. "tomorrow's 06:00 stop"), and `window_label_en/ms` describing the end of the risk window (e.g. "before the next stop, Sun 06:00"). `horizon_h` stays = the v1.6 risk window, **not** hours to the deadline.
+  - `FixPlan`: `needs_stop` → `stop: "none" | "machine" | "whole_mill"` plus `lost_production: boolean`.
+  - `/api/assets/{id}` adds `last_service: {t, what_en, what_ms, hours_since}` and `next_check: {t, label_en, label_ms}`; for status `ok`, the response also carries the at-risk and cost-to-act figures so the UI can say "waiting is cheaper by RM x".
+  - `Series` adds `limit?: number` and `summary_en/ms` (e.g. "4.1 → 4.6 A/t"). Every `Reason.signal` exists in `series`.
+  - `/api/brief` adds `rm_protected_total`.
+  - `/api/backtest`: `compare` accepts `run_to_failure | fixed_interval | millguard_only`; always returns all four policies.
+  - `/api/robustness` adds `test_mill: {id, by_fault_class: [{fault_class, total, caught, median_lead_h}], false_alarms_per_week}` next to MetroPT-3 and `extra[]`.
+  - Every user-facing text field has an `_ms` twin, with no abbreviations.
+  - FaultClass stays as is (no new "tube leak" class; boiler alternatives use existing classes).
+- **Design sample values are mock-ups only.** Fixtures stay a real snapshot (v1.6). The frontend reads every number and label from the API, and the layout must handle real ranges (press cards ~RM1–20k, boiler cards larger). Real press breakdown cost ≈ RM24k (4 h × RM12,700 × 30% truly lost + repair); the design's RM51,000 assumed 100% loss. Bookmark labels come from `/api/replay/markers` (now Quiet night / Press 2 act now / Whole mill).
 - **v1.6 contract change:** `/api/backtest` takes `inspection_accuracy` (0–1, default 0.5) = `inspection_finds_wrong_class`.
 - **Demo moments (rule, not cherry-picking totals):** Act-now bookmark = an alert on a gradual fault that was later prevented (true positive), placed at the hour in its alert window where the fingerprint matches most checks; prefer Press 2. Both-alerts bookmark = a night where a boiler alert and a press alert are both Act now, with the largest combined saving. Quiet bookmark = a night with 0 actions and non-zero watching/suppressed. Yearly totals are unaffected.
 - **Fixtures = real snapshot.** Once bookmarks are final, regenerate every fixture from the real API at those bookmarks (and the real backtest), so fixture mode (the demo backup) shows true numbers. Repeat at the 03:00 freeze.
