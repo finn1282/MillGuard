@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import { api, OfflineUnavailable } from "../lib/api";
 import { clock } from "../lib/format";
 import { useLang } from "../lib/i18n";
-import type { Advice } from "../mocks/advice";
+import type { AdviceOut } from "../lib/types";
 import { IconAct, IconWatch } from "./Icons";
 
-type State = { kind: "idle" } | { kind: "loading" } | { kind: "done"; a: Advice } | { kind: "error" } | { kind: "offline"; msg?: string };
+type State = { kind: "idle" } | { kind: "loading" } | { kind: "done"; a: AdviceOut } | { kind: "error" } | { kind: "offline"; msg?: string };
 
 // "Get detailed advice" under the fix plan (MASTER_PLAN.md §14). EN/BM follows the toggle.
 export function AdvicePanel({ assetId, at }: { assetId: string; at: string }) {
@@ -20,8 +20,8 @@ export function AdvicePanel({ assetId, at }: { assetId: string; at: string }) {
     setSt({ kind: "loading" }); setSecs(0);
     const tick = setInterval(() => setSecs((s) => s + 1), 1000);
     api.advice(assetId, at, lang).then(
-      // No key or network: the backend answers with no sections and a friendly message in the title.
-      (a) => live && setSt(a.sections?.length ? { kind: "done", a } : { kind: "offline", msg: a.title }),
+      // Unavailable (no key, no network, no fault): sections is [] and message explains why.
+      (a) => live && setSt(a.sections?.length ? { kind: "done", a } : { kind: "offline", msg: a.message || a.title }),
       (e) => live && setSt({ kind: e instanceof OfflineUnavailable ? "offline" : "error" }),
     ).finally(() => clearInterval(tick));
     return () => { live = false; clearInterval(tick); };
@@ -56,7 +56,7 @@ export function AdvicePanel({ assetId, at }: { assetId: string; at: string }) {
   );
 }
 
-function AdviceBody({ a }: { a: Advice }) {
+function AdviceBody({ a }: { a: AdviceOut }) {
   const { t, lang } = useLang();
   return (<>
     <p className="m-0 flex gap-2 items-start bg-watch-bg border border-watch-border text-watch-ink rounded-[4px] px-3 py-2.5 text-sm lg:text-base font-bold leading-snug">

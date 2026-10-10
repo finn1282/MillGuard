@@ -1,6 +1,5 @@
-import { MOCK_ADVICE, type Advice } from "../mocks/advice";
 import type {
-  Assumption, AssetDetail, Backtest, Brief, FaultGuide, FeedbackIn, FeedbackOut,
+  AdviceOut, Assumption, AssetDetail, Backtest, Brief, FaultGuide, FeedbackIn, FeedbackOut,
   Line, Marker, Meta, NotifyOut, NotifyStatus, Robustness,
 } from "./types";
 
@@ -31,12 +30,10 @@ async function variant(name: string, at?: string): Promise<unknown> {
 
 export class OfflineUnavailable extends Error {}
 
-// Fixture advice: the backend's advice_<asset>[_act|_quiet]_<lang> file, else the frontend mock, else unavailable.
-async function fixtureAdvice(asset_id: string, at: string, lang: "en" | "ms"): Promise<Advice> {
+// Fixture advice: the backend's advice_<asset>[_act|_quiet]_<lang> file, else unavailable offline.
+async function fixtureAdvice(asset_id: string, at: string, lang: "en" | "ms"): Promise<AdviceOut> {
   const key = `${asset_id}${await suffixFor(at)}_${lang}`;
-  const hit = await fixture<Advice>(`advice_${key}`).catch(() => MOCK_ADVICE[key]);
-  if (!hit) throw new OfflineUnavailable(key);
-  return hit;
+  return fixture<AdviceOut>(`advice_${key}`).catch(() => { throw new OfflineUnavailable(key); });
 }
 
 const cache = new Map<string, Promise<unknown>>();
@@ -102,6 +99,6 @@ export const api = {
       .catch(() => ({ enabled: false, channel: "", subscribers: 0 })),
   // The model can take up to 30 s plus one retry on the backend.
   advice: (asset_id: string, at: string, lang: "en" | "ms") =>
-    USE_FIXTURES ? fixtureAdvice(asset_id, at, lang) : post<Advice>("/advice", { asset_id, at, lang }, 75_000),
+    USE_FIXTURES ? fixtureAdvice(asset_id, at, lang) : post<AdviceOut>("/advice", { asset_id, at, lang }, 75_000),
   notify: (at: string, kind: "alert" | "brief" = "alert") => post<NotifyOut>("/notify", { at, kind }),
 };
