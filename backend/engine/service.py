@@ -373,7 +373,7 @@ class Service:
         for sec, items in self.p.items():
             for k, e in items.items():
                 v = e["value"]
-                out.append(dict(key=f"{sec}.{k}", label=k.replace("_", " ").capitalize(),
+                out.append(dict(key=f"{sec}.{k}", label=text.ASSUMPTION_LABEL[f"{sec}.{k}"],
                                 value=v if isinstance(v, (int, float)) else ", ".join(map(str, v)),
                                 unit=e["unit"], source=e["source"],
                                 status="validated" if e["status"] == "validated" else "assumed"))
@@ -389,6 +389,8 @@ class Service:
                             ("derived.breakdown_cost_boiler", "How a boiler breakdown cost is worked out", boiler)):
             out.append(dict(key=k, label=label, value=v, unit="", source="Derived from the economics and repair-cost values above",
                             status="assumed"))
+        out.append(dict(key="derived.backtest_approximation", label="How the backtest treats a repaired part", value=text.BACKTEST_APPROX,
+                        unit="", source="Backtest simplification", status="assumed"))
         return out
 
     def robustness(self):

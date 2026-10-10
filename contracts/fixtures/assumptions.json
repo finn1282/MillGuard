@@ -1,7 +1,7 @@
 [
  {
   "key": "economics.throughput_tph",
-  "label": "Throughput tph",
+  "label": "Mill throughput (tonnes of fruit per hour)",
   "value": 60.0,
   "unit": "t FFB/h",
   "source": "Published mill simulation (plan 3.2)",
@@ -9,7 +9,7 @@
  },
  {
   "key": "economics.presses",
-  "label": "Presses",
+  "label": "Number of screw presses",
   "value": 4.0,
   "unit": "count",
   "source": "Plan 3.1 (4 presses x 15 t/h)",
@@ -17,7 +17,7 @@
  },
  {
   "key": "economics.press_throughput_tph",
-  "label": "Press throughput tph",
+  "label": "Throughput of one press (tonnes of fruit per hour)",
   "value": 15.0,
   "unit": "t FFB/h",
   "source": "Plan 3.1",
@@ -25,7 +25,7 @@
  },
  {
   "key": "economics.oer",
-  "label": "Oer",
+  "label": "Oil extraction rate (OER)",
   "value": 0.1974,
   "unit": "fraction",
   "source": "MPOB Overview of the Malaysian Oil Palm Industry 2025",
@@ -33,7 +33,7 @@
  },
  {
   "key": "economics.cpo_price_rm_per_t",
-  "label": "Cpo price rm per t",
+  "label": "CPO price (RM per tonne)",
   "value": 4292.5,
   "unit": "RM/t",
   "source": "MPOB 2025 average CPO price (spot ~RM4,420 on 5 Oct 2026)",
@@ -41,7 +41,7 @@
  },
  {
   "key": "economics.cpo_price_slider_min",
-  "label": "Cpo price slider min",
+  "label": "Lowest CPO price on the slider (RM per tonne)",
   "value": 3800.0,
   "unit": "RM/t",
   "source": "Plan 3.2 slider range",
@@ -49,7 +49,7 @@
  },
  {
   "key": "economics.cpo_price_slider_max",
-  "label": "Cpo price slider max",
+  "label": "Highest CPO price on the slider (RM per tonne)",
   "value": 5000.0,
   "unit": "RM/t",
   "source": "Plan 3.2 slider range",
@@ -57,7 +57,7 @@
  },
  {
   "key": "economics.rm_per_mill_hour",
-  "label": "Rm per mill hour",
+  "label": "Value of one mill-hour (RM per hour)",
   "value": 50844.0,
   "unit": "RM/h",
   "source": "60 x 0.1974 x 4292.5 (plan quotes ~RM50,800)",
@@ -65,7 +65,7 @@
  },
  {
   "key": "economics.rm_per_press_hour",
-  "label": "Rm per press hour",
+  "label": "Value of one press-hour (RM per hour)",
   "value": 12711.0,
   "unit": "RM/h",
   "source": "rm_per_mill_hour / 4 (plan quotes ~RM12,700)",
@@ -73,7 +73,7 @@
  },
  {
   "key": "economics.unplanned_press_stop_h",
-  "label": "Unplanned press stop h",
+  "label": "Hours a press is down after a breakdown",
   "value": 4.0,
   "unit": "h",
   "source": "Team assumption",
@@ -81,7 +81,7 @@
  },
  {
   "key": "economics.unplanned_boiler_stop_h",
-  "label": "Unplanned boiler stop h",
+  "label": "Hours the mill is down after a boiler breakdown",
   "value": 8.0,
   "unit": "h",
   "source": "Team assumption (boiler stop halts whole mill)",
@@ -89,7 +89,7 @@
  },
  {
   "key": "economics.planned_repair_extra_lost_h",
-  "label": "Planned repair extra lost h",
+  "label": "Extra production hours lost by a planned repair",
   "value": 0.0,
   "unit": "h",
   "source": "Repair done inside weekly planned stop",
@@ -97,7 +97,7 @@
  },
  {
   "key": "economics.repair_stop_h_press",
-  "label": "Repair stop h press",
+  "label": "Press stop needed for a fix-now repair (hours)",
   "value": 2.0,
   "unit": "h",
   "source": "Fix-now repair stops one press this long",
@@ -105,7 +105,7 @@
  },
  {
   "key": "economics.repair_stop_h_boiler",
-  "label": "Repair stop h boiler",
+  "label": "Boiler stop needed for a fix-now repair (hours)",
   "value": 0.0,
   "unit": "h",
   "source": "Boiler fix-now is a no-stop intervention",
@@ -113,7 +113,7 @@
  },
  {
   "key": "economics.unplanned_repair_multiplier",
-  "label": "Unplanned repair multiplier",
+  "label": "Parts cost multiplier for an unplanned breakdown",
   "value": 1.5,
   "unit": "x parts",
   "source": "Run-to-failure causes collateral damage; repair costs 1.5x planned parts",
@@ -121,7 +121,7 @@
  },
  {
   "key": "economics.lost_share",
-  "label": "Lost share",
+  "label": "Share of stopped production truly lost (base case)",
   "value": 0.3,
   "unit": "fraction",
   "source": "Share of delayed output truly lost; range 0.20-0.40; rest caught up",
@@ -129,7 +129,7 @@
  },
  {
   "key": "economics.lost_share_low",
-  "label": "Lost share low",
+  "label": "Share of stopped production truly lost (low case)",
   "value": 0.2,
   "unit": "fraction",
   "source": "Plan 3.2 range",
@@ -137,7 +137,7 @@
  },
  {
   "key": "economics.lost_share_high",
-  "label": "Lost share high",
+  "label": "Share of stopped production truly lost (high case)",
   "value": 0.4,
   "unit": "fraction",
   "source": "Plan 3.2 range",
@@ -145,7 +145,7 @@
  },
  {
   "key": "economics.false_alarm_cost_rm",
-  "label": "False alarm cost rm",
+  "label": "Cost of checking a machine after a false alarm (RM)",
   "value": 300.0,
   "unit": "RM",
   "source": "Inspection cost per false alarm",
@@ -153,7 +153,7 @@
  },
  {
   "key": "economics.miss_cost_mult",
-  "label": "Miss cost mult",
+  "label": "Breakdown cost multiplier (slider)",
   "value": 1.0,
   "unit": "x",
   "source": "Slider: multiplier on cost of a missed failure",
@@ -161,7 +161,7 @@
  },
  {
   "key": "economics.criticality_boiler",
-  "label": "Criticality boiler",
+  "label": "Share of the mill stopped when the boiler fails",
   "value": 1.0,
   "unit": "mill share",
   "source": "Boiler stop = whole mill",
@@ -169,7 +169,7 @@
  },
  {
   "key": "economics.criticality_press",
-  "label": "Criticality press",
+  "label": "Share of the mill stopped when one press fails",
   "value": 0.25,
   "unit": "mill share",
   "source": "One press = 1/4 mill",
@@ -177,7 +177,7 @@
  },
  {
   "key": "repair_cost_rm.worm_wear",
-  "label": "Worm wear",
+  "label": "Planned repair cost: worm wear (RM)",
   "value": 6000.0,
   "unit": "RM",
   "source": "Placeholder",
@@ -185,7 +185,7 @@
  },
  {
   "key": "repair_cost_rm.bearing",
-  "label": "Bearing",
+  "label": "Planned repair cost: bearing wear (RM)",
   "value": 4500.0,
   "unit": "RM",
   "source": "Placeholder",
@@ -193,7 +193,7 @@
  },
  {
   "key": "repair_cost_rm.gearbox_shaft",
-  "label": "Gearbox shaft",
+  "label": "Planned repair cost: gearbox or shaft (RM)",
   "value": 9000.0,
   "unit": "RM",
   "source": "Placeholder",
@@ -201,7 +201,7 @@
  },
  {
   "key": "repair_cost_rm.hydraulic_cone",
-  "label": "Hydraulic cone",
+  "label": "Planned repair cost: cone hydraulics (RM)",
   "value": 3500.0,
   "unit": "RM",
   "source": "Placeholder",
@@ -209,7 +209,7 @@
  },
  {
   "key": "repair_cost_rm.electrical",
-  "label": "Electrical",
+  "label": "Planned repair cost: electrical (RM)",
   "value": 2500.0,
   "unit": "RM",
   "source": "Placeholder",
@@ -217,7 +217,7 @@
  },
  {
   "key": "repair_cost_rm.boiler_steam",
-  "label": "Boiler steam",
+  "label": "Planned repair cost: steam temperature drift (RM)",
   "value": 3000.0,
   "unit": "RM",
   "source": "No-stop intervention (feed-water dosing, blowdown); placeholder",
@@ -225,7 +225,7 @@
  },
  {
   "key": "repair_cost_rm.boiler_water",
-  "label": "Boiler water",
+  "label": "Planned repair cost: feed-water quality (RM)",
   "value": 3000.0,
   "unit": "RM",
   "source": "No-stop intervention (water treatment); placeholder",
@@ -233,7 +233,7 @@
  },
  {
   "key": "repair_cost_rm.unknown",
-  "label": "Unknown",
+  "label": "Planned repair cost: unknown fault (RM)",
   "value": 3000.0,
   "unit": "RM",
   "source": "Placeholder",
@@ -241,7 +241,7 @@
  },
  {
   "key": "simulator.n_mills",
-  "label": "N mills",
+  "label": "Simulated mills",
   "value": 10.0,
   "unit": "count",
   "source": "Plan 3.1",
@@ -249,7 +249,7 @@
  },
  {
   "key": "simulator.months",
-  "label": "Months",
+  "label": "Simulated months",
   "value": 12.0,
   "unit": "count",
   "source": "Plan 3.1",
@@ -257,7 +257,7 @@
  },
  {
   "key": "simulator.step_h",
-  "label": "Step h",
+  "label": "Simulation time step (hours)",
   "value": 1.0,
   "unit": "h",
   "source": "Plan 3.1 hourly data",
@@ -265,7 +265,7 @@
  },
  {
   "key": "simulator.worm_life_h_min",
-  "label": "Worm life h min",
+  "label": "Shortest worm life (running hours)",
   "value": 700.0,
   "unit": "h",
   "source": "Plan 1.4 (700-800 h in original plan)",
@@ -273,7 +273,7 @@
  },
  {
   "key": "simulator.worm_life_h_max",
-  "label": "Worm life h max",
+  "label": "Longest worm life (running hours)",
   "value": 2000.0,
   "unit": "h",
   "source": "RCM screw press studies: ~1,217 h interval, ~2,035 h replacement (UMM 2026, UIN Suska 2021)",
@@ -281,7 +281,7 @@
  },
  {
   "key": "simulator.cone_pressure_max_bar",
-  "label": "Cone pressure max bar",
+  "label": "Cone hydraulic pressure limit (bar)",
   "value": 60.0,
   "unit": "bar",
   "source": "Plan 3.1 calibration anchor",
@@ -289,7 +289,7 @@
  },
  {
   "key": "simulator.fibre_oil_loss_alarm",
-  "label": "Fibre oil loss alarm",
+  "label": "Oil-in-fibre alarm line",
   "value": 0.04,
   "unit": "fraction",
   "source": "Thai mill sensor study (SAJIE 36(1))",
@@ -297,7 +297,7 @@
  },
  {
   "key": "simulator.target_stops_per_mill_year",
-  "label": "Target stops per mill year",
+  "label": "Target unplanned stops per mill per year (range)",
   "value": "25, 50",
   "unit": "count",
   "source": "North Sumatra mill logged 65 in 7 months; plan target",
@@ -305,7 +305,7 @@
  },
  {
   "key": "simulator.messy_work_order_share",
-  "label": "Messy work order share",
+  "label": "Share of work orders with unclear fault class",
   "value": 0.1,
   "unit": "fraction",
   "source": "Plan 3.1 (wrong class or late timestamp)",
@@ -313,7 +313,7 @@
  },
  {
   "key": "simulator.weekly_planned_stop_h",
-  "label": "Weekly planned stop h",
+  "label": "Weekly planned stop length (hours)",
   "value": 6.0,
   "unit": "h",
   "source": "Plan 2.3 (06:00 stop); duration assumed",
@@ -321,7 +321,7 @@
  },
  {
   "key": "simulator.missing_reading_rate",
-  "label": "Missing reading rate",
+  "label": "Share of sensor readings missing",
   "value": 0.01,
   "unit": "fraction",
   "source": "Team assumption",
@@ -329,7 +329,7 @@
  },
  {
   "key": "simulator.crop_index_2025",
-  "label": "Crop index 2025",
+  "label": "Crop index by month (relative to the annual mean)",
   "value": "0.734, 0.703, 0.821, 0.998, 1.048, 1.001, 1.072, 1.097, 1.089, 1.209, 1.145, 1.082",
   "unit": "relative to annual mean",
   "source": "MPOB 2025 monthly CPO production, normalised to the mean (plan v1.4 item 4); Dec is preliminary",
@@ -337,7 +337,7 @@
  },
  {
   "key": "simulator.pf_h_worm_wear",
-  "label": "Pf h worm wear",
+  "label": "Warning period before worm failure (running hours)",
   "value": 300.0,
   "unit": "running h",
   "source": "Plan v1.4: worm wear shows several days to weeks ahead",
@@ -345,7 +345,7 @@
  },
  {
   "key": "simulator.pf_h_gearbox_shaft",
-  "label": "Pf h gearbox shaft",
+  "label": "Warning period before gearbox or shaft failure (running hours)",
   "value": 400.0,
   "unit": "running h",
   "source": "Plan v1.4: gearbox shows several days to weeks ahead",
@@ -353,7 +353,7 @@
  },
  {
   "key": "simulator.pf_h_bearing",
-  "label": "Pf h bearing",
+  "label": "Warning period before bearing failure (running hours)",
   "value": 150.0,
   "unit": "running h",
   "source": "Plan v1.4: bearing shows several days ahead",
@@ -361,7 +361,7 @@
  },
  {
   "key": "simulator.pf_h_hydraulic_cone",
-  "label": "Pf h hydraulic cone",
+  "label": "Warning period before cone hydraulic failure (running hours)",
   "value": 200.0,
   "unit": "running h",
   "source": "Plan v1.4 (assumed, between bearing and worm)",
@@ -369,7 +369,7 @@
  },
  {
   "key": "alerting.persistence_h",
-  "label": "Persistence h",
+  "label": "Hours risk must stay above the line before alerting",
   "value": 3.0,
   "unit": "h",
   "source": "Plan 4.1",
@@ -377,7 +377,7 @@
  },
  {
   "key": "alerting.max_per_shift",
-  "label": "Max per shift",
+  "label": "Maximum alerts per shift",
   "value": 5.0,
   "unit": "count",
   "source": "Plan 4.1",
@@ -385,7 +385,7 @@
  },
  {
   "key": "alerting.horizon_h",
-  "label": "Horizon h",
+  "label": "Alert look-ahead (hours)",
   "value": 72.0,
   "unit": "h",
   "source": "Plan 4.1",
@@ -393,7 +393,7 @@
  },
  {
   "key": "alerting.hysteresis_ratio",
-  "label": "Hysteresis ratio",
+  "label": "Alert stays open until risk falls below this share of the line",
   "value": 0.6,
   "unit": "x threshold",
   "source": "Clear below 60% of threshold",
@@ -401,7 +401,7 @@
  },
  {
   "key": "alerting.inspection_finds_wrong_class",
-  "label": "Inspection finds wrong class",
+  "label": "Chance an inspection still finds the fault when the predicted class is wrong",
   "value": 0.5,
   "unit": "probability",
   "source": "If the predicted class is wrong, the crew inspection still finds the real fault this often",
@@ -409,7 +409,7 @@
  },
  {
   "key": "alerting.fix_now_response_h",
-  "label": "Fix now response h",
+  "label": "Time to start a fix-now repair (hours)",
   "value": 4.0,
   "unit": "h",
   "source": "Time from fix-now alert to repair done",
@@ -417,7 +417,7 @@
  },
  {
   "key": "alerting.clear_hours",
-  "label": "Clear hours",
+  "label": "Hours below the line before an alert clears",
   "value": 6.0,
   "unit": "h",
   "source": "Alert clears after this many hours below hysteresis level",
@@ -425,7 +425,7 @@
  },
  {
   "key": "alerting.min_lead_h",
-  "label": "Min lead h",
+  "label": "Shortest useful lead time before a stop (hours)",
   "value": 6.0,
   "unit": "h",
   "source": "Alert only if time remains to act",
@@ -433,7 +433,7 @@
  },
  {
   "key": "alerting.fixed_interval_h",
-  "label": "Fixed interval h",
+  "label": "Fixed-interval policy: service every (running hours)",
   "value": 1000.0,
   "unit": "h",
   "source": "Fixed-interval policy; near RCM worm interval ~1,217 h",
@@ -453,6 +453,14 @@
   "value": "A boiler breakdown costs 8 hours x RM50,840 per mill-hour (the whole mill stops) x 30% truly lost + repair cost x 1.5 (about RM126,517)",
   "unit": "",
   "source": "Derived from the economics and repair-cost values above",
+  "status": "assumed"
+ },
+ {
+  "key": "derived.backtest_approximation",
+  "label": "How the backtest treats a repaired part",
+  "value": "After an early repair, the part is treated as renewed; its slightly earlier next wear-out is not modelled (median warning 63 h vs part life 700–2,000 h).",
+  "unit": "",
+  "source": "Backtest simplification",
   "status": "assumed"
  }
 ]
