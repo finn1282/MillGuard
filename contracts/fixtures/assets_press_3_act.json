@@ -6,13 +6,13 @@
   "stage": "press",
   "position": 3,
   "status": "ok",
-  "risk_pct": 11.0,
+  "risk_pct": 4.0,
   "summary_en": "Normal",
   "summary_ms": "Normal",
   "name_ms": "Penekan 3"
  },
  "status": "ok",
- "risk_pct": 11.0,
+ "risk_pct": 4.0,
  "series": [
   {
    "signal": "current_per_tonne",
@@ -544,11 +544,15 @@
     [
      "2025-11-23T22:00:00+08:00",
      4.489
+    ],
+    [
+     "2025-11-23T23:00:00+08:00",
+     4.651
     ]
    ],
    "limit": null,
-   "summary_en": "4.57 to 4.55 A/t over 7 days",
-   "summary_ms": "4.57 kepada 4.55 A/t dalam 7 hari"
+   "summary_en": "4.57 to 4.56 A/t over 7 days",
+   "summary_ms": "4.57 kepada 4.56 A/t dalam 7 hari"
   },
   {
    "signal": "vib_kurtosis",
@@ -1088,11 +1092,15 @@
     [
      "2025-11-23T22:00:00+08:00",
      3.188
+    ],
+    [
+     "2025-11-23T23:00:00+08:00",
+     2.954
     ]
    ],
    "limit": null,
-   "summary_en": "2.97 to 3.04 over 7 days",
-   "summary_ms": "2.97 kepada 3.04 dalam 7 hari"
+   "summary_en": "2.97 to 3.03 over 7 days",
+   "summary_ms": "2.97 kepada 3.03 dalam 7 hari"
   },
   {
    "signal": "gearbox_oil_temp",
@@ -1632,6 +1640,10 @@
     [
      "2025-11-23T22:00:00+08:00",
      67.244
+    ],
+    [
+     "2025-11-23T23:00:00+08:00",
+     67.318
     ]
    ],
    "limit": 80.0,
@@ -2164,11 +2176,15 @@
     [
      "2025-11-23T22:00:00+08:00",
      42.902
+    ],
+    [
+     "2025-11-23T23:00:00+08:00",
+     44.747
     ]
    ],
    "limit": 57.0,
-   "summary_en": "44.5 to 44.1 bar over 7 days",
-   "summary_ms": "44.5 kepada 44.1 bar dalam 7 hari"
+   "summary_en": "44.5 to 44.2 bar over 7 days",
+   "summary_ms": "44.5 kepada 44.2 bar dalam 7 hari"
   },
   {
    "signal": "vib_rms",
@@ -2700,6 +2716,10 @@
     [
      "2025-11-23T22:00:00+08:00",
      2.137
+    ],
+    [
+     "2025-11-23T23:00:00+08:00",
+     2.241
     ]
    ],
    "limit": 3.2,
@@ -3232,11 +3252,15 @@
     [
      "2025-11-23T22:00:00+08:00",
      65.822
+    ],
+    [
+     "2025-11-23T23:00:00+08:00",
+     62.727
     ]
    ],
    "limit": null,
-   "summary_en": "65.6 to 65.8 A over 7 days",
-   "summary_ms": "65.6 kepada 65.8 A dalam 7 hari"
+   "summary_en": "65.6 to 65.7 A over 7 days",
+   "summary_ms": "65.6 kepada 65.7 A dalam 7 hari"
   },
   {
    "signal": "fibre_oil_loss",
@@ -3398,10 +3422,10 @@
   {
    "t": "2025-05-04T23:00:00+08:00",
    "fault_class": "gearbox_shaft",
-   "what_en": "Gearbox or shaft fault: MillGuard warned before it failed",
-   "what_ms": "Kerosakan gear atau aci: MillGuard memberi amaran sebelum rosak",
+   "what_en": "Gearbox or shaft fault: broke down with no warning",
+   "what_ms": "Kerosakan gear atau aci: rosak tanpa amaran",
    "downtime_h": 4.0,
-   "was_predicted": true
+   "was_predicted": false
   },
   {
    "t": "2025-04-24T14:00:00+08:00",
@@ -3480,7 +3504,7 @@
   "t": "2025-11-20T20:00:00+08:00",
   "what_en": "Last repair logged on Press 3: bearing wear",
   "what_ms": "Pembaikan terakhir direkodkan bagi Penekan 3: haus galas",
-  "hours_since": 74.0
+  "hours_since": 75.0
  },
  "next_check": {
   "t": "2025-11-30T06:00:00+08:00",
@@ -3489,10 +3513,10 @@
  },
  "outlook": {
   "fault_class": "electrical",
-  "risk_pct": 11.0,
+  "risk_pct": 4.0,
   "horizon_h": 168,
   "rm_breakdown_cost": 19002,
-  "rm_at_risk": 2090,
+  "rm_at_risk": 760,
   "rm_cost_to_act": 2500,
   "rm_saved_if_acted": 0,
   "window_label_en": "before the planned stop after next, Sunday 06:00 (counted up to 168 hours)",

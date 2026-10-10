@@ -3443,12 +3443,7 @@
    "summary_ms": "3.60 kepada 4.56 % dalam 7 hari"
   }
  ],
- "alert_windows": [
-  {
-   "start": "2025-05-06T19:00:00+08:00",
-   "end": "2025-05-06T22:00:00+08:00"
-  }
- ],
+ "alert_windows": [],
  "failures": [],
  "action": null,
  "diagnosis": null,
@@ -3457,10 +3452,10 @@
   {
    "t": "2025-05-04T23:00:00+08:00",
    "fault_class": "gearbox_shaft",
-   "what_en": "Gearbox or shaft fault: MillGuard warned before it failed",
-   "what_ms": "Kerosakan gear atau aci: MillGuard memberi amaran sebelum rosak",
+   "what_en": "Gearbox or shaft fault: broke down with no warning",
+   "what_ms": "Kerosakan gear atau aci: rosak tanpa amaran",
    "downtime_h": 4.0,
-   "was_predicted": true
+   "was_predicted": false
   },
   {
    "t": "2025-04-24T14:00:00+08:00",
@@ -3536,10 +3531,10 @@
   }
  ],
  "last_service": {
-  "t": "2025-05-06T22:00:00+08:00",
+  "t": "2025-05-06T14:00:00+08:00",
   "what_en": "Last repair logged on Press 3: worm wear",
   "what_ms": "Pembaikan terakhir direkodkan bagi Penekan 3: haus skru cacing",
-  "hours_since": 165.0
+  "hours_since": 173.0
  },
  "next_check": {
   "t": "2025-05-18T06:00:00+08:00",
@@ -3556,8 +3551,8 @@
   "rm_saved_if_acted": 0,
   "window_label_en": "before the planned stop after next, Sunday 06:00 (counted up to 168 hours)",
   "window_label_ms": "sebelum henti terancang selepas yang seterusnya, Ahad jam 06:00 (dikira sehingga 168 jam)",
-  "note_en": "Already handled on Tuesday at 22:00. No new alert until the risk clears; the figures restart from zero.",
-  "note_ms": "Sudah ditangani pada Selasa jam 22:00. Tiada amaran baharu sehingga risiko reda; angka bermula semula dari sifar.",
-  "handled_at": "2025-05-06T22:00:00+08:00"
+  "note_en": "Already handled on Tuesday at 14:00. No new alert until the risk clears; the figures restart from zero.",
+  "note_ms": "Sudah ditangani pada Selasa jam 14:00. Tiada amaran baharu sehingga risiko reda; angka bermula semula dari sifar.",
+  "handled_at": "2025-05-06T14:00:00+08:00"
  }
 }

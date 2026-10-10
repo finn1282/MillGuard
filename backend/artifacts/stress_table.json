@@ -2,111 +2,111 @@
  {
   "caught": 72,
   "total": 110,
-  "fa_week": 0.54,
-  "alerts": 108,
+  "fa_week": 0.31,
+  "alerts": 101,
   "tp_alerts": 72,
-  "median_lead_h": 74.5,
+  "median_lead_h": 70.0,
   "cost": {
    "run_to_failure": 3189545,
    "fixed_interval": 2814203,
-   "millguard": 1974434,
-   "schedule_plus_millguard": 1808734
+   "millguard": 1740300,
+   "schedule_plus_millguard": 1563350
   },
   "key": "baseline",
   "label": "No perturbation (reference)"
  },
  {
-  "caught": 35,
+  "caught": 73,
   "total": 110,
-  "fa_week": 3.57,
-  "alerts": 223,
-  "tp_alerts": 35,
-  "median_lead_h": 79.0,
+  "fa_week": 0.67,
+  "alerts": 117,
+  "tp_alerts": 73,
+  "median_lead_h": 66.0,
   "cost": {
    "run_to_failure": 3189545,
    "fixed_interval": 2814203,
-   "millguard": 3440012,
-   "schedule_plus_millguard": 2805134
+   "millguard": 1814760,
+   "schedule_plus_millguard": 1614806
   },
   "key": "noise2",
   "label": "Sensor noise x2"
  },
  {
-  "caught": 15,
+  "caught": 48,
   "total": 110,
-  "fa_week": 2.55,
-  "alerts": 149,
-  "tp_alerts": 15,
-  "median_lead_h": 76.0,
+  "fa_week": 5.81,
+  "alerts": 353,
+  "tp_alerts": 48,
+  "median_lead_h": 93.5,
   "cost": {
    "run_to_failure": 3189545,
    "fixed_interval": 2814203,
-   "millguard": 3074301,
-   "schedule_plus_millguard": 2150273
+   "millguard": 3691394,
+   "schedule_plus_millguard": 3164774
   },
   "key": "noise3",
   "label": "Sensor noise x3"
  },
  {
-  "caught": 69,
-  "total": 110,
-  "fa_week": 1.25,
-  "alerts": 144,
-  "tp_alerts": 69,
-  "median_lead_h": 75.0,
-  "cost": {
-   "run_to_failure": 3189545,
-   "fixed_interval": 2814203,
-   "millguard": 1939777,
-   "schedule_plus_millguard": 1761325
-  },
-  "key": "miss20",
-  "label": "20% of readings missing"
- },
- {
   "caught": 72,
   "total": 110,
-  "fa_week": 1.73,
-  "alerts": 168,
+  "fa_week": 0.84,
+  "alerts": 128,
   "tp_alerts": 72,
   "median_lead_h": 71.5,
   "cost": {
    "run_to_failure": 3189545,
    "fixed_interval": 2814203,
-   "millguard": 1811510,
-   "schedule_plus_millguard": 1625806
+   "millguard": 1785204,
+   "schedule_plus_millguard": 1567124
+  },
+  "key": "miss20",
+  "label": "20% of readings missing"
+ },
+ {
+  "caught": 74,
+  "total": 110,
+  "fa_week": 1.5,
+  "alerts": 162,
+  "tp_alerts": 74,
+  "median_lead_h": 70.5,
+  "cost": {
+   "run_to_failure": 3189545,
+   "fixed_interval": 2814203,
+   "millguard": 1793906,
+   "schedule_plus_millguard": 1597202
   },
   "key": "miss40",
   "label": "40% of readings missing"
  },
  {
-  "caught": 43,
+  "caught": 72,
   "total": 110,
-  "fa_week": 2.17,
-  "alerts": 158,
-  "tp_alerts": 43,
-  "median_lead_h": 89.0,
+  "fa_week": 0.33,
+  "alerts": 101,
+  "tp_alerts": 72,
+  "median_lead_h": 76.0,
   "cost": {
    "run_to_failure": 3189545,
    "fixed_interval": 2814203,
-   "millguard": 2801030,
-   "schedule_plus_millguard": 2266290
+   "millguard": 1736850,
+   "schedule_plus_millguard": 1556024
   },
   "key": "drift",
   "label": "Slow sensor drift (+10% over the year on current and vibration)"
  },
  {
-  "caught": 68,
+  "caught": 69,
   "total": 110,
-  "fa_week": 0.63,
-  "alerts": 108,
-  "tp_alerts": 68,
-  "median_lead_h": 72.0,
+  "fa_week": 0.4,
+  "alerts": 104,
+  "tp_alerts": 69,
+  "median_lead_h": 70.0,
   "cost": {
    "run_to_failure": 3189545,
    "fixed_interval": 2814203,
-   "millguard": 2047442,
-   "schedule_plus_millguard": 1833112
+   "millguard": 1808308,
+   "schedule_plus_millguard": 1604730
   },
   "key": "wo25",
   "label": "25% of work orders with the wrong fault class"

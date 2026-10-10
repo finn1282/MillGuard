@@ -46,7 +46,7 @@ def headline(ep, pols, fails, thr):
               f"false alarms {r['false_alarms']:3d}  downtime {r['downtime_h']:.0f} h")
 
 
-def main(skip_sim=False, augment=False):
+def main(skip_sim=False, augment=True):
     if not skip_sim:
         out = simulate.simulate_all(); simulate.summary(out)
         if augment:
@@ -94,4 +94,4 @@ def main(skip_sim=False, augment=False):
 
 
 if __name__ == "__main__":
-    main(skip_sim="--skip-sim" in sys.argv, augment="--augment" in sys.argv)
+    main(skip_sim="--skip-sim" in sys.argv, augment="--no-augment" not in sys.argv)

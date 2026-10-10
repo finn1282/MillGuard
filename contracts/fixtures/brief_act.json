@@ -1,21 +1,21 @@
 {
- "at": "2025-11-23T22:00:00+08:00",
+ "at": "2025-11-23T23:00:00+08:00",
  "shift": "night",
  "actions": [
   {
-   "id": "act_press_2_2025112322",
+   "id": "act_press_2_2025112321",
    "asset_id": "press_2",
    "asset_name": "Press 2",
    "asset_name_ms": "Penekan 2",
    "asset_type": "press",
    "fault_class": "worm_wear",
-   "risk_pct": 87.0,
-   "horizon_h": 152,
-   "rm_at_risk": 21099,
+   "risk_pct": 86.0,
+   "horizon_h": 151,
+   "rm_at_risk": 20857,
    "rm_cost_to_act": 13626,
-   "rm_saved_if_acted": 7473,
+   "rm_saved_if_acted": 7231,
    "recommendation": "fix_now",
-   "deadline": "2025-11-24T02:00:00+08:00",
+   "deadline": "2025-11-24T01:00:00+08:00",
    "headline_en": "Press 2: Worm wear. Change the worm now.",
    "headline_ms": "Penekan 2: Haus skru cacing. Tukar skru cacing sekarang.",
    "reasons": [
@@ -24,35 +24,35 @@
      "text_ms": "Arus motor setiap tan 8% lebih tinggi daripada biasa bagi Penekan 2",
      "signal": "current_per_tonne",
      "direction": "up",
-     "contribution": 0.561
+     "contribution": 0.404
     },
     {
-     "text_en": "Motor current is 8% above Press 2's normal",
-     "text_ms": "Arus motor 8% lebih tinggi daripada biasa bagi Penekan 2",
-     "signal": "motor_current",
+     "text_en": "Vibration level (root mean square) is 24% above Press 2's normal",
+     "text_ms": "Tahap getaran (punca min kuasa dua) 24% lebih tinggi daripada biasa bagi Penekan 2",
+     "signal": "vib_rms",
      "direction": "up",
-     "contribution": 0.226
+     "contribution": 0.299
     },
     {
      "text_en": "Oil lost in fibre is 3.5% (alarm line is 4%)",
      "text_ms": "Kehilangan minyak dalam serabut ialah 3.5% (garis amaran 4%)",
      "signal": "fibre_oil_loss",
      "direction": "up",
-     "contribution": 0.213
+     "contribution": 0.297
     }
    ],
    "why_rank_en": "Biggest ringgit saving tonight",
    "why_rank_ms": "Penjimatan ringgit terbesar malam ini",
    "criticality": "partial",
    "rm_breakdown_cost": 24252,
-   "deadline_label_en": "within 4 hours, by 02:00",
-   "deadline_label_ms": "dalam 4 jam, sebelum 02:00",
+   "deadline_label_en": "within 4 hours, by 01:00",
+   "deadline_label_ms": "dalam 4 jam, sebelum 01:00",
    "window_label_en": "before the next planned stop, Sunday 06:00",
    "window_label_ms": "sebelum henti terancang seterusnya, Ahad jam 06:00"
   }
  ],
- "rm_protected_total": 7473,
- "watching_count": 1,
+ "rm_protected_total": 7231,
+ "watching_count": 0,
  "suppressed_count": 0,
  "sensor_alerts": []
 }

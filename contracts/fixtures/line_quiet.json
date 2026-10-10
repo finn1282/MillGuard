@@ -8,7 +8,7 @@
    "stage": "press",
    "position": 1,
    "status": "ok",
-   "risk_pct": 9.0,
+   "risk_pct": 4.0,
    "summary_en": "Normal",
    "summary_ms": "Normal",
    "name_ms": "Penekan 1"
@@ -20,7 +20,7 @@
    "stage": "press",
    "position": 2,
    "status": "ok",
-   "risk_pct": 15.0,
+   "risk_pct": 14.0,
    "summary_en": "Normal",
    "summary_ms": "Normal",
    "name_ms": "Penekan 2"
@@ -44,7 +44,7 @@
    "stage": "press",
    "position": 4,
    "status": "ok",
-   "risk_pct": 18.0,
+   "risk_pct": 14.0,
    "summary_en": "Normal",
    "summary_ms": "Normal",
    "name_ms": "Penekan 4"

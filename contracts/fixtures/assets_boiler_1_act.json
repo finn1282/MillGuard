@@ -5,14 +5,14 @@
   "type": "boiler",
   "stage": "boiler",
   "position": 0,
-  "status": "watch",
-  "risk_pct": 5.0,
-  "summary_en": "Steam temperature drifting",
-  "summary_ms": "Suhu stim menyimpang",
+  "status": "ok",
+  "risk_pct": 4.0,
+  "summary_en": "Normal",
+  "summary_ms": "Normal",
   "name_ms": "Dandang 1"
  },
- "status": "watch",
- "risk_pct": 5.0,
+ "status": "ok",
+ "risk_pct": 4.0,
  "series": [
   {
    "signal": "steam_temp",
@@ -21,10 +21,6 @@
    "unit": "°C",
    "unit_ms": "°C",
    "points": [
-    [
-     "2025-11-16T23:00:00+08:00",
-     540.361
-    ],
     [
      "2025-11-17T00:00:00+08:00",
      535.309
@@ -576,6 +572,10 @@
     [
      "2025-11-23T22:00:00+08:00",
      538.568
+    ],
+    [
+     "2025-11-23T23:00:00+08:00",
+     538.299
     ]
    ],
    "limit": 530.0,
@@ -589,10 +589,6 @@
    "unit": "bar",
    "unit_ms": "bar",
    "points": [
-    [
-     "2025-11-16T23:00:00+08:00",
-     21.234
-    ],
     [
      "2025-11-17T00:00:00+08:00",
      21.309
@@ -1132,6 +1128,10 @@
     [
      "2025-11-23T22:00:00+08:00",
      20.644
+    ],
+    [
+     "2025-11-23T23:00:00+08:00",
+     21.194
     ]
    ],
    "limit": null,
@@ -1145,10 +1145,6 @@
    "unit": "t/t",
    "unit_ms": "t/t",
    "points": [
-    [
-     "2025-11-16T23:00:00+08:00",
-     0.825
-    ],
     [
      "2025-11-17T00:00:00+08:00",
      0.615
@@ -1696,11 +1692,15 @@
     [
      "2025-11-23T22:00:00+08:00",
      0.602
+    ],
+    [
+     "2025-11-23T23:00:00+08:00",
+     0.615
     ]
    ],
    "limit": null,
-   "summary_en": "0.621 to 0.600 t/t over 7 days",
-   "summary_ms": "0.621 kepada 0.600 t/t dalam 7 hari"
+   "summary_en": "0.611 to 0.601 t/t over 7 days",
+   "summary_ms": "0.611 kepada 0.601 t/t dalam 7 hari"
   },
   {
    "signal": "feedwater_cond",
@@ -1709,10 +1709,6 @@
    "unit": "µS/cm",
    "unit_ms": "µS/cm",
    "points": [
-    [
-     "2025-11-16T23:00:00+08:00",
-     19.509
-    ],
     [
      "2025-11-17T00:00:00+08:00",
      18.215
@@ -2260,17 +2256,21 @@
     [
      "2025-11-23T22:00:00+08:00",
      22.268
+    ],
+    [
+     "2025-11-23T23:00:00+08:00",
+     19.58
     ]
    ],
    "limit": null,
-   "summary_en": "20.1 to 20.2 µS/cm over 7 days",
-   "summary_ms": "20.1 kepada 20.2 µS/cm dalam 7 hari"
+   "summary_en": "20.1 to 20.1 µS/cm over 7 days",
+   "summary_ms": "20.1 kepada 20.1 µS/cm dalam 7 hari"
   }
  ],
  "alert_windows": [
   {
-   "start": "2025-11-20T13:00:00+08:00",
-   "end": "2025-11-20T17:00:00+08:00"
+   "start": "2025-11-20T16:00:00+08:00",
+   "end": "2025-11-20T20:00:00+08:00"
   }
  ],
  "failures": [
@@ -2280,49 +2280,7 @@
   }
  ],
  "action": null,
- "diagnosis": {
-  "fault_class": "boiler_steam",
-  "name_en": "Steam temperature drift",
-  "name_ms": "Sisihan suhu stim",
-  "confidence_pct": 100.0,
-  "plain_en": "The boiler's steam is leaving the normal temperature band, often because of fouled tubes or poor feed-water control.",
-  "plain_ms": "Stim dandang keluar daripada julat suhu biasa, selalunya kerana tiub kotor atau kawalan air suapan lemah.",
-  "alternatives": [
-   {
-    "fault_class": "boiler_water",
-    "confidence_pct": 0.0
-   }
-  ],
-  "fingerprint": [
-   {
-    "signal": "steam_temp",
-    "label_en": "Steam temperature",
-    "label_ms": "Suhu stim",
-    "expected": "down",
-    "observed_en": "Not yet: no clear change compared with normal (-0%)",
-    "observed_ms": "Belum lagi: tiada perubahan jelas berbanding biasa (-0%)",
-    "matches": false
-   },
-   {
-    "signal": "steam_pressure",
-    "label_en": "Steam pressure",
-    "label_ms": "Tekanan stim",
-    "expected": "unstable",
-    "observed_en": "Not yet: as steady as normal (1.2x)",
-    "observed_ms": "Belum lagi: sama stabil seperti biasa (1.2x)",
-    "matches": false
-   },
-   {
-    "signal": "feedwater_flow",
-    "label_en": "Feed-water flow",
-    "label_ms": "Aliran air suapan",
-    "expected": "down",
-    "observed_en": "Not yet: down 2% compared with normal, in the last 5 days",
-    "observed_ms": "Belum lagi: turun 2% berbanding biasa dalam 5 hari lepas",
-    "matches": false
-   }
-  ]
- },
+ "diagnosis": null,
  "fix": null,
  "history": [
   {
@@ -2370,7 +2328,7 @@
   "t": "2025-11-21T09:00:00+08:00",
   "what_en": "Last repair logged on Boiler 1: feed-water quality drift",
   "what_ms": "Pembaikan terakhir direkodkan bagi Dandang 1: sisihan kualiti air suapan",
-  "hours_since": 61.0
+  "hours_since": 62.0
  },
  "next_check": {
   "t": "2025-11-30T06:00:00+08:00",
@@ -2379,12 +2337,12 @@
  },
  "outlook": {
   "fault_class": "boiler_steam",
-  "risk_pct": 5.0,
+  "risk_pct": 4.0,
   "horizon_h": 168,
   "rm_breakdown_cost": 126517,
-  "rm_at_risk": 6326,
+  "rm_at_risk": 5061,
   "rm_cost_to_act": 3000,
-  "rm_saved_if_acted": 3326,
+  "rm_saved_if_acted": 2061,
   "window_label_en": "before the planned stop after next, Sunday 06:00 (counted up to 168 hours)",
   "window_label_ms": "sebelum henti terancang selepas yang seterusnya, Ahad jam 06:00 (dikira sehingga 168 jam)",
   "note_en": "Looks 168 hours (7 days) ahead, further than the alert rule. Not confirmed yet, so no alert.",

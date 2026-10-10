@@ -284,9 +284,19 @@ def simulate_all(seed=2025, mills=None, noise_fixed=None, seed_shift=0, id_offse
 
 
 def simulate_augmented(seed=2025):
-    """Augmented copies of training mills 1-9 at noise_mult 2 (ids 101-109, separate seeds); never used for evaluation."""
-    return simulate_all(seed, mills=range(1, 10), noise_fixed=2.0, seed_shift=500_000, id_offset=100, out_dir=AUG,
-                        tables=("telemetry", "errors", "failures", "maintenance"))
+    """Augmented copies of training mills 1-9, own seeds, never used for evaluation: ids 101-109 at noise_mult 2,
+    ids 201-209 with the stress test's slow sensor drift (+10% over the year on current and vibration)."""
+    from backend.robustness.stress import perturb
+    kw = dict(mills=range(1, 10), write=False)
+    noisy = simulate_all(seed, noise_fixed=2.0, seed_shift=500_000, id_offset=100, **kw)
+    drifty = simulate_all(seed, seed_shift=900_000, id_offset=200, **kw)
+    drifty["telemetry"] = pd.concat([perturb(g, pd.DataFrame(), "drift", 0.10, None)[0] for _, g in drifty["telemetry"].groupby("mill_id")])
+    AUG.mkdir(parents=True, exist_ok=True)
+    out = {}
+    for k in ("telemetry", "errors", "failures", "maintenance"):
+        out[k] = pd.concat([noisy[k], drifty[k]]).reset_index(drop=True)
+        out[k].to_parquet(AUG / f"{k}.parquet")
+    return out
 
 
 def summary(out):

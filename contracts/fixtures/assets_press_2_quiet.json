@@ -6,13 +6,13 @@
   "stage": "press",
   "position": 2,
   "status": "ok",
-  "risk_pct": 15.0,
+  "risk_pct": 14.0,
   "summary_en": "Normal",
   "summary_ms": "Normal",
   "name_ms": "Penekan 2"
  },
  "status": "ok",
- "risk_pct": 15.0,
+ "risk_pct": 14.0,
  "series": [
   {
    "signal": "current_per_tonne",
@@ -3563,12 +3563,12 @@
  },
  "outlook": {
   "fault_class": "electrical",
-  "risk_pct": 15.0,
+  "risk_pct": 14.0,
   "horizon_h": 168,
   "rm_breakdown_cost": 19002,
-  "rm_at_risk": 2850,
+  "rm_at_risk": 2660,
   "rm_cost_to_act": 2500,
-  "rm_saved_if_acted": 350,
+  "rm_saved_if_acted": 160,
   "window_label_en": "before the planned stop after next, Sunday 06:00 (counted up to 168 hours)",
   "window_label_ms": "sebelum henti terancang selepas yang seterusnya, Ahad jam 06:00 (dikira sehingga 168 jam)",
   "note_en": "Looks 168 hours (7 days) ahead, further than the alert rule. Not confirmed yet, so no alert.",

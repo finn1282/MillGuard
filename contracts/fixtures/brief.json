@@ -1,147 +1,58 @@
 {
- "at": "2025-06-21T14:00:00+08:00",
- "shift": "day",
+ "at": "2025-04-27T02:00:00+08:00",
+ "shift": "night",
  "actions": [
   {
-   "id": "act_boiler_1_2025062114",
+   "id": "act_boiler_1_2025042702",
    "asset_id": "boiler_1",
    "asset_name": "Boiler 1",
    "asset_name_ms": "Dandang 1",
    "asset_type": "boiler",
    "fault_class": "boiler_steam",
-   "risk_pct": 56.0,
-   "horizon_h": 16,
-   "rm_at_risk": 70850,
+   "risk_pct": 85.0,
+   "horizon_h": 168,
+   "rm_at_risk": 107539,
    "rm_cost_to_act": 3000,
-   "rm_saved_if_acted": 67850,
+   "rm_saved_if_acted": 104539,
    "recommendation": "fix_now",
-   "deadline": "2025-06-21T18:00:00+08:00",
+   "deadline": "2025-04-27T06:00:00+08:00",
    "headline_en": "Boiler 1: Steam temperature drift. Check feed-water dosing and blowdown now.",
    "headline_ms": "Dandang 1: Sisihan suhu stim. Semak dos air suapan dan blowdown sekarang.",
    "reasons": [
     {
-     "text_en": "Recent load on Boiler 1 differs from its usual pattern",
-     "text_ms": "Beban terkini pada Dandang 1 berbeza daripada corak biasa",
-     "signal": "load",
-     "direction": "up",
-     "contribution": 0.93
+     "text_en": "Feed-water flow is 3% below Boiler 1's normal",
+     "text_ms": "Aliran air suapan 3% lebih rendah daripada biasa bagi Dandang 1",
+     "signal": "feedwater_flow",
+     "direction": "down",
+     "contribution": 0.919
     },
     {
-     "text_en": "919 hours since the last logged service on Boiler 1",
-     "text_ms": "919 jam sejak servis terakhir direkodkan bagi Dandang 1",
+     "text_en": "1,917 hours since the last logged service on Boiler 1",
+     "text_ms": "1,917 jam sejak servis terakhir direkodkan bagi Dandang 1",
      "signal": "hours_since_service",
      "direction": "up",
-     "contribution": 0.07
+     "contribution": 0.074
+    },
+    {
+     "text_en": "Feed-water conductivity is 1% above Boiler 1's normal",
+     "text_ms": "Kekonduksian air suapan 1% lebih tinggi daripada biasa bagi Dandang 1",
+     "signal": "feedwater_cond",
+     "direction": "up",
+     "contribution": 0.008
     }
    ],
    "why_rank_en": "Boiler stops the whole mill, so it comes first",
    "why_rank_ms": "Dandang menghentikan seluruh kilang, jadi ia diutamakan",
    "criticality": "whole_mill",
    "rm_breakdown_cost": 126517,
-   "deadline_label_en": "within 4 hours, by 18:00",
-   "deadline_label_ms": "dalam 4 jam, sebelum 18:00",
+   "deadline_label_en": "within 4 hours, by 06:00",
+   "deadline_label_ms": "dalam 4 jam, sebelum 06:00",
    "window_label_en": "before the next planned stop, Sunday 06:00",
    "window_label_ms": "sebelum henti terancang seterusnya, Ahad jam 06:00"
-  },
-  {
-   "id": "act_press_4_2025061922",
-   "asset_id": "press_4",
-   "asset_name": "Press 4",
-   "asset_name_ms": "Penekan 4",
-   "asset_type": "press",
-   "fault_class": "bearing",
-   "risk_pct": 99.0,
-   "horizon_h": 168,
-   "rm_at_risk": 21782,
-   "rm_cost_to_act": 4500,
-   "rm_saved_if_acted": 17282,
-   "recommendation": "schedule_next_stop",
-   "deadline": "2025-06-22T06:00:00+08:00",
-   "headline_en": "Press 4: Bearing wear. Replace the bearing at the Sunday 06:00 stop.",
-   "headline_ms": "Penekan 4: Haus galas. Tukar galas pada henti terancang Ahad jam 06:00.",
-   "reasons": [
-    {
-     "text_en": "Vibration level (root mean square) is 14% above Press 4's normal",
-     "text_ms": "Tahap getaran (punca min kuasa dua) 14% lebih tinggi daripada biasa bagi Penekan 4",
-     "signal": "vib_rms",
-     "direction": "up",
-     "contribution": 0.881
-    },
-    {
-     "text_en": "Gearbox oil temperature is 4% below Press 4's normal",
-     "text_ms": "Suhu minyak gear 4% lebih rendah daripada biasa bagi Penekan 4",
-     "signal": "gearbox_oil_temp",
-     "direction": "down",
-     "contribution": 0.082
-    },
-    {
-     "text_en": "189 hours since the last logged service on Press 4",
-     "text_ms": "189 jam sejak servis terakhir direkodkan bagi Penekan 4",
-     "signal": "hours_since_service",
-     "direction": "up",
-     "contribution": 0.037
-    }
-   ],
-   "why_rank_en": "One press is a quarter of the mill, so it ranks below the boiler",
-   "why_rank_ms": "Satu penekan ialah suku kilang, jadi ia di bawah dandang",
-   "criticality": "partial",
-   "rm_breakdown_cost": 22002,
-   "deadline_label_en": "tomorrow's 06:00 planned stop",
-   "deadline_label_ms": "henti terancang esok jam 06:00",
-   "window_label_en": "before the planned stop after next, Sunday 06:00 (counted up to 168 hours)",
-   "window_label_ms": "sebelum henti terancang selepas yang seterusnya, Ahad jam 06:00 (dikira sehingga 168 jam)"
-  },
-  {
-   "id": "act_press_3_2025062114",
-   "asset_id": "press_3",
-   "asset_name": "Press 3",
-   "asset_name_ms": "Penekan 3",
-   "asset_type": "press",
-   "fault_class": "gearbox_shaft",
-   "risk_pct": 51.0,
-   "horizon_h": 168,
-   "rm_at_risk": 14664,
-   "rm_cost_to_act": 9000,
-   "rm_saved_if_acted": 5664,
-   "recommendation": "schedule_next_stop",
-   "deadline": "2025-06-22T06:00:00+08:00",
-   "headline_en": "Press 3: Gearbox or shaft fault. Inspect the gearbox and shaft at tomorrow's 06:00 stop.",
-   "headline_ms": "Penekan 3: Kerosakan gear atau aci. Periksa gear dan aci pada henti terancang esok jam 06:00.",
-   "reasons": [
-    {
-     "text_en": "Gearbox oil temperature is 7% above Press 3's normal",
-     "text_ms": "Suhu minyak gear 7% lebih tinggi daripada biasa bagi Penekan 3",
-     "signal": "gearbox_oil_temp",
-     "direction": "up",
-     "contribution": 0.606
-    },
-    {
-     "text_en": "1 controller alarms on Press 3 in the last 24 hours",
-     "text_ms": "1 penggera pengawal pada Penekan 3 dalam 24 jam lepas",
-     "signal": "alarms",
-     "direction": "up",
-     "contribution": 0.283
-    },
-    {
-     "text_en": "14 hours since the last logged service on Press 3",
-     "text_ms": "14 jam sejak servis terakhir direkodkan bagi Penekan 3",
-     "signal": "hours_since_service",
-     "direction": "up",
-     "contribution": 0.111
-    }
-   ],
-   "why_rank_en": "One press is a quarter of the mill, so it ranks below the boiler",
-   "why_rank_ms": "Satu penekan ialah suku kilang, jadi ia di bawah dandang",
-   "criticality": "partial",
-   "rm_breakdown_cost": 28752,
-   "deadline_label_en": "tomorrow's 06:00 planned stop",
-   "deadline_label_ms": "henti terancang esok jam 06:00",
-   "window_label_en": "before the planned stop after next, Sunday 06:00 (counted up to 168 hours)",
-   "window_label_ms": "sebelum henti terancang selepas yang seterusnya, Ahad jam 06:00 (dikira sehingga 168 jam)"
   }
  ],
- "rm_protected_total": 90796,
- "watching_count": 0,
+ "rm_protected_total": 104539,
+ "watching_count": 1,
  "suppressed_count": 0,
  "sensor_alerts": []
 }

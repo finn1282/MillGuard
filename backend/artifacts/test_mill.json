@@ -4,45 +4,45 @@
   {
    "fault_class": "bearing",
    "total": 40,
-   "caught": 31,
-   "median_lead_h": 69.0
+   "caught": 34,
+   "median_lead_h": 68.5
   },
   {
    "fault_class": "gearbox_shaft",
    "total": 31,
-   "caught": 16,
-   "median_lead_h": 91.0
+   "caught": 13,
+   "median_lead_h": 68.0
   },
   {
    "fault_class": "worm_wear",
    "total": 26,
-   "caught": 18,
-   "median_lead_h": 93.0
+   "caught": 17,
+   "median_lead_h": 97.0
   },
   {
    "fault_class": "electrical",
    "total": 6,
-   "caught": 3,
-   "median_lead_h": 8.0
+   "caught": 1,
+   "median_lead_h": 18.0
   },
   {
    "fault_class": "boiler_steam",
    "total": 4,
-   "caught": 2,
-   "median_lead_h": 32.5
+   "caught": 4,
+   "median_lead_h": 31.0
   },
   {
    "fault_class": "hydraulic_cone",
    "total": 2,
-   "caught": 1,
-   "median_lead_h": 37.0
+   "caught": 2,
+   "median_lead_h": 99.0
   },
   {
    "fault_class": "boiler_water",
    "total": 1,
    "caught": 1,
-   "median_lead_h": 71.0
+   "median_lead_h": 70.0
   }
  ],
- "false_alarms_per_week": 0.54
+ "false_alarms_per_week": 0.31
 }

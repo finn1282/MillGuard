@@ -6,13 +6,13 @@
   "stage": "press",
   "position": 2,
   "status": "act",
-  "risk_pct": 87.0,
+  "risk_pct": 86.0,
   "summary_en": "Worm wearing",
   "summary_ms": "Skru cacing haus",
   "name_ms": "Penekan 2"
  },
  "status": "act",
- "risk_pct": 87.0,
+ "risk_pct": 86.0,
  "series": [
   {
    "signal": "current_per_tonne",
@@ -21,10 +21,6 @@
    "unit": "A/t",
    "unit_ms": "A/t",
    "points": [
-    [
-     "2025-11-16T23:00:00+08:00",
-     4.654
-    ],
     [
      "2025-11-17T00:00:00+08:00",
      4.639
@@ -552,11 +548,15 @@
     [
      "2025-11-23T22:00:00+08:00",
      5.081
+    ],
+    [
+     "2025-11-23T23:00:00+08:00",
+     4.801
     ]
    ],
    "limit": null,
-   "summary_en": "4.70 to 4.91 A/t over 7 days",
-   "summary_ms": "4.70 kepada 4.91 A/t dalam 7 hari"
+   "summary_en": "4.70 to 4.90 A/t over 7 days",
+   "summary_ms": "4.70 kepada 4.90 A/t dalam 7 hari"
   },
   {
    "signal": "vib_kurtosis",
@@ -565,10 +565,6 @@
    "unit": "",
    "unit_ms": "",
    "points": [
-    [
-     "2025-11-16T23:00:00+08:00",
-     3.018
-    ],
     [
      "2025-11-17T00:00:00+08:00",
      2.907
@@ -1104,11 +1100,15 @@
     [
      "2025-11-23T22:00:00+08:00",
      2.829
+    ],
+    [
+     "2025-11-23T23:00:00+08:00",
+     3.034
     ]
    ],
    "limit": null,
-   "summary_en": "2.96 to 6.95 over 7 days",
-   "summary_ms": "2.96 kepada 6.95 dalam 7 hari"
+   "summary_en": "2.96 to 6.76 over 7 days",
+   "summary_ms": "2.96 kepada 6.76 dalam 7 hari"
   },
   {
    "signal": "gearbox_oil_temp",
@@ -1117,10 +1117,6 @@
    "unit": "°C",
    "unit_ms": "°C",
    "points": [
-    [
-     "2025-11-16T23:00:00+08:00",
-     67.045
-    ],
     [
      "2025-11-17T00:00:00+08:00",
      67.466
@@ -1652,6 +1648,10 @@
     [
      "2025-11-23T22:00:00+08:00",
      65.954
+    ],
+    [
+     "2025-11-23T23:00:00+08:00",
+     69.156
     ]
    ],
    "limit": 80.0,
@@ -1665,10 +1665,6 @@
    "unit": "bar",
    "unit_ms": "bar",
    "points": [
-    [
-     "2025-11-16T23:00:00+08:00",
-     45.269
-    ],
     [
      "2025-11-17T00:00:00+08:00",
      42.899
@@ -2200,11 +2196,15 @@
     [
      "2025-11-23T22:00:00+08:00",
      44.242
+    ],
+    [
+     "2025-11-23T23:00:00+08:00",
+     46.638
     ]
    ],
    "limit": 57.0,
-   "summary_en": "44.0 to 44.6 bar over 7 days",
-   "summary_ms": "44.0 kepada 44.6 bar dalam 7 hari"
+   "summary_en": "43.9 to 44.6 bar over 7 days",
+   "summary_ms": "43.9 kepada 44.6 bar dalam 7 hari"
   },
   {
    "signal": "vib_rms",
@@ -2213,10 +2213,6 @@
    "unit": "mm/s",
    "unit_ms": "mm/s",
    "points": [
-    [
-     "2025-11-16T23:00:00+08:00",
-     2.191
-    ],
     [
      "2025-11-17T00:00:00+08:00",
      2.215
@@ -2744,11 +2740,15 @@
     [
      "2025-11-23T22:00:00+08:00",
      2.097
+    ],
+    [
+     "2025-11-23T23:00:00+08:00",
+     2.058
     ]
    ],
    "limit": 3.2,
-   "summary_en": "2.20 to 3.00 mm/s over 7 days",
-   "summary_ms": "2.20 kepada 3.00 mm/s dalam 7 hari"
+   "summary_en": "2.20 to 2.96 mm/s over 7 days",
+   "summary_ms": "2.20 kepada 2.96 mm/s dalam 7 hari"
   },
   {
    "signal": "motor_current",
@@ -2757,10 +2757,6 @@
    "unit": "A",
    "unit_ms": "A",
    "points": [
-    [
-     "2025-11-16T23:00:00+08:00",
-     63.116
-    ],
     [
      "2025-11-17T00:00:00+08:00",
      63.948
@@ -3296,11 +3292,15 @@
     [
      "2025-11-23T22:00:00+08:00",
      71.362
+    ],
+    [
+     "2025-11-23T23:00:00+08:00",
+     71.794
     ]
    ],
    "limit": null,
-   "summary_en": "67.8 to 71.4 A over 7 days",
-   "summary_ms": "67.8 kepada 71.4 A dalam 7 hari"
+   "summary_en": "68.0 to 71.3 A over 7 days",
+   "summary_ms": "68.0 kepada 71.3 A dalam 7 hari"
   },
   {
    "signal": "fibre_oil_loss",
@@ -3337,12 +3337,12 @@
  ],
  "alert_windows": [
   {
-   "start": "2025-11-19T14:00:00+08:00",
-   "end": "2025-11-19T18:00:00+08:00"
+   "start": "2025-11-19T18:00:00+08:00",
+   "end": "2025-11-19T22:00:00+08:00"
   },
   {
-   "start": "2025-11-23T22:00:00+08:00",
-   "end": "2025-11-23T22:00:00+08:00"
+   "start": "2025-11-23T21:00:00+08:00",
+   "end": "2025-11-23T23:00:00+08:00"
   }
  ],
  "failures": [
@@ -3352,19 +3352,19 @@
   }
  ],
  "action": {
-  "id": "act_press_2_2025112322",
+  "id": "act_press_2_2025112321",
   "asset_id": "press_2",
   "asset_name": "Press 2",
   "asset_name_ms": "Penekan 2",
   "asset_type": "press",
   "fault_class": "worm_wear",
-  "risk_pct": 87.0,
-  "horizon_h": 152,
-  "rm_at_risk": 21099,
+  "risk_pct": 86.0,
+  "horizon_h": 151,
+  "rm_at_risk": 20857,
   "rm_cost_to_act": 13626,
-  "rm_saved_if_acted": 7473,
+  "rm_saved_if_acted": 7231,
   "recommendation": "fix_now",
-  "deadline": "2025-11-24T02:00:00+08:00",
+  "deadline": "2025-11-24T01:00:00+08:00",
   "headline_en": "Press 2: Worm wear. Change the worm now.",
   "headline_ms": "Penekan 2: Haus skru cacing. Tukar skru cacing sekarang.",
   "reasons": [
@@ -3373,29 +3373,29 @@
     "text_ms": "Arus motor setiap tan 8% lebih tinggi daripada biasa bagi Penekan 2",
     "signal": "current_per_tonne",
     "direction": "up",
-    "contribution": 0.561
+    "contribution": 0.404
    },
    {
-    "text_en": "Motor current is 8% above Press 2's normal",
-    "text_ms": "Arus motor 8% lebih tinggi daripada biasa bagi Penekan 2",
-    "signal": "motor_current",
+    "text_en": "Vibration level (root mean square) is 24% above Press 2's normal",
+    "text_ms": "Tahap getaran (punca min kuasa dua) 24% lebih tinggi daripada biasa bagi Penekan 2",
+    "signal": "vib_rms",
     "direction": "up",
-    "contribution": 0.226
+    "contribution": 0.299
    },
    {
     "text_en": "Oil lost in fibre is 3.5% (alarm line is 4%)",
     "text_ms": "Kehilangan minyak dalam serabut ialah 3.5% (garis amaran 4%)",
     "signal": "fibre_oil_loss",
     "direction": "up",
-    "contribution": 0.213
+    "contribution": 0.297
    }
   ],
   "why_rank_en": "Biggest ringgit saving tonight",
   "why_rank_ms": "Penjimatan ringgit terbesar malam ini",
   "criticality": "partial",
   "rm_breakdown_cost": 24252,
-  "deadline_label_en": "within 4 hours, by 02:00",
-  "deadline_label_ms": "dalam 4 jam, sebelum 02:00",
+  "deadline_label_en": "within 4 hours, by 01:00",
+  "deadline_label_ms": "dalam 4 jam, sebelum 01:00",
   "window_label_en": "before the next planned stop, Sunday 06:00",
   "window_label_ms": "sebelum henti terancang seterusnya, Ahad jam 06:00"
  },
@@ -3403,16 +3403,16 @@
   "fault_class": "worm_wear",
   "name_en": "Worm wear",
   "name_ms": "Haus skru cacing",
-  "confidence_pct": 98.0,
+  "confidence_pct": 94.0,
   "plain_en": "The screw that squeezes the fruit is wearing thin, so the motor works harder and more oil stays in the fibre.",
   "plain_ms": "Skru yang memerah buah semakin haus, jadi motor bekerja lebih kuat dan lebih banyak minyak tertinggal dalam serabut.",
   "alternatives": [
    {
-    "fault_class": "unknown",
-    "confidence_pct": 1.0
+    "fault_class": "electrical",
+    "confidence_pct": 4.0
    },
    {
-    "fault_class": "electrical",
+    "fault_class": "bearing",
     "confidence_pct": 1.0
    }
   ],
@@ -3449,8 +3449,8 @@
     "label_en": "Vibration level (root mean square)",
     "label_ms": "Tahap getaran (punca min kuasa dua)",
     "expected": "up",
-    "observed_en": "Up 25% compared with normal, in the last 5 days",
-    "observed_ms": "Naik 25% berbanding biasa dalam 5 hari lepas",
+    "observed_en": "Up 24% compared with normal, in the last 5 days",
+    "observed_ms": "Naik 24% berbanding biasa dalam 5 hari lepas",
     "matches": true
    }
   ]
@@ -3487,7 +3487,7 @@
   "crew": 3,
   "est_hours": 4.0,
   "needs_stop": true,
-  "best_window": "2025-11-23T22:00:00+08:00",
+  "best_window": "2025-11-23T23:00:00+08:00",
   "stop": "machine",
   "lost_production": true
  },
@@ -3591,18 +3591,18 @@
   {
    "t": "2025-05-27T13:00:00+08:00",
    "fault_class": "gearbox_shaft",
-   "what_en": "Gearbox or shaft fault: broke down with no warning",
-   "what_ms": "Kerosakan gear atau aci: rosak tanpa amaran",
+   "what_en": "Gearbox or shaft fault: MillGuard warned before it failed",
+   "what_ms": "Kerosakan gear atau aci: MillGuard memberi amaran sebelum rosak",
    "downtime_h": 4.0,
-   "was_predicted": false
+   "was_predicted": true
   },
   {
    "t": "2025-05-27T07:00:00+08:00",
    "fault_class": "bearing",
-   "what_en": "Bearing wear: broke down with no warning",
-   "what_ms": "Haus galas: rosak tanpa amaran",
+   "what_en": "Bearing wear: MillGuard warned before it failed",
+   "what_ms": "Haus galas: MillGuard memberi amaran sebelum rosak",
    "downtime_h": 4.0,
-   "was_predicted": false
+   "was_predicted": true
   },
   {
    "t": "2025-05-01T06:00:00+08:00",
@@ -3681,7 +3681,7 @@
   "t": "2025-11-23T13:00:00+08:00",
   "what_en": "Last repair logged on Press 2: bearing wear",
   "what_ms": "Pembaikan terakhir direkodkan bagi Penekan 2: haus galas",
-  "hours_since": 9.0
+  "hours_since": 10.0
  },
  "next_check": {
   "t": "2025-11-30T06:00:00+08:00",
@@ -3690,12 +3690,12 @@
  },
  "outlook": {
   "fault_class": "worm_wear",
-  "risk_pct": 87.0,
-  "horizon_h": 152,
+  "risk_pct": 86.0,
+  "horizon_h": 151,
   "rm_breakdown_cost": 24252,
-  "rm_at_risk": 21099,
+  "rm_at_risk": 20857,
   "rm_cost_to_act": 13626,
-  "rm_saved_if_acted": 7473,
+  "rm_saved_if_acted": 7231,
   "window_label_en": "before the next planned stop, Sunday 06:00",
   "window_label_ms": "sebelum henti terancang seterusnya, Ahad jam 06:00",
   "note_en": "",

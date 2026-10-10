@@ -112,7 +112,7 @@ def main(augment=False):
     if augment:
         rd = lambda n: pd.read_parquet(AUG / f"{n}.parquet")
         aug = add_labels(build(save=False, tel=rd("telemetry"), err=rd("errors"), wo=rd("maintenance")), rd("failures"), rd("maintenance"))
-        print(f"Augmented training copies: {aug.mill_id.nunique()} mills at noise_mult 2, {len(aug):,} rows added")
+        print(f"Augmented training copies: {aug.mill_id.nunique()} augmented mills (noise x2 and drift), {len(aug):,} rows added")
     preds, metrics, bundle = [], {}, {}
     for boiler in (False, True):
         df = feat[feat.is_boiler == boiler]
