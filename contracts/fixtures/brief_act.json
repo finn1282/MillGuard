@@ -1,0 +1,50 @@
+{
+ "at": "2025-11-18T19:00:00+08:00",
+ "shift": "night",
+ "actions": [
+  {
+   "id": "act_press_2_2025111819",
+   "asset_id": "press_2",
+   "asset_name": "Press 2",
+   "asset_type": "press",
+   "fault_class": "worm_wear",
+   "risk_pct": 74.0,
+   "horizon_h": 107,
+   "rm_at_risk": 17946,
+   "rm_cost_to_act": 13626,
+   "rm_saved_if_acted": 4320,
+   "recommendation": "fix_now",
+   "deadline": "2025-11-18T23:00:00+08:00",
+   "headline_en": "Press 2: Worm wear. Change the worm now.",
+   "headline_ms": "Penekan 2: Haus skru cacing. Tukar skru cacing sekarang.",
+   "reasons": [
+    {
+     "text_en": "Motor current per tonne is 2% above Press 2's normal",
+     "text_ms": "Arus motor setiap tan 2% lebih tinggi daripada biasa bagi Penekan 2",
+     "signal": "current_per_tonne",
+     "direction": "up",
+     "contribution": 0.683
+    },
+    {
+     "text_en": "1,972 h since the last logged service on Press 2",
+     "text_ms": "1,972 jam sejak servis terakhir direkodkan bagi Penekan 2",
+     "signal": "hours_since_service",
+     "direction": "up",
+     "contribution": 0.159
+    },
+    {
+     "text_en": "Oil lost in fibre is 3.3% (alarm line is 4%)",
+     "text_ms": "Kehilangan minyak dalam serabut ialah 3.3% (garis amaran 4%)",
+     "signal": "fibre_oil_loss",
+     "direction": "up",
+     "contribution": 0.158
+    }
+   ],
+   "why_rank_en": "Biggest ringgit saving tonight",
+   "why_rank_ms": "Penjimatan ringgit terbesar malam ini",
+   "criticality": "partial"
+  }
+ ],
+ "watching_count": 1,
+ "suppressed_count": 1
+}

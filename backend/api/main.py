@@ -31,8 +31,11 @@ def fx(name):
     return json.loads((FIX / f"{name}.json").read_text())
 
 
-def is_quiet(at):
-    return bool(at) and at.startswith("2025-01-11")
+def variant(at):
+    """Fixture suffix for the bookmark date nearest to `at` (default: the both-alerts night)."""
+    idx = fx("bookmarks")
+    d = (at or "")[:10]
+    return {idx["quiet"][:10]: "_quiet", idx["act"][:10]: "_act"}.get(d, "")
 
 
 @app.get("/api/meta", response_model=Meta)
@@ -43,14 +46,14 @@ def meta():
 @app.get("/api/brief", response_model=Brief)
 def brief(at: str | None = None):
     if STUB:
-        return fx("brief_quiet" if is_quiet(at) else "brief")
+        return fx("brief" + variant(at))
     return svc.brief(at)
 
 
 @app.get("/api/line", response_model=Line)
 def line(at: str | None = None):
     if STUB:
-        return fx("line_quiet" if is_quiet(at) else "line")
+        return fx("line" + variant(at))
     return svc.line(at)
 
 
@@ -58,7 +61,8 @@ def line(at: str | None = None):
 def asset(asset_id: str, at: str | None = None, window_h: int = 168):
     if STUB:
         try:
-            return fx(f"assets_{asset_id}")
+            v = variant(at)
+            return fx(f"assets_{asset_id}" + (v if v != "_quiet" else ""))
         except FileNotFoundError:
             raise HTTPException(404, "unknown asset")
     out = svc.asset(asset_id, at, int(clamp(window_h, 24, 720)))

@@ -1,6 +1,6 @@
 {
  "mill": {
-  "name": "Demo Mill (mill 10)",
+  "name": "Demo mill (mill 10, unseen in training)",
   "throughput_tph": 60.0,
   "presses": 4,
   "oer": 0.1974,

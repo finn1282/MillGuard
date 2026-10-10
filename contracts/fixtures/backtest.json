@@ -1,41 +1,41 @@
 {
- "threshold": 0.3,
+ "threshold": 0.5,
  "policies": [
   {
    "id": "run_to_failure",
-   "total_cost_rm": 1240000,
-   "breakdowns": 38,
+   "total_cost_rm": 972848,
+   "breakdowns": 34,
    "planned_stops": 0,
    "false_alarms": 0,
-   "downtime_h": 160.0,
-   "lost_cpo_t": 184.8
+   "downtime_h": 144.0,
+   "lost_cpo_t": 170.6
   },
   {
    "id": "fixed_interval",
-   "total_cost_rm": 780000,
-   "breakdowns": 24,
-   "planned_stops": 47,
+   "total_cost_rm": 723550,
+   "breakdowns": 10,
+   "planned_stops": 56,
    "false_alarms": 0,
-   "downtime_h": 104.0,
-   "lost_cpo_t": 135.0
+   "downtime_h": 48.0,
+   "lost_cpo_t": 85.3
   },
   {
    "id": "millguard",
-   "total_cost_rm": 412000,
-   "breakdowns": 6,
-   "planned_stops": 32,
-   "false_alarms": 22,
-   "downtime_h": 24.0,
-   "lost_cpo_t": 21.3
+   "total_cost_rm": 557570,
+   "breakdowns": 12,
+   "planned_stops": 22,
+   "false_alarms": 68,
+   "downtime_h": 48.0,
+   "lost_cpo_t": 42.6
   },
   {
    "id": "schedule_plus_millguard",
-   "total_cost_rm": 335000,
-   "breakdowns": 8,
-   "planned_stops": 63,
-   "false_alarms": 22,
-   "downtime_h": 36.0,
-   "lost_cpo_t": 53.3
+   "total_cost_rm": 421040,
+   "breakdowns": 3,
+   "planned_stops": 51,
+   "false_alarms": 68,
+   "downtime_h": 12.0,
+   "lost_cpo_t": 10.7
   }
  ],
  "timeline": [
@@ -71,4574 +71,4748 @@
    "cost": {
     "run_to_failure": 0,
     "fixed_interval": 0,
-    "millguard": 397,
-    "schedule_plus_millguard": 155
+    "millguard": 0,
+    "schedule_plus_millguard": 0
    }
   },
   {
    "t": "2025-01-05T00:00:00+08:00",
    "cost": {
     "run_to_failure": 0,
-    "fixed_interval": 0,
-    "millguard": 397,
-    "schedule_plus_millguard": 155
+    "fixed_interval": 39500,
+    "millguard": 300,
+    "schedule_plus_millguard": 33800
    }
   },
   {
    "t": "2025-01-06T00:00:00+08:00",
    "cost": {
     "run_to_failure": 0,
-    "fixed_interval": 0,
-    "millguard": 397,
-    "schedule_plus_millguard": 155
+    "fixed_interval": 39500,
+    "millguard": 300,
+    "schedule_plus_millguard": 33800
    }
   },
   {
    "t": "2025-01-07T00:00:00+08:00",
    "cost": {
     "run_to_failure": 0,
-    "fixed_interval": 0,
-    "millguard": 397,
-    "schedule_plus_millguard": 155
+    "fixed_interval": 39500,
+    "millguard": 300,
+    "schedule_plus_millguard": 33800
    }
   },
   {
    "t": "2025-01-08T00:00:00+08:00",
    "cost": {
     "run_to_failure": 0,
-    "fixed_interval": 0,
-    "millguard": 795,
-    "schedule_plus_millguard": 311
+    "fixed_interval": 39500,
+    "millguard": 300,
+    "schedule_plus_millguard": 33800
    }
   },
   {
    "t": "2025-01-09T00:00:00+08:00",
    "cost": {
     "run_to_failure": 0,
-    "fixed_interval": 0,
-    "millguard": 795,
-    "schedule_plus_millguard": 311
+    "fixed_interval": 39500,
+    "millguard": 300,
+    "schedule_plus_millguard": 33800
    }
   },
   {
    "t": "2025-01-10T00:00:00+08:00",
    "cost": {
     "run_to_failure": 0,
-    "fixed_interval": 0,
-    "millguard": 795,
-    "schedule_plus_millguard": 311
+    "fixed_interval": 39500,
+    "millguard": 300,
+    "schedule_plus_millguard": 33800
    }
   },
   {
    "t": "2025-01-11T00:00:00+08:00",
    "cost": {
     "run_to_failure": 0,
-    "fixed_interval": 0,
-    "millguard": 795,
-    "schedule_plus_millguard": 311
+    "fixed_interval": 39500,
+    "millguard": 300,
+    "schedule_plus_millguard": 33800
    }
   },
   {
    "t": "2025-01-12T00:00:00+08:00",
    "cost": {
     "run_to_failure": 0,
-    "fixed_interval": 0,
-    "millguard": 795,
-    "schedule_plus_millguard": 311
+    "fixed_interval": 43000,
+    "millguard": 6600,
+    "schedule_plus_millguard": 40100
    }
   },
   {
    "t": "2025-01-13T00:00:00+08:00",
    "cost": {
     "run_to_failure": 0,
-    "fixed_interval": 0,
-    "millguard": 795,
-    "schedule_plus_millguard": 311
+    "fixed_interval": 43000,
+    "millguard": 6600,
+    "schedule_plus_millguard": 40100
    }
   },
   {
    "t": "2025-01-14T00:00:00+08:00",
    "cost": {
     "run_to_failure": 0,
-    "fixed_interval": 0,
-    "millguard": 795,
-    "schedule_plus_millguard": 311
+    "fixed_interval": 43000,
+    "millguard": 6600,
+    "schedule_plus_millguard": 40100
    }
   },
   {
    "t": "2025-01-15T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 0,
-    "fixed_interval": 0,
-    "millguard": 795,
-    "schedule_plus_millguard": 311
+    "run_to_failure": 24252,
+    "fixed_interval": 43000,
+    "millguard": 6600,
+    "schedule_plus_millguard": 40100
    }
   },
   {
    "t": "2025-01-16T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 0,
-    "fixed_interval": 0,
-    "millguard": 795,
-    "schedule_plus_millguard": 311
+    "run_to_failure": 24252,
+    "fixed_interval": 43000,
+    "millguard": 6600,
+    "schedule_plus_millguard": 40100
    }
   },
   {
    "t": "2025-01-17T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 0,
-    "fixed_interval": 0,
-    "millguard": 795,
-    "schedule_plus_millguard": 311
+    "run_to_failure": 43254,
+    "fixed_interval": 62002,
+    "millguard": 16726,
+    "schedule_plus_millguard": 50226
    }
   },
   {
    "t": "2025-01-18T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 0,
-    "fixed_interval": 0,
-    "millguard": 795,
-    "schedule_plus_millguard": 311
+    "run_to_failure": 43254,
+    "fixed_interval": 62002,
+    "millguard": 16726,
+    "schedule_plus_millguard": 50226
    }
   },
   {
    "t": "2025-01-19T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 0,
-    "fixed_interval": 0,
-    "millguard": 795,
-    "schedule_plus_millguard": 311
+    "run_to_failure": 43254,
+    "fixed_interval": 62002,
+    "millguard": 17026,
+    "schedule_plus_millguard": 50526
    }
   },
   {
    "t": "2025-01-20T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 0,
-    "fixed_interval": 0,
-    "millguard": 795,
-    "schedule_plus_millguard": 311
+    "run_to_failure": 43254,
+    "fixed_interval": 62002,
+    "millguard": 17026,
+    "schedule_plus_millguard": 50526
    }
   },
   {
    "t": "2025-01-21T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 0,
-    "fixed_interval": 0,
-    "millguard": 795,
-    "schedule_plus_millguard": 311
+    "run_to_failure": 43254,
+    "fixed_interval": 62002,
+    "millguard": 17026,
+    "schedule_plus_millguard": 50526
    }
   },
   {
    "t": "2025-01-22T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 0,
-    "fixed_interval": 0,
-    "millguard": 795,
-    "schedule_plus_millguard": 311
+    "run_to_failure": 43254,
+    "fixed_interval": 62002,
+    "millguard": 17026,
+    "schedule_plus_millguard": 50526
    }
   },
   {
    "t": "2025-01-23T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 0,
-    "fixed_interval": 0,
-    "millguard": 795,
-    "schedule_plus_millguard": 311
+    "run_to_failure": 43254,
+    "fixed_interval": 62002,
+    "millguard": 17026,
+    "schedule_plus_millguard": 50526
    }
   },
   {
    "t": "2025-01-24T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 0,
-    "fixed_interval": 0,
-    "millguard": 795,
-    "schedule_plus_millguard": 311
+    "run_to_failure": 43254,
+    "fixed_interval": 62002,
+    "millguard": 17026,
+    "schedule_plus_millguard": 50526
    }
   },
   {
    "t": "2025-01-25T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 0,
-    "fixed_interval": 0,
-    "millguard": 795,
-    "schedule_plus_millguard": 311
+    "run_to_failure": 43254,
+    "fixed_interval": 62002,
+    "millguard": 17026,
+    "schedule_plus_millguard": 50526
    }
   },
   {
    "t": "2025-01-26T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 0,
-    "fixed_interval": 0,
-    "millguard": 795,
-    "schedule_plus_millguard": 311
+    "run_to_failure": 43254,
+    "fixed_interval": 62002,
+    "millguard": 17326,
+    "schedule_plus_millguard": 50826
    }
   },
   {
    "t": "2025-01-27T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 0,
-    "fixed_interval": 4533,
-    "millguard": 795,
-    "schedule_plus_millguard": 3427
+    "run_to_failure": 43254,
+    "fixed_interval": 62002,
+    "millguard": 17326,
+    "schedule_plus_millguard": 50826
    }
   },
   {
    "t": "2025-01-28T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 0,
-    "fixed_interval": 4533,
-    "millguard": 795,
-    "schedule_plus_millguard": 3427
+    "run_to_failure": 43254,
+    "fixed_interval": 62002,
+    "millguard": 17326,
+    "schedule_plus_millguard": 50826
    }
   },
   {
    "t": "2025-01-29T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 0,
-    "fixed_interval": 4533,
-    "millguard": 795,
-    "schedule_plus_millguard": 3427
+    "run_to_failure": 43254,
+    "fixed_interval": 62002,
+    "millguard": 17326,
+    "schedule_plus_millguard": 50826
    }
   },
   {
    "t": "2025-01-30T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 0,
-    "fixed_interval": 4533,
-    "millguard": 6759,
-    "schedule_plus_millguard": 3427
+    "run_to_failure": 43254,
+    "fixed_interval": 62002,
+    "millguard": 17326,
+    "schedule_plus_millguard": 50826
    }
   },
   {
    "t": "2025-01-31T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 0,
-    "fixed_interval": 4533,
-    "millguard": 6759,
-    "schedule_plus_millguard": 3427
+    "run_to_failure": 43254,
+    "fixed_interval": 62002,
+    "millguard": 17326,
+    "schedule_plus_millguard": 50826
    }
   },
   {
    "t": "2025-02-01T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 25079,
-    "fixed_interval": 21157,
-    "millguard": 6759,
-    "schedule_plus_millguard": 5763
+    "run_to_failure": 43254,
+    "fixed_interval": 62002,
+    "millguard": 17326,
+    "schedule_plus_millguard": 50826
    }
   },
   {
    "t": "2025-02-02T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 25079,
-    "fixed_interval": 25691,
-    "millguard": 6759,
-    "schedule_plus_millguard": 8879
+    "run_to_failure": 43254,
+    "fixed_interval": 80502,
+    "millguard": 17626,
+    "schedule_plus_millguard": 51126
    }
   },
   {
    "t": "2025-02-03T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 25079,
-    "fixed_interval": 25691,
-    "millguard": 6759,
-    "schedule_plus_millguard": 8879
+    "run_to_failure": 43254,
+    "fixed_interval": 80502,
+    "millguard": 17626,
+    "schedule_plus_millguard": 51126
    }
   },
   {
    "t": "2025-02-04T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 25079,
-    "fixed_interval": 25691,
-    "millguard": 6759,
-    "schedule_plus_millguard": 8879
+    "run_to_failure": 43254,
+    "fixed_interval": 80502,
+    "millguard": 17626,
+    "schedule_plus_millguard": 51126
    }
   },
   {
    "t": "2025-02-05T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 25079,
-    "fixed_interval": 25691,
-    "millguard": 6759,
-    "schedule_plus_millguard": 8879
+    "run_to_failure": 43254,
+    "fixed_interval": 80502,
+    "millguard": 17626,
+    "schedule_plus_millguard": 51126
    }
   },
   {
    "t": "2025-02-06T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 25079,
-    "fixed_interval": 25691,
-    "millguard": 6759,
-    "schedule_plus_millguard": 8879
+    "run_to_failure": 63006,
+    "fixed_interval": 100254,
+    "millguard": 37678,
+    "schedule_plus_millguard": 71178
    }
   },
   {
    "t": "2025-02-07T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 25079,
-    "fixed_interval": 25691,
-    "millguard": 6759,
-    "schedule_plus_millguard": 8879
+    "run_to_failure": 87258,
+    "fixed_interval": 100254,
+    "millguard": 61930,
+    "schedule_plus_millguard": 71178
    }
   },
   {
    "t": "2025-02-08T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 25079,
-    "fixed_interval": 30224,
-    "millguard": 6759,
-    "schedule_plus_millguard": 11995
+    "run_to_failure": 87258,
+    "fixed_interval": 100254,
+    "millguard": 61930,
+    "schedule_plus_millguard": 71178
    }
   },
   {
    "t": "2025-02-09T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 25079,
-    "fixed_interval": 30224,
-    "millguard": 7156,
-    "schedule_plus_millguard": 12151
+    "run_to_failure": 87258,
+    "fixed_interval": 104754,
+    "millguard": 62230,
+    "schedule_plus_millguard": 77478
    }
   },
   {
    "t": "2025-02-10T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 25079,
-    "fixed_interval": 30224,
-    "millguard": 7156,
-    "schedule_plus_millguard": 12151
+    "run_to_failure": 87258,
+    "fixed_interval": 104754,
+    "millguard": 62230,
+    "schedule_plus_millguard": 77478
    }
   },
   {
    "t": "2025-02-11T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 25079,
-    "fixed_interval": 30224,
-    "millguard": 7156,
-    "schedule_plus_millguard": 12151
+    "run_to_failure": 87258,
+    "fixed_interval": 104754,
+    "millguard": 62230,
+    "schedule_plus_millguard": 77478
    }
   },
   {
    "t": "2025-02-12T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 25079,
-    "fixed_interval": 30224,
-    "millguard": 7156,
-    "schedule_plus_millguard": 12151
+    "run_to_failure": 87258,
+    "fixed_interval": 104754,
+    "millguard": 62230,
+    "schedule_plus_millguard": 77478
    }
   },
   {
    "t": "2025-02-13T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 25079,
-    "fixed_interval": 30224,
-    "millguard": 13518,
-    "schedule_plus_millguard": 12306
+    "run_to_failure": 87258,
+    "fixed_interval": 104754,
+    "millguard": 62230,
+    "schedule_plus_millguard": 77478
    }
   },
   {
    "t": "2025-02-14T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 25079,
-    "fixed_interval": 34757,
-    "millguard": 16831,
-    "schedule_plus_millguard": 15422
+    "run_to_failure": 87258,
+    "fixed_interval": 104754,
+    "millguard": 62230,
+    "schedule_plus_millguard": 77478
    }
   },
   {
    "t": "2025-02-15T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 50158,
-    "fixed_interval": 51382,
-    "millguard": 16831,
-    "schedule_plus_millguard": 26847
+    "run_to_failure": 87258,
+    "fixed_interval": 104754,
+    "millguard": 62230,
+    "schedule_plus_millguard": 77478
    }
   },
   {
    "t": "2025-02-16T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 71817,
-    "fixed_interval": 53270,
-    "millguard": 16831,
-    "schedule_plus_millguard": 28145
+    "run_to_failure": 87258,
+    "fixed_interval": 122754,
+    "millguard": 62530,
+    "schedule_plus_millguard": 77778
    }
   },
   {
    "t": "2025-02-17T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 71817,
-    "fixed_interval": 53270,
-    "millguard": 16831,
-    "schedule_plus_millguard": 28145
+    "run_to_failure": 87258,
+    "fixed_interval": 122754,
+    "millguard": 62530,
+    "schedule_plus_millguard": 77778
    }
   },
   {
    "t": "2025-02-18T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 71817,
-    "fixed_interval": 53270,
-    "millguard": 16831,
-    "schedule_plus_millguard": 28145
+    "run_to_failure": 87258,
+    "fixed_interval": 122754,
+    "millguard": 62530,
+    "schedule_plus_millguard": 77778
    }
   },
   {
    "t": "2025-02-19T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 71817,
-    "fixed_interval": 53270,
-    "millguard": 16831,
-    "schedule_plus_millguard": 28145
+    "run_to_failure": 87258,
+    "fixed_interval": 122754,
+    "millguard": 62530,
+    "schedule_plus_millguard": 77778
    }
   },
   {
    "t": "2025-02-20T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 71817,
-    "fixed_interval": 53270,
-    "millguard": 17229,
-    "schedule_plus_millguard": 28301
+    "run_to_failure": 87258,
+    "fixed_interval": 122754,
+    "millguard": 62530,
+    "schedule_plus_millguard": 77778
    }
   },
   {
    "t": "2025-02-21T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 71817,
-    "fixed_interval": 53270,
-    "millguard": 17229,
-    "schedule_plus_millguard": 28301
+    "run_to_failure": 87258,
+    "fixed_interval": 122754,
+    "millguard": 62530,
+    "schedule_plus_millguard": 77778
    }
   },
   {
    "t": "2025-02-22T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 71817,
-    "fixed_interval": 53270,
-    "millguard": 17229,
-    "schedule_plus_millguard": 28301
+    "run_to_failure": 87258,
+    "fixed_interval": 122754,
+    "millguard": 62530,
+    "schedule_plus_millguard": 77778
    }
   },
   {
    "t": "2025-02-23T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 71817,
-    "fixed_interval": 53270,
-    "millguard": 17229,
-    "schedule_plus_millguard": 28301
+    "run_to_failure": 87258,
+    "fixed_interval": 122754,
+    "millguard": 62830,
+    "schedule_plus_millguard": 84078
    }
   },
   {
    "t": "2025-02-24T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 71817,
-    "fixed_interval": 53270,
-    "millguard": 17229,
-    "schedule_plus_millguard": 28301
+    "run_to_failure": 87258,
+    "fixed_interval": 122754,
+    "millguard": 62830,
+    "schedule_plus_millguard": 84078
    }
   },
   {
    "t": "2025-02-25T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 71817,
-    "fixed_interval": 53270,
-    "millguard": 17229,
-    "schedule_plus_millguard": 28301
+    "run_to_failure": 87258,
+    "fixed_interval": 122754,
+    "millguard": 62830,
+    "schedule_plus_millguard": 84078
    }
   },
   {
    "t": "2025-02-26T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 71817,
-    "fixed_interval": 53270,
-    "millguard": 17229,
-    "schedule_plus_millguard": 28301
+    "run_to_failure": 87258,
+    "fixed_interval": 122754,
+    "millguard": 62830,
+    "schedule_plus_millguard": 84078
    }
   },
   {
    "t": "2025-02-27T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 71817,
-    "fixed_interval": 53270,
-    "millguard": 25181,
-    "schedule_plus_millguard": 28301
+    "run_to_failure": 87258,
+    "fixed_interval": 122754,
+    "millguard": 63130,
+    "schedule_plus_millguard": 84378
    }
   },
   {
    "t": "2025-02-28T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 71817,
-    "fixed_interval": 53270,
-    "millguard": 25181,
-    "schedule_plus_millguard": 28301
+    "run_to_failure": 87258,
+    "fixed_interval": 122754,
+    "millguard": 63130,
+    "schedule_plus_millguard": 84378
    }
   },
   {
    "t": "2025-03-01T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 99461,
-    "fixed_interval": 57804,
-    "millguard": 25181,
-    "schedule_plus_millguard": 31417
+    "run_to_failure": 87258,
+    "fixed_interval": 122754,
+    "millguard": 63130,
+    "schedule_plus_millguard": 84378
    }
   },
   {
    "t": "2025-03-02T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 99461,
-    "fixed_interval": 57804,
-    "millguard": 25181,
-    "schedule_plus_millguard": 31417
+    "run_to_failure": 87258,
+    "fixed_interval": 122754,
+    "millguard": 63430,
+    "schedule_plus_millguard": 96678
    }
   },
   {
    "t": "2025-03-03T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 99461,
-    "fixed_interval": 57804,
-    "millguard": 25181,
-    "schedule_plus_millguard": 31417
+    "run_to_failure": 87258,
+    "fixed_interval": 122754,
+    "millguard": 63430,
+    "schedule_plus_millguard": 96678
    }
   },
   {
    "t": "2025-03-04T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 99461,
-    "fixed_interval": 57804,
-    "millguard": 25181,
-    "schedule_plus_millguard": 31417
+    "run_to_failure": 87258,
+    "fixed_interval": 122754,
+    "millguard": 63430,
+    "schedule_plus_millguard": 96678
    }
   },
   {
    "t": "2025-03-05T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 99461,
-    "fixed_interval": 57804,
-    "millguard": 25181,
-    "schedule_plus_millguard": 31417
+    "run_to_failure": 87258,
+    "fixed_interval": 122754,
+    "millguard": 63430,
+    "schedule_plus_millguard": 96678
    }
   },
   {
    "t": "2025-03-06T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 99461,
-    "fixed_interval": 57804,
-    "millguard": 25181,
-    "schedule_plus_millguard": 31417
+    "run_to_failure": 87258,
+    "fixed_interval": 122754,
+    "millguard": 63430,
+    "schedule_plus_millguard": 96678
    }
   },
   {
    "t": "2025-03-07T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 99461,
-    "fixed_interval": 57804,
-    "millguard": 50365,
-    "schedule_plus_millguard": 31417
+    "run_to_failure": 87258,
+    "fixed_interval": 122754,
+    "millguard": 73556,
+    "schedule_plus_millguard": 106804
    }
   },
   {
    "t": "2025-03-08T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 99461,
-    "fixed_interval": 57804,
-    "millguard": 50365,
-    "schedule_plus_millguard": 31417
+    "run_to_failure": 106260,
+    "fixed_interval": 141756,
+    "millguard": 73556,
+    "schedule_plus_millguard": 106804
    }
   },
   {
    "t": "2025-03-09T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 121121,
-    "fixed_interval": 72161,
-    "millguard": 50365,
-    "schedule_plus_millguard": 41284
+    "run_to_failure": 106260,
+    "fixed_interval": 141756,
+    "millguard": 73856,
+    "schedule_plus_millguard": 110604
    }
   },
   {
    "t": "2025-03-10T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 121121,
-    "fixed_interval": 76695,
-    "millguard": 50365,
-    "schedule_plus_millguard": 44400
+    "run_to_failure": 106260,
+    "fixed_interval": 141756,
+    "millguard": 73856,
+    "schedule_plus_millguard": 110604
    }
   },
   {
    "t": "2025-03-11T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 121121,
-    "fixed_interval": 76695,
-    "millguard": 50365,
-    "schedule_plus_millguard": 44400
+    "run_to_failure": 106260,
+    "fixed_interval": 141756,
+    "millguard": 73856,
+    "schedule_plus_millguard": 110604
    }
   },
   {
    "t": "2025-03-12T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 121121,
-    "fixed_interval": 76695,
-    "millguard": 50365,
-    "schedule_plus_millguard": 44400
+    "run_to_failure": 106260,
+    "fixed_interval": 141756,
+    "millguard": 73856,
+    "schedule_plus_millguard": 110604
    }
   },
   {
    "t": "2025-03-13T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 121121,
-    "fixed_interval": 76695,
-    "millguard": 56329,
-    "schedule_plus_millguard": 44400
+    "run_to_failure": 106260,
+    "fixed_interval": 141756,
+    "millguard": 73856,
+    "schedule_plus_millguard": 110604
    }
   },
   {
    "t": "2025-03-14T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 121121,
-    "fixed_interval": 76695,
-    "millguard": 56329,
-    "schedule_plus_millguard": 44400
+    "run_to_failure": 106260,
+    "fixed_interval": 141756,
+    "millguard": 73856,
+    "schedule_plus_millguard": 110604
    }
   },
   {
    "t": "2025-03-15T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 146200,
-    "fixed_interval": 93319,
-    "millguard": 56329,
-    "schedule_plus_millguard": 46736
+    "run_to_failure": 130512,
+    "fixed_interval": 141756,
+    "millguard": 98108,
+    "schedule_plus_millguard": 110604
    }
   },
   {
    "t": "2025-03-16T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 146200,
-    "fixed_interval": 97852,
-    "millguard": 56329,
-    "schedule_plus_millguard": 49852
+    "run_to_failure": 130512,
+    "fixed_interval": 147756,
+    "millguard": 98408,
+    "schedule_plus_millguard": 110904
    }
   },
   {
    "t": "2025-03-17T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 146200,
-    "fixed_interval": 97852,
-    "millguard": 56329,
-    "schedule_plus_millguard": 49852
+    "run_to_failure": 130512,
+    "fixed_interval": 147756,
+    "millguard": 98408,
+    "schedule_plus_millguard": 110904
    }
   },
   {
    "t": "2025-03-18T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 146200,
-    "fixed_interval": 97852,
-    "millguard": 56329,
-    "schedule_plus_millguard": 49852
+    "run_to_failure": 130512,
+    "fixed_interval": 147756,
+    "millguard": 98408,
+    "schedule_plus_millguard": 110904
    }
   },
   {
    "t": "2025-03-19T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 146200,
-    "fixed_interval": 97852,
-    "millguard": 56329,
-    "schedule_plus_millguard": 49852
+    "run_to_failure": 130512,
+    "fixed_interval": 147756,
+    "millguard": 98408,
+    "schedule_plus_millguard": 110904
    }
   },
   {
    "t": "2025-03-20T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 146200,
-    "fixed_interval": 97852,
-    "millguard": 56329,
-    "schedule_plus_millguard": 49852
+    "run_to_failure": 130512,
+    "fixed_interval": 147756,
+    "millguard": 98408,
+    "schedule_plus_millguard": 110904
    }
   },
   {
    "t": "2025-03-21T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 146200,
-    "fixed_interval": 97852,
-    "millguard": 56329,
-    "schedule_plus_millguard": 49852
+    "run_to_failure": 130512,
+    "fixed_interval": 147756,
+    "millguard": 98408,
+    "schedule_plus_millguard": 110904
    }
   },
   {
    "t": "2025-03-22T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 146200,
-    "fixed_interval": 102386,
-    "millguard": 62293,
-    "schedule_plus_millguard": 52968
+    "run_to_failure": 130512,
+    "fixed_interval": 147756,
+    "millguard": 98408,
+    "schedule_plus_millguard": 110904
    }
   },
   {
    "t": "2025-03-23T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 146200,
-    "fixed_interval": 102386,
-    "millguard": 62293,
-    "schedule_plus_millguard": 52968
+    "run_to_failure": 130512,
+    "fixed_interval": 147756,
+    "millguard": 104708,
+    "schedule_plus_millguard": 111204
    }
   },
   {
    "t": "2025-03-24T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 171279,
-    "fixed_interval": 119010,
-    "millguard": 62293,
-    "schedule_plus_millguard": 55304
+    "run_to_failure": 130512,
+    "fixed_interval": 147756,
+    "millguard": 104708,
+    "schedule_plus_millguard": 111204
    }
   },
   {
    "t": "2025-03-25T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 171279,
-    "fixed_interval": 119010,
-    "millguard": 62293,
-    "schedule_plus_millguard": 55304
+    "run_to_failure": 130512,
+    "fixed_interval": 147756,
+    "millguard": 104708,
+    "schedule_plus_millguard": 111204
    }
   },
   {
    "t": "2025-03-26T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 171279,
-    "fixed_interval": 119010,
-    "millguard": 62293,
-    "schedule_plus_millguard": 55304
+    "run_to_failure": 174516,
+    "fixed_interval": 167508,
+    "millguard": 124460,
+    "schedule_plus_millguard": 130956
    }
   },
   {
    "t": "2025-03-27T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 171279,
-    "fixed_interval": 119010,
-    "millguard": 62293,
-    "schedule_plus_millguard": 55304
+    "run_to_failure": 174516,
+    "fixed_interval": 167508,
+    "millguard": 138086,
+    "schedule_plus_millguard": 130956
    }
   },
   {
    "t": "2025-03-28T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 171279,
-    "fixed_interval": 123543,
-    "millguard": 62293,
-    "schedule_plus_millguard": 58420
+    "run_to_failure": 174516,
+    "fixed_interval": 167508,
+    "millguard": 138086,
+    "schedule_plus_millguard": 130956
    }
   },
   {
    "t": "2025-03-29T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 171279,
-    "fixed_interval": 123543,
-    "millguard": 62293,
-    "schedule_plus_millguard": 58420
+    "run_to_failure": 174516,
+    "fixed_interval": 167508,
+    "millguard": 138086,
+    "schedule_plus_millguard": 130956
    }
   },
   {
    "t": "2025-03-30T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 171279,
-    "fixed_interval": 123543,
-    "millguard": 62293,
-    "schedule_plus_millguard": 58420
+    "run_to_failure": 198768,
+    "fixed_interval": 185508,
+    "millguard": 138386,
+    "schedule_plus_millguard": 140756
    }
   },
   {
    "t": "2025-03-31T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 171279,
-    "fixed_interval": 123543,
-    "millguard": 62293,
-    "schedule_plus_millguard": 58420
+    "run_to_failure": 198768,
+    "fixed_interval": 185508,
+    "millguard": 138386,
+    "schedule_plus_millguard": 140756
    }
   },
   {
    "t": "2025-04-01T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 171279,
-    "fixed_interval": 123543,
-    "millguard": 62293,
-    "schedule_plus_millguard": 58420
+    "run_to_failure": 198768,
+    "fixed_interval": 185508,
+    "millguard": 138386,
+    "schedule_plus_millguard": 140756
    }
   },
   {
    "t": "2025-04-02T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 171279,
-    "fixed_interval": 123543,
-    "millguard": 62293,
-    "schedule_plus_millguard": 58420
+    "run_to_failure": 198768,
+    "fixed_interval": 185508,
+    "millguard": 138386,
+    "schedule_plus_millguard": 140756
    }
   },
   {
    "t": "2025-04-03T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 171279,
-    "fixed_interval": 123543,
-    "millguard": 62293,
-    "schedule_plus_millguard": 58420
+    "run_to_failure": 217770,
+    "fixed_interval": 204510,
+    "millguard": 148512,
+    "schedule_plus_millguard": 150882
    }
   },
   {
    "t": "2025-04-04T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 171279,
-    "fixed_interval": 123543,
-    "millguard": 62293,
-    "schedule_plus_millguard": 58420
+    "run_to_failure": 217770,
+    "fixed_interval": 204510,
+    "millguard": 148512,
+    "schedule_plus_millguard": 150882
    }
   },
   {
    "t": "2025-04-05T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 171279,
-    "fixed_interval": 123543,
-    "millguard": 62293,
-    "schedule_plus_millguard": 58420
+    "run_to_failure": 217770,
+    "fixed_interval": 204510,
+    "millguard": 148512,
+    "schedule_plus_millguard": 150882
    }
   },
   {
    "t": "2025-04-06T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 171279,
-    "fixed_interval": 123543,
-    "millguard": 62293,
-    "schedule_plus_millguard": 58420
+    "run_to_failure": 217770,
+    "fixed_interval": 204510,
+    "millguard": 148812,
+    "schedule_plus_millguard": 151182
    }
   },
   {
    "t": "2025-04-07T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 171279,
-    "fixed_interval": 123543,
-    "millguard": 62293,
-    "schedule_plus_millguard": 58420
+    "run_to_failure": 217770,
+    "fixed_interval": 204510,
+    "millguard": 148812,
+    "schedule_plus_millguard": 151182
    }
   },
   {
    "t": "2025-04-08T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 171279,
-    "fixed_interval": 123543,
-    "millguard": 70246,
-    "schedule_plus_millguard": 58420
+    "run_to_failure": 217770,
+    "fixed_interval": 204510,
+    "millguard": 148812,
+    "schedule_plus_millguard": 151182
    }
   },
   {
    "t": "2025-04-09T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 171279,
-    "fixed_interval": 123543,
-    "millguard": 76210,
-    "schedule_plus_millguard": 58420
+    "run_to_failure": 217770,
+    "fixed_interval": 204510,
+    "millguard": 148812,
+    "schedule_plus_millguard": 151182
    }
   },
   {
    "t": "2025-04-10T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 198923,
-    "fixed_interval": 128077,
-    "millguard": 76607,
-    "schedule_plus_millguard": 61691
+    "run_to_failure": 217770,
+    "fixed_interval": 204510,
+    "millguard": 148812,
+    "schedule_plus_millguard": 151182
    }
   },
   {
    "t": "2025-04-11T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 224002,
-    "fixed_interval": 144701,
-    "millguard": 76607,
-    "schedule_plus_millguard": 73116
+    "run_to_failure": 217770,
+    "fixed_interval": 204510,
+    "millguard": 149112,
+    "schedule_plus_millguard": 151482
    }
   },
   {
    "t": "2025-04-12T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 224002,
-    "fixed_interval": 144701,
-    "millguard": 76607,
-    "schedule_plus_millguard": 73116
+    "run_to_failure": 217770,
+    "fixed_interval": 204510,
+    "millguard": 149112,
+    "schedule_plus_millguard": 151482
    }
   },
   {
    "t": "2025-04-13T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 224002,
-    "fixed_interval": 144701,
-    "millguard": 77005,
-    "schedule_plus_millguard": 73272
+    "run_to_failure": 217770,
+    "fixed_interval": 204510,
+    "millguard": 149412,
+    "schedule_plus_millguard": 157782
    }
   },
   {
    "t": "2025-04-14T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 224002,
-    "fixed_interval": 144701,
-    "millguard": 77005,
-    "schedule_plus_millguard": 73272
+    "run_to_failure": 217770,
+    "fixed_interval": 204510,
+    "millguard": 149412,
+    "schedule_plus_millguard": 157782
    }
   },
   {
    "t": "2025-04-15T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 224002,
-    "fixed_interval": 144701,
-    "millguard": 77005,
-    "schedule_plus_millguard": 73272
+    "run_to_failure": 217770,
+    "fixed_interval": 204510,
+    "millguard": 149412,
+    "schedule_plus_millguard": 157782
    }
   },
   {
    "t": "2025-04-16T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 224002,
-    "fixed_interval": 144701,
-    "millguard": 77005,
-    "schedule_plus_millguard": 73272
+    "run_to_failure": 217770,
+    "fixed_interval": 204510,
+    "millguard": 149412,
+    "schedule_plus_millguard": 157782
    }
   },
   {
    "t": "2025-04-17T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 224002,
-    "fixed_interval": 144701,
-    "millguard": 77005,
-    "schedule_plus_millguard": 73272
+    "run_to_failure": 217770,
+    "fixed_interval": 204510,
+    "millguard": 149412,
+    "schedule_plus_millguard": 157782
    }
   },
   {
    "t": "2025-04-18T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 224002,
-    "fixed_interval": 144701,
-    "millguard": 77005,
-    "schedule_plus_millguard": 73272
+    "run_to_failure": 217770,
+    "fixed_interval": 204510,
+    "millguard": 149412,
+    "schedule_plus_millguard": 157782
    }
   },
   {
    "t": "2025-04-19T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 224002,
-    "fixed_interval": 144701,
-    "millguard": 77402,
-    "schedule_plus_millguard": 73428
+    "run_to_failure": 217770,
+    "fixed_interval": 204510,
+    "millguard": 149412,
+    "schedule_plus_millguard": 157782
    }
   },
   {
    "t": "2025-04-20T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 224002,
-    "fixed_interval": 144701,
-    "millguard": 89331,
-    "schedule_plus_millguard": 73428
+    "run_to_failure": 217770,
+    "fixed_interval": 204510,
+    "millguard": 149712,
+    "schedule_plus_millguard": 174582
    }
   },
   {
    "t": "2025-04-21T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 224002,
-    "fixed_interval": 149234,
-    "millguard": 89331,
-    "schedule_plus_millguard": 76544
+    "run_to_failure": 217770,
+    "fixed_interval": 204510,
+    "millguard": 149712,
+    "schedule_plus_millguard": 174582
    }
   },
   {
    "t": "2025-04-22T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 256775,
-    "fixed_interval": 170959,
-    "millguard": 89331,
-    "schedule_plus_millguard": 81217
+    "run_to_failure": 217770,
+    "fixed_interval": 204510,
+    "millguard": 149712,
+    "schedule_plus_millguard": 174582
    }
   },
   {
    "t": "2025-04-23T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 256775,
-    "fixed_interval": 170959,
-    "millguard": 89331,
-    "schedule_plus_millguard": 81217
+    "run_to_failure": 217770,
+    "fixed_interval": 204510,
+    "millguard": 149712,
+    "schedule_plus_millguard": 174582
    }
   },
   {
    "t": "2025-04-24T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 256775,
-    "fixed_interval": 170959,
-    "millguard": 89728,
-    "schedule_plus_millguard": 81373
+    "run_to_failure": 217770,
+    "fixed_interval": 204510,
+    "millguard": 149712,
+    "schedule_plus_millguard": 174582
    }
   },
   {
    "t": "2025-04-25T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 256775,
-    "fixed_interval": 170959,
-    "millguard": 90126,
-    "schedule_plus_millguard": 81529
+    "run_to_failure": 217770,
+    "fixed_interval": 204510,
+    "millguard": 149712,
+    "schedule_plus_millguard": 174582
    }
   },
   {
    "t": "2025-04-26T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 256775,
-    "fixed_interval": 170959,
-    "millguard": 90126,
-    "schedule_plus_millguard": 81529
+    "run_to_failure": 217770,
+    "fixed_interval": 204510,
+    "millguard": 149712,
+    "schedule_plus_millguard": 174582
    }
   },
   {
    "t": "2025-04-27T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 256775,
-    "fixed_interval": 175492,
-    "millguard": 94102,
-    "schedule_plus_millguard": 84644
+    "run_to_failure": 217770,
+    "fixed_interval": 210510,
+    "millguard": 150012,
+    "schedule_plus_millguard": 174882
    }
   },
   {
    "t": "2025-04-28T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 256775,
-    "fixed_interval": 175492,
-    "millguard": 102054,
-    "schedule_plus_millguard": 84644
+    "run_to_failure": 217770,
+    "fixed_interval": 210510,
+    "millguard": 150012,
+    "schedule_plus_millguard": 174882
    }
   },
   {
    "t": "2025-04-29T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 400986,
-    "fixed_interval": 271085,
-    "millguard": 102054,
-    "schedule_plus_millguard": 86202
+    "run_to_failure": 217770,
+    "fixed_interval": 210510,
+    "millguard": 150012,
+    "schedule_plus_millguard": 174882
    }
   },
   {
    "t": "2025-04-30T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 428630,
-    "fixed_interval": 275618,
-    "millguard": 102054,
-    "schedule_plus_millguard": 89318
+    "run_to_failure": 217770,
+    "fixed_interval": 210510,
+    "millguard": 150012,
+    "schedule_plus_millguard": 174882
    }
   },
   {
    "t": "2025-05-01T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 428630,
-    "fixed_interval": 275618,
-    "millguard": 102054,
-    "schedule_plus_millguard": 89318
+    "run_to_failure": 217770,
+    "fixed_interval": 210510,
+    "millguard": 150012,
+    "schedule_plus_millguard": 174882
    }
   },
   {
    "t": "2025-05-02T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 428630,
-    "fixed_interval": 275618,
-    "millguard": 102054,
-    "schedule_plus_millguard": 89318
+    "run_to_failure": 217770,
+    "fixed_interval": 210510,
+    "millguard": 150312,
+    "schedule_plus_millguard": 175182
    }
   },
   {
    "t": "2025-05-03T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 428630,
-    "fixed_interval": 280152,
-    "millguard": 102054,
-    "schedule_plus_millguard": 92433
+    "run_to_failure": 217770,
+    "fixed_interval": 210510,
+    "millguard": 150312,
+    "schedule_plus_millguard": 175182
    }
   },
   {
    "t": "2025-05-04T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 428630,
-    "fixed_interval": 280152,
-    "millguard": 102054,
-    "schedule_plus_millguard": 92433
+    "run_to_failure": 217770,
+    "fixed_interval": 210510,
+    "millguard": 150612,
+    "schedule_plus_millguard": 175482
    }
   },
   {
    "t": "2025-05-05T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 428630,
-    "fixed_interval": 280152,
-    "millguard": 102054,
-    "schedule_plus_millguard": 92433
+    "run_to_failure": 217770,
+    "fixed_interval": 210510,
+    "millguard": 150612,
+    "schedule_plus_millguard": 175482
    }
   },
   {
    "t": "2025-05-06T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 428630,
-    "fixed_interval": 280152,
-    "millguard": 102054,
-    "schedule_plus_millguard": 92433
+    "run_to_failure": 217770,
+    "fixed_interval": 210510,
+    "millguard": 150612,
+    "schedule_plus_millguard": 175482
    }
   },
   {
    "t": "2025-05-07T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 428630,
-    "fixed_interval": 280152,
-    "millguard": 102054,
-    "schedule_plus_millguard": 92433
+    "run_to_failure": 217770,
+    "fixed_interval": 210510,
+    "millguard": 150612,
+    "schedule_plus_millguard": 175482
    }
   },
   {
    "t": "2025-05-08T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 428630,
-    "fixed_interval": 280152,
-    "millguard": 106693,
-    "schedule_plus_millguard": 92433
+    "run_to_failure": 217770,
+    "fixed_interval": 210510,
+    "millguard": 150612,
+    "schedule_plus_millguard": 175482
    }
   },
   {
    "t": "2025-05-09T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 428630,
-    "fixed_interval": 284685,
-    "millguard": 107090,
-    "schedule_plus_millguard": 95705
+    "run_to_failure": 217770,
+    "fixed_interval": 210510,
+    "millguard": 150612,
+    "schedule_plus_millguard": 175482
    }
   },
   {
    "t": "2025-05-10T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 451999,
-    "fixed_interval": 300176,
-    "millguard": 107090,
-    "schedule_plus_millguard": 97522
+    "run_to_failure": 217770,
+    "fixed_interval": 210510,
+    "millguard": 150612,
+    "schedule_plus_millguard": 175482
    }
   },
   {
    "t": "2025-05-11T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 451999,
-    "fixed_interval": 300176,
-    "millguard": 107090,
-    "schedule_plus_millguard": 97522
+    "run_to_failure": 217770,
+    "fixed_interval": 228510,
+    "millguard": 150912,
+    "schedule_plus_millguard": 175782
    }
   },
   {
    "t": "2025-05-12T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 451999,
-    "fixed_interval": 300176,
-    "millguard": 107090,
-    "schedule_plus_millguard": 97522
+    "run_to_failure": 217770,
+    "fixed_interval": 228510,
+    "millguard": 150912,
+    "schedule_plus_millguard": 175782
    }
   },
   {
    "t": "2025-05-13T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 451999,
-    "fixed_interval": 300176,
-    "millguard": 107090,
-    "schedule_plus_millguard": 97522
+    "run_to_failure": 217770,
+    "fixed_interval": 228510,
+    "millguard": 150912,
+    "schedule_plus_millguard": 175782
    }
   },
   {
    "t": "2025-05-14T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 451999,
-    "fixed_interval": 300176,
-    "millguard": 107090,
-    "schedule_plus_millguard": 97522
+    "run_to_failure": 217770,
+    "fixed_interval": 228510,
+    "millguard": 150912,
+    "schedule_plus_millguard": 175782
    }
   },
   {
    "t": "2025-05-15T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 451999,
-    "fixed_interval": 300176,
-    "millguard": 107090,
-    "schedule_plus_millguard": 97522
+    "run_to_failure": 217770,
+    "fixed_interval": 228510,
+    "millguard": 150912,
+    "schedule_plus_millguard": 175782
    }
   },
   {
    "t": "2025-05-16T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 451999,
-    "fixed_interval": 300176,
-    "millguard": 107090,
-    "schedule_plus_millguard": 97522
+    "run_to_failure": 217770,
+    "fixed_interval": 228510,
+    "millguard": 150912,
+    "schedule_plus_millguard": 175782
    }
   },
   {
    "t": "2025-05-17T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 451999,
-    "fixed_interval": 300176,
-    "millguard": 107090,
-    "schedule_plus_millguard": 97522
+    "run_to_failure": 217770,
+    "fixed_interval": 228510,
+    "millguard": 150912,
+    "schedule_plus_millguard": 175782
    }
   },
   {
    "t": "2025-05-18T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 451999,
-    "fixed_interval": 300176,
-    "millguard": 107090,
-    "schedule_plus_millguard": 97522
+    "run_to_failure": 217770,
+    "fixed_interval": 228510,
+    "millguard": 157212,
+    "schedule_plus_millguard": 182082
    }
   },
   {
    "t": "2025-05-19T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 451999,
-    "fixed_interval": 300176,
-    "millguard": 107090,
-    "schedule_plus_millguard": 97522
+    "run_to_failure": 261024,
+    "fixed_interval": 247512,
+    "millguard": 176214,
+    "schedule_plus_millguard": 201084
    }
   },
   {
    "t": "2025-05-20T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 451999,
-    "fixed_interval": 300176,
-    "millguard": 107090,
-    "schedule_plus_millguard": 97522
+    "run_to_failure": 261024,
+    "fixed_interval": 247512,
+    "millguard": 176214,
+    "schedule_plus_millguard": 201084
    }
   },
   {
    "t": "2025-05-21T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 451999,
-    "fixed_interval": 300176,
-    "millguard": 107090,
-    "schedule_plus_millguard": 97522
+    "run_to_failure": 261024,
+    "fixed_interval": 247512,
+    "millguard": 176214,
+    "schedule_plus_millguard": 201084
    }
   },
   {
    "t": "2025-05-22T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 451999,
-    "fixed_interval": 300176,
-    "millguard": 107090,
-    "schedule_plus_millguard": 97522
+    "run_to_failure": 261024,
+    "fixed_interval": 247512,
+    "millguard": 190140,
+    "schedule_plus_millguard": 201384
    }
   },
   {
    "t": "2025-05-23T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 451999,
-    "fixed_interval": 300176,
-    "millguard": 107090,
-    "schedule_plus_millguard": 97522
+    "run_to_failure": 261024,
+    "fixed_interval": 247512,
+    "millguard": 190140,
+    "schedule_plus_millguard": 201384
    }
   },
   {
    "t": "2025-05-24T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 451999,
-    "fixed_interval": 300176,
-    "millguard": 107090,
-    "schedule_plus_millguard": 97522
+    "run_to_failure": 309528,
+    "fixed_interval": 247512,
+    "millguard": 214692,
+    "schedule_plus_millguard": 201684
    }
   },
   {
    "t": "2025-05-25T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 451999,
-    "fixed_interval": 300176,
-    "millguard": 107090,
-    "schedule_plus_millguard": 97522
+    "run_to_failure": 309528,
+    "fixed_interval": 247512,
+    "millguard": 214992,
+    "schedule_plus_millguard": 201984
    }
   },
   {
    "t": "2025-05-26T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 451999,
-    "fixed_interval": 300176,
-    "millguard": 107090,
-    "schedule_plus_millguard": 97522
+    "run_to_failure": 309528,
+    "fixed_interval": 247512,
+    "millguard": 214992,
+    "schedule_plus_millguard": 201984
    }
   },
   {
    "t": "2025-05-27T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 451999,
-    "fixed_interval": 300176,
-    "millguard": 107090,
-    "schedule_plus_millguard": 97522
+    "run_to_failure": 309528,
+    "fixed_interval": 247512,
+    "millguard": 214992,
+    "schedule_plus_millguard": 201984
    }
   },
   {
    "t": "2025-05-28T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 451999,
-    "fixed_interval": 300176,
-    "millguard": 107090,
-    "schedule_plus_millguard": 97522
+    "run_to_failure": 309528,
+    "fixed_interval": 247512,
+    "millguard": 214992,
+    "schedule_plus_millguard": 201984
    }
   },
   {
    "t": "2025-05-29T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 451999,
-    "fixed_interval": 300176,
-    "millguard": 107090,
-    "schedule_plus_millguard": 97522
+    "run_to_failure": 309528,
+    "fixed_interval": 247512,
+    "millguard": 214992,
+    "schedule_plus_millguard": 201984
    }
   },
   {
    "t": "2025-05-30T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 451999,
-    "fixed_interval": 300176,
-    "millguard": 107090,
-    "schedule_plus_millguard": 97522
+    "run_to_failure": 333780,
+    "fixed_interval": 247512,
+    "millguard": 239544,
+    "schedule_plus_millguard": 202284
    }
   },
   {
    "t": "2025-05-31T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 451999,
-    "fixed_interval": 300176,
-    "millguard": 107090,
-    "schedule_plus_millguard": 97522
+    "run_to_failure": 333780,
+    "fixed_interval": 247512,
+    "millguard": 239544,
+    "schedule_plus_millguard": 202284
    }
   },
   {
    "t": "2025-06-01T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 451999,
-    "fixed_interval": 300176,
-    "millguard": 107090,
-    "schedule_plus_millguard": 97522
+    "run_to_failure": 333780,
+    "fixed_interval": 247512,
+    "millguard": 239844,
+    "schedule_plus_millguard": 223584
    }
   },
   {
    "t": "2025-06-02T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 451999,
-    "fixed_interval": 304710,
-    "millguard": 107090,
-    "schedule_plus_millguard": 100638
+    "run_to_failure": 333780,
+    "fixed_interval": 247512,
+    "millguard": 239844,
+    "schedule_plus_millguard": 223584
    }
   },
   {
    "t": "2025-06-03T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 451999,
-    "fixed_interval": 304710,
-    "millguard": 107488,
-    "schedule_plus_millguard": 100794
+    "run_to_failure": 333780,
+    "fixed_interval": 247512,
+    "millguard": 239844,
+    "schedule_plus_millguard": 223584
    }
   },
   {
    "t": "2025-06-04T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 451999,
-    "fixed_interval": 304710,
-    "millguard": 110801,
-    "schedule_plus_millguard": 100794
+    "run_to_failure": 333780,
+    "fixed_interval": 247512,
+    "millguard": 239844,
+    "schedule_plus_millguard": 223584
    }
   },
   {
    "t": "2025-06-05T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 451999,
-    "fixed_interval": 304710,
-    "millguard": 148908,
-    "schedule_plus_millguard": 100794
+    "run_to_failure": 333780,
+    "fixed_interval": 247512,
+    "millguard": 239844,
+    "schedule_plus_millguard": 223584
    }
   },
   {
    "t": "2025-06-06T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 473659,
-    "fixed_interval": 319067,
-    "millguard": 148908,
-    "schedule_plus_millguard": 102092
+    "run_to_failure": 333780,
+    "fixed_interval": 247512,
+    "millguard": 239844,
+    "schedule_plus_millguard": 223584
    }
   },
   {
    "t": "2025-06-07T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 506432,
-    "fixed_interval": 340791,
-    "millguard": 148908,
-    "schedule_plus_millguard": 106765
+    "run_to_failure": 333780,
+    "fixed_interval": 247512,
+    "millguard": 239844,
+    "schedule_plus_millguard": 223584
    }
   },
   {
    "t": "2025-06-08T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 506432,
-    "fixed_interval": 345325,
-    "millguard": 148908,
-    "schedule_plus_millguard": 109881
+    "run_to_failure": 333780,
+    "fixed_interval": 253512,
+    "millguard": 240144,
+    "schedule_plus_millguard": 229884
    }
   },
   {
    "t": "2025-06-09T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 506432,
-    "fixed_interval": 345325,
-    "millguard": 148908,
-    "schedule_plus_millguard": 109881
+    "run_to_failure": 333780,
+    "fixed_interval": 253512,
+    "millguard": 240144,
+    "schedule_plus_millguard": 229884
    }
   },
   {
    "t": "2025-06-10T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 506432,
-    "fixed_interval": 345325,
-    "millguard": 148908,
-    "schedule_plus_millguard": 109881
+    "run_to_failure": 333780,
+    "fixed_interval": 253512,
+    "millguard": 240144,
+    "schedule_plus_millguard": 229884
    }
   },
   {
    "t": "2025-06-11T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 506432,
-    "fixed_interval": 345325,
-    "millguard": 148908,
-    "schedule_plus_millguard": 109881
+    "run_to_failure": 333780,
+    "fixed_interval": 253512,
+    "millguard": 240144,
+    "schedule_plus_millguard": 229884
    }
   },
   {
    "t": "2025-06-12T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 506432,
-    "fixed_interval": 345325,
-    "millguard": 148908,
-    "schedule_plus_millguard": 109881
+    "run_to_failure": 333780,
+    "fixed_interval": 253512,
+    "millguard": 240444,
+    "schedule_plus_millguard": 230184
    }
   },
   {
    "t": "2025-06-13T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 506432,
-    "fixed_interval": 345325,
-    "millguard": 148908,
-    "schedule_plus_millguard": 109881
+    "run_to_failure": 333780,
+    "fixed_interval": 253512,
+    "millguard": 240444,
+    "schedule_plus_millguard": 230184
    }
   },
   {
    "t": "2025-06-14T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 506432,
-    "fixed_interval": 349858,
-    "millguard": 153546,
-    "schedule_plus_millguard": 112997
+    "run_to_failure": 333780,
+    "fixed_interval": 253512,
+    "millguard": 240444,
+    "schedule_plus_millguard": 230184
    }
   },
   {
    "t": "2025-06-15T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 506432,
-    "fixed_interval": 349858,
-    "millguard": 180719,
-    "schedule_plus_millguard": 112997
+    "run_to_failure": 333780,
+    "fixed_interval": 271512,
+    "millguard": 240744,
+    "schedule_plus_millguard": 230484
    }
   },
   {
    "t": "2025-06-16T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 529801,
-    "fixed_interval": 365349,
-    "millguard": 180719,
-    "schedule_plus_millguard": 123643
+    "run_to_failure": 333780,
+    "fixed_interval": 271512,
+    "millguard": 240744,
+    "schedule_plus_millguard": 230484
    }
   },
   {
    "t": "2025-06-17T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 553171,
-    "fixed_interval": 380840,
-    "millguard": 192647,
-    "schedule_plus_millguard": 125460
+    "run_to_failure": 333780,
+    "fixed_interval": 271512,
+    "millguard": 240744,
+    "schedule_plus_millguard": 230484
    }
   },
   {
    "t": "2025-06-18T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 553171,
-    "fixed_interval": 380840,
-    "millguard": 192647,
-    "schedule_plus_millguard": 125460
+    "run_to_failure": 333780,
+    "fixed_interval": 271512,
+    "millguard": 240744,
+    "schedule_plus_millguard": 230484
    }
   },
   {
    "t": "2025-06-19T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 585944,
-    "fixed_interval": 402564,
-    "millguard": 192647,
-    "schedule_plus_millguard": 130134
+    "run_to_failure": 333780,
+    "fixed_interval": 271512,
+    "millguard": 240744,
+    "schedule_plus_millguard": 230484
    }
   },
   {
    "t": "2025-06-20T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 585944,
-    "fixed_interval": 407097,
-    "millguard": 200599,
-    "schedule_plus_millguard": 133249
+    "run_to_failure": 333780,
+    "fixed_interval": 271512,
+    "millguard": 240744,
+    "schedule_plus_millguard": 230484
    }
   },
   {
    "t": "2025-06-21T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 585944,
-    "fixed_interval": 407097,
-    "millguard": 200599,
-    "schedule_plus_millguard": 133249
+    "run_to_failure": 333780,
+    "fixed_interval": 271512,
+    "millguard": 240744,
+    "schedule_plus_millguard": 230484
    }
   },
   {
    "t": "2025-06-22T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 613588,
-    "fixed_interval": 411631,
-    "millguard": 200599,
-    "schedule_plus_millguard": 136365
+    "run_to_failure": 333780,
+    "fixed_interval": 271512,
+    "millguard": 241044,
+    "schedule_plus_millguard": 230784
    }
   },
   {
    "t": "2025-06-23T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 613588,
-    "fixed_interval": 411631,
-    "millguard": 200599,
-    "schedule_plus_millguard": 136365
+    "run_to_failure": 333780,
+    "fixed_interval": 271512,
+    "millguard": 241044,
+    "schedule_plus_millguard": 230784
    }
   },
   {
    "t": "2025-06-24T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 613588,
-    "fixed_interval": 411631,
-    "millguard": 200599,
-    "schedule_plus_millguard": 136365
+    "run_to_failure": 333780,
+    "fixed_interval": 271512,
+    "millguard": 241044,
+    "schedule_plus_millguard": 230784
    }
   },
   {
    "t": "2025-06-25T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 613588,
-    "fixed_interval": 411631,
-    "millguard": 200599,
-    "schedule_plus_millguard": 136365
+    "run_to_failure": 333780,
+    "fixed_interval": 271512,
+    "millguard": 241044,
+    "schedule_plus_millguard": 230784
    }
   },
   {
    "t": "2025-06-26T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 613588,
-    "fixed_interval": 411631,
-    "millguard": 200599,
-    "schedule_plus_millguard": 136365
+    "run_to_failure": 333780,
+    "fixed_interval": 271512,
+    "millguard": 241044,
+    "schedule_plus_millguard": 230784
    }
   },
   {
    "t": "2025-06-27T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 613588,
-    "fixed_interval": 411631,
-    "millguard": 200599,
-    "schedule_plus_millguard": 136365
+    "run_to_failure": 333780,
+    "fixed_interval": 271512,
+    "millguard": 241044,
+    "schedule_plus_millguard": 230784
    }
   },
   {
    "t": "2025-06-28T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 613588,
-    "fixed_interval": 411631,
-    "millguard": 200599,
-    "schedule_plus_millguard": 136365
+    "run_to_failure": 333780,
+    "fixed_interval": 271512,
+    "millguard": 241044,
+    "schedule_plus_millguard": 230784
    }
   },
   {
    "t": "2025-06-29T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 613588,
-    "fixed_interval": 411631,
-    "millguard": 200599,
-    "schedule_plus_millguard": 136365
+    "run_to_failure": 333780,
+    "fixed_interval": 271512,
+    "millguard": 241344,
+    "schedule_plus_millguard": 237084
    }
   },
   {
    "t": "2025-06-30T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 613588,
-    "fixed_interval": 411631,
-    "millguard": 200996,
-    "schedule_plus_millguard": 136521
+    "run_to_failure": 333780,
+    "fixed_interval": 271512,
+    "millguard": 241344,
+    "schedule_plus_millguard": 237084
    }
   },
   {
    "t": "2025-07-01T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 613588,
-    "fixed_interval": 411631,
-    "millguard": 200996,
-    "schedule_plus_millguard": 136521
+    "run_to_failure": 333780,
+    "fixed_interval": 271512,
+    "millguard": 241344,
+    "schedule_plus_millguard": 237084
    }
   },
   {
    "t": "2025-07-02T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 613588,
-    "fixed_interval": 411631,
-    "millguard": 200996,
-    "schedule_plus_millguard": 136521
+    "run_to_failure": 333780,
+    "fixed_interval": 271512,
+    "millguard": 241344,
+    "schedule_plus_millguard": 237084
    }
   },
   {
    "t": "2025-07-03T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 613588,
-    "fixed_interval": 411631,
-    "millguard": 200996,
-    "schedule_plus_millguard": 136521
+    "run_to_failure": 333780,
+    "fixed_interval": 271512,
+    "millguard": 241344,
+    "schedule_plus_millguard": 237084
    }
   },
   {
    "t": "2025-07-04T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 613588,
-    "fixed_interval": 411631,
-    "millguard": 200996,
-    "schedule_plus_millguard": 136521
+    "run_to_failure": 333780,
+    "fixed_interval": 271512,
+    "millguard": 241344,
+    "schedule_plus_millguard": 237084
    }
   },
   {
    "t": "2025-07-05T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 613588,
-    "fixed_interval": 411631,
-    "millguard": 200996,
-    "schedule_plus_millguard": 136521
+    "run_to_failure": 333780,
+    "fixed_interval": 271512,
+    "millguard": 241344,
+    "schedule_plus_millguard": 237084
    }
   },
   {
    "t": "2025-07-06T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 613588,
-    "fixed_interval": 411631,
-    "millguard": 200996,
-    "schedule_plus_millguard": 136521
+    "run_to_failure": 333780,
+    "fixed_interval": 271512,
+    "millguard": 255270,
+    "schedule_plus_millguard": 237384
    }
   },
   {
    "t": "2025-07-07T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 613588,
-    "fixed_interval": 411631,
-    "millguard": 200996,
-    "schedule_plus_millguard": 136521
+    "run_to_failure": 333780,
+    "fixed_interval": 271512,
+    "millguard": 255270,
+    "schedule_plus_millguard": 237384
    }
   },
   {
    "t": "2025-07-08T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 613588,
-    "fixed_interval": 411631,
-    "millguard": 201394,
-    "schedule_plus_millguard": 136677
+    "run_to_failure": 333780,
+    "fixed_interval": 271512,
+    "millguard": 255270,
+    "schedule_plus_millguard": 237384
    }
   },
   {
    "t": "2025-07-09T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 613588,
-    "fixed_interval": 411631,
-    "millguard": 201394,
-    "schedule_plus_millguard": 136677
+    "run_to_failure": 333780,
+    "fixed_interval": 271512,
+    "millguard": 255270,
+    "schedule_plus_millguard": 237384
    }
   },
   {
    "t": "2025-07-10T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 613588,
-    "fixed_interval": 411631,
-    "millguard": 201394,
-    "schedule_plus_millguard": 136677
+    "run_to_failure": 333780,
+    "fixed_interval": 271512,
+    "millguard": 255570,
+    "schedule_plus_millguard": 237684
    }
   },
   {
    "t": "2025-07-11T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 613588,
-    "fixed_interval": 411631,
-    "millguard": 201394,
-    "schedule_plus_millguard": 136677
+    "run_to_failure": 333780,
+    "fixed_interval": 271512,
+    "millguard": 255870,
+    "schedule_plus_millguard": 237984
    }
   },
   {
    "t": "2025-07-12T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 613588,
-    "fixed_interval": 411631,
-    "millguard": 201394,
-    "schedule_plus_millguard": 136677
+    "run_to_failure": 358032,
+    "fixed_interval": 271512,
+    "millguard": 255870,
+    "schedule_plus_millguard": 237984
    }
   },
   {
    "t": "2025-07-13T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 613588,
-    "fixed_interval": 411631,
-    "millguard": 201792,
-    "schedule_plus_millguard": 136832
+    "run_to_failure": 358032,
+    "fixed_interval": 271512,
+    "millguard": 256170,
+    "schedule_plus_millguard": 250284
    }
   },
   {
    "t": "2025-07-14T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 613588,
-    "fixed_interval": 416164,
-    "millguard": 201792,
-    "schedule_plus_millguard": 139948
+    "run_to_failure": 358032,
+    "fixed_interval": 271512,
+    "millguard": 256170,
+    "schedule_plus_millguard": 250284
    }
   },
   {
    "t": "2025-07-15T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 613588,
-    "fixed_interval": 416164,
-    "millguard": 201792,
-    "schedule_plus_millguard": 139948
+    "run_to_failure": 358032,
+    "fixed_interval": 271512,
+    "millguard": 256170,
+    "schedule_plus_millguard": 250284
    }
   },
   {
    "t": "2025-07-16T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 613588,
-    "fixed_interval": 416164,
-    "millguard": 201792,
-    "schedule_plus_millguard": 139948
+    "run_to_failure": 358032,
+    "fixed_interval": 271512,
+    "millguard": 256170,
+    "schedule_plus_millguard": 250284
    }
   },
   {
    "t": "2025-07-17T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 613588,
-    "fixed_interval": 416164,
-    "millguard": 201792,
-    "schedule_plus_millguard": 139948
+    "run_to_failure": 358032,
+    "fixed_interval": 271512,
+    "millguard": 256170,
+    "schedule_plus_millguard": 250284
    }
   },
   {
    "t": "2025-07-18T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 613588,
-    "fixed_interval": 416164,
-    "millguard": 202189,
-    "schedule_plus_millguard": 140104
+    "run_to_failure": 358032,
+    "fixed_interval": 271512,
+    "millguard": 256170,
+    "schedule_plus_millguard": 250284
    }
   },
   {
    "t": "2025-07-19T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 613588,
-    "fixed_interval": 416164,
-    "millguard": 202189,
-    "schedule_plus_millguard": 140104
+    "run_to_failure": 358032,
+    "fixed_interval": 271512,
+    "millguard": 256170,
+    "schedule_plus_millguard": 250284
    }
   },
   {
    "t": "2025-07-20T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 613588,
-    "fixed_interval": 420698,
-    "millguard": 240296,
-    "schedule_plus_millguard": 143220
+    "run_to_failure": 358032,
+    "fixed_interval": 289512,
+    "millguard": 256470,
+    "schedule_plus_millguard": 250584
    }
   },
   {
    "t": "2025-07-21T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 613588,
-    "fixed_interval": 420698,
-    "millguard": 240296,
-    "schedule_plus_millguard": 143220
+    "run_to_failure": 358032,
+    "fixed_interval": 289512,
+    "millguard": 256470,
+    "schedule_plus_millguard": 250584
    }
   },
   {
    "t": "2025-07-22T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 646361,
-    "fixed_interval": 427498,
-    "millguard": 240296,
-    "schedule_plus_millguard": 147893
+    "run_to_failure": 358032,
+    "fixed_interval": 289512,
+    "millguard": 256470,
+    "schedule_plus_millguard": 250584
    }
   },
   {
    "t": "2025-07-23T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 646361,
-    "fixed_interval": 427498,
-    "millguard": 240296,
-    "schedule_plus_millguard": 147893
+    "run_to_failure": 358032,
+    "fixed_interval": 289512,
+    "millguard": 256470,
+    "schedule_plus_millguard": 250584
    }
   },
   {
    "t": "2025-07-24T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 646361,
-    "fixed_interval": 427498,
-    "millguard": 248248,
-    "schedule_plus_millguard": 147893
+    "run_to_failure": 358032,
+    "fixed_interval": 289512,
+    "millguard": 256770,
+    "schedule_plus_millguard": 250884
    }
   },
   {
    "t": "2025-07-25T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 646361,
-    "fixed_interval": 427498,
-    "millguard": 248248,
-    "schedule_plus_millguard": 147893
+    "run_to_failure": 358032,
+    "fixed_interval": 289512,
+    "millguard": 257070,
+    "schedule_plus_millguard": 251184
    }
   },
   {
    "t": "2025-07-26T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 674005,
-    "fixed_interval": 436565,
-    "millguard": 248248,
-    "schedule_plus_millguard": 154124
+    "run_to_failure": 358032,
+    "fixed_interval": 289512,
+    "millguard": 257070,
+    "schedule_plus_millguard": 251184
    }
   },
   {
    "t": "2025-07-27T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 674005,
-    "fixed_interval": 436565,
-    "millguard": 248248,
-    "schedule_plus_millguard": 154124
+    "run_to_failure": 358032,
+    "fixed_interval": 295512,
+    "millguard": 257370,
+    "schedule_plus_millguard": 257484
    }
   },
   {
    "t": "2025-07-28T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 674005,
-    "fixed_interval": 436565,
-    "millguard": 248248,
-    "schedule_plus_millguard": 154124
+    "run_to_failure": 378534,
+    "fixed_interval": 295512,
+    "millguard": 285798,
+    "schedule_plus_millguard": 265410
    }
   },
   {
    "t": "2025-07-29T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 674005,
-    "fixed_interval": 436565,
-    "millguard": 248248,
-    "schedule_plus_millguard": 154124
+    "run_to_failure": 378534,
+    "fixed_interval": 295512,
+    "millguard": 299424,
+    "schedule_plus_millguard": 265410
    }
   },
   {
    "t": "2025-07-30T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 674005,
-    "fixed_interval": 436565,
-    "millguard": 248248,
-    "schedule_plus_millguard": 154124
+    "run_to_failure": 402786,
+    "fixed_interval": 295512,
+    "millguard": 299424,
+    "schedule_plus_millguard": 265410
    }
   },
   {
    "t": "2025-07-31T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 674005,
-    "fixed_interval": 436565,
-    "millguard": 248248,
-    "schedule_plus_millguard": 154124
+    "run_to_failure": 402786,
+    "fixed_interval": 295512,
+    "millguard": 299424,
+    "schedule_plus_millguard": 265410
    }
   },
   {
    "t": "2025-08-01T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 674005,
-    "fixed_interval": 441098,
-    "millguard": 248248,
-    "schedule_plus_millguard": 157240
+    "run_to_failure": 402786,
+    "fixed_interval": 295512,
+    "millguard": 299424,
+    "schedule_plus_millguard": 265410
    }
   },
   {
    "t": "2025-08-02T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 674005,
-    "fixed_interval": 441098,
-    "millguard": 248248,
-    "schedule_plus_millguard": 157240
+    "run_to_failure": 402786,
+    "fixed_interval": 295512,
+    "millguard": 299424,
+    "schedule_plus_millguard": 265410
    }
   },
   {
    "t": "2025-08-03T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 674005,
-    "fixed_interval": 441098,
-    "millguard": 248248,
-    "schedule_plus_millguard": 157240
+    "run_to_failure": 402786,
+    "fixed_interval": 295512,
+    "millguard": 299724,
+    "schedule_plus_millguard": 265710
    }
   },
   {
    "t": "2025-08-04T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 674005,
-    "fixed_interval": 441098,
-    "millguard": 248248,
-    "schedule_plus_millguard": 157240
+    "run_to_failure": 402786,
+    "fixed_interval": 295512,
+    "millguard": 299724,
+    "schedule_plus_millguard": 265710
    }
   },
   {
    "t": "2025-08-05T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 674005,
-    "fixed_interval": 441098,
-    "millguard": 248248,
-    "schedule_plus_millguard": 157240
+    "run_to_failure": 402786,
+    "fixed_interval": 295512,
+    "millguard": 299724,
+    "schedule_plus_millguard": 265710
    }
   },
   {
    "t": "2025-08-06T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 674005,
-    "fixed_interval": 441098,
-    "millguard": 248248,
-    "schedule_plus_millguard": 157240
+    "run_to_failure": 427038,
+    "fixed_interval": 295512,
+    "millguard": 323976,
+    "schedule_plus_millguard": 265710
    }
   },
   {
    "t": "2025-08-07T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 674005,
-    "fixed_interval": 441098,
-    "millguard": 248248,
-    "schedule_plus_millguard": 157240
+    "run_to_failure": 427038,
+    "fixed_interval": 295512,
+    "millguard": 324276,
+    "schedule_plus_millguard": 266010
    }
   },
   {
    "t": "2025-08-08T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 674005,
-    "fixed_interval": 441098,
-    "millguard": 248248,
-    "schedule_plus_millguard": 157240
+    "run_to_failure": 427038,
+    "fixed_interval": 295512,
+    "millguard": 324276,
+    "schedule_plus_millguard": 266010
    }
   },
   {
    "t": "2025-08-09T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 674005,
-    "fixed_interval": 441098,
-    "millguard": 248248,
-    "schedule_plus_millguard": 157240
+    "run_to_failure": 427038,
+    "fixed_interval": 295512,
+    "millguard": 324276,
+    "schedule_plus_millguard": 266010
    }
   },
   {
    "t": "2025-08-10T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 674005,
-    "fixed_interval": 441098,
-    "millguard": 248248,
-    "schedule_plus_millguard": 157240
+    "run_to_failure": 427038,
+    "fixed_interval": 295512,
+    "millguard": 324576,
+    "schedule_plus_millguard": 266310
    }
   },
   {
    "t": "2025-08-11T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 674005,
-    "fixed_interval": 441098,
-    "millguard": 248248,
-    "schedule_plus_millguard": 157240
+    "run_to_failure": 427038,
+    "fixed_interval": 295512,
+    "millguard": 324576,
+    "schedule_plus_millguard": 266310
    }
   },
   {
    "t": "2025-08-12T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 674005,
-    "fixed_interval": 441098,
-    "millguard": 248248,
-    "schedule_plus_millguard": 157240
+    "run_to_failure": 427038,
+    "fixed_interval": 295512,
+    "millguard": 324576,
+    "schedule_plus_millguard": 266310
    }
   },
   {
    "t": "2025-08-13T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 674005,
-    "fixed_interval": 441098,
-    "millguard": 248248,
-    "schedule_plus_millguard": 157240
+    "run_to_failure": 427038,
+    "fixed_interval": 295512,
+    "millguard": 324576,
+    "schedule_plus_millguard": 266310
    }
   },
   {
    "t": "2025-08-14T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 674005,
-    "fixed_interval": 441098,
-    "millguard": 248248,
-    "schedule_plus_millguard": 157240
+    "run_to_failure": 427038,
+    "fixed_interval": 295512,
+    "millguard": 324576,
+    "schedule_plus_millguard": 266310
    }
   },
   {
    "t": "2025-08-15T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 674005,
-    "fixed_interval": 441098,
-    "millguard": 252886,
-    "schedule_plus_millguard": 157240
+    "run_to_failure": 427038,
+    "fixed_interval": 295512,
+    "millguard": 324576,
+    "schedule_plus_millguard": 266310
    }
   },
   {
    "t": "2025-08-16T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 674005,
-    "fixed_interval": 441098,
-    "millguard": 252886,
-    "schedule_plus_millguard": 157240
+    "run_to_failure": 427038,
+    "fixed_interval": 295512,
+    "millguard": 324576,
+    "schedule_plus_millguard": 266310
    }
   },
   {
    "t": "2025-08-17T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 697374,
-    "fixed_interval": 456589,
-    "millguard": 252886,
-    "schedule_plus_millguard": 167886
+    "run_to_failure": 427038,
+    "fixed_interval": 295512,
+    "millguard": 324876,
+    "schedule_plus_millguard": 272610
    }
   },
   {
    "t": "2025-08-18T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 697374,
-    "fixed_interval": 456589,
-    "millguard": 252886,
-    "schedule_plus_millguard": 167886
+    "run_to_failure": 427038,
+    "fixed_interval": 295512,
+    "millguard": 332802,
+    "schedule_plus_millguard": 280536
    }
   },
   {
    "t": "2025-08-19T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 697374,
-    "fixed_interval": 456589,
-    "millguard": 252886,
-    "schedule_plus_millguard": 167886
+    "run_to_failure": 427038,
+    "fixed_interval": 295512,
+    "millguard": 332802,
+    "schedule_plus_millguard": 280536
    }
   },
   {
    "t": "2025-08-20T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 697374,
-    "fixed_interval": 456589,
-    "millguard": 252886,
-    "schedule_plus_millguard": 167886
+    "run_to_failure": 427038,
+    "fixed_interval": 295512,
+    "millguard": 340728,
+    "schedule_plus_millguard": 288462
    }
   },
   {
    "t": "2025-08-21T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 697374,
-    "fixed_interval": 456589,
-    "millguard": 278071,
-    "schedule_plus_millguard": 167886
+    "run_to_failure": 427038,
+    "fixed_interval": 295512,
+    "millguard": 340728,
+    "schedule_plus_millguard": 288462
    }
   },
   {
    "t": "2025-08-22T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 697374,
-    "fixed_interval": 456589,
-    "millguard": 278071,
-    "schedule_plus_millguard": 167886
+    "run_to_failure": 427038,
+    "fixed_interval": 295512,
+    "millguard": 340728,
+    "schedule_plus_millguard": 288462
    }
   },
   {
    "t": "2025-08-23T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 719034,
-    "fixed_interval": 470946,
-    "millguard": 278071,
-    "schedule_plus_millguard": 169184
+    "run_to_failure": 427038,
+    "fixed_interval": 295512,
+    "millguard": 340728,
+    "schedule_plus_millguard": 288462
    }
   },
   {
    "t": "2025-08-24T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 719034,
-    "fixed_interval": 470946,
-    "millguard": 278071,
-    "schedule_plus_millguard": 169184
+    "run_to_failure": 427038,
+    "fixed_interval": 305012,
+    "millguard": 341028,
+    "schedule_plus_millguard": 294762
    }
   },
   {
    "t": "2025-08-25T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 719034,
-    "fixed_interval": 475480,
-    "millguard": 289999,
-    "schedule_plus_millguard": 172300
+    "run_to_failure": 427038,
+    "fixed_interval": 305012,
+    "millguard": 341028,
+    "schedule_plus_millguard": 294762
    }
   },
   {
    "t": "2025-08-26T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 719034,
-    "fixed_interval": 475480,
-    "millguard": 289999,
-    "schedule_plus_millguard": 172300
+    "run_to_failure": 427038,
+    "fixed_interval": 305012,
+    "millguard": 341028,
+    "schedule_plus_millguard": 294762
    }
   },
   {
    "t": "2025-08-27T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 751807,
-    "fixed_interval": 497204,
-    "millguard": 289999,
-    "schedule_plus_millguard": 176973
+    "run_to_failure": 427038,
+    "fixed_interval": 305012,
+    "millguard": 341028,
+    "schedule_plus_millguard": 294762
    }
   },
   {
    "t": "2025-08-28T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 751807,
-    "fixed_interval": 497204,
-    "millguard": 289999,
-    "schedule_plus_millguard": 176973
+    "run_to_failure": 451290,
+    "fixed_interval": 305012,
+    "millguard": 365280,
+    "schedule_plus_millguard": 294762
    }
   },
   {
    "t": "2025-08-29T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 751807,
-    "fixed_interval": 497204,
-    "millguard": 289999,
-    "schedule_plus_millguard": 176973
+    "run_to_failure": 451290,
+    "fixed_interval": 305012,
+    "millguard": 365280,
+    "schedule_plus_millguard": 294762
    }
   },
   {
    "t": "2025-08-30T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 751807,
-    "fixed_interval": 497204,
-    "millguard": 290396,
-    "schedule_plus_millguard": 177129
+    "run_to_failure": 451290,
+    "fixed_interval": 305012,
+    "millguard": 365580,
+    "schedule_plus_millguard": 295062
    }
   },
   {
    "t": "2025-08-31T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 751807,
-    "fixed_interval": 501738,
-    "millguard": 290396,
-    "schedule_plus_millguard": 180245
+    "run_to_failure": 451290,
+    "fixed_interval": 323012,
+    "millguard": 365580,
+    "schedule_plus_millguard": 301062
    }
   },
   {
    "t": "2025-09-01T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 751807,
-    "fixed_interval": 501738,
-    "millguard": 290396,
-    "schedule_plus_millguard": 180245
+    "run_to_failure": 451290,
+    "fixed_interval": 323012,
+    "millguard": 365580,
+    "schedule_plus_millguard": 301062
    }
   },
   {
    "t": "2025-09-02T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 751807,
-    "fixed_interval": 501738,
-    "millguard": 290794,
-    "schedule_plus_millguard": 180401
+    "run_to_failure": 451290,
+    "fixed_interval": 323012,
+    "millguard": 379206,
+    "schedule_plus_millguard": 301062
    }
   },
   {
    "t": "2025-09-03T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 751807,
-    "fixed_interval": 501738,
-    "millguard": 298746,
-    "schedule_plus_millguard": 180401
+    "run_to_failure": 451290,
+    "fixed_interval": 323012,
+    "millguard": 379206,
+    "schedule_plus_millguard": 301062
    }
   },
   {
    "t": "2025-09-04T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 751807,
-    "fixed_interval": 501738,
-    "millguard": 298746,
-    "schedule_plus_millguard": 180401
+    "run_to_failure": 451290,
+    "fixed_interval": 323012,
+    "millguard": 379206,
+    "schedule_plus_millguard": 301062
    }
   },
   {
    "t": "2025-09-05T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 779451,
-    "fixed_interval": 506271,
-    "millguard": 298746,
-    "schedule_plus_millguard": 183516
+    "run_to_failure": 475542,
+    "fixed_interval": 323012,
+    "millguard": 379206,
+    "schedule_plus_millguard": 301062
    }
   },
   {
    "t": "2025-09-06T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 779451,
-    "fixed_interval": 510804,
-    "millguard": 298746,
-    "schedule_plus_millguard": 186632
+    "run_to_failure": 475542,
+    "fixed_interval": 323012,
+    "millguard": 379206,
+    "schedule_plus_millguard": 301062
    }
   },
   {
    "t": "2025-09-07T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 779451,
-    "fixed_interval": 510804,
-    "millguard": 298746,
-    "schedule_plus_millguard": 186632
+    "run_to_failure": 475542,
+    "fixed_interval": 323012,
+    "millguard": 379506,
+    "schedule_plus_millguard": 307362
    }
   },
   {
    "t": "2025-09-08T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 779451,
-    "fixed_interval": 510804,
-    "millguard": 298746,
-    "schedule_plus_millguard": 186632
+    "run_to_failure": 475542,
+    "fixed_interval": 323012,
+    "millguard": 391632,
+    "schedule_plus_millguard": 307362
    }
   },
   {
    "t": "2025-09-09T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 779451,
-    "fixed_interval": 510804,
-    "millguard": 304710,
-    "schedule_plus_millguard": 186632
+    "run_to_failure": 475542,
+    "fixed_interval": 323012,
+    "millguard": 391632,
+    "schedule_plus_millguard": 307362
    }
   },
   {
    "t": "2025-09-10T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 779451,
-    "fixed_interval": 510804,
-    "millguard": 315975,
-    "schedule_plus_millguard": 186632
+    "run_to_failure": 497544,
+    "fixed_interval": 323012,
+    "millguard": 391632,
+    "schedule_plus_millguard": 307362
    }
   },
   {
    "t": "2025-09-11T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 804530,
-    "fixed_interval": 527429,
-    "millguard": 315975,
-    "schedule_plus_millguard": 188969
+    "run_to_failure": 497544,
+    "fixed_interval": 323012,
+    "millguard": 391632,
+    "schedule_plus_millguard": 307362
    }
   },
   {
    "t": "2025-09-12T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 853833,
-    "fixed_interval": 538384,
-    "millguard": 315975,
-    "schedule_plus_millguard": 196498
+    "run_to_failure": 497544,
+    "fixed_interval": 323012,
+    "millguard": 391632,
+    "schedule_plus_millguard": 307362
    }
   },
   {
    "t": "2025-09-13T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 853833,
-    "fixed_interval": 538384,
-    "millguard": 315975,
-    "schedule_plus_millguard": 196498
+    "run_to_failure": 497544,
+    "fixed_interval": 323012,
+    "millguard": 391632,
+    "schedule_plus_millguard": 307362
    }
   },
   {
    "t": "2025-09-14T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 853833,
-    "fixed_interval": 538384,
-    "millguard": 315975,
-    "schedule_plus_millguard": 196498
+    "run_to_failure": 497544,
+    "fixed_interval": 323012,
+    "millguard": 394632,
+    "schedule_plus_millguard": 310362
    }
   },
   {
    "t": "2025-09-15T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 853833,
-    "fixed_interval": 538384,
-    "millguard": 315975,
-    "schedule_plus_millguard": 196498
+    "run_to_failure": 497544,
+    "fixed_interval": 323012,
+    "millguard": 394632,
+    "schedule_plus_millguard": 310362
    }
   },
   {
    "t": "2025-09-16T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 853833,
-    "fixed_interval": 538384,
-    "millguard": 315975,
-    "schedule_plus_millguard": 196498
+    "run_to_failure": 624061,
+    "fixed_interval": 449529,
+    "millguard": 394632,
+    "schedule_plus_millguard": 310362
    }
   },
   {
    "t": "2025-09-17T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 853833,
-    "fixed_interval": 538384,
-    "millguard": 315975,
-    "schedule_plus_millguard": 196498
+    "run_to_failure": 624061,
+    "fixed_interval": 449529,
+    "millguard": 394632,
+    "schedule_plus_millguard": 310362
    }
   },
   {
    "t": "2025-09-18T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 853833,
-    "fixed_interval": 538384,
-    "millguard": 315975,
-    "schedule_plus_millguard": 196498
+    "run_to_failure": 624061,
+    "fixed_interval": 449529,
+    "millguard": 394632,
+    "schedule_plus_millguard": 310362
    }
   },
   {
    "t": "2025-09-19T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 853833,
-    "fixed_interval": 538384,
-    "millguard": 315975,
-    "schedule_plus_millguard": 196498
+    "run_to_failure": 624061,
+    "fixed_interval": 449529,
+    "millguard": 394632,
+    "schedule_plus_millguard": 310362
    }
   },
   {
    "t": "2025-09-20T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 853833,
-    "fixed_interval": 538384,
-    "millguard": 315975,
-    "schedule_plus_millguard": 196498
+    "run_to_failure": 624061,
+    "fixed_interval": 449529,
+    "millguard": 394632,
+    "schedule_plus_millguard": 310362
    }
   },
   {
    "t": "2025-09-21T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 853833,
-    "fixed_interval": 538384,
-    "millguard": 315975,
-    "schedule_plus_millguard": 196498
+    "run_to_failure": 624061,
+    "fixed_interval": 453029,
+    "millguard": 394932,
+    "schedule_plus_millguard": 310662
    }
   },
   {
    "t": "2025-09-22T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 853833,
-    "fixed_interval": 538384,
-    "millguard": 315975,
-    "schedule_plus_millguard": 196498
+    "run_to_failure": 624061,
+    "fixed_interval": 453029,
+    "millguard": 394932,
+    "schedule_plus_millguard": 310662
    }
   },
   {
    "t": "2025-09-23T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 853833,
-    "fixed_interval": 538384,
-    "millguard": 315975,
-    "schedule_plus_millguard": 196498
+    "run_to_failure": 624061,
+    "fixed_interval": 453029,
+    "millguard": 394932,
+    "schedule_plus_millguard": 310662
    }
   },
   {
    "t": "2025-09-24T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 853833,
-    "fixed_interval": 538384,
-    "millguard": 315975,
-    "schedule_plus_millguard": 196498
+    "run_to_failure": 624061,
+    "fixed_interval": 453029,
+    "millguard": 394932,
+    "schedule_plus_millguard": 310662
    }
   },
   {
    "t": "2025-09-25T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 853833,
-    "fixed_interval": 538384,
-    "millguard": 315975,
-    "schedule_plus_millguard": 196498
+    "run_to_failure": 624061,
+    "fixed_interval": 453029,
+    "millguard": 394932,
+    "schedule_plus_millguard": 310662
    }
   },
   {
    "t": "2025-09-26T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 853833,
-    "fixed_interval": 538384,
-    "millguard": 315975,
-    "schedule_plus_millguard": 196498
+    "run_to_failure": 624061,
+    "fixed_interval": 453029,
+    "millguard": 394932,
+    "schedule_plus_millguard": 310662
    }
   },
   {
    "t": "2025-09-27T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 853833,
-    "fixed_interval": 538384,
-    "millguard": 319952,
-    "schedule_plus_millguard": 196498
+    "run_to_failure": 624061,
+    "fixed_interval": 453029,
+    "millguard": 394932,
+    "schedule_plus_millguard": 310662
    }
   },
   {
    "t": "2025-09-28T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 853833,
-    "fixed_interval": 538384,
-    "millguard": 319952,
-    "schedule_plus_millguard": 196498
+    "run_to_failure": 624061,
+    "fixed_interval": 456529,
+    "millguard": 395232,
+    "schedule_plus_millguard": 310962
    }
   },
   {
    "t": "2025-09-29T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 998044,
-    "fixed_interval": 633977,
-    "millguard": 319952,
-    "schedule_plus_millguard": 262195
+    "run_to_failure": 624061,
+    "fixed_interval": 456529,
+    "millguard": 406358,
+    "schedule_plus_millguard": 310962
    }
   },
   {
    "t": "2025-09-30T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 998044,
-    "fixed_interval": 633977,
-    "millguard": 319952,
-    "schedule_plus_millguard": 262195
+    "run_to_failure": 624061,
+    "fixed_interval": 456529,
+    "millguard": 406358,
+    "schedule_plus_millguard": 310962
    }
   },
   {
    "t": "2025-10-01T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 998044,
-    "fixed_interval": 633977,
-    "millguard": 327904,
-    "schedule_plus_millguard": 262195
+    "run_to_failure": 624061,
+    "fixed_interval": 456529,
+    "millguard": 406358,
+    "schedule_plus_millguard": 310962
    }
   },
   {
    "t": "2025-10-02T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 998044,
-    "fixed_interval": 633977,
-    "millguard": 327904,
-    "schedule_plus_millguard": 262195
+    "run_to_failure": 624061,
+    "fixed_interval": 456529,
+    "millguard": 406358,
+    "schedule_plus_millguard": 310962
    }
   },
   {
    "t": "2025-10-03T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1025688,
-    "fixed_interval": 638511,
-    "millguard": 360046,
-    "schedule_plus_millguard": 265311
+    "run_to_failure": 624061,
+    "fixed_interval": 456529,
+    "millguard": 406358,
+    "schedule_plus_millguard": 310962
    }
   },
   {
    "t": "2025-10-04T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1025688,
-    "fixed_interval": 638511,
-    "millguard": 360046,
-    "schedule_plus_millguard": 265311
+    "run_to_failure": 644563,
+    "fixed_interval": 456529,
+    "millguard": 406358,
+    "schedule_plus_millguard": 310962
    }
   },
   {
    "t": "2025-10-05T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1053332,
-    "fixed_interval": 643044,
-    "millguard": 367998,
-    "schedule_plus_millguard": 268426
+    "run_to_failure": 644563,
+    "fixed_interval": 471529,
+    "millguard": 406658,
+    "schedule_plus_millguard": 323262
    }
   },
   {
    "t": "2025-10-06T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1053332,
-    "fixed_interval": 647578,
-    "millguard": 367998,
-    "schedule_plus_millguard": 271542
+    "run_to_failure": 644563,
+    "fixed_interval": 471529,
+    "millguard": 406658,
+    "schedule_plus_millguard": 323262
    }
   },
   {
    "t": "2025-10-07T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1080976,
-    "fixed_interval": 652111,
-    "millguard": 367998,
-    "schedule_plus_millguard": 274658
+    "run_to_failure": 644563,
+    "fixed_interval": 471529,
+    "millguard": 406658,
+    "schedule_plus_millguard": 323262
    }
   },
   {
    "t": "2025-10-08T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1080976,
-    "fixed_interval": 652111,
-    "millguard": 367998,
-    "schedule_plus_millguard": 274658
+    "run_to_failure": 644563,
+    "fixed_interval": 471529,
+    "millguard": 406658,
+    "schedule_plus_millguard": 323262
    }
   },
   {
    "t": "2025-10-09T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1080976,
-    "fixed_interval": 652111,
-    "millguard": 373962,
-    "schedule_plus_millguard": 274658
+    "run_to_failure": 644563,
+    "fixed_interval": 471529,
+    "millguard": 406658,
+    "schedule_plus_millguard": 323262
    }
   },
   {
    "t": "2025-10-10T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1080976,
-    "fixed_interval": 652111,
-    "millguard": 378601,
-    "schedule_plus_millguard": 274658
+    "run_to_failure": 644563,
+    "fixed_interval": 471529,
+    "millguard": 406658,
+    "schedule_plus_millguard": 323262
    }
   },
   {
    "t": "2025-10-11T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1106055,
-    "fixed_interval": 668735,
-    "millguard": 378601,
-    "schedule_plus_millguard": 276994
+    "run_to_failure": 644563,
+    "fixed_interval": 471529,
+    "millguard": 406658,
+    "schedule_plus_millguard": 323262
    }
   },
   {
    "t": "2025-10-12T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1129424,
-    "fixed_interval": 688759,
-    "millguard": 378601,
-    "schedule_plus_millguard": 281928
+    "run_to_failure": 644563,
+    "fixed_interval": 493029,
+    "millguard": 406958,
+    "schedule_plus_millguard": 327062
    }
   },
   {
    "t": "2025-10-13T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1129424,
-    "fixed_interval": 688759,
-    "millguard": 378601,
-    "schedule_plus_millguard": 281928
+    "run_to_failure": 644563,
+    "fixed_interval": 493029,
+    "millguard": 406958,
+    "schedule_plus_millguard": 327062
    }
   },
   {
    "t": "2025-10-14T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1129424,
-    "fixed_interval": 688759,
-    "millguard": 378601,
-    "schedule_plus_millguard": 281928
+    "run_to_failure": 644563,
+    "fixed_interval": 493029,
+    "millguard": 420584,
+    "schedule_plus_millguard": 327062
    }
   },
   {
    "t": "2025-10-15T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1129424,
-    "fixed_interval": 688759,
-    "millguard": 378601,
-    "schedule_plus_millguard": 281928
+    "run_to_failure": 644563,
+    "fixed_interval": 493029,
+    "millguard": 420584,
+    "schedule_plus_millguard": 327062
    }
   },
   {
    "t": "2025-10-16T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1129424,
-    "fixed_interval": 688759,
-    "millguard": 378601,
-    "schedule_plus_millguard": 281928
+    "run_to_failure": 644563,
+    "fixed_interval": 493029,
+    "millguard": 420584,
+    "schedule_plus_millguard": 327062
    }
   },
   {
    "t": "2025-10-17T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1129424,
-    "fixed_interval": 688759,
-    "millguard": 378601,
-    "schedule_plus_millguard": 281928
+    "run_to_failure": 644563,
+    "fixed_interval": 493029,
+    "millguard": 420584,
+    "schedule_plus_millguard": 327062
    }
   },
   {
    "t": "2025-10-18T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1129424,
-    "fixed_interval": 693293,
-    "millguard": 378601,
-    "schedule_plus_millguard": 285043
+    "run_to_failure": 644563,
+    "fixed_interval": 493029,
+    "millguard": 420584,
+    "schedule_plus_millguard": 327062
    }
   },
   {
    "t": "2025-10-19T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1129424,
-    "fixed_interval": 693293,
-    "millguard": 378998,
-    "schedule_plus_millguard": 285199
+    "run_to_failure": 644563,
+    "fixed_interval": 493029,
+    "millguard": 420884,
+    "schedule_plus_millguard": 339362
    }
   },
   {
    "t": "2025-10-20T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1129424,
-    "fixed_interval": 693293,
-    "millguard": 378998,
-    "schedule_plus_millguard": 285199
+    "run_to_failure": 668815,
+    "fixed_interval": 493029,
+    "millguard": 434510,
+    "schedule_plus_millguard": 339362
    }
   },
   {
    "t": "2025-10-21T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1129424,
-    "fixed_interval": 693293,
-    "millguard": 378998,
-    "schedule_plus_millguard": 285199
+    "run_to_failure": 668815,
+    "fixed_interval": 493029,
+    "millguard": 434510,
+    "schedule_plus_millguard": 339362
    }
   },
   {
    "t": "2025-10-22T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1129424,
-    "fixed_interval": 693293,
-    "millguard": 378998,
-    "schedule_plus_millguard": 285199
+    "run_to_failure": 693067,
+    "fixed_interval": 493029,
+    "millguard": 434510,
+    "schedule_plus_millguard": 339362
    }
   },
   {
    "t": "2025-10-23T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1129424,
-    "fixed_interval": 693293,
-    "millguard": 385360,
-    "schedule_plus_millguard": 285355
+    "run_to_failure": 693067,
+    "fixed_interval": 493029,
+    "millguard": 434510,
+    "schedule_plus_millguard": 339362
    }
   },
   {
    "t": "2025-10-24T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1129424,
-    "fixed_interval": 697826,
-    "millguard": 385360,
-    "schedule_plus_millguard": 288470
+    "run_to_failure": 717319,
+    "fixed_interval": 493029,
+    "millguard": 458762,
+    "schedule_plus_millguard": 339362
    }
   },
   {
    "t": "2025-10-25T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1154503,
-    "fixed_interval": 714450,
-    "millguard": 385360,
-    "schedule_plus_millguard": 299896
+    "run_to_failure": 717319,
+    "fixed_interval": 493029,
+    "millguard": 458762,
+    "schedule_plus_millguard": 339362
    }
   },
   {
    "t": "2025-10-26T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1154503,
-    "fixed_interval": 714450,
-    "millguard": 385360,
-    "schedule_plus_millguard": 299896
+    "run_to_failure": 717319,
+    "fixed_interval": 493029,
+    "millguard": 459062,
+    "schedule_plus_millguard": 339662
    }
   },
   {
    "t": "2025-10-27T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1154503,
-    "fixed_interval": 714450,
-    "millguard": 385360,
-    "schedule_plus_millguard": 299896
+    "run_to_failure": 717319,
+    "fixed_interval": 493029,
+    "millguard": 459062,
+    "schedule_plus_millguard": 339662
    }
   },
   {
    "t": "2025-10-28T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1154503,
-    "fixed_interval": 714450,
-    "millguard": 385360,
-    "schedule_plus_millguard": 299896
+    "run_to_failure": 717319,
+    "fixed_interval": 493029,
+    "millguard": 459062,
+    "schedule_plus_millguard": 339662
    }
   },
   {
    "t": "2025-10-29T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1154503,
-    "fixed_interval": 714450,
-    "millguard": 385360,
-    "schedule_plus_millguard": 299896
+    "run_to_failure": 717319,
+    "fixed_interval": 493029,
+    "millguard": 459062,
+    "schedule_plus_millguard": 339662
    }
   },
   {
    "t": "2025-10-30T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1154503,
-    "fixed_interval": 714450,
-    "millguard": 385360,
-    "schedule_plus_millguard": 299896
+    "run_to_failure": 717319,
+    "fixed_interval": 493029,
+    "millguard": 459062,
+    "schedule_plus_millguard": 339662
    }
   },
   {
    "t": "2025-10-31T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1154503,
-    "fixed_interval": 714450,
-    "millguard": 385360,
-    "schedule_plus_millguard": 299896
+    "run_to_failure": 717319,
+    "fixed_interval": 493029,
+    "millguard": 459062,
+    "schedule_plus_millguard": 339662
    }
   },
   {
    "t": "2025-11-01T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1154503,
-    "fixed_interval": 714450,
-    "millguard": 385360,
-    "schedule_plus_millguard": 299896
+    "run_to_failure": 717319,
+    "fixed_interval": 493029,
+    "millguard": 459062,
+    "schedule_plus_millguard": 339662
    }
   },
   {
    "t": "2025-11-02T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1154503,
-    "fixed_interval": 714450,
-    "millguard": 391324,
-    "schedule_plus_millguard": 299896
+    "run_to_failure": 717319,
+    "fixed_interval": 497529,
+    "millguard": 459362,
+    "schedule_plus_millguard": 339962
    }
   },
   {
    "t": "2025-11-03T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1154503,
-    "fixed_interval": 714450,
-    "millguard": 391324,
-    "schedule_plus_millguard": 299896
+    "run_to_failure": 717319,
+    "fixed_interval": 497529,
+    "millguard": 459362,
+    "schedule_plus_millguard": 339962
    }
   },
   {
    "t": "2025-11-04T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1179583,
-    "fixed_interval": 731075,
-    "millguard": 391324,
-    "schedule_plus_millguard": 311321
+    "run_to_failure": 736321,
+    "fixed_interval": 516531,
+    "millguard": 469488,
+    "schedule_plus_millguard": 350088
    }
   },
   {
    "t": "2025-11-05T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1179583,
-    "fixed_interval": 731075,
-    "millguard": 403252,
-    "schedule_plus_millguard": 311321
+    "run_to_failure": 736321,
+    "fixed_interval": 516531,
+    "millguard": 469488,
+    "schedule_plus_millguard": 350088
    }
   },
   {
    "t": "2025-11-06T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1179583,
-    "fixed_interval": 731075,
-    "millguard": 403252,
-    "schedule_plus_millguard": 311321
+    "run_to_failure": 736321,
+    "fixed_interval": 516531,
+    "millguard": 469488,
+    "schedule_plus_millguard": 350088
    }
   },
   {
    "t": "2025-11-07T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1212356,
-    "fixed_interval": 752799,
-    "millguard": 403252,
-    "schedule_plus_millguard": 315994
+    "run_to_failure": 736321,
+    "fixed_interval": 516531,
+    "millguard": 469488,
+    "schedule_plus_millguard": 350088
    }
   },
   {
    "t": "2025-11-08T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1212356,
-    "fixed_interval": 752799,
-    "millguard": 403252,
-    "schedule_plus_millguard": 315994
+    "run_to_failure": 736321,
+    "fixed_interval": 516531,
+    "millguard": 469488,
+    "schedule_plus_millguard": 350088
    }
   },
   {
    "t": "2025-11-09T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1212356,
-    "fixed_interval": 752799,
-    "millguard": 403252,
-    "schedule_plus_millguard": 315994
+    "run_to_failure": 736321,
+    "fixed_interval": 531531,
+    "millguard": 469788,
+    "schedule_plus_millguard": 353888
    }
   },
   {
    "t": "2025-11-10T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1212356,
-    "fixed_interval": 752799,
-    "millguard": 403252,
-    "schedule_plus_millguard": 315994
+    "run_to_failure": 736321,
+    "fixed_interval": 531531,
+    "millguard": 469788,
+    "schedule_plus_millguard": 353888
    }
   },
   {
    "t": "2025-11-11T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1212356,
-    "fixed_interval": 752799,
-    "millguard": 403252,
-    "schedule_plus_millguard": 315994
+    "run_to_failure": 736321,
+    "fixed_interval": 531531,
+    "millguard": 469788,
+    "schedule_plus_millguard": 353888
    }
   },
   {
    "t": "2025-11-12T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1212356,
-    "fixed_interval": 752799,
-    "millguard": 403252,
-    "schedule_plus_millguard": 315994
+    "run_to_failure": 736321,
+    "fixed_interval": 531531,
+    "millguard": 480914,
+    "schedule_plus_millguard": 353888
    }
   },
   {
    "t": "2025-11-13T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1212356,
-    "fixed_interval": 752799,
-    "millguard": 403252,
-    "schedule_plus_millguard": 315994
+    "run_to_failure": 736321,
+    "fixed_interval": 531531,
+    "millguard": 480914,
+    "schedule_plus_millguard": 353888
    }
   },
   {
    "t": "2025-11-14T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1212356,
-    "fixed_interval": 752799,
-    "millguard": 403252,
-    "schedule_plus_millguard": 315994
+    "run_to_failure": 736321,
+    "fixed_interval": 531531,
+    "millguard": 480914,
+    "schedule_plus_millguard": 353888
    }
   },
   {
    "t": "2025-11-15T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1212356,
-    "fixed_interval": 752799,
-    "millguard": 403650,
-    "schedule_plus_millguard": 316150
+    "run_to_failure": 756823,
+    "fixed_interval": 531531,
+    "millguard": 480914,
+    "schedule_plus_millguard": 353888
    }
   },
   {
    "t": "2025-11-16T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1212356,
-    "fixed_interval": 752799,
-    "millguard": 403650,
-    "schedule_plus_millguard": 316150
+    "run_to_failure": 756823,
+    "fixed_interval": 549531,
+    "millguard": 481214,
+    "schedule_plus_millguard": 366188
    }
   },
   {
    "t": "2025-11-17T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1212356,
-    "fixed_interval": 757332,
-    "millguard": 403650,
-    "schedule_plus_millguard": 319265
+    "run_to_failure": 756823,
+    "fixed_interval": 549531,
+    "millguard": 481214,
+    "schedule_plus_millguard": 366188
    }
   },
   {
    "t": "2025-11-18T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1212356,
-    "fixed_interval": 757332,
-    "millguard": 403650,
-    "schedule_plus_millguard": 319265
+    "run_to_failure": 756823,
+    "fixed_interval": 549531,
+    "millguard": 494840,
+    "schedule_plus_millguard": 379814
    }
   },
   {
    "t": "2025-11-19T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1212356,
-    "fixed_interval": 757332,
-    "millguard": 403650,
-    "schedule_plus_millguard": 319265
+    "run_to_failure": 775825,
+    "fixed_interval": 568533,
+    "millguard": 494840,
+    "schedule_plus_millguard": 379814
    }
   },
   {
    "t": "2025-11-20T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1212356,
-    "fixed_interval": 757332,
-    "millguard": 403650,
-    "schedule_plus_millguard": 319265
+    "run_to_failure": 775825,
+    "fixed_interval": 568533,
+    "millguard": 494840,
+    "schedule_plus_millguard": 379814
    }
   },
   {
    "t": "2025-11-21T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1212356,
-    "fixed_interval": 757332,
-    "millguard": 403650,
-    "schedule_plus_millguard": 319265
+    "run_to_failure": 775825,
+    "fixed_interval": 568533,
+    "millguard": 494840,
+    "schedule_plus_millguard": 379814
    }
   },
   {
    "t": "2025-11-22T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1212356,
-    "fixed_interval": 757332,
-    "millguard": 403650,
-    "schedule_plus_millguard": 319265
+    "run_to_failure": 800077,
+    "fixed_interval": 568533,
+    "millguard": 522092,
+    "schedule_plus_millguard": 382814
    }
   },
   {
    "t": "2025-11-23T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1212356,
-    "fixed_interval": 761866,
-    "millguard": 403650,
-    "schedule_plus_millguard": 322381
+    "run_to_failure": 926594,
+    "fixed_interval": 695050,
+    "millguard": 522392,
+    "schedule_plus_millguard": 383114
    }
   },
   {
    "t": "2025-11-24T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1212356,
-    "fixed_interval": 761866,
-    "millguard": 403650,
-    "schedule_plus_millguard": 322381
+    "run_to_failure": 926594,
+    "fixed_interval": 695050,
+    "millguard": 522392,
+    "schedule_plus_millguard": 383114
    }
   },
   {
    "t": "2025-11-25T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1212356,
-    "fixed_interval": 761866,
-    "millguard": 404047,
-    "schedule_plus_millguard": 322537
+    "run_to_failure": 926594,
+    "fixed_interval": 695050,
+    "millguard": 522392,
+    "schedule_plus_millguard": 383114
    }
   },
   {
    "t": "2025-11-26T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1212356,
-    "fixed_interval": 761866,
-    "millguard": 404047,
-    "schedule_plus_millguard": 322537
+    "run_to_failure": 926594,
+    "fixed_interval": 695050,
+    "millguard": 522392,
+    "schedule_plus_millguard": 383114
    }
   },
   {
    "t": "2025-11-27T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1212356,
-    "fixed_interval": 761866,
-    "millguard": 404047,
-    "schedule_plus_millguard": 322537
+    "run_to_failure": 926594,
+    "fixed_interval": 695050,
+    "millguard": 522392,
+    "schedule_plus_millguard": 383114
    }
   },
   {
    "t": "2025-11-28T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1212356,
-    "fixed_interval": 761866,
-    "millguard": 404047,
-    "schedule_plus_millguard": 322537
+    "run_to_failure": 926594,
+    "fixed_interval": 695050,
+    "millguard": 522392,
+    "schedule_plus_millguard": 383114
    }
   },
   {
    "t": "2025-11-29T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1212356,
-    "fixed_interval": 766399,
-    "millguard": 404047,
-    "schedule_plus_millguard": 325653
+    "run_to_failure": 926594,
+    "fixed_interval": 695050,
+    "millguard": 522392,
+    "schedule_plus_millguard": 383114
    }
   },
   {
    "t": "2025-11-30T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1212356,
-    "fixed_interval": 766399,
-    "millguard": 404047,
-    "schedule_plus_millguard": 325653
+    "run_to_failure": 926594,
+    "fixed_interval": 695050,
+    "millguard": 522692,
+    "schedule_plus_millguard": 395414
    }
   },
   {
    "t": "2025-12-01T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1212356,
-    "fixed_interval": 766399,
-    "millguard": 404047,
-    "schedule_plus_millguard": 325653
+    "run_to_failure": 926594,
+    "fixed_interval": 695050,
+    "millguard": 522692,
+    "schedule_plus_millguard": 395414
    }
   },
   {
    "t": "2025-12-02T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1212356,
-    "fixed_interval": 766399,
-    "millguard": 404047,
-    "schedule_plus_millguard": 325653
+    "run_to_failure": 926594,
+    "fixed_interval": 695050,
+    "millguard": 522692,
+    "schedule_plus_millguard": 395414
    }
   },
   {
    "t": "2025-12-03T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1212356,
-    "fixed_interval": 766399,
-    "millguard": 404047,
-    "schedule_plus_millguard": 325653
+    "run_to_failure": 926594,
+    "fixed_interval": 695050,
+    "millguard": 522692,
+    "schedule_plus_millguard": 395414
    }
   },
   {
    "t": "2025-12-04T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1212356,
-    "fixed_interval": 766399,
-    "millguard": 404047,
-    "schedule_plus_millguard": 325653
+    "run_to_failure": 926594,
+    "fixed_interval": 695050,
+    "millguard": 522692,
+    "schedule_plus_millguard": 395414
    }
   },
   {
    "t": "2025-12-05T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1212356,
-    "fixed_interval": 770933,
-    "millguard": 404047,
-    "schedule_plus_millguard": 328768
+    "run_to_failure": 926594,
+    "fixed_interval": 695050,
+    "millguard": 522692,
+    "schedule_plus_millguard": 395414
    }
   },
   {
    "t": "2025-12-06T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1212356,
-    "fixed_interval": 770933,
-    "millguard": 404047,
-    "schedule_plus_millguard": 328768
+    "run_to_failure": 926594,
+    "fixed_interval": 695050,
+    "millguard": 522692,
+    "schedule_plus_millguard": 395414
    }
   },
   {
    "t": "2025-12-07T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1212356,
-    "fixed_interval": 770933,
-    "millguard": 404047,
-    "schedule_plus_millguard": 328768
+    "run_to_failure": 926594,
+    "fixed_interval": 695050,
+    "millguard": 522992,
+    "schedule_plus_millguard": 395714
    }
   },
   {
    "t": "2025-12-08T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1212356,
-    "fixed_interval": 770933,
-    "millguard": 404047,
-    "schedule_plus_millguard": 328768
+    "run_to_failure": 926594,
+    "fixed_interval": 695050,
+    "millguard": 522992,
+    "schedule_plus_millguard": 395714
    }
   },
   {
    "t": "2025-12-09T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1212356,
-    "fixed_interval": 770933,
-    "millguard": 404047,
-    "schedule_plus_millguard": 328768
+    "run_to_failure": 926594,
+    "fixed_interval": 695050,
+    "millguard": 522992,
+    "schedule_plus_millguard": 395714
    }
   },
   {
    "t": "2025-12-10T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1212356,
-    "fixed_interval": 770933,
-    "millguard": 404047,
-    "schedule_plus_millguard": 328768
+    "run_to_failure": 926594,
+    "fixed_interval": 695050,
+    "millguard": 522992,
+    "schedule_plus_millguard": 395714
    }
   },
   {
    "t": "2025-12-11T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1212356,
-    "fixed_interval": 770933,
-    "millguard": 404047,
-    "schedule_plus_millguard": 328768
+    "run_to_failure": 926594,
+    "fixed_interval": 695050,
+    "millguard": 522992,
+    "schedule_plus_millguard": 395714
    }
   },
   {
    "t": "2025-12-12T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1212356,
-    "fixed_interval": 770933,
-    "millguard": 404047,
-    "schedule_plus_millguard": 328768
+    "run_to_failure": 926594,
+    "fixed_interval": 695050,
+    "millguard": 522992,
+    "schedule_plus_millguard": 395714
    }
   },
   {
    "t": "2025-12-13T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1212356,
-    "fixed_interval": 770933,
-    "millguard": 404047,
-    "schedule_plus_millguard": 328768
+    "run_to_failure": 926594,
+    "fixed_interval": 695050,
+    "millguard": 522992,
+    "schedule_plus_millguard": 395714
    }
   },
   {
    "t": "2025-12-14T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1212356,
-    "fixed_interval": 770933,
-    "millguard": 404047,
-    "schedule_plus_millguard": 328768
+    "run_to_failure": 926594,
+    "fixed_interval": 705550,
+    "millguard": 523292,
+    "schedule_plus_millguard": 396014
    }
   },
   {
    "t": "2025-12-15T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1212356,
-    "fixed_interval": 770933,
-    "millguard": 404047,
-    "schedule_plus_millguard": 328768
+    "run_to_failure": 926594,
+    "fixed_interval": 705550,
+    "millguard": 535418,
+    "schedule_plus_millguard": 396014
    }
   },
   {
    "t": "2025-12-16T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1212356,
-    "fixed_interval": 770933,
-    "millguard": 404047,
-    "schedule_plus_millguard": 328768
+    "run_to_failure": 926594,
+    "fixed_interval": 705550,
+    "millguard": 535418,
+    "schedule_plus_millguard": 396014
    }
   },
   {
    "t": "2025-12-17T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1212356,
-    "fixed_interval": 770933,
-    "millguard": 404047,
-    "schedule_plus_millguard": 328768
+    "run_to_failure": 926594,
+    "fixed_interval": 705550,
+    "millguard": 549044,
+    "schedule_plus_millguard": 396014
    }
   },
   {
    "t": "2025-12-18T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1212356,
-    "fixed_interval": 770933,
-    "millguard": 404047,
-    "schedule_plus_millguard": 328768
+    "run_to_failure": 926594,
+    "fixed_interval": 705550,
+    "millguard": 549044,
+    "schedule_plus_millguard": 396014
    }
   },
   {
    "t": "2025-12-19T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1212356,
-    "fixed_interval": 770933,
-    "millguard": 404047,
-    "schedule_plus_millguard": 328768
+    "run_to_failure": 948596,
+    "fixed_interval": 705550,
+    "millguard": 549044,
+    "schedule_plus_millguard": 396014
    }
   },
   {
    "t": "2025-12-20T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1212356,
-    "fixed_interval": 770933,
-    "millguard": 404047,
-    "schedule_plus_millguard": 328768
+    "run_to_failure": 948596,
+    "fixed_interval": 705550,
+    "millguard": 549044,
+    "schedule_plus_millguard": 396014
    }
   },
   {
    "t": "2025-12-21T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1212356,
-    "fixed_interval": 770933,
-    "millguard": 404047,
-    "schedule_plus_millguard": 328768
+    "run_to_failure": 972848,
+    "fixed_interval": 717550,
+    "millguard": 549344,
+    "schedule_plus_millguard": 396314
    }
   },
   {
    "t": "2025-12-22T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1212356,
-    "fixed_interval": 770933,
-    "millguard": 404047,
-    "schedule_plus_millguard": 328768
+    "run_to_failure": 972848,
+    "fixed_interval": 717550,
+    "millguard": 549344,
+    "schedule_plus_millguard": 396314
    }
   },
   {
    "t": "2025-12-23T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1212356,
-    "fixed_interval": 770933,
-    "millguard": 404047,
-    "schedule_plus_millguard": 328768
+    "run_to_failure": 972848,
+    "fixed_interval": 717550,
+    "millguard": 549344,
+    "schedule_plus_millguard": 396314
    }
   },
   {
    "t": "2025-12-24T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1212356,
-    "fixed_interval": 770933,
-    "millguard": 404047,
-    "schedule_plus_millguard": 328768
+    "run_to_failure": 972848,
+    "fixed_interval": 717550,
+    "millguard": 557270,
+    "schedule_plus_millguard": 404240
    }
   },
   {
    "t": "2025-12-25T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1212356,
-    "fixed_interval": 770933,
-    "millguard": 404047,
-    "schedule_plus_millguard": 328768
+    "run_to_failure": 972848,
+    "fixed_interval": 717550,
+    "millguard": 557270,
+    "schedule_plus_millguard": 404240
    }
   },
   {
    "t": "2025-12-26T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1212356,
-    "fixed_interval": 770933,
-    "millguard": 404047,
-    "schedule_plus_millguard": 328768
+    "run_to_failure": 972848,
+    "fixed_interval": 717550,
+    "millguard": 557270,
+    "schedule_plus_millguard": 404240
    }
   },
   {
    "t": "2025-12-27T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1212356,
-    "fixed_interval": 770933,
-    "millguard": 412000,
-    "schedule_plus_millguard": 328768
+    "run_to_failure": 972848,
+    "fixed_interval": 717550,
+    "millguard": 557270,
+    "schedule_plus_millguard": 404240
    }
   },
   {
    "t": "2025-12-28T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1212356,
-    "fixed_interval": 770933,
-    "millguard": 412000,
-    "schedule_plus_millguard": 328768
+    "run_to_failure": 972848,
+    "fixed_interval": 723550,
+    "millguard": 557570,
+    "schedule_plus_millguard": 421040
    }
   },
   {
    "t": "2025-12-29T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1240000,
-    "fixed_interval": 780000,
-    "millguard": 412000,
-    "schedule_plus_millguard": 335000
+    "run_to_failure": 972848,
+    "fixed_interval": 723550,
+    "millguard": 557570,
+    "schedule_plus_millguard": 421040
    }
   },
   {
    "t": "2025-12-30T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1240000,
-    "fixed_interval": 780000,
-    "millguard": 412000,
-    "schedule_plus_millguard": 335000
+    "run_to_failure": 972848,
+    "fixed_interval": 723550,
+    "millguard": 557570,
+    "schedule_plus_millguard": 421040
    }
   },
   {
    "t": "2025-12-31T00:00:00+08:00",
    "cost": {
-    "run_to_failure": 1240000,
-    "fixed_interval": 780000,
-    "millguard": 412000,
-    "schedule_plus_millguard": 335000
+    "run_to_failure": 972848,
+    "fixed_interval": 723550,
+    "millguard": 557570,
+    "schedule_plus_millguard": 421040
    }
   }
  ],
  "events": [
   {
-   "t": "2025-01-04T17:00:00+08:00",
+   "t": "2025-01-05T03:00:00+08:00",
    "policy": "millguard",
    "type": "false_alarm",
-   "asset_id": "press_4"
+   "asset_id": "boiler_1"
   },
   {
-   "t": "2025-01-04T17:00:00+08:00",
+   "t": "2025-01-05T03:00:00+08:00",
    "policy": "schedule_plus_millguard",
    "type": "false_alarm",
-   "asset_id": "press_4"
+   "asset_id": "boiler_1"
   },
   {
-   "t": "2025-01-08T21:00:00+08:00",
-   "policy": "millguard",
-   "type": "false_alarm",
-   "asset_id": "press_4"
-  },
-  {
-   "t": "2025-01-08T21:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "false_alarm",
-   "asset_id": "press_4"
-  },
-  {
-   "t": "2025-01-27T19:00:00+08:00",
-   "policy": "fixed_interval",
-   "type": "planned_fix",
-   "asset_id": "press_1"
-  },
-  {
-   "t": "2025-01-27T19:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "planned_fix",
-   "asset_id": "press_1"
-  },
-  {
-   "t": "2025-01-30T16:00:00+08:00",
-   "policy": "millguard",
-   "type": "planned_fix",
-   "asset_id": "press_1"
-  },
-  {
-   "t": "2025-02-01T06:00:00+08:00",
-   "policy": "run_to_failure",
-   "type": "breakdown",
-   "asset_id": "press_1"
-  },
-  {
-   "t": "2025-02-01T06:00:00+08:00",
-   "policy": "fixed_interval",
-   "type": "breakdown",
-   "asset_id": "press_1"
-  },
-  {
-   "t": "2025-02-01T06:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "planned_fix",
-   "asset_id": "press_1"
-  },
-  {
-   "t": "2025-02-02T18:00:00+08:00",
+   "t": "2025-01-05T06:00:00+08:00",
    "policy": "fixed_interval",
    "type": "planned_fix",
    "asset_id": "press_2"
   },
   {
-   "t": "2025-02-02T18:00:00+08:00",
-   "policy": "schedule_plus_millguard",
+   "t": "2025-01-05T06:00:00+08:00",
+   "policy": "fixed_interval",
    "type": "planned_fix",
    "asset_id": "press_2"
   },
   {
-   "t": "2025-02-08T17:00:00+08:00",
+   "t": "2025-01-05T06:00:00+08:00",
    "policy": "fixed_interval",
    "type": "planned_fix",
    "asset_id": "press_3"
   },
   {
-   "t": "2025-02-08T17:00:00+08:00",
-   "policy": "schedule_plus_millguard",
+   "t": "2025-01-05T06:00:00+08:00",
+   "policy": "fixed_interval",
    "type": "planned_fix",
    "asset_id": "press_3"
   },
   {
-   "t": "2025-02-09T19:00:00+08:00",
-   "policy": "millguard",
-   "type": "false_alarm",
-   "asset_id": "press_2"
-  },
-  {
-   "t": "2025-02-09T19:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "false_alarm",
-   "asset_id": "press_2"
-  },
-  {
-   "t": "2025-02-13T18:00:00+08:00",
-   "policy": "millguard",
-   "type": "false_alarm",
-   "asset_id": "press_1"
-  },
-  {
-   "t": "2025-02-13T18:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "false_alarm",
-   "asset_id": "press_1"
-  },
-  {
-   "t": "2025-02-13T23:00:00+08:00",
-   "policy": "millguard",
-   "type": "planned_fix",
-   "asset_id": "press_2"
-  },
-  {
-   "t": "2025-02-14T11:00:00+08:00",
-   "policy": "millguard",
+   "t": "2025-01-05T06:00:00+08:00",
+   "policy": "fixed_interval",
    "type": "planned_fix",
    "asset_id": "press_3"
   },
   {
-   "t": "2025-02-14T16:00:00+08:00",
+   "t": "2025-01-05T06:00:00+08:00",
    "policy": "fixed_interval",
    "type": "planned_fix",
    "asset_id": "press_4"
   },
   {
-   "t": "2025-02-14T16:00:00+08:00",
+   "t": "2025-01-05T06:00:00+08:00",
+   "policy": "fixed_interval",
+   "type": "planned_fix",
+   "asset_id": "press_4"
+  },
+  {
+   "t": "2025-01-05T06:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "planned_fix",
+   "asset_id": "press_2"
+  },
+  {
+   "t": "2025-01-05T06:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "planned_fix",
+   "asset_id": "press_2"
+  },
+  {
+   "t": "2025-01-05T06:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "planned_fix",
+   "asset_id": "press_3"
+  },
+  {
+   "t": "2025-01-05T06:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "planned_fix",
+   "asset_id": "press_3"
+  },
+  {
+   "t": "2025-01-05T06:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "planned_fix",
+   "asset_id": "press_3"
+  },
+  {
+   "t": "2025-01-05T06:00:00+08:00",
    "policy": "schedule_plus_millguard",
    "type": "planned_fix",
    "asset_id": "press_4"
   },
   {
-   "t": "2025-02-15T13:00:00+08:00",
+   "t": "2025-01-12T03:00:00+08:00",
+   "policy": "millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-01-12T03:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-01-12T06:00:00+08:00",
+   "policy": "fixed_interval",
+   "type": "planned_fix",
+   "asset_id": "press_2"
+  },
+  {
+   "t": "2025-01-12T06:00:00+08:00",
+   "policy": "millguard",
+   "type": "planned_fix",
+   "asset_id": "press_2"
+  },
+  {
+   "t": "2025-01-12T06:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "planned_fix",
+   "asset_id": "press_4"
+  },
+  {
+   "t": "2025-01-15T18:00:00+08:00",
    "policy": "run_to_failure",
    "type": "breakdown",
    "asset_id": "press_2"
   },
   {
-   "t": "2025-02-15T13:00:00+08:00",
-   "policy": "fixed_interval",
-   "type": "breakdown",
-   "asset_id": "press_2"
-  },
-  {
-   "t": "2025-02-15T13:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "breakdown",
-   "asset_id": "press_2"
-  },
-  {
-   "t": "2025-02-16T01:00:00+08:00",
-   "policy": "run_to_failure",
-   "type": "breakdown",
-   "asset_id": "press_3"
-  },
-  {
-   "t": "2025-02-16T01:00:00+08:00",
-   "policy": "fixed_interval",
-   "type": "planned_fix",
-   "asset_id": "press_3"
-  },
-  {
-   "t": "2025-02-16T01:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "planned_fix",
-   "asset_id": "press_3"
-  },
-  {
-   "t": "2025-02-20T10:00:00+08:00",
-   "policy": "millguard",
-   "type": "false_alarm",
-   "asset_id": "press_4"
-  },
-  {
-   "t": "2025-02-20T10:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "false_alarm",
-   "asset_id": "press_4"
-  },
-  {
-   "t": "2025-02-27T01:00:00+08:00",
-   "policy": "millguard",
-   "type": "planned_fix",
-   "asset_id": "press_2"
-  },
-  {
-   "t": "2025-03-01T15:00:00+08:00",
-   "policy": "run_to_failure",
-   "type": "breakdown",
-   "asset_id": "press_2"
-  },
-  {
-   "t": "2025-03-01T15:00:00+08:00",
-   "policy": "fixed_interval",
-   "type": "planned_fix",
-   "asset_id": "press_2"
-  },
-  {
-   "t": "2025-03-01T15:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "planned_fix",
-   "asset_id": "press_2"
-  },
-  {
-   "t": "2025-03-07T14:00:00+08:00",
-   "policy": "millguard",
-   "type": "breakdown",
-   "asset_id": "press_3"
-  },
-  {
-   "t": "2025-03-09T04:00:00+08:00",
-   "policy": "run_to_failure",
-   "type": "breakdown",
-   "asset_id": "press_3"
-  },
-  {
-   "t": "2025-03-09T04:00:00+08:00",
-   "policy": "fixed_interval",
-   "type": "breakdown",
-   "asset_id": "press_3"
-  },
-  {
-   "t": "2025-03-09T04:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "breakdown",
-   "asset_id": "press_3"
-  },
-  {
-   "t": "2025-03-10T01:00:00+08:00",
-   "policy": "fixed_interval",
-   "type": "planned_fix",
-   "asset_id": "press_1"
-  },
-  {
-   "t": "2025-03-10T01:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "planned_fix",
-   "asset_id": "press_1"
-  },
-  {
-   "t": "2025-03-13T22:00:00+08:00",
-   "policy": "millguard",
-   "type": "planned_fix",
-   "asset_id": "press_1"
-  },
-  {
-   "t": "2025-03-15T12:00:00+08:00",
-   "policy": "run_to_failure",
-   "type": "breakdown",
-   "asset_id": "press_1"
-  },
-  {
-   "t": "2025-03-15T12:00:00+08:00",
-   "policy": "fixed_interval",
-   "type": "breakdown",
-   "asset_id": "press_1"
-  },
-  {
-   "t": "2025-03-15T12:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "planned_fix",
-   "asset_id": "press_1"
-  },
-  {
-   "t": "2025-03-16T00:00:00+08:00",
-   "policy": "fixed_interval",
-   "type": "planned_fix",
-   "asset_id": "press_2"
-  },
-  {
-   "t": "2025-03-16T00:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "planned_fix",
-   "asset_id": "press_2"
-  },
-  {
-   "t": "2025-03-22T23:00:00+08:00",
-   "policy": "fixed_interval",
-   "type": "planned_fix",
-   "asset_id": "press_3"
-  },
-  {
-   "t": "2025-03-22T23:00:00+08:00",
-   "policy": "millguard",
-   "type": "planned_fix",
-   "asset_id": "press_3"
-  },
-  {
-   "t": "2025-03-22T23:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "planned_fix",
-   "asset_id": "press_3"
-  },
-  {
-   "t": "2025-03-24T13:00:00+08:00",
-   "policy": "run_to_failure",
-   "type": "breakdown",
-   "asset_id": "press_3"
-  },
-  {
-   "t": "2025-03-24T13:00:00+08:00",
-   "policy": "fixed_interval",
-   "type": "breakdown",
-   "asset_id": "press_3"
-  },
-  {
-   "t": "2025-03-24T13:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "planned_fix",
-   "asset_id": "press_3"
-  },
-  {
-   "t": "2025-03-28T22:00:00+08:00",
-   "policy": "fixed_interval",
-   "type": "planned_fix",
-   "asset_id": "press_4"
-  },
-  {
-   "t": "2025-03-28T22:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "planned_fix",
-   "asset_id": "press_4"
-  },
-  {
-   "t": "2025-04-08T17:00:00+08:00",
-   "policy": "millguard",
-   "type": "planned_fix",
-   "asset_id": "press_2"
-  },
-  {
-   "t": "2025-04-09T10:00:00+08:00",
+   "t": "2025-01-17T06:00:00+08:00",
    "policy": "millguard",
    "type": "planned_fix",
    "asset_id": "press_4"
   },
   {
-   "t": "2025-04-10T07:00:00+08:00",
-   "policy": "run_to_failure",
-   "type": "breakdown",
-   "asset_id": "press_2"
-  },
-  {
-   "t": "2025-04-10T07:00:00+08:00",
-   "policy": "fixed_interval",
-   "type": "planned_fix",
-   "asset_id": "press_2"
-  },
-  {
-   "t": "2025-04-10T07:00:00+08:00",
+   "t": "2025-01-17T06:00:00+08:00",
    "policy": "schedule_plus_millguard",
    "type": "planned_fix",
-   "asset_id": "press_2"
+   "asset_id": "press_4"
   },
   {
-   "t": "2025-04-10T12:00:00+08:00",
-   "policy": "millguard",
-   "type": "false_alarm",
-   "asset_id": "press_3"
-  },
-  {
-   "t": "2025-04-10T12:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "false_alarm",
-   "asset_id": "press_3"
-  },
-  {
-   "t": "2025-04-11T00:00:00+08:00",
+   "t": "2025-01-17T17:00:00+08:00",
    "policy": "run_to_failure",
    "type": "breakdown",
    "asset_id": "press_4"
   },
   {
-   "t": "2025-04-11T00:00:00+08:00",
+   "t": "2025-01-17T17:00:00+08:00",
    "policy": "fixed_interval",
    "type": "breakdown",
    "asset_id": "press_4"
   },
   {
-   "t": "2025-04-11T00:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "breakdown",
-   "asset_id": "press_4"
-  },
-  {
-   "t": "2025-04-13T04:00:00+08:00",
+   "t": "2025-01-19T03:00:00+08:00",
    "policy": "millguard",
    "type": "false_alarm",
-   "asset_id": "press_2"
+   "asset_id": "boiler_1"
   },
   {
-   "t": "2025-04-13T04:00:00+08:00",
+   "t": "2025-01-19T03:00:00+08:00",
    "policy": "schedule_plus_millguard",
    "type": "false_alarm",
-   "asset_id": "press_2"
+   "asset_id": "boiler_1"
   },
   {
-   "t": "2025-04-19T03:00:00+08:00",
+   "t": "2025-01-26T03:00:00+08:00",
    "policy": "millguard",
    "type": "false_alarm",
-   "asset_id": "press_3"
+   "asset_id": "boiler_1"
   },
   {
-   "t": "2025-04-19T03:00:00+08:00",
+   "t": "2025-01-26T03:00:00+08:00",
    "policy": "schedule_plus_millguard",
    "type": "false_alarm",
-   "asset_id": "press_3"
+   "asset_id": "boiler_1"
   },
   {
-   "t": "2025-04-20T15:00:00+08:00",
+   "t": "2025-02-02T03:00:00+08:00",
    "policy": "millguard",
-   "type": "planned_fix",
-   "asset_id": "press_4"
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
   },
   {
-   "t": "2025-04-21T07:00:00+08:00",
+   "t": "2025-02-02T03:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-02-02T06:00:00+08:00",
    "policy": "fixed_interval",
    "type": "planned_fix",
    "asset_id": "press_1"
   },
   {
-   "t": "2025-04-21T07:00:00+08:00",
+   "t": "2025-02-02T06:00:00+08:00",
+   "policy": "fixed_interval",
+   "type": "planned_fix",
+   "asset_id": "press_1"
+  },
+  {
+   "t": "2025-02-02T06:00:00+08:00",
+   "policy": "fixed_interval",
+   "type": "planned_fix",
+   "asset_id": "press_4"
+  },
+  {
+   "t": "2025-02-06T14:00:00+08:00",
+   "policy": "millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-02-06T14:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-02-06T19:00:00+08:00",
+   "policy": "run_to_failure",
+   "type": "breakdown",
+   "asset_id": "press_2"
+  },
+  {
+   "t": "2025-02-06T19:00:00+08:00",
+   "policy": "fixed_interval",
+   "type": "breakdown",
+   "asset_id": "press_2"
+  },
+  {
+   "t": "2025-02-06T19:00:00+08:00",
+   "policy": "millguard",
+   "type": "breakdown",
+   "asset_id": "press_2"
+  },
+  {
+   "t": "2025-02-06T19:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "breakdown",
+   "asset_id": "press_2"
+  },
+  {
+   "t": "2025-02-07T00:00:00+08:00",
+   "policy": "run_to_failure",
+   "type": "breakdown",
+   "asset_id": "press_3"
+  },
+  {
+   "t": "2025-02-07T00:00:00+08:00",
+   "policy": "millguard",
+   "type": "breakdown",
+   "asset_id": "press_3"
+  },
+  {
+   "t": "2025-02-09T03:00:00+08:00",
+   "policy": "millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-02-09T03:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-02-09T06:00:00+08:00",
+   "policy": "fixed_interval",
+   "type": "planned_fix",
+   "asset_id": "press_2"
+  },
+  {
+   "t": "2025-02-09T06:00:00+08:00",
    "policy": "schedule_plus_millguard",
    "type": "planned_fix",
    "asset_id": "press_1"
   },
   {
-   "t": "2025-04-22T05:00:00+08:00",
+   "t": "2025-02-16T03:00:00+08:00",
+   "policy": "millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-02-16T03:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-02-16T06:00:00+08:00",
+   "policy": "fixed_interval",
+   "type": "planned_fix",
+   "asset_id": "press_2"
+  },
+  {
+   "t": "2025-02-16T06:00:00+08:00",
+   "policy": "fixed_interval",
+   "type": "planned_fix",
+   "asset_id": "press_3"
+  },
+  {
+   "t": "2025-02-16T06:00:00+08:00",
+   "policy": "fixed_interval",
+   "type": "planned_fix",
+   "asset_id": "press_4"
+  },
+  {
+   "t": "2025-02-23T03:00:00+08:00",
+   "policy": "millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-02-23T03:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-02-23T06:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "planned_fix",
+   "asset_id": "press_2"
+  },
+  {
+   "t": "2025-02-27T06:00:00+08:00",
+   "policy": "millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-02-27T06:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-03-02T03:00:00+08:00",
+   "policy": "millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-03-02T03:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-03-02T06:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "planned_fix",
+   "asset_id": "press_3"
+  },
+  {
+   "t": "2025-03-02T06:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "planned_fix",
+   "asset_id": "press_4"
+  },
+  {
+   "t": "2025-03-07T12:00:00+08:00",
+   "policy": "millguard",
+   "type": "planned_fix",
+   "asset_id": "press_2"
+  },
+  {
+   "t": "2025-03-07T12:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "planned_fix",
+   "asset_id": "press_2"
+  },
+  {
+   "t": "2025-03-08T08:00:00+08:00",
+   "policy": "run_to_failure",
+   "type": "breakdown",
+   "asset_id": "press_2"
+  },
+  {
+   "t": "2025-03-08T08:00:00+08:00",
+   "policy": "fixed_interval",
+   "type": "breakdown",
+   "asset_id": "press_2"
+  },
+  {
+   "t": "2025-03-09T03:00:00+08:00",
+   "policy": "millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-03-09T03:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-03-09T06:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "planned_fix",
+   "asset_id": "press_2"
+  },
+  {
+   "t": "2025-03-15T23:00:00+08:00",
    "policy": "run_to_failure",
    "type": "breakdown",
    "asset_id": "press_4"
   },
   {
-   "t": "2025-04-22T05:00:00+08:00",
-   "policy": "fixed_interval",
+   "t": "2025-03-15T23:00:00+08:00",
+   "policy": "millguard",
    "type": "breakdown",
    "asset_id": "press_4"
   },
   {
-   "t": "2025-04-22T05:00:00+08:00",
+   "t": "2025-03-16T03:00:00+08:00",
+   "policy": "millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-03-16T03:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-03-16T06:00:00+08:00",
+   "policy": "fixed_interval",
+   "type": "planned_fix",
+   "asset_id": "press_1"
+  },
+  {
+   "t": "2025-03-23T03:00:00+08:00",
+   "policy": "millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-03-23T03:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-03-23T06:00:00+08:00",
+   "policy": "millguard",
+   "type": "planned_fix",
+   "asset_id": "press_1"
+  },
+  {
+   "t": "2025-03-26T08:00:00+08:00",
+   "policy": "run_to_failure",
+   "type": "breakdown",
+   "asset_id": "press_1"
+  },
+  {
+   "t": "2025-03-26T22:00:00+08:00",
+   "policy": "run_to_failure",
+   "type": "breakdown",
+   "asset_id": "press_1"
+  },
+  {
+   "t": "2025-03-26T22:00:00+08:00",
+   "policy": "fixed_interval",
+   "type": "breakdown",
+   "asset_id": "press_1"
+  },
+  {
+   "t": "2025-03-26T22:00:00+08:00",
+   "policy": "millguard",
+   "type": "breakdown",
+   "asset_id": "press_1"
+  },
+  {
+   "t": "2025-03-26T22:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "breakdown",
+   "asset_id": "press_1"
+  },
+  {
+   "t": "2025-03-27T21:00:00+08:00",
+   "policy": "millguard",
+   "type": "planned_fix",
+   "asset_id": "press_2"
+  },
+  {
+   "t": "2025-03-30T03:00:00+08:00",
+   "policy": "millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-03-30T03:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-03-30T06:00:00+08:00",
+   "policy": "fixed_interval",
+   "type": "planned_fix",
+   "asset_id": "press_2"
+  },
+  {
+   "t": "2025-03-30T06:00:00+08:00",
+   "policy": "fixed_interval",
+   "type": "planned_fix",
+   "asset_id": "press_3"
+  },
+  {
+   "t": "2025-03-30T06:00:00+08:00",
+   "policy": "fixed_interval",
+   "type": "planned_fix",
+   "asset_id": "press_4"
+  },
+  {
+   "t": "2025-03-30T06:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "planned_fix",
+   "asset_id": "press_1"
+  },
+  {
+   "t": "2025-03-30T06:00:00+08:00",
    "policy": "schedule_plus_millguard",
    "type": "planned_fix",
    "asset_id": "press_4"
   },
   {
-   "t": "2025-04-24T14:00:00+08:00",
-   "policy": "millguard",
-   "type": "false_alarm",
-   "asset_id": "press_3"
+   "t": "2025-03-30T22:00:00+08:00",
+   "policy": "run_to_failure",
+   "type": "breakdown",
+   "asset_id": "press_2"
   },
   {
-   "t": "2025-04-24T14:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "false_alarm",
-   "asset_id": "press_3"
-  },
-  {
-   "t": "2025-04-25T02:00:00+08:00",
-   "policy": "millguard",
-   "type": "false_alarm",
-   "asset_id": "press_4"
-  },
-  {
-   "t": "2025-04-25T02:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "false_alarm",
-   "asset_id": "press_4"
-  },
-  {
-   "t": "2025-04-27T01:00:00+08:00",
+   "t": "2025-04-03T05:00:00+08:00",
    "policy": "millguard",
    "type": "planned_fix",
+   "asset_id": "press_3"
+  },
+  {
+   "t": "2025-04-03T05:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "planned_fix",
+   "asset_id": "press_3"
+  },
+  {
+   "t": "2025-04-03T20:00:00+08:00",
+   "policy": "run_to_failure",
+   "type": "breakdown",
+   "asset_id": "press_3"
+  },
+  {
+   "t": "2025-04-03T20:00:00+08:00",
+   "policy": "fixed_interval",
+   "type": "breakdown",
+   "asset_id": "press_3"
+  },
+  {
+   "t": "2025-04-06T03:00:00+08:00",
+   "policy": "millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-04-06T03:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-04-11T10:00:00+08:00",
+   "policy": "millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-04-11T10:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-04-13T03:00:00+08:00",
+   "policy": "millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-04-13T03:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-04-13T06:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "planned_fix",
+   "asset_id": "press_2"
+  },
+  {
+   "t": "2025-04-20T03:00:00+08:00",
+   "policy": "millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-04-20T03:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-04-20T06:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "planned_fix",
+   "asset_id": "press_2"
+  },
+  {
+   "t": "2025-04-20T06:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "planned_fix",
+   "asset_id": "press_3"
+  },
+  {
+   "t": "2025-04-20T06:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "planned_fix",
+   "asset_id": "press_4"
+  },
+  {
+   "t": "2025-04-27T03:00:00+08:00",
+   "policy": "millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-04-27T03:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "false_alarm",
    "asset_id": "boiler_1"
   },
   {
    "t": "2025-04-27T06:00:00+08:00",
    "policy": "fixed_interval",
    "type": "planned_fix",
-   "asset_id": "press_2"
+   "asset_id": "press_1"
   },
   {
-   "t": "2025-04-27T06:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "planned_fix",
-   "asset_id": "press_2"
-  },
-  {
-   "t": "2025-04-28T18:00:00+08:00",
+   "t": "2025-05-02T02:00:00+08:00",
    "policy": "millguard",
-   "type": "planned_fix",
-   "asset_id": "press_3"
-  },
-  {
-   "t": "2025-04-29T15:00:00+08:00",
-   "policy": "run_to_failure",
-   "type": "breakdown",
+   "type": "false_alarm",
    "asset_id": "boiler_1"
   },
   {
-   "t": "2025-04-29T15:00:00+08:00",
-   "policy": "fixed_interval",
-   "type": "breakdown",
+   "t": "2025-05-02T02:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "false_alarm",
    "asset_id": "boiler_1"
   },
   {
-   "t": "2025-04-29T15:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "planned_fix",
+   "t": "2025-05-04T03:00:00+08:00",
+   "policy": "millguard",
+   "type": "false_alarm",
    "asset_id": "boiler_1"
   },
   {
-   "t": "2025-04-30T08:00:00+08:00",
-   "policy": "run_to_failure",
-   "type": "breakdown",
-   "asset_id": "press_3"
-  },
-  {
-   "t": "2025-04-30T08:00:00+08:00",
-   "policy": "fixed_interval",
-   "type": "planned_fix",
-   "asset_id": "press_3"
-  },
-  {
-   "t": "2025-04-30T08:00:00+08:00",
+   "t": "2025-05-04T03:00:00+08:00",
    "policy": "schedule_plus_millguard",
-   "type": "planned_fix",
-   "asset_id": "press_3"
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
   },
   {
-   "t": "2025-05-03T05:00:00+08:00",
-   "policy": "fixed_interval",
-   "type": "planned_fix",
-   "asset_id": "press_3"
-  },
-  {
-   "t": "2025-05-03T05:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "planned_fix",
-   "asset_id": "press_3"
-  },
-  {
-   "t": "2025-05-08T11:00:00+08:00",
+   "t": "2025-05-11T03:00:00+08:00",
    "policy": "millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-05-11T03:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-05-11T06:00:00+08:00",
+   "policy": "fixed_interval",
    "type": "planned_fix",
    "asset_id": "press_2"
   },
   {
-   "t": "2025-05-09T04:00:00+08:00",
+   "t": "2025-05-11T06:00:00+08:00",
+   "policy": "fixed_interval",
+   "type": "planned_fix",
+   "asset_id": "press_3"
+  },
+  {
+   "t": "2025-05-11T06:00:00+08:00",
    "policy": "fixed_interval",
    "type": "planned_fix",
    "asset_id": "press_4"
   },
   {
-   "t": "2025-05-09T04:00:00+08:00",
+   "t": "2025-05-18T03:00:00+08:00",
+   "policy": "millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-05-18T03:00:00+08:00",
    "policy": "schedule_plus_millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-05-18T06:00:00+08:00",
+   "policy": "millguard",
    "type": "planned_fix",
    "asset_id": "press_4"
   },
   {
-   "t": "2025-05-09T18:00:00+08:00",
-   "policy": "millguard",
-   "type": "false_alarm",
-   "asset_id": "press_2"
-  },
-  {
-   "t": "2025-05-09T18:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "false_alarm",
-   "asset_id": "press_2"
-  },
-  {
-   "t": "2025-05-10T01:00:00+08:00",
-   "policy": "run_to_failure",
-   "type": "breakdown",
-   "asset_id": "press_2"
-  },
-  {
-   "t": "2025-05-10T01:00:00+08:00",
-   "policy": "fixed_interval",
-   "type": "breakdown",
-   "asset_id": "press_2"
-  },
-  {
-   "t": "2025-05-10T01:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "planned_fix",
-   "asset_id": "press_2"
-  },
-  {
-   "t": "2025-06-02T13:00:00+08:00",
-   "policy": "fixed_interval",
-   "type": "planned_fix",
-   "asset_id": "press_1"
-  },
-  {
-   "t": "2025-06-02T13:00:00+08:00",
+   "t": "2025-05-18T06:00:00+08:00",
    "policy": "schedule_plus_millguard",
    "type": "planned_fix",
    "asset_id": "press_1"
   },
   {
-   "t": "2025-06-03T11:00:00+08:00",
-   "policy": "millguard",
-   "type": "false_alarm",
-   "asset_id": "press_4"
-  },
-  {
-   "t": "2025-06-03T11:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "false_alarm",
-   "asset_id": "press_4"
-  },
-  {
-   "t": "2025-06-04T03:00:00+08:00",
-   "policy": "millguard",
-   "type": "planned_fix",
-   "asset_id": "press_1"
-  },
-  {
-   "t": "2025-06-05T10:00:00+08:00",
-   "policy": "millguard",
-   "type": "breakdown",
-   "asset_id": "press_1"
-  },
-  {
-   "t": "2025-06-06T17:00:00+08:00",
+   "t": "2025-05-19T11:00:00+08:00",
    "policy": "run_to_failure",
    "type": "breakdown",
    "asset_id": "press_1"
   },
   {
-   "t": "2025-06-06T17:00:00+08:00",
+   "t": "2025-05-19T11:00:00+08:00",
    "policy": "fixed_interval",
    "type": "breakdown",
    "asset_id": "press_1"
   },
   {
-   "t": "2025-06-06T17:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "planned_fix",
-   "asset_id": "press_1"
-  },
-  {
-   "t": "2025-06-07T00:00:00+08:00",
-   "policy": "run_to_failure",
-   "type": "breakdown",
-   "asset_id": "press_1"
-  },
-  {
-   "t": "2025-06-07T00:00:00+08:00",
-   "policy": "fixed_interval",
-   "type": "breakdown",
-   "asset_id": "press_1"
-  },
-  {
-   "t": "2025-06-07T00:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "planned_fix",
-   "asset_id": "press_1"
-  },
-  {
-   "t": "2025-06-08T12:00:00+08:00",
-   "policy": "fixed_interval",
-   "type": "planned_fix",
-   "asset_id": "press_2"
-  },
-  {
-   "t": "2025-06-08T12:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "planned_fix",
-   "asset_id": "press_2"
-  },
-  {
-   "t": "2025-06-14T11:00:00+08:00",
-   "policy": "fixed_interval",
-   "type": "planned_fix",
-   "asset_id": "press_3"
-  },
-  {
-   "t": "2025-06-14T11:00:00+08:00",
-   "policy": "millguard",
-   "type": "planned_fix",
-   "asset_id": "press_3"
-  },
-  {
-   "t": "2025-06-14T11:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "planned_fix",
-   "asset_id": "press_3"
-  },
-  {
-   "t": "2025-06-15T23:00:00+08:00",
+   "t": "2025-05-19T11:00:00+08:00",
    "policy": "millguard",
    "type": "breakdown",
-   "asset_id": "press_4"
+   "asset_id": "press_1"
   },
   {
-   "t": "2025-06-16T01:00:00+08:00",
-   "policy": "run_to_failure",
-   "type": "breakdown",
-   "asset_id": "press_3"
-  },
-  {
-   "t": "2025-06-16T01:00:00+08:00",
-   "policy": "fixed_interval",
-   "type": "breakdown",
-   "asset_id": "press_3"
-  },
-  {
-   "t": "2025-06-16T01:00:00+08:00",
+   "t": "2025-05-19T11:00:00+08:00",
    "policy": "schedule_plus_millguard",
    "type": "breakdown",
-   "asset_id": "press_3"
+   "asset_id": "press_1"
   },
   {
-   "t": "2025-06-17T13:00:00+08:00",
+   "t": "2025-05-19T14:00:00+08:00",
    "policy": "run_to_failure",
    "type": "breakdown",
    "asset_id": "press_4"
   },
   {
-   "t": "2025-06-17T13:00:00+08:00",
-   "policy": "fixed_interval",
-   "type": "breakdown",
-   "asset_id": "press_4"
+   "t": "2025-05-22T03:00:00+08:00",
+   "policy": "millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
   },
   {
-   "t": "2025-06-17T13:00:00+08:00",
+   "t": "2025-05-22T03:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-05-22T15:00:00+08:00",
    "policy": "millguard",
    "type": "planned_fix",
-   "asset_id": "press_4"
+   "asset_id": "press_1"
   },
   {
-   "t": "2025-06-17T13:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "planned_fix",
-   "asset_id": "press_4"
-  },
-  {
-   "t": "2025-06-19T03:00:00+08:00",
-   "policy": "run_to_failure",
-   "type": "breakdown",
-   "asset_id": "press_4"
-  },
-  {
-   "t": "2025-06-19T03:00:00+08:00",
-   "policy": "fixed_interval",
-   "type": "breakdown",
-   "asset_id": "press_4"
-  },
-  {
-   "t": "2025-06-19T03:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "planned_fix",
-   "asset_id": "press_4"
-  },
-  {
-   "t": "2025-06-20T05:00:00+08:00",
-   "policy": "millguard",
-   "type": "planned_fix",
-   "asset_id": "press_3"
-  },
-  {
-   "t": "2025-06-20T10:00:00+08:00",
-   "policy": "fixed_interval",
-   "type": "planned_fix",
-   "asset_id": "press_4"
-  },
-  {
-   "t": "2025-06-20T10:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "planned_fix",
-   "asset_id": "press_4"
-  },
-  {
-   "t": "2025-06-22T19:00:00+08:00",
+   "t": "2025-05-24T16:00:00+08:00",
    "policy": "run_to_failure",
    "type": "breakdown",
    "asset_id": "press_3"
   },
   {
-   "t": "2025-06-22T19:00:00+08:00",
-   "policy": "fixed_interval",
-   "type": "planned_fix",
-   "asset_id": "press_3"
-  },
-  {
-   "t": "2025-06-22T19:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "planned_fix",
-   "asset_id": "press_3"
-  },
-  {
-   "t": "2025-06-30T08:00:00+08:00",
-   "policy": "millguard",
-   "type": "false_alarm",
-   "asset_id": "press_4"
-  },
-  {
-   "t": "2025-06-30T08:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "false_alarm",
-   "asset_id": "press_4"
-  },
-  {
-   "t": "2025-07-08T01:00:00+08:00",
-   "policy": "millguard",
-   "type": "false_alarm",
-   "asset_id": "press_1"
-  },
-  {
-   "t": "2025-07-08T01:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "false_alarm",
-   "asset_id": "press_1"
-  },
-  {
-   "t": "2025-07-13T12:00:00+08:00",
-   "policy": "millguard",
-   "type": "false_alarm",
-   "asset_id": "press_1"
-  },
-  {
-   "t": "2025-07-13T12:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "false_alarm",
-   "asset_id": "press_1"
-  },
-  {
-   "t": "2025-07-14T19:00:00+08:00",
-   "policy": "fixed_interval",
-   "type": "planned_fix",
-   "asset_id": "press_1"
-  },
-  {
-   "t": "2025-07-14T19:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "planned_fix",
-   "asset_id": "press_1"
-  },
-  {
-   "t": "2025-07-18T09:00:00+08:00",
-   "policy": "millguard",
-   "type": "false_alarm",
-   "asset_id": "press_3"
-  },
-  {
-   "t": "2025-07-18T09:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "false_alarm",
-   "asset_id": "press_3"
-  },
-  {
-   "t": "2025-07-20T04:00:00+08:00",
+   "t": "2025-05-24T16:00:00+08:00",
    "policy": "millguard",
    "type": "breakdown",
-   "asset_id": "press_4"
+   "asset_id": "press_3"
   },
   {
-   "t": "2025-07-20T18:00:00+08:00",
-   "policy": "fixed_interval",
-   "type": "planned_fix",
-   "asset_id": "press_2"
-  },
-  {
-   "t": "2025-07-20T18:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "planned_fix",
-   "asset_id": "press_2"
-  },
-  {
-   "t": "2025-07-22T18:00:00+08:00",
-   "policy": "run_to_failure",
-   "type": "breakdown",
-   "asset_id": "press_4"
-  },
-  {
-   "t": "2025-07-22T18:00:00+08:00",
-   "policy": "fixed_interval",
-   "type": "planned_fix",
-   "asset_id": "press_4"
-  },
-  {
-   "t": "2025-07-22T18:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "planned_fix",
-   "asset_id": "press_4"
-  },
-  {
-   "t": "2025-07-24T03:00:00+08:00",
+   "t": "2025-05-24T17:00:00+08:00",
    "policy": "millguard",
-   "type": "planned_fix",
+   "type": "false_alarm",
    "asset_id": "press_3"
   },
   {
-   "t": "2025-07-26T17:00:00+08:00",
-   "policy": "run_to_failure",
-   "type": "breakdown",
-   "asset_id": "press_3"
-  },
-  {
-   "t": "2025-07-26T17:00:00+08:00",
-   "policy": "fixed_interval",
-   "type": "planned_fix",
-   "asset_id": "press_3"
-  },
-  {
-   "t": "2025-07-26T17:00:00+08:00",
-   "policy": "fixed_interval",
-   "type": "planned_fix",
-   "asset_id": "press_3"
-  },
-  {
-   "t": "2025-07-26T17:00:00+08:00",
+   "t": "2025-05-24T17:00:00+08:00",
    "policy": "schedule_plus_millguard",
-   "type": "planned_fix",
+   "type": "false_alarm",
    "asset_id": "press_3"
   },
   {
-   "t": "2025-07-26T17:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "planned_fix",
-   "asset_id": "press_3"
-  },
-  {
-   "t": "2025-08-01T16:00:00+08:00",
-   "policy": "fixed_interval",
-   "type": "planned_fix",
-   "asset_id": "press_4"
-  },
-  {
-   "t": "2025-08-01T16:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "planned_fix",
-   "asset_id": "press_4"
-  },
-  {
-   "t": "2025-08-15T08:00:00+08:00",
-   "policy": "millguard",
-   "type": "planned_fix",
-   "asset_id": "press_2"
-  },
-  {
-   "t": "2025-08-17T22:00:00+08:00",
-   "policy": "run_to_failure",
-   "type": "breakdown",
-   "asset_id": "press_2"
-  },
-  {
-   "t": "2025-08-17T22:00:00+08:00",
-   "policy": "fixed_interval",
-   "type": "breakdown",
-   "asset_id": "press_2"
-  },
-  {
-   "t": "2025-08-17T22:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "breakdown",
-   "asset_id": "press_2"
-  },
-  {
-   "t": "2025-08-21T21:00:00+08:00",
-   "policy": "millguard",
-   "type": "breakdown",
-   "asset_id": "press_1"
-  },
-  {
-   "t": "2025-08-23T11:00:00+08:00",
+   "t": "2025-05-24T18:00:00+08:00",
    "policy": "run_to_failure",
    "type": "breakdown",
    "asset_id": "press_1"
   },
   {
-   "t": "2025-08-23T11:00:00+08:00",
-   "policy": "fixed_interval",
+   "t": "2025-05-25T03:00:00+08:00",
+   "policy": "millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-05-25T03:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-05-30T15:00:00+08:00",
+   "policy": "run_to_failure",
    "type": "breakdown",
-   "asset_id": "press_1"
+   "asset_id": "press_2"
   },
   {
-   "t": "2025-08-23T11:00:00+08:00",
+   "t": "2025-05-30T15:00:00+08:00",
+   "policy": "millguard",
+   "type": "breakdown",
+   "asset_id": "press_2"
+  },
+  {
+   "t": "2025-05-30T22:00:00+08:00",
+   "policy": "millguard",
+   "type": "false_alarm",
+   "asset_id": "press_2"
+  },
+  {
+   "t": "2025-05-30T22:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "false_alarm",
+   "asset_id": "press_2"
+  },
+  {
+   "t": "2025-06-01T03:00:00+08:00",
+   "policy": "millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-06-01T03:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-06-01T06:00:00+08:00",
    "policy": "schedule_plus_millguard",
    "type": "planned_fix",
    "asset_id": "press_1"
   },
   {
-   "t": "2025-08-25T01:00:00+08:00",
+   "t": "2025-06-01T06:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "planned_fix",
+   "asset_id": "press_2"
+  },
+  {
+   "t": "2025-06-01T06:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "planned_fix",
+   "asset_id": "press_4"
+  },
+  {
+   "t": "2025-06-08T03:00:00+08:00",
+   "policy": "millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-06-08T03:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-06-08T06:00:00+08:00",
    "policy": "fixed_interval",
    "type": "planned_fix",
    "asset_id": "press_1"
   },
   {
-   "t": "2025-08-25T01:00:00+08:00",
+   "t": "2025-06-08T06:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "planned_fix",
+   "asset_id": "press_3"
+  },
+  {
+   "t": "2025-06-12T06:00:00+08:00",
+   "policy": "millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-06-12T06:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-06-15T03:00:00+08:00",
+   "policy": "millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-06-15T03:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-06-15T06:00:00+08:00",
+   "policy": "fixed_interval",
+   "type": "planned_fix",
+   "asset_id": "press_2"
+  },
+  {
+   "t": "2025-06-15T06:00:00+08:00",
+   "policy": "fixed_interval",
+   "type": "planned_fix",
+   "asset_id": "press_3"
+  },
+  {
+   "t": "2025-06-15T06:00:00+08:00",
+   "policy": "fixed_interval",
+   "type": "planned_fix",
+   "asset_id": "press_4"
+  },
+  {
+   "t": "2025-06-22T03:00:00+08:00",
+   "policy": "millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-06-22T03:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-06-29T03:00:00+08:00",
+   "policy": "millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-06-29T03:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-06-29T06:00:00+08:00",
    "policy": "schedule_plus_millguard",
    "type": "planned_fix",
    "asset_id": "press_1"
   },
   {
-   "t": "2025-08-25T16:00:00+08:00",
+   "t": "2025-07-06T03:00:00+08:00",
+   "policy": "millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-07-06T03:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-07-06T15:00:00+08:00",
    "policy": "millguard",
    "type": "planned_fix",
    "asset_id": "press_4"
   },
   {
-   "t": "2025-08-27T06:00:00+08:00",
+   "t": "2025-07-10T03:00:00+08:00",
+   "policy": "millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-07-10T03:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-07-11T07:00:00+08:00",
+   "policy": "millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-07-11T07:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-07-12T16:00:00+08:00",
    "policy": "run_to_failure",
    "type": "breakdown",
    "asset_id": "press_4"
   },
   {
-   "t": "2025-08-27T06:00:00+08:00",
-   "policy": "fixed_interval",
-   "type": "breakdown",
-   "asset_id": "press_4"
+   "t": "2025-07-13T03:00:00+08:00",
+   "policy": "millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
   },
   {
-   "t": "2025-08-27T06:00:00+08:00",
+   "t": "2025-07-13T03:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-07-13T06:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "planned_fix",
+   "asset_id": "press_2"
+  },
+  {
+   "t": "2025-07-13T06:00:00+08:00",
    "policy": "schedule_plus_millguard",
    "type": "planned_fix",
    "asset_id": "press_4"
   },
   {
-   "t": "2025-08-30T12:00:00+08:00",
+   "t": "2025-07-20T03:00:00+08:00",
    "policy": "millguard",
    "type": "false_alarm",
-   "asset_id": "press_1"
+   "asset_id": "boiler_1"
   },
   {
-   "t": "2025-08-30T12:00:00+08:00",
+   "t": "2025-07-20T03:00:00+08:00",
    "policy": "schedule_plus_millguard",
    "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-07-20T06:00:00+08:00",
+   "policy": "fixed_interval",
+   "type": "planned_fix",
    "asset_id": "press_1"
   },
   {
-   "t": "2025-08-31T00:00:00+08:00",
+   "t": "2025-07-20T06:00:00+08:00",
    "policy": "fixed_interval",
    "type": "planned_fix",
    "asset_id": "press_2"
   },
   {
-   "t": "2025-08-31T00:00:00+08:00",
-   "policy": "schedule_plus_millguard",
+   "t": "2025-07-20T06:00:00+08:00",
+   "policy": "fixed_interval",
    "type": "planned_fix",
-   "asset_id": "press_2"
+   "asset_id": "press_4"
   },
   {
-   "t": "2025-09-02T14:00:00+08:00",
+   "t": "2025-07-24T10:00:00+08:00",
    "policy": "millguard",
    "type": "false_alarm",
-   "asset_id": "press_2"
+   "asset_id": "boiler_1"
   },
   {
-   "t": "2025-09-02T14:00:00+08:00",
+   "t": "2025-07-24T10:00:00+08:00",
    "policy": "schedule_plus_millguard",
    "type": "false_alarm",
-   "asset_id": "press_2"
+   "asset_id": "boiler_1"
   },
   {
-   "t": "2025-09-03T02:00:00+08:00",
+   "t": "2025-07-25T19:00:00+08:00",
    "policy": "millguard",
+   "type": "false_alarm",
+   "asset_id": "press_3"
+  },
+  {
+   "t": "2025-07-25T19:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "false_alarm",
+   "asset_id": "press_3"
+  },
+  {
+   "t": "2025-07-27T03:00:00+08:00",
+   "policy": "millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-07-27T03:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-07-27T06:00:00+08:00",
+   "policy": "fixed_interval",
    "type": "planned_fix",
    "asset_id": "press_3"
   },
   {
-   "t": "2025-09-05T16:00:00+08:00",
+   "t": "2025-07-27T06:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "planned_fix",
+   "asset_id": "press_3"
+  },
+  {
+   "t": "2025-07-28T16:00:00+08:00",
    "policy": "run_to_failure",
    "type": "breakdown",
    "asset_id": "press_3"
   },
   {
-   "t": "2025-09-05T16:00:00+08:00",
-   "policy": "fixed_interval",
-   "type": "planned_fix",
+   "t": "2025-07-28T16:00:00+08:00",
+   "policy": "millguard",
+   "type": "breakdown",
    "asset_id": "press_3"
   },
   {
-   "t": "2025-09-05T16:00:00+08:00",
+   "t": "2025-07-28T19:00:00+08:00",
+   "policy": "millguard",
+   "type": "false_alarm",
+   "asset_id": "press_1"
+  },
+  {
+   "t": "2025-07-28T19:00:00+08:00",
    "policy": "schedule_plus_millguard",
-   "type": "planned_fix",
-   "asset_id": "press_3"
+   "type": "false_alarm",
+   "asset_id": "press_1"
   },
   {
-   "t": "2025-09-06T23:00:00+08:00",
-   "policy": "fixed_interval",
-   "type": "planned_fix",
-   "asset_id": "press_3"
-  },
-  {
-   "t": "2025-09-06T23:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "planned_fix",
-   "asset_id": "press_3"
-  },
-  {
-   "t": "2025-09-09T10:00:00+08:00",
+   "t": "2025-07-29T03:00:00+08:00",
    "policy": "millguard",
    "type": "planned_fix",
+   "asset_id": "press_3"
+  },
+  {
+   "t": "2025-07-30T07:00:00+08:00",
+   "policy": "run_to_failure",
+   "type": "breakdown",
+   "asset_id": "press_3"
+  },
+  {
+   "t": "2025-08-03T03:00:00+08:00",
+   "policy": "millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-08-03T03:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-08-06T06:00:00+08:00",
+   "policy": "run_to_failure",
+   "type": "breakdown",
    "asset_id": "press_1"
+  },
+  {
+   "t": "2025-08-06T06:00:00+08:00",
+   "policy": "millguard",
+   "type": "breakdown",
+   "asset_id": "press_1"
+  },
+  {
+   "t": "2025-08-07T13:00:00+08:00",
+   "policy": "millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-08-07T13:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-08-10T03:00:00+08:00",
+   "policy": "millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-08-10T03:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-08-17T03:00:00+08:00",
+   "policy": "millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-08-17T03:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-08-17T06:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "planned_fix",
+   "asset_id": "press_1"
+  },
+  {
+   "t": "2025-08-18T00:00:00+08:00",
+   "policy": "millguard",
+   "type": "false_alarm",
+   "asset_id": "press_2"
+  },
+  {
+   "t": "2025-08-18T00:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "false_alarm",
+   "asset_id": "press_2"
+  },
+  {
+   "t": "2025-08-20T20:00:00+08:00",
+   "policy": "millguard",
+   "type": "false_alarm",
+   "asset_id": "press_2"
+  },
+  {
+   "t": "2025-08-20T20:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "false_alarm",
+   "asset_id": "press_2"
+  },
+  {
+   "t": "2025-08-24T03:00:00+08:00",
+   "policy": "millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-08-24T03:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-08-24T06:00:00+08:00",
+   "policy": "fixed_interval",
+   "type": "planned_fix",
+   "asset_id": "press_1"
+  },
+  {
+   "t": "2025-08-24T06:00:00+08:00",
+   "policy": "fixed_interval",
+   "type": "planned_fix",
+   "asset_id": "press_4"
+  },
+  {
+   "t": "2025-08-24T06:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "planned_fix",
+   "asset_id": "press_4"
+  },
+  {
+   "t": "2025-08-28T15:00:00+08:00",
+   "policy": "run_to_failure",
+   "type": "breakdown",
+   "asset_id": "press_2"
+  },
+  {
+   "t": "2025-08-28T15:00:00+08:00",
+   "policy": "millguard",
+   "type": "breakdown",
+   "asset_id": "press_2"
+  },
+  {
+   "t": "2025-08-30T20:00:00+08:00",
+   "policy": "millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-08-30T20:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-08-31T06:00:00+08:00",
+   "policy": "fixed_interval",
+   "type": "planned_fix",
+   "asset_id": "press_1"
+  },
+  {
+   "t": "2025-08-31T06:00:00+08:00",
+   "policy": "fixed_interval",
+   "type": "planned_fix",
+   "asset_id": "press_2"
+  },
+  {
+   "t": "2025-08-31T06:00:00+08:00",
+   "policy": "fixed_interval",
+   "type": "planned_fix",
+   "asset_id": "press_3"
+  },
+  {
+   "t": "2025-08-31T06:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "planned_fix",
+   "asset_id": "press_2"
+  },
+  {
+   "t": "2025-09-02T15:00:00+08:00",
+   "policy": "millguard",
+   "type": "planned_fix",
+   "asset_id": "press_4"
+  },
+  {
+   "t": "2025-09-05T06:00:00+08:00",
+   "policy": "run_to_failure",
+   "type": "breakdown",
+   "asset_id": "press_4"
+  },
+  {
+   "t": "2025-09-07T03:00:00+08:00",
+   "policy": "millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-09-07T03:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-09-07T06:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "planned_fix",
+   "asset_id": "press_3"
+  },
+  {
+   "t": "2025-09-08T04:00:00+08:00",
+   "policy": "millguard",
+   "type": "planned_fix",
+   "asset_id": "press_3"
   },
   {
    "t": "2025-09-10T08:00:00+08:00",
-   "policy": "millguard",
-   "type": "planned_fix",
-   "asset_id": "press_4"
-  },
-  {
-   "t": "2025-09-10T22:00:00+08:00",
-   "policy": "millguard",
-   "type": "planned_fix",
-   "asset_id": "press_2"
-  },
-  {
-   "t": "2025-09-11T00:00:00+08:00",
    "policy": "run_to_failure",
    "type": "breakdown",
-   "asset_id": "press_1"
+   "asset_id": "press_3"
   },
   {
-   "t": "2025-09-11T00:00:00+08:00",
-   "policy": "fixed_interval",
-   "type": "breakdown",
-   "asset_id": "press_1"
-  },
-  {
-   "t": "2025-09-11T00:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "planned_fix",
-   "asset_id": "press_1"
-  },
-  {
-   "t": "2025-09-12T12:00:00+08:00",
-   "policy": "run_to_failure",
-   "type": "breakdown",
-   "asset_id": "press_2"
-  },
-  {
-   "t": "2025-09-12T12:00:00+08:00",
-   "policy": "fixed_interval",
-   "type": "planned_fix",
-   "asset_id": "press_2"
-  },
-  {
-   "t": "2025-09-12T12:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "planned_fix",
-   "asset_id": "press_2"
-  },
-  {
-   "t": "2025-09-12T22:00:00+08:00",
-   "policy": "run_to_failure",
-   "type": "breakdown",
-   "asset_id": "press_4"
-  },
-  {
-   "t": "2025-09-12T22:00:00+08:00",
-   "policy": "fixed_interval",
-   "type": "planned_fix",
-   "asset_id": "press_4"
-  },
-  {
-   "t": "2025-09-12T22:00:00+08:00",
-   "policy": "fixed_interval",
-   "type": "planned_fix",
-   "asset_id": "press_4"
-  },
-  {
-   "t": "2025-09-12T22:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "planned_fix",
-   "asset_id": "press_4"
-  },
-  {
-   "t": "2025-09-12T22:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "planned_fix",
-   "asset_id": "press_4"
-  },
-  {
-   "t": "2025-09-27T16:00:00+08:00",
+   "t": "2025-09-14T07:00:00+08:00",
    "policy": "millguard",
    "type": "planned_fix",
    "asset_id": "boiler_1"
   },
   {
-   "t": "2025-09-29T06:00:00+08:00",
+   "t": "2025-09-14T07:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "planned_fix",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-09-16T14:00:00+08:00",
    "policy": "run_to_failure",
    "type": "breakdown",
    "asset_id": "boiler_1"
   },
   {
-   "t": "2025-09-29T06:00:00+08:00",
+   "t": "2025-09-16T14:00:00+08:00",
    "policy": "fixed_interval",
    "type": "breakdown",
    "asset_id": "boiler_1"
   },
   {
-   "t": "2025-09-29T06:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "breakdown",
+   "t": "2025-09-21T03:00:00+08:00",
+   "policy": "millguard",
+   "type": "false_alarm",
    "asset_id": "boiler_1"
   },
   {
-   "t": "2025-10-01T01:00:00+08:00",
-   "policy": "millguard",
-   "type": "planned_fix",
-   "asset_id": "press_2"
-  },
-  {
-   "t": "2025-10-03T10:00:00+08:00",
-   "policy": "millguard",
-   "type": "breakdown",
-   "asset_id": "press_1"
-  },
-  {
-   "t": "2025-10-03T15:00:00+08:00",
-   "policy": "run_to_failure",
-   "type": "breakdown",
-   "asset_id": "press_2"
-  },
-  {
-   "t": "2025-10-03T15:00:00+08:00",
-   "policy": "fixed_interval",
-   "type": "planned_fix",
-   "asset_id": "press_2"
-  },
-  {
-   "t": "2025-10-03T15:00:00+08:00",
+   "t": "2025-09-21T03:00:00+08:00",
    "policy": "schedule_plus_millguard",
-   "type": "planned_fix",
-   "asset_id": "press_2"
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
   },
   {
-   "t": "2025-10-05T00:00:00+08:00",
-   "policy": "run_to_failure",
-   "type": "breakdown",
-   "asset_id": "press_1"
-  },
-  {
-   "t": "2025-10-05T00:00:00+08:00",
+   "t": "2025-09-21T06:00:00+08:00",
    "policy": "fixed_interval",
-   "type": "planned_fix",
-   "asset_id": "press_1"
-  },
-  {
-   "t": "2025-10-05T00:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "planned_fix",
-   "asset_id": "press_1"
-  },
-  {
-   "t": "2025-10-05T15:00:00+08:00",
-   "policy": "millguard",
-   "type": "planned_fix",
-   "asset_id": "press_4"
-  },
-  {
-   "t": "2025-10-06T07:00:00+08:00",
-   "policy": "fixed_interval",
-   "type": "planned_fix",
-   "asset_id": "press_1"
-  },
-  {
-   "t": "2025-10-06T07:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "planned_fix",
-   "asset_id": "press_1"
-  },
-  {
-   "t": "2025-10-07T05:00:00+08:00",
-   "policy": "run_to_failure",
-   "type": "breakdown",
-   "asset_id": "press_4"
-  },
-  {
-   "t": "2025-10-07T05:00:00+08:00",
-   "policy": "fixed_interval",
-   "type": "planned_fix",
-   "asset_id": "press_4"
-  },
-  {
-   "t": "2025-10-07T05:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "planned_fix",
-   "asset_id": "press_4"
-  },
-  {
-   "t": "2025-10-09T19:00:00+08:00",
-   "policy": "millguard",
-   "type": "planned_fix",
-   "asset_id": "press_4"
-  },
-  {
-   "t": "2025-10-10T21:00:00+08:00",
-   "policy": "millguard",
    "type": "planned_fix",
    "asset_id": "press_3"
   },
   {
-   "t": "2025-10-11T09:00:00+08:00",
+   "t": "2025-09-28T03:00:00+08:00",
+   "policy": "millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-09-28T03:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-09-28T06:00:00+08:00",
+   "policy": "fixed_interval",
+   "type": "planned_fix",
+   "asset_id": "press_2"
+  },
+  {
+   "t": "2025-09-29T19:00:00+08:00",
+   "policy": "millguard",
+   "type": "planned_fix",
+   "asset_id": "press_2"
+  },
+  {
+   "t": "2025-10-04T16:00:00+08:00",
    "policy": "run_to_failure",
    "type": "breakdown",
-   "asset_id": "press_4"
+   "asset_id": "press_2"
   },
   {
-   "t": "2025-10-11T09:00:00+08:00",
+   "t": "2025-10-05T03:00:00+08:00",
+   "policy": "millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-10-05T03:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-10-05T06:00:00+08:00",
    "policy": "fixed_interval",
-   "type": "breakdown",
+   "type": "planned_fix",
+   "asset_id": "press_3"
+  },
+  {
+   "t": "2025-10-05T06:00:00+08:00",
+   "policy": "fixed_interval",
+   "type": "planned_fix",
    "asset_id": "press_4"
   },
   {
-   "t": "2025-10-11T09:00:00+08:00",
+   "t": "2025-10-05T06:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "planned_fix",
+   "asset_id": "press_1"
+  },
+  {
+   "t": "2025-10-05T06:00:00+08:00",
    "policy": "schedule_plus_millguard",
    "type": "planned_fix",
    "asset_id": "press_4"
+  },
+  {
+   "t": "2025-10-12T03:00:00+08:00",
+   "policy": "millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-10-12T03:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-10-12T06:00:00+08:00",
+   "policy": "fixed_interval",
+   "type": "planned_fix",
+   "asset_id": "press_1"
   },
   {
    "t": "2025-10-12T06:00:00+08:00",
@@ -4648,255 +4822,453 @@
   },
   {
    "t": "2025-10-12T06:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "planned_fix",
-   "asset_id": "press_2"
-  },
-  {
-   "t": "2025-10-12T11:00:00+08:00",
-   "policy": "run_to_failure",
-   "type": "breakdown",
-   "asset_id": "press_3"
-  },
-  {
-   "t": "2025-10-12T11:00:00+08:00",
-   "policy": "fixed_interval",
-   "type": "breakdown",
-   "asset_id": "press_3"
-  },
-  {
-   "t": "2025-10-12T11:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "planned_fix",
-   "asset_id": "press_3"
-  },
-  {
-   "t": "2025-10-18T05:00:00+08:00",
    "policy": "fixed_interval",
    "type": "planned_fix",
    "asset_id": "press_3"
   },
   {
-   "t": "2025-10-18T05:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "planned_fix",
-   "asset_id": "press_3"
-  },
-  {
-   "t": "2025-10-19T07:00:00+08:00",
-   "policy": "millguard",
-   "type": "false_alarm",
-   "asset_id": "press_2"
-  },
-  {
-   "t": "2025-10-19T07:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "false_alarm",
-   "asset_id": "press_2"
-  },
-  {
-   "t": "2025-10-23T11:00:00+08:00",
-   "policy": "millguard",
-   "type": "planned_fix",
-   "asset_id": "press_2"
-  },
-  {
-   "t": "2025-10-23T21:00:00+08:00",
-   "policy": "millguard",
-   "type": "false_alarm",
-   "asset_id": "press_4"
-  },
-  {
-   "t": "2025-10-23T21:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "false_alarm",
-   "asset_id": "press_4"
-  },
-  {
-   "t": "2025-10-24T04:00:00+08:00",
+   "t": "2025-10-12T06:00:00+08:00",
    "policy": "fixed_interval",
    "type": "planned_fix",
    "asset_id": "press_4"
   },
   {
-   "t": "2025-10-24T04:00:00+08:00",
+   "t": "2025-10-12T06:00:00+08:00",
    "policy": "schedule_plus_millguard",
    "type": "planned_fix",
-   "asset_id": "press_4"
+   "asset_id": "press_1"
   },
   {
-   "t": "2025-10-25T01:00:00+08:00",
-   "policy": "run_to_failure",
-   "type": "breakdown",
-   "asset_id": "press_2"
-  },
-  {
-   "t": "2025-10-25T01:00:00+08:00",
-   "policy": "fixed_interval",
-   "type": "breakdown",
-   "asset_id": "press_2"
-  },
-  {
-   "t": "2025-10-25T01:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "breakdown",
-   "asset_id": "press_2"
-  },
-  {
-   "t": "2025-11-02T09:00:00+08:00",
-   "policy": "millguard",
-   "type": "planned_fix",
-   "asset_id": "press_2"
-  },
-  {
-   "t": "2025-11-04T23:00:00+08:00",
-   "policy": "run_to_failure",
-   "type": "breakdown",
-   "asset_id": "press_2"
-  },
-  {
-   "t": "2025-11-04T23:00:00+08:00",
-   "policy": "fixed_interval",
-   "type": "breakdown",
-   "asset_id": "press_2"
-  },
-  {
-   "t": "2025-11-04T23:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "breakdown",
-   "asset_id": "press_2"
-  },
-  {
-   "t": "2025-11-05T01:00:00+08:00",
+   "t": "2025-10-14T07:00:00+08:00",
    "policy": "millguard",
    "type": "planned_fix",
    "asset_id": "press_1"
   },
   {
-   "t": "2025-11-07T15:00:00+08:00",
+   "t": "2025-10-19T03:00:00+08:00",
+   "policy": "millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-10-19T03:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-10-19T06:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "planned_fix",
+   "asset_id": "press_2"
+  },
+  {
+   "t": "2025-10-19T06:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "planned_fix",
+   "asset_id": "press_3"
+  },
+  {
+   "t": "2025-10-20T13:00:00+08:00",
    "policy": "run_to_failure",
    "type": "breakdown",
    "asset_id": "press_1"
   },
   {
-   "t": "2025-11-07T15:00:00+08:00",
+   "t": "2025-10-20T20:00:00+08:00",
+   "policy": "millguard",
+   "type": "planned_fix",
+   "asset_id": "press_4"
+  },
+  {
+   "t": "2025-10-22T03:00:00+08:00",
+   "policy": "run_to_failure",
+   "type": "breakdown",
+   "asset_id": "press_4"
+  },
+  {
+   "t": "2025-10-24T09:00:00+08:00",
+   "policy": "run_to_failure",
+   "type": "breakdown",
+   "asset_id": "press_3"
+  },
+  {
+   "t": "2025-10-24T09:00:00+08:00",
+   "policy": "millguard",
+   "type": "breakdown",
+   "asset_id": "press_3"
+  },
+  {
+   "t": "2025-10-26T03:00:00+08:00",
+   "policy": "millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-10-26T03:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-11-02T03:00:00+08:00",
+   "policy": "millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-11-02T03:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-11-02T06:00:00+08:00",
    "policy": "fixed_interval",
+   "type": "planned_fix",
+   "asset_id": "press_1"
+  },
+  {
+   "t": "2025-11-04T17:00:00+08:00",
+   "policy": "millguard",
+   "type": "planned_fix",
+   "asset_id": "press_4"
+  },
+  {
+   "t": "2025-11-04T17:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "planned_fix",
+   "asset_id": "press_4"
+  },
+  {
+   "t": "2025-11-04T21:00:00+08:00",
+   "policy": "run_to_failure",
+   "type": "breakdown",
+   "asset_id": "press_4"
+  },
+  {
+   "t": "2025-11-04T21:00:00+08:00",
+   "policy": "fixed_interval",
+   "type": "breakdown",
+   "asset_id": "press_4"
+  },
+  {
+   "t": "2025-11-09T03:00:00+08:00",
+   "policy": "millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-11-09T03:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-11-09T06:00:00+08:00",
+   "policy": "fixed_interval",
+   "type": "planned_fix",
+   "asset_id": "press_3"
+  },
+  {
+   "t": "2025-11-09T06:00:00+08:00",
+   "policy": "fixed_interval",
+   "type": "planned_fix",
+   "asset_id": "press_4"
+  },
+  {
+   "t": "2025-11-09T06:00:00+08:00",
+   "policy": "fixed_interval",
+   "type": "planned_fix",
+   "asset_id": "press_4"
+  },
+  {
+   "t": "2025-11-09T06:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "planned_fix",
+   "asset_id": "press_3"
+  },
+  {
+   "t": "2025-11-12T09:00:00+08:00",
+   "policy": "millguard",
+   "type": "planned_fix",
+   "asset_id": "press_1"
+  },
+  {
+   "t": "2025-11-15T13:00:00+08:00",
+   "policy": "run_to_failure",
    "type": "breakdown",
    "asset_id": "press_1"
   },
   {
-   "t": "2025-11-07T15:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "planned_fix",
-   "asset_id": "press_1"
-  },
-  {
-   "t": "2025-11-15T14:00:00+08:00",
+   "t": "2025-11-16T03:00:00+08:00",
    "policy": "millguard",
    "type": "false_alarm",
-   "asset_id": "press_4"
+   "asset_id": "boiler_1"
   },
   {
-   "t": "2025-11-15T14:00:00+08:00",
+   "t": "2025-11-16T03:00:00+08:00",
    "policy": "schedule_plus_millguard",
    "type": "false_alarm",
-   "asset_id": "press_4"
+   "asset_id": "boiler_1"
   },
   {
-   "t": "2025-11-17T13:00:00+08:00",
+   "t": "2025-11-16T06:00:00+08:00",
    "policy": "fixed_interval",
    "type": "planned_fix",
    "asset_id": "press_1"
   },
   {
-   "t": "2025-11-17T13:00:00+08:00",
+   "t": "2025-11-16T06:00:00+08:00",
+   "policy": "fixed_interval",
+   "type": "planned_fix",
+   "asset_id": "press_2"
+  },
+  {
+   "t": "2025-11-16T06:00:00+08:00",
+   "policy": "fixed_interval",
+   "type": "planned_fix",
+   "asset_id": "press_3"
+  },
+  {
+   "t": "2025-11-16T06:00:00+08:00",
    "policy": "schedule_plus_millguard",
    "type": "planned_fix",
    "asset_id": "press_1"
+  },
+  {
+   "t": "2025-11-16T06:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "planned_fix",
+   "asset_id": "press_4"
+  },
+  {
+   "t": "2025-11-18T23:00:00+08:00",
+   "policy": "millguard",
+   "type": "planned_fix",
+   "asset_id": "press_2"
+  },
+  {
+   "t": "2025-11-18T23:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "planned_fix",
+   "asset_id": "press_2"
+  },
+  {
+   "t": "2025-11-19T08:00:00+08:00",
+   "policy": "run_to_failure",
+   "type": "breakdown",
+   "asset_id": "press_2"
+  },
+  {
+   "t": "2025-11-19T08:00:00+08:00",
+   "policy": "fixed_interval",
+   "type": "breakdown",
+   "asset_id": "press_2"
+  },
+  {
+   "t": "2025-11-22T11:00:00+08:00",
+   "policy": "run_to_failure",
+   "type": "breakdown",
+   "asset_id": "press_2"
+  },
+  {
+   "t": "2025-11-22T11:00:00+08:00",
+   "policy": "millguard",
+   "type": "breakdown",
+   "asset_id": "press_2"
+  },
+  {
+   "t": "2025-11-22T17:00:00+08:00",
+   "policy": "millguard",
+   "type": "planned_fix",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-11-22T17:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "planned_fix",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-11-23T12:00:00+08:00",
+   "policy": "run_to_failure",
+   "type": "breakdown",
+   "asset_id": "boiler_1"
   },
   {
    "t": "2025-11-23T12:00:00+08:00",
    "policy": "fixed_interval",
-   "type": "planned_fix",
-   "asset_id": "press_2"
+   "type": "breakdown",
+   "asset_id": "boiler_1"
   },
   {
-   "t": "2025-11-23T12:00:00+08:00",
-   "policy": "schedule_plus_millguard",
-   "type": "planned_fix",
-   "asset_id": "press_2"
-  },
-  {
-   "t": "2025-11-25T21:00:00+08:00",
+   "t": "2025-11-23T20:00:00+08:00",
    "policy": "millguard",
    "type": "false_alarm",
-   "asset_id": "press_1"
+   "asset_id": "boiler_1"
   },
   {
-   "t": "2025-11-25T21:00:00+08:00",
+   "t": "2025-11-23T20:00:00+08:00",
    "policy": "schedule_plus_millguard",
    "type": "false_alarm",
-   "asset_id": "press_1"
+   "asset_id": "boiler_1"
   },
   {
-   "t": "2025-11-29T11:00:00+08:00",
-   "policy": "fixed_interval",
+   "t": "2025-11-30T03:00:00+08:00",
+   "policy": "millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-11-30T03:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-11-30T06:00:00+08:00",
+   "policy": "schedule_plus_millguard",
    "type": "planned_fix",
-   "asset_id": "press_3"
+   "asset_id": "press_2"
   },
   {
-   "t": "2025-11-29T11:00:00+08:00",
+   "t": "2025-11-30T06:00:00+08:00",
    "policy": "schedule_plus_millguard",
    "type": "planned_fix",
    "asset_id": "press_3"
   },
   {
-   "t": "2025-12-05T10:00:00+08:00",
+   "t": "2025-12-07T03:00:00+08:00",
+   "policy": "millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-12-07T03:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-12-14T03:00:00+08:00",
+   "policy": "millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-12-14T03:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-12-14T06:00:00+08:00",
+   "policy": "fixed_interval",
+   "type": "planned_fix",
+   "asset_id": "press_2"
+  },
+  {
+   "t": "2025-12-14T06:00:00+08:00",
    "policy": "fixed_interval",
    "type": "planned_fix",
    "asset_id": "press_4"
   },
   {
-   "t": "2025-12-05T10:00:00+08:00",
-   "policy": "schedule_plus_millguard",
+   "t": "2025-12-15T15:00:00+08:00",
+   "policy": "millguard",
    "type": "planned_fix",
    "asset_id": "press_4"
   },
   {
-   "t": "2025-12-27T05:00:00+08:00",
+   "t": "2025-12-17T20:00:00+08:00",
    "policy": "millguard",
    "type": "planned_fix",
-   "asset_id": "press_1"
+   "asset_id": "press_3"
   },
   {
-   "t": "2025-12-29T19:00:00+08:00",
+   "t": "2025-12-19T14:00:00+08:00",
    "policy": "run_to_failure",
    "type": "breakdown",
-   "asset_id": "press_1"
+   "asset_id": "press_4"
   },
   {
-   "t": "2025-12-29T19:00:00+08:00",
+   "t": "2025-12-21T03:00:00+08:00",
+   "policy": "millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-12-21T03:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-12-21T06:00:00+08:00",
    "policy": "fixed_interval",
    "type": "planned_fix",
    "asset_id": "press_1"
   },
   {
-   "t": "2025-12-29T19:00:00+08:00",
+   "t": "2025-12-21T06:00:00+08:00",
    "policy": "fixed_interval",
    "type": "planned_fix",
-   "asset_id": "press_1"
+   "asset_id": "press_3"
   },
   {
-   "t": "2025-12-29T19:00:00+08:00",
+   "t": "2025-12-21T19:00:00+08:00",
+   "policy": "run_to_failure",
+   "type": "breakdown",
+   "asset_id": "press_3"
+  },
+  {
+   "t": "2025-12-24T04:00:00+08:00",
+   "policy": "millguard",
+   "type": "false_alarm",
+   "asset_id": "press_2"
+  },
+  {
+   "t": "2025-12-24T04:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "false_alarm",
+   "asset_id": "press_2"
+  },
+  {
+   "t": "2025-12-28T03:00:00+08:00",
+   "policy": "millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-12-28T03:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "false_alarm",
+   "asset_id": "boiler_1"
+  },
+  {
+   "t": "2025-12-28T06:00:00+08:00",
+   "policy": "fixed_interval",
+   "type": "planned_fix",
+   "asset_id": "press_2"
+  },
+  {
+   "t": "2025-12-28T06:00:00+08:00",
    "policy": "schedule_plus_millguard",
    "type": "planned_fix",
    "asset_id": "press_1"
   },
   {
-   "t": "2025-12-29T19:00:00+08:00",
+   "t": "2025-12-28T06:00:00+08:00",
    "policy": "schedule_plus_millguard",
    "type": "planned_fix",
    "asset_id": "press_1"
+  },
+  {
+   "t": "2025-12-28T06:00:00+08:00",
+   "policy": "schedule_plus_millguard",
+   "type": "planned_fix",
+   "asset_id": "press_4"
   }
  ]
 }

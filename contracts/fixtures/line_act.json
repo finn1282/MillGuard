@@ -1,0 +1,60 @@
+{
+ "at": "2025-11-18T19:00:00+08:00",
+ "assets": [
+  {
+   "id": "press_1",
+   "name": "Press 1",
+   "type": "press",
+   "stage": "press",
+   "position": 1,
+   "status": "ok",
+   "risk_pct": 1.0,
+   "summary_en": "Normal",
+   "summary_ms": "Normal"
+  },
+  {
+   "id": "press_2",
+   "name": "Press 2",
+   "type": "press",
+   "stage": "press",
+   "position": 2,
+   "status": "act",
+   "risk_pct": 73.8,
+   "summary_en": "Worm wearing",
+   "summary_ms": "Skru cacing haus"
+  },
+  {
+   "id": "press_3",
+   "name": "Press 3",
+   "type": "press",
+   "stage": "press",
+   "position": 3,
+   "status": "ok",
+   "risk_pct": 1.4,
+   "summary_en": "Normal",
+   "summary_ms": "Normal"
+  },
+  {
+   "id": "press_4",
+   "name": "Press 4",
+   "type": "press",
+   "stage": "press",
+   "position": 4,
+   "status": "ok",
+   "risk_pct": 1.8,
+   "summary_en": "Normal",
+   "summary_ms": "Normal"
+  },
+  {
+   "id": "boiler_1",
+   "name": "Boiler 1",
+   "type": "boiler",
+   "stage": "boiler",
+   "position": 0,
+   "status": "watch",
+   "risk_pct": 2.6,
+   "summary_en": "Feed-water drifting",
+   "summary_ms": "Air suapan menyimpang"
+  }
+ ]
+}
