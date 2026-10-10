@@ -65,8 +65,8 @@ def main():
     score = pd.Series(np.searchsorted(ref, raw) / len(ref), index=X.index)     # percentile vs healthy training
     val_s = score[(score.index >= TRAIN_END) & (score.index < VAL_END)]
     val_weeks = len(val_s) / 168
-    thr = next(t for t in np.linspace(0.90, 0.9999, 400)
-               if len(episodes(val_s.values, t, persist, hyst, clear_h)) / val_weeks <= 0.5)
+    thr = next((t for t in np.linspace(0.90, 0.9999, 400)
+                if len(episodes(val_s.values, t, persist, hyst, clear_h)) / val_weeks <= 0.5), 1.0)
     test = score[score.index >= VAL_END]
     eps = [(test.index[a], test.index[b]) for a, b in episodes(test.values, thr, persist, hyst, clear_h)]
     f_start = [pd.Timestamp(a) for a, _ in FAILS]; f_end = [pd.Timestamp(b) for _, b in FAILS]
