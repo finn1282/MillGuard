@@ -17,7 +17,8 @@ const AFTER: PolicyId = "schedule_plus_millguard";
 export function Impact() {
   const { meta } = useClock();
   const { t, lang } = useLang();
-  const base = { cpo_price: meta?.mill.cpo_price_rm ?? 4292.5, miss_cost_mult: 1, alert_budget: 5, inspection_accuracy: 0.5 };
+  // alert_budget is left to the API default; the UI shows the limit as a fixed line instead of a slider.
+  const base = { cpo_price: meta?.mill.cpo_price_rm ?? 4292.5, miss_cost_mult: 1, inspection_accuracy: 0.5 };
   const [params, setParams] = useState(base);
   const [query, setQuery] = useState(base);
   const [compare, setCompare] = useState<Compare>("run_to_failure");
@@ -196,12 +197,13 @@ function Strip({ bt, before, after }: { bt: Backtest; before: PolicyId; after: P
   );
 }
 
-type Params = { cpo_price: number; miss_cost_mult: number; alert_budget: number; inspection_accuracy: number };
+type Params = { cpo_price: number; miss_cost_mult: number; inspection_accuracy: number };
 
 function Sliders({ params, setParams, reset, loading }:
   { params: Params; setParams: (p: Params) => void; reset: () => void; loading: boolean }) {
   const { t } = useLang();
   const grid = useApi(api.gridAxes, []).data as GridAxes | null | undefined;
+  const limit = useApi(api.assumptions, []).data?.find((a) => a.key === "alerting.max_per_shift")?.value;
   const row = (k: keyof Params, label: Key, min: number, max: number, step: number, fmt: (v: number) => string) => {
     // Fixture mode: the slider moves along the grid's axis values only.
     const axis = grid?.[k];
@@ -242,7 +244,11 @@ function Sliders({ params, setParams, reset, loading }:
       <p className="mt-1 mb-1.5 text-[15px] lg:text-base text-muted">{t(USE_FIXTURES ? "whatIfFixture" : "whatIfSub")}</p>
       {row("cpo_price", "cpoPrice", 3800, 5000, 10, (v) => `RM${v.toLocaleString("en-MY", { minimumFractionDigits: v % 1 ? 2 : 0 })}/t`)}
       {row("miss_cost_mult", "missCost", 0.5, 3, 0.1, (v) => `${v.toFixed(1)}×`)}
-      {row("alert_budget", "alertBudget", 1, 10, 1, (v) => String(v))}
+      {limit != null && (
+        <p className="m-0 py-3.5 lg:py-4 border-t border-rule-soft text-[15px] lg:text-[17px]">
+          <strong>{t("alertLimit", { n: limit })}</strong>{" "}<span className="text-muted">{t("alertLimitNever")}</span>
+        </p>
+      )}
       {row("inspection_accuracy", "inspection", 0, 1, 0.05, (v) => `${Math.round(v * 100)}%`)}
       <button onClick={reset} className="btn btn-outline w-full mt-2">{t("reset")}</button>
     </aside>
