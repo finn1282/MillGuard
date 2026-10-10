@@ -16,23 +16,23 @@ All results are from simulated mills (mill 10 is unseen in training) unless mark
 ## Four policies, mill 10, 2025 (base case)
 | Policy | Cost | Breakdowns | Planned fixes | False alarms | Source |
 |---|---|---|---|---|---|
-| Fix when it breaks | RM972,848 | 34 | 0 | 0 | /api/backtest policies[run_to_failure] |
-| Fixed schedule | RM723,550 | 10 | 56 | 0 | /api/backtest policies[fixed_interval] |
-| MillGuard alone | RM557,570 | 12 | 22 | 68 | /api/backtest policies[millguard] |
-| Schedule + MillGuard | RM421,040 | 3 | 51 | 68 | /api/backtest policies[schedule_plus_millguard] |
+| Fix when it breaks | RM3,189,545 | 110 | 0 | 0 | /api/backtest policies[run_to_failure] |
+| Fixed schedule (published RCM intervals) | RM2,814,203 | 64 | 113 | 0 | /api/backtest policies[fixed_interval] |
+| MillGuard alone | RM1,740,300 | 38 | 72 | 16 | /api/backtest policies[millguard] |
+| Schedule + MillGuard | RM1,563,350 | 19 | 158 | 16 | /api/backtest policies[schedule_plus_millguard] |
 
-- Schedule + MillGuard saves **RM551,808** a year vs fixing when it breaks (57%) and **RM302,510** vs the best fixed schedule (42%). Source: /api/backtest.
-- Strict case (a wrong-class alert never finds the fault, `inspection_accuracy=0`): Schedule + MillGuard RM558,159, still RM165,391 below the fixed schedule. Source: /api/backtest?inspection_accuracy=0.
-- The fixed schedule is the best interval found by a sweep on training mills (0.5 x mean part life); Schedule + MillGuard uses 0.6 x. Source: backend/artifacts/policy_fit.json.
+- Schedule + MillGuard saves **RM1,626,195** a year vs fixing when it breaks (51%) and **RM1,250,853** vs the best fixed schedule (44%). Source: /api/backtest.
+- Strict case (a wrong-class alert never finds the fault, `inspection_accuracy=0`): Schedule + MillGuard RM1,595,654, still RM1,218,549 below the fixed schedule. Source: /api/backtest?inspection_accuracy=0.
+- The fixed schedule uses the published RCM intervals (Ishak et al. 2024: worm 525 h, bearing 533 h, shaft 400 h), no tuning; Schedule + MillGuard uses the same schedule. Source: backend/artifacts/policy_fit.json.
 
 ## Detection quality (mill 10, MillGuard alerts)
 | Number | Value | Source |
 |---|---|---|
-| Failures caught before they happened | 22 of 34 | /api/robustness test_mill |
-| Median warning time | 63 h | backend/artifacts/episodes.parquet (alert open to failure) |
-| False alarms per week | 1.3 | /api/robustness test_mill.false_alarms_per_week |
-| Press risk model AUC, 72 h / 168 h | 0.904 / 0.903 | backend/artifacts/model_metrics.json |
-| Boiler risk model AUC, 24 h | 0.998 | backend/artifacts/model_metrics.json |
+| Failures caught before they happened | 72 of 110 | /api/robustness test_mill |
+| Median warning time | 70 h | backend/artifacts/episodes.parquet (alert open to failure) |
+| False alarms per week | 0.31 | /api/robustness test_mill.false_alarms_per_week |
+| Press risk model AUC, 72 h / 168 h | 0.939 / 0.906 | backend/artifacts/model_metrics.json |
+| Boiler risk model AUC, 24 h | 0.995 | backend/artifacts/model_metrics.json |
 
 ## Real-data checks (honest)
 | Test | Result | Source |
@@ -43,14 +43,14 @@ All results are from simulated mills (mill 10 is unseen in training) unless mark
 ## Stress test (mill 10, no retraining, thresholds unchanged)
 | Condition | Caught | Schedule + MillGuard | Fixed schedule |
 |---|---|---|---|
-| No perturbation (reference) | 22/34 | RM421,040 | RM723,550 |
-| Sensor noise x2 | 9/34 | RM1,187,186 | RM723,550 |
-| 20% of readings missing | 24/34 | RM445,118 | RM723,550 |
-| 40% of readings missing | 21/34 | RM622,117 | RM723,550 |
-| Slow sensor drift (+10% over the year on current and vibration) | 24/34 | RM428,666 | RM723,550 |
-| 25% of work orders with the wrong fault class | 21/34 | RM428,966 | RM723,550 |
+| No perturbation (reference) | 72/110 | RM1,563,350 | RM2,814,203 |
+| Sensor noise x2 | 73/110 | RM1,614,806 | RM2,814,203 |
+| 20% of readings missing | 72/110 | RM1,567,124 | RM2,814,203 |
+| 40% of readings missing | 74/110 | RM1,597,202 | RM2,814,203 |
+| Slow sensor drift (+10% over the year on current and vibration) | 72/110 | RM1,556,024 | RM2,814,203 |
+| 25% of work orders with the wrong fault class | 69/110 | RM1,604,730 | RM2,814,203 |
 
-**Why noise ×3 is not on the slide:** at ×3 the model catches only 5 of 34 failures and mostly stops alerting, so its cost (RM635,716) comes from the fixed schedule underneath, not from MillGuard. It is in /api/robustness extra[] and backend/artifacts/stress_table.json if a judge asks. Noise ×2 (worse than fixed) is on the slide on purpose: MillGuard needs reasonably clean sensors or retraining on the mill's own data.
+**Why noise ×3 is not on the slide:** at ×3 the model catches only 48 of 110 failures and mostly stops alerting, so its cost (RM3,164,774) comes from the fixed schedule underneath, not from MillGuard. It is in /api/robustness extra[] and backend/artifacts/stress_table.json if a judge asks. Noise ×2 (worse than fixed) is on the slide on purpose: MillGuard needs reasonably clean sensors or retraining on the mill's own data.
 
 ## Assumptions to say out loud
 - Mills are simulated; warning periods before failure (worm 300 h, gearbox 400 h, bearing 150 h, cone 200 h) are assumed.
