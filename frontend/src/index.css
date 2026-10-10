@@ -13,6 +13,8 @@ a:hover { color: #1E3A8A; }
 button { font-family: inherit; cursor: pointer; }
 button:disabled { cursor: default; opacity: .6; }
 :focus-visible { outline: 3px solid #1D4ED8; outline-offset: 2px; }
+/* On dark surfaces (rail, tab bar, decision bar, filled buttons) blue is too faint: use the light amber token. */
+.bg-ink :focus-visible, .bg-ink:focus-visible, .btn-primary:focus-visible { outline-color: var(--db-loss); }
 
 @layer components {
   .label { @apply m-0 text-[13px] lg:text-base tracking-[.08em] uppercase text-muted font-bold; }
