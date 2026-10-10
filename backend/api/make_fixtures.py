@@ -1,6 +1,7 @@
 """Snapshot of the real API at the three demo bookmarks plus the real backtest -> contracts/fixtures/*.json.
 Fixture mode (MILLGUARD_STUB=1) is the demo backup, so it shows true numbers. Run `make all` first."""
 import json
+import os
 import re
 from pathlib import Path
 
@@ -90,6 +91,21 @@ def backtest_grid(s):
     print(f"backtest grid: {len(index)} files")
 
 
+def advice_fixtures(s, at):
+    """Press 2 act-now and Boiler 1 whole-mill, EN and BM. Kept once written; REFRESH_ADVICE=1 asks the model again."""
+    from backend.advice import engine
+    for aid, key, suffix in (("press_2", "act", "_act"), ("boiler_1", "both", "")):
+        for lang in ("en", "ms"):
+            f = OUT / f"advice_{aid}{suffix}_{lang}.json"
+            if f.exists() and not os.environ.get("REFRESH_ADVICE"):
+                continue
+            o = engine.advise(s, aid, at[key], lang, use_cache=False)
+            if o.sections:
+                write(f.stem, o)
+            else:
+                print(f"WARNING: no advice written for {f.name} ({o.message})")
+
+
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     s = Service()
@@ -114,6 +130,7 @@ def main():
     (OUT / "bookmarks.json").write_text(json.dumps(at, indent=1))
     print("fixtures (real snapshot) written to", OUT, at)
     backtest_grid(s)
+    advice_fixtures(s, at)
     check(OUT)
 
 

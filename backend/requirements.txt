@@ -13,3 +13,4 @@ ucimlrepo
 python-telegram-bot
 httpx
 matplotlib
+openai

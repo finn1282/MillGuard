@@ -1,0 +1,67 @@
+{
+ "title": "Boiler 1 Feed-Water Quality Maintenance",
+ "sections": [
+  {
+   "heading": "Check first",
+   "items": [
+    "Test the feed-water conductivity and hardness immediately.",
+    "Compare the conductivity reading against the machine's normal levels from the last 30 days.",
+    "Check if the softener or resin bed is due for regeneration.",
+    "Verify the current blowdown schedule and check that blowdown valves are operating."
+   ]
+  },
+  {
+   "heading": "Step by step",
+   "items": [
+    "Use the test reagent kit to measure current water quality.",
+    "Regenerate the softener or resin bed if it is past its service interval.",
+    "Increase the blowdown rate to lower the concentration of dissolved solids.",
+    "Dissolved solids are minerals in the water that can form scale.",
+    "Adjust the chemical dosing rates to match the mill's water-treatment plan.",
+    "Record all test results and actions taken in the work order."
+   ]
+  },
+  {
+   "heading": "Safety",
+   "items": [
+    "If any machine parts must be opened, perform lock-out/tag-out first.",
+    "Isolate all energy sources including electrical, steam, and hydraulic pressure.",
+    "Lock, tag, and test that the equipment cannot move.",
+    "Follow the mill's SOP for handling water-treatment chemicals."
+   ]
+  },
+  {
+   "heading": "Parts and tools",
+   "items": [
+    "Resin or softener salt.",
+    "Test reagent kit.",
+    "Manufacturer's manual for water quality limits.",
+    "Mill's SOP for dosing and blowdown procedures."
+   ]
+  },
+  {
+   "heading": "Call the manufacturer if",
+   "items": [
+    "Conductivity stays high after increasing the blowdown frequency.",
+    "Water hardness levels do not return to the limits defined in the mill's SOP.",
+    "You suspect scale has already built up on the boiler tubes.",
+    "Scale is a mineral layer that insulates tubes and can cause them to overheat and fail."
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "label": "TDS, scale and blowdown (Forbes Marshall)",
+   "url": "https://www.forbesmarshall.com/energy-conservation/the-tds-inside-a-boiler-should-be-maintained-at-recommended-levels/"
+  },
+  {
+   "label": "TDS controls and conductivity (GESTRA)",
+   "url": "https://www.gestra.com/global/en-GB/products/boilerhouse/tds-controls"
+  }
+ ],
+ "disclaimer": "AI-generated guidance — check against the manufacturer's manual and your SOP",
+ "generated_at": "2026-10-10T20:48:19+08:00",
+ "cached": false,
+ "model": "gemini/gemini-3-flash",
+ "message": null
+}

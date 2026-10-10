@@ -1,0 +1,66 @@
+{
+ "title": "Penyelenggaraan Kualiti Air Suapan Boiler 1",
+ "sections": [
+  {
+   "heading": "Semak dahulu",
+   "items": [
+    "Periksa tahap kekonduksian (conductivity) air suapan yang meningkat 9% dalam 5 hari ini.",
+    "Kekonduksian adalah ukuran jumlah bahan pepejal terlarut dalam air boiler.",
+    "Bandingkan bacaan semasa dengan tahap normal mesin bagi 30 hari yang lepas.",
+    "Semak jadual 'blowdown' (proses pembuangan air kotor) sedia ada."
+   ]
+  },
+  {
+   "heading": "Langkah demi langkah",
+   "items": [
+    "Uji tahap kekonduksian dan kekerasan (hardness) air suapan.",
+    "Periksa sistem pelembut air (softener) atau lapisan resin dan lakukan regenerasi jika perlu.",
+    "Tingkatkan kekerapan 'blowdown' sehingga tahap kekonduksian kembali ke paras normal.",
+    "Sahkan kadar dos bahan kimia mengikut pelan rawatan air yang ditetapkan.",
+    "Rancang pemeriksaan tiub boiler untuk melihat kesan kerak (scale) pada hentian mesin akan datang."
+   ]
+  },
+  {
+   "heading": "Keselamatan",
+   "items": [
+    "Lakukan lock-out/tag-out (LOTO) dengan mengasingkan tenaga elektrik, stim, dan tekanan sebelum membuka mesin.",
+    "Uji dan sahkan mesin tidak boleh bergerak sebelum memulakan kerja.",
+    "Gunakan peralatan pelindung diri (PPE) yang sesuai semasa mengendalikan bahan kimia rawatan air.",
+    "Berhati-hati dengan permukaan panas dan wap stim semasa memeriksa injap 'blowdown'."
+   ]
+  },
+  {
+   "heading": "Alat dan alat ganti",
+   "items": [
+    "Kit reagen ujian (test reagent kit).",
+    "Resin atau garam pelembut (softener salt).",
+    "Manual pengilang untuk had kualiti air dan nilai tork.",
+    "SOP (Prosedur Operasi Standard) kilang."
+   ]
+  },
+  {
+   "heading": "Hubungi pengilang jika",
+   "items": [
+    "Tahap kekonduksian tetap tinggi walaupun 'blowdown' telah ditingkatkan.",
+    "Terdapat kerak tebal yang dikesan di dalam tiub boiler semasa pemeriksaan.",
+    "Sistem rawatan air tidak mencapai kualiti yang diperlukan mengikut spesifikasi manual.",
+    "Memerlukan had kelegaan atau prosedur pembersihan tiub yang khusus."
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "label": "TDS, scale and blowdown (Forbes Marshall)",
+   "url": "https://www.forbesmarshall.com/energy-conservation/the-tds-inside-a-boiler-should-be-maintained-at-recommended-levels/"
+  },
+  {
+   "label": "TDS controls and conductivity (GESTRA)",
+   "url": "https://www.gestra.com/global/en-GB/products/boilerhouse/tds-controls"
+  }
+ ],
+ "disclaimer": "Panduan dijana AI — semak dengan manual pengilang dan SOP anda",
+ "generated_at": "2026-10-10T20:48:29+08:00",
+ "cached": false,
+ "model": "gemini/gemini-3-flash",
+ "message": null
+}

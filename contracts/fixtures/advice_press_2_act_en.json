@@ -1,0 +1,67 @@
+{
+ "title": "Maintenance Advice: Press 2 Cone Hydraulic Fault",
+ "sections": [
+  {
+   "heading": "Check first",
+   "items": [
+    "Check the hydraulic oil level in the tank and look for dirty filters.",
+    "Inspect all hoses and fittings for visible external leaks.",
+    "Watch the cone pressure gauge for swings or spikes while the press is running.",
+    "Compare the current pressure fluctuations against the normal levels recorded over the last 30 days."
+   ]
+  },
+  {
+   "heading": "Step by step",
+   "items": [
+    "Stop the machine and release all stored hydraulic pressure.",
+    "Replace any leaking hoses and worn seals found during inspection.",
+    "Change the hydraulic filter to remove potential contamination.",
+    "Top up the system with the specific oil grade named in the manufacturer's manual.",
+    "Test the cone pressure under load to ensure the squeeze on the fruit is stable.",
+    "Record all findings and replaced parts in the work order."
+   ]
+  },
+  {
+   "heading": "Safety",
+   "items": [
+    "Perform lock-out/tag-out: switch off, isolate electrical and hydraulic energy, lock, tag, and test that the machine cannot move.",
+    "Release all stored hydraulic pressure before opening any lines to prevent fluid injection injuries.",
+    "Ensure the work area is clean of oil spills to prevent slips."
+   ]
+  },
+  {
+   "heading": "Parts and tools",
+   "items": [
+    "Two hydraulic hoses.",
+    "One seal kit.",
+    "One hydraulic filter.",
+    "Hydraulic oil grade as specified in the mill's SOP (Standard Operating Procedure).",
+    "Standard mechanical tools for hydraulic maintenance."
+   ]
+  },
+  {
+   "heading": "Call the manufacturer if",
+   "items": [
+    "The pressure continues to hunt, which means the relief valve cannot maintain a steady setting.",
+    "The hydraulic pump shows signs of failure or cannot reach required pressure.",
+    "Internal leakage persists after all seals have been replaced.",
+    "Required torque values or clearances are not listed in the manual."
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "label": "Identifying and troubleshooting pressure changes in fluid systems",
+   "url": "https://control.com/technical-articles/identifying-and-troubleshooting-pressure-changes-in-fluid-systems/"
+  },
+  {
+   "label": "Causes of fluctuating hydraulic pressure during continuous operation",
+   "url": "https://gesrepair.com/6-causes-of-fluctuating-hydraulic-pressure-during-continuous-operation"
+  }
+ ],
+ "disclaimer": "AI-generated guidance — check against the manufacturer's manual and your SOP",
+ "generated_at": "2026-10-10T20:48:02+08:00",
+ "cached": false,
+ "model": "gemini/gemini-3-flash",
+ "message": null
+}

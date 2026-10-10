@@ -7,7 +7,7 @@ from pathlib import Path
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
-from backend.api.models import (AssetDetail, Assumption, Backtest, Brief, FeedbackIn, FeedbackOut,
+from backend.api.models import (AdviceIn, AdviceOut, AssetDetail, Assumption, Backtest, Brief, FeedbackIn, FeedbackOut,
                                 FaultGuide, Line, Marker, Meta, NotifyIn, NotifyOut, NotifyStatus, Robustness)
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -109,6 +109,14 @@ def feedback(body: FeedbackIn):
         from backend.api.feedback import record
         record(body)
     return {"ok": True}
+
+
+@app.post("/api/advice", response_model=AdviceOut)
+def advice(body: AdviceIn):
+    from backend.advice import engine
+    if STUB:
+        return engine.from_fixture(body.asset_id, body.at, body.lang) or engine.unavailable(body.lang)
+    return engine.advise(svc, body.asset_id, body.at, body.lang)
 
 
 @app.get("/api/notify/status", response_model=NotifyStatus)

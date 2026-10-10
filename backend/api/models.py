@@ -356,3 +356,31 @@ class NotifyStatus(BaseModel):
     enabled: bool
     channel: str
     subscribers: int
+
+
+class AdviceIn(BaseModel):   # v1.10
+    asset_id: str
+    at: str | None = None
+    lang: Literal["en", "ms"] = "en"
+
+
+class AdviceSection(BaseModel):
+    heading: str
+    items: list[str]
+
+
+class AdviceSource(BaseModel):
+    label: str
+    url: str | None = None
+
+
+class AdviceOut(BaseModel):
+    """Sections in order: Check first, Step by step, Safety, Parts and tools, Call the manufacturer if."""
+    title: str
+    sections: list[AdviceSection]
+    sources: list[AdviceSource]
+    disclaimer: str
+    generated_at: str
+    cached: bool          # true when served from the cache or a fixture; false when fresh or unavailable
+    model: str
+    message: str | None = None   # friendly text when advice is unavailable (no key, no network, no fault); sections is then empty

@@ -34,6 +34,13 @@ Other targets:
 5. Tapping Fix now / Schedule / Keep watching records feedback through the same code as `POST /api/feedback`.
 Without a token everything still runs; `enabled` is false and nothing is sent.
 
+## Expert advice (optional)
+
+`POST /api/advice {asset_id, at, lang}` returns step-by-step guidance written by an LLM from the machine's own diagnosis, fingerprint, fix plan and history plus our notes in `backend/knowledge/`.
+Put `LLM_API_KEY` (and optionally `LLM_BASE_URL`, default `https://llm.grafilab.ai/v1`, and `LLM_MODEL`, default `gemini/gemini-3-flash`) in `backend/.env`; any OpenAI-compatible provider works by changing these only (`backend/advice/llm.py`).
+Answers are cached by (asset, time, language); `make fixtures` writes `advice_*` fixtures for Press 2 (act now) and Boiler 1 (whole mill) in EN and BM, kept unless `REFRESH_ADVICE=1`, and the demo bookmarks are answered from them without the network.
+With no key or network the response is `cached: false`, empty sections and a friendly `message`; nothing crashes.
+
 ## Demo checklist (`make demo`)
 
 `make demo` starts the API (port 8000) and the Telegram bot together; Ctrl+C stops both.

@@ -1,0 +1,67 @@
+{
+ "title": "Penyelenggaraan Sistem Hidraulik Kon Press 2",
+ "sections": [
+  {
+   "heading": "Semak dahulu",
+   "items": [
+    "Periksa paras minyak hidraulik dan cari kebocoran pada hos serta penyambung.",
+    "Perhatikan tolok tekanan untuk melihat ayunan tekanan semasa mesin beroperasi.",
+    "Sahkan jika tekanan berubah lebih 2.0x ganda daripada tahap normal.",
+    "Semak rekod tekanan dalam MillGuard untuk melihat sejarah lonjakan (spikes) dalam 5 hari lepas."
+   ]
+  },
+  {
+   "heading": "Langkah demi langkah",
+   "items": [
+    "Hentikan mesin dan lepaskan semua tekanan hidraulik yang tersimpan dalam sistem.",
+    "Ganti hos yang bocor dan kit pengedap (seal kit) yang telah haus.",
+    "Tukar penapis hidraulik dengan unit yang baharu.",
+    "Isi semula minyak hidraulik mengikut gred yang dinyatakan dalam manual pengilang.",
+    "Uji tekanan kon (cone pressure) di bawah beban kerja sebelum menyerahkan mesin kepada operasi."
+   ]
+  },
+  {
+   "heading": "Keselamatan",
+   "items": [
+    "Lakukan prosedur lock-out/tag-out (LOTO): matikan kuasa, kunci suis, dan letak tag amaran sebelum kerja bermula.",
+    "Pastikan tekanan hidraulik dilepaskan sepenuhnya sebelum membuka mana-mana sambungan hos.",
+    "Uji mesin untuk memastikan ia tidak boleh dihidupkan secara tidak sengaja semasa pembaikan.",
+    "Rekodkan semua komponen yang diganti ke dalam borang pesanan kerja (work order)."
+   ]
+  },
+  {
+   "heading": "Alat dan alat ganti",
+   "items": [
+    "2 unit hos hidraulik (hydraulic hose).",
+    "1 set kit pengedap (seal kit) untuk menghalang kebocoran dalaman.",
+    "1 unit penapis hidraulik (hydraulic filter).",
+    "Minyak hidraulik mengikut gred dalam SOP kilang.",
+    "Peralatan tangan asas untuk membuka dan memasang hos."
+   ]
+  },
+  {
+   "heading": "Hubungi pengilang jika",
+   "items": [
+    "Tekanan hidraulik masih tidak stabil atau terus melonjak selepas penapis diganti.",
+    "Pam hidraulik mengeluarkan bunyi bising atau menunjukkan tanda kegagalan mekanikal.",
+    "Injap pelepas (relief valve) tidak dapat dilaraskan mengikut spesifikasi manual pengilang.",
+    "Terdapat keraguan mengenai nilai tork atau kelegaan (clearance) yang diperlukan."
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "label": "Identifying and troubleshooting pressure changes in fluid systems",
+   "url": "https://control.com/technical-articles/identifying-and-troubleshooting-pressure-changes-in-fluid-systems/"
+  },
+  {
+   "label": "Causes of fluctuating hydraulic pressure during continuous operation",
+   "url": "https://gesrepair.com/6-causes-of-fluctuating-hydraulic-pressure-during-continuous-operation"
+  }
+ ],
+ "disclaimer": "Panduan dijana AI — semak dengan manual pengilang dan SOP anda",
+ "generated_at": "2026-10-10T20:48:12+08:00",
+ "cached": false,
+ "model": "gemini/gemini-3-flash",
+ "message": null
+}

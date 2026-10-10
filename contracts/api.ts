@@ -179,3 +179,14 @@ export interface NotifyIn { at?: string; kind: "alert" | "brief" }
 export interface NotifyOut { ok: boolean; sent: number } // ok=false, sent=0 when the bot is not configured
 // GET /api/notify/status. The "Send to phone" button is shown only when enabled.
 export interface NotifyStatus { enabled: boolean; channel: string; subscribers: number }
+
+// POST /api/advice (v1.10, LLM provider v1.11). Sections in order: Check first, Step by step, Safety, Parts and tools, Call the manufacturer if.
+export interface AdviceIn { asset_id: string; at?: string | null; lang: "en" | "ms" }
+export interface AdviceSection { heading: string; items: string[] }
+export interface AdviceSource { label: string; url?: string | null }
+export interface AdviceOut {
+  title: string; sections: AdviceSection[]; sources: AdviceSource[]; disclaimer: string; generated_at: string;
+  cached: boolean; // true = cache or fixture; false = fresh, or unavailable
+  model: string;
+  message?: string | null; // friendly text when unavailable (no key, no network, no fault); sections is then []
+}
