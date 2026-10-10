@@ -1,7 +1,9 @@
 """Telegram bot (long polling, no public URL): /start /en /bm /brief and the Fix now / Schedule / Keep watching buttons.
 Token: TELEGRAM_BOT_TOKEN in backend/.env. Run: make bot."""
 import logging
+import os
 
+from telegram.error import Conflict
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
 from telegram.ext import Application, CallbackQueryHandler, CommandHandler, ContextTypes
 
@@ -72,6 +74,13 @@ async def button(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
     await q.edit_message_reply_markup(InlineKeyboardMarkup([[InlineKeyboardButton("✔ " + choice, callback_data="done")]]))
 
 
+async def on_error(update, ctx: ContextTypes.DEFAULT_TYPE):
+    if isinstance(ctx.error, Conflict):   # another poller on the same token would silently take our taps
+        print("Another MillGuard bot is already running with this token; stop it.", flush=True)
+        os._exit(4)
+    print("bot: error", type(ctx.error).__name__, flush=True)
+
+
 async def other(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
     print("bot: other callback received", flush=True)
     await update.callback_query.answer()
@@ -86,6 +95,7 @@ def main():
     for name, fn in (("start", start), ("en", en), ("bm", bm), ("brief", brief)):
         app.add_handler(CommandHandler(name, fn))
     app.add_handler(CallbackQueryHandler(button, pattern=r"^fb\|"))
+    app.add_error_handler(on_error)
     app.add_handler(CallbackQueryHandler(other, pattern=r"^(?!fb\|)"))
     print("MillGuard bot polling (Ctrl+C to stop)", flush=True)
     app.run_polling(bootstrap_retries=-1)   # keep retrying if the network is down at start

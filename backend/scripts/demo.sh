@@ -8,6 +8,6 @@ trap 'kill $API 2>/dev/null' EXIT INT TERM
 # restart the bot if it dies (network drop); it exits at once when there is no token
 while kill -0 $API 2>/dev/null; do
     $PY -m backend.notify.telegram_bot
-    [ $? -eq 3 ] && wait $API   # no token: keep only the API
+    case $? in 3|4) wait $API;; esac   # 3 = no token, 4 = another bot has the token: keep only the API
     sleep 5
 done
