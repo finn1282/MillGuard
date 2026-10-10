@@ -104,9 +104,14 @@ function ActionCard({ a, rank }: { a: Action; rank: number }) {
       )}
       <div className="flex flex-wrap justify-between items-end gap-x-2.5 gap-y-1 mt-3 lg:mt-3.5 pt-3 lg:pt-3.5 border-t border-rule-soft">
         <span className="text-[15px] lg:text-[17px]">{pick(a, "deadline_label")}</span>
+        {/* saved = 0: same rule as the Machine page, "Waiting is cheaper by" instead of "You protect RM0" */}
         <span className="ml-auto text-right">
-          <span className="block text-sm lg:text-base text-muted">{t("youProtect").replace(/^=\s*/, "")}</span>
-          <span className="rm-card text-ok">{rm(a.rm_saved_if_acted)}</span>
+          <span className="block text-sm lg:text-base text-muted">
+            {a.rm_saved_if_acted > 0 ? t("youProtect").replace(/^=\s*/, "") : t("waitingCheaper")}
+          </span>
+          <span className={`rm-card ${a.rm_saved_if_acted > 0 ? "text-ok" : "text-ink"}`}>
+            {rm(a.rm_saved_if_acted > 0 ? a.rm_saved_if_acted : a.rm_cost_to_act - a.rm_at_risk)}
+          </span>
         </span>
       </div>
     </Link>
