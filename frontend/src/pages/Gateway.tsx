@@ -1,8 +1,9 @@
 import { useRef, useState } from "react";
 import { PageBar } from "../components/PageBar";
 import { ErrorBox, Loading } from "../components/States";
-import { IconAct, IconWatch } from "../components/Icons";
-import { api, clearCache, demoKey, HttpError, setDemoKey, USE_FIXTURES } from "../lib/api";
+import { IconAct } from "../components/Icons";
+import { KeyField } from "../components/PresenterKey";
+import { api, clearCache, HttpError, USE_FIXTURES } from "../lib/api";
 import { useClock } from "../lib/clock";
 import { clock } from "../lib/format";
 import { gateway, useGateway } from "../lib/gateway";
@@ -56,7 +57,7 @@ function Console() {
   return (
     <div className="grid gap-4 lg:gap-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] items-start">
       <div className="flex flex-col gap-4 lg:gap-5 min-w-0">
-        {locked && <KeyField />}
+        {locked && <KeyField onDone={gateway.unlock} />}
 
         <section aria-labelledby="gw-sc" className="sec flex flex-col gap-3">
           <h2 id="gw-sc" className="label">{t("gwScenario")}</h2>
@@ -122,24 +123,6 @@ function Status({ running, cursor, lang }: { running: boolean; cursor: string | 
       <span aria-hidden className={`w-3 h-3 rounded-full ${running ? "bg-live animate-pulse" : "bg-control-border"}`} />
       {running && cursor ? t("gwSending", { t: clock(cursor, lang) }) : t("gwIdle")}
     </p>
-  );
-}
-
-function KeyField() {
-  const { t } = useLang();
-  const [v, setV] = useState(demoKey() ?? "");
-  return (
-    <form className="sec border-2 border-watch-border flex flex-col gap-3"
-      onSubmit={(e) => { e.preventDefault(); if (v.trim()) { setDemoKey(v.trim()); gateway.unlock(); } }}>
-      <p className="m-0 flex items-center gap-2 text-lg font-extrabold text-watch-ink"><IconWatch size={20} />{t("gwLocked")}</p>
-      <label htmlFor="gw-key" className="text-base font-bold">{t("gwKey")}</label>
-      <div className="flex gap-2.5">
-        <input id="gw-key" type="password" autoComplete="off" value={v} onChange={(e) => setV(e.target.value)}
-          className="flex-1 min-w-0 min-h-[50px] px-3 rounded border-2 border-control-border bg-card text-lg font-num" />
-        <button className="btn btn-primary">{t("gwUnlock")}</button>
-      </div>
-      <p className="m-0 text-sm text-muted">{t("gwKeyNote")}</p>
-    </form>
   );
 }
 

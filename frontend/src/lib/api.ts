@@ -1,14 +1,56 @@
+import { useSyncExternalStore } from "react";
 import type {
   AdviceOut, Assumption, AssetDetail, Backtest, Brief, FaultGuide, FeedbackIn, FeedbackOut,
   IngestOut, Line, LiveSession, LiveStatus, Marker, Meta, NotifyOut, NotifyStatus, ReadingIn, Robustness, Scenario, UploadOut,
 } from "./types";
 
-export const USE_FIXTURES = import.meta.env.VITE_USE_FIXTURES === "true";
-// True when showing sample data: fixture mode, or after a fallback to fixtures (call markSampleFallback when that happens).
-let fellBack = false;
-export const markSampleFallback = () => { fellBack = true; };
-export const isSample = () => USE_FIXTURES || fellBack;
-const API = String(import.meta.env.VITE_API_URL ?? "").replace(/\/$/, "");
+// API base: empty = same origin (/api). ?api=<url> overrides it and is remembered in this browser; ?api=reset clears it.
+const BASE_KEY = "mg.api";
+function apiBase(): { base: string; override: boolean } {
+  const env = String(import.meta.env.VITE_API_URL ?? "");
+  const url = new URL(location.href);
+  const q = url.searchParams.get("api");
+  let saved: string | null = null;
+  try {
+    if (q === "reset") localStorage.removeItem(BASE_KEY);
+    else if (q) localStorage.setItem(BASE_KEY, q);
+    saved = localStorage.getItem(BASE_KEY);
+  } catch { /* storage blocked */ }
+  if (q !== null) { url.searchParams.delete("api"); history.replaceState(history.state, "", url); }
+  const pick = q && q !== "reset" ? q : saved;
+  return { base: (pick ?? env).replace(/\/+$/, "").replace(/\/api$/, ""), override: !!pick };
+}
+const { base: API, override } = apiBase();
+
+// Live binding: becomes true when the startup check gives up on the server (see connect).
+// An ?api= override means "talk to that server", even in a fixture build.
+export let USE_FIXTURES = import.meta.env.VITE_USE_FIXTURES === "true" && !override;
+let offline = false;
+export const isOffline = () => offline;
+export const isSample = () => USE_FIXTURES;
+
+// Startup: GET /api/health (or /api/meta before health exists), 6 s per try, retried for 30 s to cover a cold start.
+// Still nothing: run on the bundled sample data.
+export async function connect(): Promise<void> {
+  if (USE_FIXTURES) return;
+  const end = Date.now() + 30_000;
+  const ping = async (path: string) => {
+    const r = await fetch(`${API}/api${path}`, { cache: "no-store", signal: AbortSignal.timeout(Math.min(6000, Math.max(1000, end - Date.now()))) });
+    // An HTML 200 is a static host answering for a missing API, not the server.
+    return r.ok && (r.headers.get("content-type") ?? "").includes("json") ? "up" : r.status === 404 ? "missing" : "down";
+  };
+  for (;;) {
+    try {
+      let s = await ping("/health");
+      if (s === "missing") s = await ping("/meta");
+      if (s === "up") return;
+    } catch { /* timeout or no network */ }
+    if (Date.now() + 2000 >= end) break;
+    await new Promise((r) => setTimeout(r, 2000));
+  }
+  USE_FIXTURES = true;
+  offline = true;
+}
 
 const files = import.meta.glob(["../../../contracts/fixtures/*.json", "../../../contracts/fixtures/backtest_grid/*.json"],
   { import: "default" }) as Record<string, () => Promise<unknown>>;
@@ -43,7 +85,13 @@ async function fixtureAdvice(asset_id: string, at: string, lang: "en" | "ms"): P
 // Presenter key for write endpoints (v1.14). Session storage only: never in the URL or the build.
 const KEY = "mg.demoKey";
 export function demoKey(): string | null { try { return sessionStorage.getItem(KEY); } catch { return null; } }
-export function setDemoKey(k: string) { try { sessionStorage.setItem(KEY, k); } catch { /* private mode */ } }
+export function setDemoKey(k: string) { try { sessionStorage.setItem(KEY, k); } catch { /* private mode */ } setKeyNeeded(false); }
+
+// Set by any write call that comes back 401; the Machine page shows a "Presenter key needed" link while it is set.
+let keyNeeded = false;
+const keyListeners = new Set<() => void>();
+function setKeyNeeded(v: boolean) { if (v !== keyNeeded) { keyNeeded = v; keyListeners.forEach((l) => l()); } }
+export const useKeyNeeded = () => useSyncExternalStore((l) => { keyListeners.add(l); return () => keyListeners.delete(l); }, () => keyNeeded);
 
 export class HttpError extends Error {
   constructor(public status: number, message: string) { super(message); }
@@ -89,6 +137,7 @@ async function post<T>(path: string, body?: unknown, timeoutMs?: number): Promis
     method: "POST", headers, body: form ? body : JSON.stringify(body ?? {}),
     signal: timeoutMs ? AbortSignal.timeout(timeoutMs) : undefined,
   });
+  if (r.status === 401) setKeyNeeded(true);
   return r.ok ? r.json() : fail(r);
 }
 

@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { api } from "../lib/api";
+import { api, useKeyNeeded } from "../lib/api";
 import { useClock } from "../lib/clock";
 import type { Action, Recommendation } from "../lib/types";
 import { useLang } from "../lib/i18n";
 import { IconPhone, IconTick } from "./Icons";
+import { KeyNeededLink } from "./PresenterKey";
 
 type Notice = { kind: "sending" } | { kind: "sent"; n: number } | { kind: "off" } | { kind: "sample" };
 
@@ -13,6 +14,7 @@ export function ActionButtons({ action, recorded, onRecorded }: { action: Action
   const { at } = useClock();
   const [chosen, setChosen] = useState<Recommendation>();
   const [notice, setNotice] = useState<Notice>();
+  const needKey = useKeyNeeded();
   const rec: Recommendation = action.rm_saved_if_acted <= 0 ? "monitor" : action.recommendation;
   const label = pick(action, "deadline_label");
   const text: Record<Recommendation, string> = {
@@ -42,7 +44,7 @@ export function ActionButtons({ action, recorded, onRecorded }: { action: Action
     <div className="flex flex-col gap-2 lg:gap-2.5">
       {btn(order[0], true)}
       <div className="grid grid-cols-2 gap-2 lg:gap-2.5">{btn(order[1], false)}{btn(order[2], false)}</div>
-      {notice ? <Toast n={notice} /> : recorded && <Recorded />}
+      {needKey ? <KeyNeededLink /> : notice ? <Toast n={notice} /> : recorded && <Recorded />}
     </div>
   );
 }

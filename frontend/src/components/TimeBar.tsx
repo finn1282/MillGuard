@@ -7,6 +7,7 @@ import { useApi } from "../lib/useApi";
 import { useSourceName } from "../lib/live";
 import { IconChevron, IconPause, IconPhone, IconPlay, IconWatch } from "./Icons";
 import { SampleBadge } from "./SampleBadge";
+import { ShareButton } from "./Share";
 
 export function LangToggle() {
   const { lang, setLang, t } = useLang();
@@ -111,7 +112,7 @@ export function TimeBar() {
         <div role="group" aria-label={t("bookmarks")}
           className="order-last basis-full flex flex-wrap gap-2">{chips}</div>
         <div className="order-5 ml-auto flex items-center gap-3.5">
-          {!live && <SendToPhone actions={brief.data?.actions.length} />}<SampleBadge /><LangToggle />
+          {!live && <SendToPhone actions={brief.data?.actions.length} />}<SampleBadge /><ShareButton /><LangToggle />
         </div>
       </div>
       {/* mobile + tablet */}
@@ -119,6 +120,7 @@ export function TimeBar() {
         <div className="flex items-center gap-2.5">
           {controls}
           <div className="flex-1 min-w-0">{when}</div>
+          <ShareButton />
           <LangToggle />
         </div>
         {live && <div><LivePill /></div>}
