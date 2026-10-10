@@ -1,0 +1,8 @@
+{
+ "dataset": "MetroPT-3",
+ "failures_total": 4,
+ "caught": 0,
+ "median_lead_h": 0.0,
+ "false_alarms_per_week": 0.05,
+ "note": "Real compressor data, unsupervised. Isolation Forest fit on healthy Feb 2020; threshold set on healthy March for <=0.5 episodes/week and <=2% of hours alerting; scored on Apr-Aug (4 air-leak failures). Caught = alert opened 0-72 h before the failure start. Same persistence and hysteresis rules as the mill pipeline."
+}

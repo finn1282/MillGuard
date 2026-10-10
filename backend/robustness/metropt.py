@@ -34,7 +34,7 @@ def hourly(df):
     return h
 
 
-def episodes(score, thr, persist, hyst, clear_h):
+def episodes(score, thr, persist, clear_lvl, clear_h):
     out, above, below, cur = [], 0, 0, None
     for i, v in enumerate(score):
         if cur is None:
@@ -42,7 +42,7 @@ def episodes(score, thr, persist, hyst, clear_h):
             if above >= persist:
                 cur = i; below = 0
         else:
-            below = 0 if v >= hyst * thr else below + 1
+            below = 0 if v >= clear_lvl else below + 1
             if below >= clear_h:
                 out.append((cur, i)); cur = None; above = 0
     if cur is not None:
@@ -61,14 +61,19 @@ def main():
     train = X[(X.index < TRAIN_END)].dropna(thresh=len(cols) // 2).fillna(med)
     iso = IsolationForest(n_estimators=200, random_state=0).fit(train)
     raw = -iso.score_samples(X.fillna(med))
-    ref = np.sort(-iso.score_samples(train))
-    score = pd.Series(np.searchsorted(ref, raw) / len(ref), index=X.index)     # percentile vs healthy training
+    score = pd.Series(raw, index=X.index)
     val_s = score[(score.index >= TRAIN_END) & (score.index < VAL_END)]
     val_weeks = len(val_s) / 168
-    thr = next((t for t in np.linspace(0.90, 0.9999, 400)
-                if len(episodes(val_s.values, t, persist, hyst, clear_h)) / val_weeks <= 0.5), 1.0)
+    base, thr = float(val_s.median()), None
+    for q in (0.97, 0.98, 0.99, 0.995, 0.999, 0.9995, 1.0):   # healthy March only: <=0.5 episodes/week, <=2% of hours alerting
+        t = float(val_s.quantile(q))
+        eps_v = episodes(val_s.values, t, persist, base + hyst * (t - base), clear_h)
+        hours = sum(e - s_ for s_, e in eps_v)
+        if len(eps_v) / val_weeks <= 0.5 and hours / len(val_s) <= 0.02:
+            thr = t; break
+    thr = thr if thr is not None else float(val_s.max())
     test = score[score.index >= VAL_END]
-    eps = [(test.index[a], test.index[b]) for a, b in episodes(test.values, thr, persist, hyst, clear_h)]
+    eps = [(test.index[a], test.index[b]) for a, b in episodes(test.values, thr, persist, base + hyst * (thr - base), clear_h)]
     f_start = [pd.Timestamp(a) for a, _ in FAILS]; f_end = [pd.Timestamp(b) for _, b in FAILS]
     leads, caught = [], 0
     for s in f_start:
@@ -84,8 +89,11 @@ def main():
                median_lead_h=round(float(np.median(leads)), 1) if leads else 0.0,
                false_alarms_per_week=round(fa / weeks, 2),
                note=("Real compressor data, unsupervised. Isolation Forest fit on healthy Feb 2020; threshold set on healthy "
-                     "March for <=0.5 false alarms/week; scored on Apr-Aug (4 air-leak failures). Caught = alert opened "
-                     f"0-{LEAD_WINDOW_H} h before the failure start. Same persistence and hysteresis rules as the mill pipeline."))
+                     "March for <=0.5 episodes/week and <=2% of hours alerting; scored on Apr-Aug (4 air-leak failures). Caught = alert opened "
+                     f"0-{LEAD_WINDOW_H} h before the failure start; {late} more failure(s) were flagged only after they had started. "
+                     "Same persistence and hysteresis rules as the mill pipeline. Threshold was fixed on healthy data, not tuned on the failures."))
+    late = sum(any(s < o <= e for o, _ in eps) for s, e in zip(f_start, f_end))
+    print("episodes:", [(str(a), str(b)) for a, b in eps]); print("score max by failure window:", [round(float(score[(score.index >= s - pd.Timedelta(hours=72)) & (score.index <= e)].max()), 3) for s, e in zip(f_start, f_end)], "thr", round(float(thr), 3))
     (ART / "robustness.json").write_text(json.dumps(out, indent=1))
     print(json.dumps({k: v for k, v in out.items() if k != "note"}), "| episodes:", len(eps), "| threshold:", round(float(thr), 4))
     return out
