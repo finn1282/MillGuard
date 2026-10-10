@@ -46,10 +46,12 @@ def headline(ep, pols, fails, thr):
               f"false alarms {r['false_alarms']:3d}  downtime {r['downtime_h']:.0f} h")
 
 
-def main(skip_sim=False):
+def main(skip_sim=False, augment=False):
     if not skip_sim:
         out = simulate.simulate_all(); simulate.summary(out)
-        train.main()
+        if augment:
+            simulate.simulate_augmented()
+        train.main(augment=augment)
     p = load()
     fit = fit_policy.fit(p)
     ep, events, thr, pols, fails = evaluate(p, fit)
@@ -92,4 +94,4 @@ def main(skip_sim=False):
 
 
 if __name__ == "__main__":
-    main(skip_sim="--skip-sim" in sys.argv)
+    main(skip_sim="--skip-sim" in sys.argv, augment="--augment" in sys.argv)

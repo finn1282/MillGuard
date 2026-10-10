@@ -264,20 +264,76 @@
   "status": "assumed"
  },
  {
-  "key": "simulator.worm_life_h_min",
-  "label": "Shortest worm life (running hours)",
-  "value": 700.0,
-  "unit": "h",
-  "source": "Plan 1.4 (700-800 h in original plan)",
+  "key": "simulator.life_mu_worm_wear",
+  "label": "Worm life, lognormal mu (ln running hours)",
+  "value": 6.663,
+  "unit": "ln(running h)",
+  "source": "Ishak, Hotmauli, Prajadhiana, RCM for press machines, SENTI UGM 2024 (palm oil mill 2023 screw press failure records, lognormal fit, MTTF ~1,045 h); cross-checks: Yudistia et al. IJIEM 7(1) 2026 (PT SIR average damage time: worm 366 h, bearing 403 h, shaft 649 h); Ramadhana UMM 2026 (worm interval 1,217 h); Wahyuny UIN Suska 2021 (replacement: worm 2,035 h, bearing 1,493 h)",
   "status": "validated"
  },
  {
-  "key": "simulator.worm_life_h_max",
-  "label": "Longest worm life (running hours)",
-  "value": 2000.0,
-  "unit": "h",
-  "source": "RCM screw press studies: ~1,217 h interval, ~2,035 h replacement (UMM 2026, UIN Suska 2021)",
+  "key": "simulator.life_sigma_worm_wear",
+  "label": "Worm life, lognormal sigma",
+  "value": 0.76,
+  "unit": "ln(running h)",
+  "source": "Ishak, Hotmauli, Prajadhiana, RCM for press machines, SENTI UGM 2024 (palm oil mill 2023 screw press failure records, lognormal fit, MTTF ~1,045 h); cross-checks: Yudistia et al. IJIEM 7(1) 2026 (PT SIR average damage time: worm 366 h, bearing 403 h, shaft 649 h); Ramadhana UMM 2026 (worm interval 1,217 h); Wahyuny UIN Suska 2021 (replacement: worm 2,035 h, bearing 1,493 h)",
   "status": "validated"
+ },
+ {
+  "key": "simulator.life_mu_bearing",
+  "label": "Bearing life, lognormal mu (ln running hours)",
+  "value": 6.327,
+  "unit": "ln(running h)",
+  "source": "Ishak, Hotmauli, Prajadhiana, RCM for press machines, SENTI UGM 2024 (palm oil mill 2023 screw press failure records, lognormal fit, MTTF ~622 h); cross-checks: Yudistia et al. IJIEM 7(1) 2026 (PT SIR average damage time: worm 366 h, bearing 403 h, shaft 649 h); Ramadhana UMM 2026 (worm interval 1,217 h); Wahyuny UIN Suska 2021 (replacement: worm 2,035 h, bearing 1,493 h)",
+  "status": "validated"
+ },
+ {
+  "key": "simulator.life_sigma_bearing",
+  "label": "Bearing life, lognormal sigma",
+  "value": 0.462,
+  "unit": "ln(running h)",
+  "source": "Ishak, Hotmauli, Prajadhiana, RCM for press machines, SENTI UGM 2024 (palm oil mill 2023 screw press failure records, lognormal fit, MTTF ~622 h); cross-checks: Yudistia et al. IJIEM 7(1) 2026 (PT SIR average damage time: worm 366 h, bearing 403 h, shaft 649 h); Ramadhana UMM 2026 (worm interval 1,217 h); Wahyuny UIN Suska 2021 (replacement: worm 2,035 h, bearing 1,493 h)",
+  "status": "validated"
+ },
+ {
+  "key": "simulator.life_mu_gearbox_shaft",
+  "label": "Gearbox or shaft life, lognormal mu (ln running hours)",
+  "value": 6.405,
+  "unit": "ln(running h)",
+  "source": "Ishak, Hotmauli, Prajadhiana, RCM for press machines, SENTI UGM 2024 (palm oil mill 2023 screw press failure records, lognormal fit, MTTF ~825 h); cross-checks: Yudistia et al. IJIEM 7(1) 2026 (PT SIR average damage time: worm 366 h, bearing 403 h, shaft 649 h); Ramadhana UMM 2026 (worm interval 1,217 h); Wahyuny UIN Suska 2021 (replacement: worm 2,035 h, bearing 1,493 h)",
+  "status": "validated"
+ },
+ {
+  "key": "simulator.life_sigma_gearbox_shaft",
+  "label": "Gearbox or shaft life, lognormal sigma",
+  "value": 0.787,
+  "unit": "ln(running h)",
+  "source": "Ishak, Hotmauli, Prajadhiana, RCM for press machines, SENTI UGM 2024 (palm oil mill 2023 screw press failure records, lognormal fit, MTTF ~825 h); cross-checks: Yudistia et al. IJIEM 7(1) 2026 (PT SIR average damage time: worm 366 h, bearing 403 h, shaft 649 h); Ramadhana UMM 2026 (worm interval 1,217 h); Wahyuny UIN Suska 2021 (replacement: worm 2,035 h, bearing 1,493 h)",
+  "status": "validated"
+ },
+ {
+  "key": "simulator.life_h_min_hydraulic_cone",
+  "label": "Shortest cone hydraulics life (running hours)",
+  "value": 5000.0,
+  "unit": "running h",
+  "source": "No published figure for the cone hydraulics; kept from v1",
+  "status": "assumed"
+ },
+ {
+  "key": "simulator.life_h_max_hydraulic_cone",
+  "label": "Longest cone hydraulics life (running hours)",
+  "value": 14000.0,
+  "unit": "running h",
+  "source": "No published figure for the cone hydraulics; kept from v1",
+  "status": "assumed"
+ },
+ {
+  "key": "simulator.life_min_margin_h",
+  "label": "Minimum life above the warning period (hours)",
+  "value": 50.0,
+  "unit": "h",
+  "source": "Each life is clipped to at least its P-F warning period + this margin so a warning is always possible",
+  "status": "assumed"
  },
  {
   "key": "simulator.cone_pressure_max_bar",
@@ -298,9 +354,17 @@
  {
   "key": "simulator.target_stops_per_mill_year",
   "label": "Target unplanned stops per mill per year (range)",
-  "value": "25, 50",
+  "value": "80, 140",
   "unit": "count",
-  "source": "North Sumatra mill logged 65 in 7 months; plan target",
+  "source": "Lognormal lives give roughly 80-130 press stops per mill-year; consistent with the North Sumatra mill that logged 65 press breakdowns in 7 months (Aprilia et al., USU 2025)",
+  "status": "validated"
+ },
+ {
+  "key": "simulator.reference_breakdowns_7_months",
+  "label": "Real North Sumatra mill: press breakdowns in 7 months",
+  "value": 65.0,
+  "unit": "count",
+  "source": "Aprilia et al., USU 2025: North Sumatra mill, 65 press breakdowns in 7 months (sanity line only)",
   "status": "validated"
  },
  {

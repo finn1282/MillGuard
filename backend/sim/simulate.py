@@ -11,6 +11,7 @@ import pandas as pd
 from backend.params import load, val
 
 DATA = Path(__file__).resolve().parents[1] / "data" / "sim"
+AUG = DATA.parent / "sim_aug"
 START = "2025-01-01"
 H = 8760
 PRESS_COMPS = ["worm_wear", "bearing", "gearbox_shaft", "hydraulic_cone", "electrical", "unknown"]
@@ -20,12 +21,12 @@ UNK_SIGNALS = ["motor_current", "cone_pressure", "gearbox_oil_temp", "vib_rms"]
 
 
 def draw_life(rng, comp, p):
-    lo, hi = val(p, "simulator", "worm_life_h_min"), val(p, "simulator", "worm_life_h_max")
-    return {"worm_wear": lambda: rng.uniform(lo, hi),
-            "bearing": lambda: rng.uniform(7000, 16000),
-            "gearbox_shaft": lambda: rng.uniform(12000, 30000),
-            "hydraulic_cone": lambda: rng.uniform(5000, 14000),
-            "electrical": lambda: rng.exponential(9000) + 200,
+    if comp in ("worm_wear", "bearing", "gearbox_shaft"):
+        life = rng.lognormal(val(p, "simulator", f"life_mu_{comp}"), val(p, "simulator", f"life_sigma_{comp}"))
+        return max(life, PRECURSOR_H[comp] + val(p, "simulator", "life_min_margin_h"))
+    if comp == "hydraulic_cone":
+        return rng.uniform(val(p, "simulator", "life_h_min_hydraulic_cone"), val(p, "simulator", "life_h_max_hydraulic_cone"))
+    return {"electrical": lambda: rng.exponential(9000) + 200,
             "unknown": lambda: rng.exponential(20000) + 200,
             "boiler_steam": lambda: rng.exponential(7000) + 200,
             "boiler_water": lambda: rng.exponential(8000) + 200}[comp]()
@@ -213,32 +214,41 @@ def build_failures(rng, p, mill, d):
     return fail, wo
 
 
-def simulate_all(seed=2025):
-    p = load(); DATA.mkdir(parents=True, exist_ok=True)
+def simulate_all(seed=2025, mills=None, noise_fixed=None, seed_shift=0, id_offset=0, out_dir=DATA, tables=None):
+    """Default: the 10 mills. Augmented copies: mills=1..9, noise_fixed=2.0, own seeds, ids shifted by id_offset, own folder."""
+    p = load(); out_dir.mkdir(parents=True, exist_ok=True)
     tels, errs, fails, wos, lives, hidden = [], [], [], [], [], []
-    for mill in range(1, val(p, "simulator", "n_mills") + 1):
+    for mill in (mills or range(1, val(p, "simulator", "n_mills") + 1)):
         lo, hi = val(p, "simulator", "target_stops_per_mill_year")
         for attempt in range(50):   # scenario design: stop counts inside target; demo mill 10 needs a boiler event
-            rng = np.random.default_rng(seed + mill + 1000 * attempt)
-            noise_mult = rng.uniform(0.85, 1.25) * (1.25 if mill == 10 else 1.0)   # mill 10 deliberately noisier
+            rng = np.random.default_rng(seed + seed_shift + mill + 1000 * attempt)
+            noise_mult = noise_fixed or rng.uniform(0.85, 1.25) * (1.25 if mill == 10 else 1.0)   # mill 10 deliberately noisier
             offset = rng.uniform(-0.03, 0.03) + (0.04 if mill == 10 else 0.0)       # and miscalibrated
-            d = run_dynamics(rng, p, mill)
+            d = run_dynamics(rng, p, mill + id_offset)
             n_press = sum(a != "boiler_1" for _, a, _ in d["failures"])
             n_boiler = len(d["failures"]) - n_press
-            if lo <= n_press <= hi and (mill != 10 or n_boiler >= 1):
+            if lo <= n_press <= hi and (mill != 10 or n_boiler >= 1 or id_offset):
                 break
-        tel = build_telemetry(rng, p, mill, d, noise_mult, offset)
-        f, wo = build_failures(rng, p, mill, d)
-        tels.append(tel); errs.append(build_errors(tel, mill)); fails.append(f); wos.append(wo)
+        mid = mill + id_offset
+        tel = build_telemetry(rng, p, mid, d, noise_mult, offset)
+        f, wo = build_failures(rng, p, mid, d)
+        tels.append(tel); errs.append(build_errors(tel, mid)); fails.append(f); wos.append(wo)
         lives.append(pd.DataFrame(d["lives"]))
         for pi in range(4):
-            hidden.append(pd.DataFrame(dict(mill_id=mill, asset_id=f"press_{pi + 1}", t=d["t"], inc=d["inc"][:, pi])))
-        hidden.append(pd.DataFrame(dict(mill_id=mill, asset_id="boiler_1", t=d["t"], inc=d["boiler_on"].astype(float))))
+            hidden.append(pd.DataFrame(dict(mill_id=mid, asset_id=f"press_{pi + 1}", t=d["t"], inc=d["inc"][:, pi])))
+        hidden.append(pd.DataFrame(dict(mill_id=mid, asset_id="boiler_1", t=d["t"], inc=d["boiler_on"].astype(float))))
     out = dict(telemetry=pd.concat(tels), errors=pd.concat(errs), failures=pd.concat(fails),
                maintenance=pd.concat(wos), lives=pd.concat(lives), hidden=pd.concat(hidden))
     for k, v in out.items():
-        v.reset_index(drop=True).to_parquet(DATA / f"{k}.parquet")
+        if tables is None or k in tables:
+            v.reset_index(drop=True).to_parquet(out_dir / f"{k}.parquet")
     return out
+
+
+def simulate_augmented(seed=2025):
+    """Augmented copies of training mills 1-9 at noise_mult 2 (ids 101-109, separate seeds); never used for evaluation."""
+    return simulate_all(seed, mills=range(1, 10), noise_fixed=2.0, seed_shift=500_000, id_offset=100, out_dir=AUG,
+                        tables=("telemetry", "errors", "failures", "maintenance"))
 
 
 def summary(out):
@@ -246,6 +256,9 @@ def summary(out):
     pr = f[f.kind == "press"]
     print("Failures per mill-year (press stops):", pr.groupby("mill_id").size().to_dict())
     print(pr.groupby("fault_class").size().div(pr.mill_id.nunique()).round(1).to_string())
+    p7 = pr[pr.t < "2025-08-01"].groupby("mill_id").size()
+    print(f"Press breakdowns per mill in 7 months (Jan-Jul): mean {p7.mean():.0f}, range {p7.min()}-{p7.max()}   "
+          f"[real North Sumatra mill: {val(load(), 'simulator', 'reference_breakdowns_7_months')}, Aprilia et al. 2025]")
     print("Boiler failures per mill-year:", f[f.kind == "boiler"].groupby("mill_id").size().to_dict())
     print("Work orders with wrong class: ",
           f"{(out['maintenance'].fault_class.values != f.fault_class.values).mean():.1%}")

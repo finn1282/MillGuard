@@ -1,7 +1,7 @@
 {
- "press_failures_per_year": 32,
- "boiler_failures_per_year": 2,
- "press_catch_rate": 0.625,
- "boiler_catch_rate": 1.0,
- "false_alarms_per_year": 68
+ "press_failures_per_year": 103,
+ "boiler_failures_per_year": 5,
+ "press_catch_rate": 0.7087378640776699,
+ "boiler_catch_rate": 0.6,
+ "false_alarms_per_year": 30
 }

@@ -15,7 +15,7 @@ from sklearn.metrics import average_precision_score, roc_auc_score
 from sklearn.model_selection import GroupKFold
 
 from backend.features.build import BOILER_CLASSES, PRESS_CLASSES, build
-from backend.sim.simulate import DATA, H
+from backend.sim.simulate import AUG, DATA, H
 
 ART = DATA.parent.parent / "artifacts"
 CUT = pd.Timestamp("2025-09-01")
@@ -53,14 +53,14 @@ def fit_group(df, boiler):
     cols = [c for c in df.columns if c not in META + ["next_logged_class"] + [f"y{h}" for h in HORIZONS]
             and not df[c].isna().all()]
     params = LGB_BOILER if boiler else LGB
-    train = df[(df.mill_id <= 9) & (df.t <= CUT - pd.Timedelta(hours=168))]
+    train = df[((df.mill_id <= 9) | (df.mill_id > 100)) & (df.t <= CUT - pd.Timedelta(hours=168))]   # 101-109 = augmented copies
     out = df[META].copy()
     models, calib = {}, {}
     gkf = GroupKFold(n_splits=3)
     for h in HORIZONS:
         y = train[f"y{h}"].values
         oof = np.zeros(len(train))
-        for tr, va in gkf.split(train, y, train.mill_id):
+        for tr, va in gkf.split(train, y, train.mill_id % 100):
             m = lgb.LGBMClassifier(**params).fit(train.iloc[tr][cols], y[tr])
             oof[va] = m.predict_proba(train.iloc[va][cols])[:, 1]
         iso = IsotonicRegression(out_of_bounds="clip", y_min=0, y_max=1).fit(oof, y)
@@ -83,6 +83,7 @@ def fit_group(df, boiler):
     cp = clf.predict_proba(df[cols])
     for i, c in enumerate(clf.classes_):
         out[f"cp_{c}"] = cp[:, i]
+    out = out[out.mill_id < 100]
     return out, dict(cols=cols, models=models, calib=calib, iforest=iforest, rel=rel, med=med, clf=clf)
 
 
@@ -104,18 +105,24 @@ def evaluate(pred, label):
     return res
 
 
-def main():
+def main(augment=False):
     ART.mkdir(exist_ok=True)
-    feat = build()
-    fail, wo = pd.read_parquet(DATA / "failures.parquet"), pd.read_parquet(DATA / "maintenance.parquet")
-    feat = add_labels(feat, fail, wo)
+    feat = add_labels(build(), pd.read_parquet(DATA / "failures.parquet"), pd.read_parquet(DATA / "maintenance.parquet"))
+    aug = None
+    if augment:
+        rd = lambda n: pd.read_parquet(AUG / f"{n}.parquet")
+        aug = add_labels(build(save=False, tel=rd("telemetry"), err=rd("errors"), wo=rd("maintenance")), rd("failures"), rd("maintenance"))
+        print(f"Augmented training copies: {aug.mill_id.nunique()} mills at noise_mult 2, {len(aug):,} rows added")
     preds, metrics, bundle = [], {}, {}
     for boiler in (False, True):
-        df = feat[feat.is_boiler == boiler].reset_index(drop=True)
+        df = feat[feat.is_boiler == boiler]
+        if aug is not None:
+            df = pd.concat([df, aug[aug.is_boiler == boiler]], ignore_index=True)
+        df = df.reset_index(drop=True)
         out, b = fit_group(df, boiler)
         preds.append(out)
         bundle["boiler" if boiler else "press"] = b
-        metrics["boiler" if boiler else "press"] = evaluate(out, df)
+        metrics["boiler" if boiler else "press"] = evaluate(out, df[df.mill_id < 100].reset_index(drop=True))
     pred = pd.concat(preds, ignore_index=True)
     pred.to_parquet(DATA / "predictions.parquet")
     feat.to_parquet(DATA / "features_labeled.parquet")

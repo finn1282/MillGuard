@@ -2,11 +2,11 @@
  "dataset": "Mill 10 stress test",
  "task_en": "Sensor noise x3: same models, same thresholds, no retraining",
  "task_ms": "Hingar penderia 3 kali ganda: model dan ambang yang sama, tanpa latihan semula",
- "lead_min": 4980,
- "events_total": 34,
- "events_caught": 5,
- "precision_pct": 4.5,
- "false_alarms_per_day": 0.29,
+ "lead_min": 6240,
+ "events_total": 108,
+ "events_caught": 17,
+ "precision_pct": 11.8,
+ "false_alarms_per_day": 0.35,
  "split": "Unseen mill 10, full year 2025; only the inputs are perturbed, the failures are the real ones",
- "note": "Catch 5 of 34, 2.03 false alarms per week, median lead 83 hours. Schedule + MillGuard RM635,716 vs fixed interval RM723,550 (better); MillGuard alone RM926,262. Alert counts and cost use the same backtest as the app; lead_min is the median warning in minutes."
+ "note": "Catch 17 of 108, 2.44 false alarms per week, median lead 104 hours. Schedule + MillGuard RM2,023,258 vs fixed interval RM3,104,271 (better); MillGuard alone RM2,965,242. Alert counts and cost use the same backtest as the app; lead_min is the median warning in minutes."
 }

@@ -86,11 +86,17 @@ def fit(p=None, verbose=True, triggers=("p72", "pstop", "p168")):
             tot += sum(x["cost"] for x in ev if EVAL_START <= x["t"] < CUT)
         sp[f] = tot
     plus_frac = min(sp, key=sp.get)
-    out = dict(fixed_interval_frac=frac, schedule_plus=dict(frac=plus_frac, catch=catch, sweep={str(a): int(b) for a, b in sp.items()}), fixed_sweep={str(a): int(b) for a, b in fi.items()},
+    oof = {a: int(b[1][b[0]]) for a, b in best.items()}
+    oof["millguard_total"] = sum(oof.values())
+    oof["fixed_interval"] = int(fi[frac]); oof["schedule_plus_millguard"] = int(sp[plus_frac])
+    out = dict(train_oof_cost_rm=oof, fixed_interval_frac=frac, schedule_plus=dict(frac=plus_frac, catch=catch, sweep={str(a): int(b) for a, b in sp.items()}), fixed_sweep={str(a): int(b) for a, b in fi.items()},
                best_threshold={a: b[0] for a, b in best.items()}, trigger={a: b[2] for a, b in best.items()}, k=k,
                threshold_sweep={a: {str(t): int(c) for t, c in b[1].items()} for a, b in best.items()})
     (DATA.parent.parent / "artifacts" / "policy_fit.json").write_text(json.dumps(out, indent=1))
     if verbose:
+        print(f"TRAINING-mill out-of-fold policy cost (mills 1-9, Feb-Aug, RM): MillGuard {oof['millguard_total']:,} "
+              f"(press {oof['press']:,}, boiler {oof['boiler']:,}); schedule+MillGuard {oof['schedule_plus_millguard']:,}; "
+              f"fixed interval {oof['fixed_interval']:,}")
         print("schedule+MillGuard sweep (RM, training mills):", out["schedule_plus"]["sweep"], "-> frac", plus_frac,
               "catch rate", {a: round(v, 2) for a, v in catch.items()})
         print("fixed-interval sweep (RM, training mills):", out["fixed_sweep"], "-> frac", frac)
