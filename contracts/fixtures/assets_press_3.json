@@ -3,7 +3,8 @@
   "id": "press_3",
   "name": "Press 3",
   "type": "press",
-  "stage": "pressing",
+  "stage": "press",
+  "position": 3,
   "status": "ok",
   "risk_pct": 7.0
  },

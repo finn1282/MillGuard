@@ -270,9 +270,17 @@ interface Action {
 | `GET /api/line?at=` | `{ at, assets: [{id, name, type, stage, status, risk_pct}] }` |
 | `GET /api/assets/{id}?at=&window_h=168` | `{ asset, series: [{signal, label_en, label_ms, unit, points: [[t, v]]}], alert_windows: [{start, end}], failures: [{t, fault_class}], action: Action|null }` |
 | `GET /api/backtest?cpo_price=&miss_cost_mult=&alert_budget=&compare=run_to_failure|fixed_interval` | `{ threshold, policies: [{id, total_cost_rm, breakdowns, planned_stops, false_alarms, downtime_h, lost_cpo_t}], timeline: [{t, cost: {run_to_failure, fixed_interval, millguard}, events: [{policy, type: "breakdown"|"planned_fix"|"false_alarm", asset_id}]}] }` |
-| `GET /api/assumptions` | `[{key, label, value, unit, source, status: "validated"|"assumed"}]` |
+| `GET /api/assumptions` | `[{key, label, value, unit, source, status: "validated"|"assumed"}]` (English only) |
 | `GET /api/robustness` | `{ dataset: "MetroPT-3", failures_total, caught, median_lead_h, false_alarms_per_week, note }` |
-| `POST /api/feedback` | body `{action_id, useful: boolean}` → `{ ok: true }` |
+| `GET /api/replay/markers` | `[{t, kind: "bookmark"|"alert"|"breakdown", label_en, label_ms, asset_id?}]` (v1.1) |
+| `POST /api/feedback` | body `{action_id, useful?: boolean, decision?: Recommendation}` → `{ ok: true }` (v1.1) |
+
+**Contract v1.1 changes (10 Oct, 15:10):**
+- New `GET /api/replay/markers`. Bookmarks are the 3 demo moments on mill 10, chosen by the backend: quiet night, Press 2 worm-wear alert onset, boiler + press alerts on the same night. Alerts are every MillGuard alert. Breakdowns are failures under run-to-failure.
+- `/api/backtest`: `timeline` is **daily** (365 points, `{t, cost: {...}}`); `events` moves to a top-level array `[{t, policy, type, asset_id}]` with exact hourly timestamps.
+- `/api/line`: `stage` is `"press" | "boiler"` only; add `position` (1–4 for presses, 0 for boiler). The frontend draws ramp, sterilizer, thresher, digesters and clarification as static shapes.
+- `POST /api/feedback`: optional `decision` records Fix now / Schedule / Keep watching. Button state stays client-side.
+- Slider ranges (the frontend owns these; the backend clamps inputs): CPO RM3,800–5,000 (default 4,292.5); `miss_cost_mult` 0.5–3 (default 1); `alert_budget` 1–10 (default 5).
 
 Fixtures live in `contracts/fixtures/*.json`, one file per endpoint, built from the real Pydantic models so they cannot drift.
 

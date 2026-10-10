@@ -3,7 +3,8 @@
   "id": "press_4",
   "name": "Press 4",
   "type": "press",
-  "stage": "pressing",
+  "stage": "press",
+  "position": 4,
   "status": "watch",
   "risk_pct": 33.0
  },

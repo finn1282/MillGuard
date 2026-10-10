@@ -3,7 +3,8 @@
   "id": "boiler_1",
   "name": "Boiler 1",
   "type": "boiler",
-  "stage": "utilities",
+  "stage": "boiler",
+  "position": 0,
   "status": "act",
   "risk_pct": 58.0
  },

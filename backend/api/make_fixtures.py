@@ -5,7 +5,7 @@ from pathlib import Path
 
 import numpy as np
 
-from backend.api.models import (Action, Assumption, AssetDetail, Backtest, Brief, FeedbackOut,
+from backend.api.models import (Action, Marker, Assumption, AssetDetail, Backtest, Brief, FeedbackOut,
                                 Line, LineAsset, Meta, Reason, Robustness)
 from backend.engine import cost
 from backend.params import load, val
@@ -87,7 +87,7 @@ def actions(p):
 
 
 def line_assets():
-    return [LineAsset(id=i, name=n, type=t, stage="utilities" if t == "boiler" else "pressing",
+    return [LineAsset(id=i, name=n, type=t, stage=t, position=0 if t == "boiler" else int(i[-1]),
                       status=STATUS[i], risk_pct=RISK[i]) for i, n, t in ASSETS]
 
 
@@ -125,7 +125,7 @@ def asset_detail(asset_id, acts):
 
 
 def backtest(p, cpo_price=None, miss_mult=1.0):
-    from backend.api.models import (PolicyCosts, PolicyResult, TimelineEvent, TimelinePoint)
+    from backend.api.models import (PolicyCosts, PolicyResult, BacktestEvent, TimelinePoint)
     rng = np.random.default_rng(42)
     classes = ["worm_wear", "bearing", "gearbox_shaft", "hydraulic_cone", "electrical"]
     w = [0.35, 0.20, 0.12, 0.13, 0.20]
@@ -152,14 +152,15 @@ def backtest(p, cpo_price=None, miss_mult=1.0):
                   "planned_fix": lambda fc: cost.planned_cost(p, fc),
                   "false_alarm": lambda fc: cost.false_alarm_cost(p)}
     cum = {k: np.zeros(365) for k in ev}
-    res, tl_events = [], {d: [] for d in range(365)}
+    res, events = [], []
     for k, lst in ev.items():
         daily = np.zeros(365)
         bd = pf = fa = 0
         dt = lost = 0.0
         for d, typ, a, fc in lst:
             daily[d] += price_cost[typ](fc)
-            tl_events[d].append(TimelineEvent(policy=k, type=typ, asset_id=a))
+            hour = (d * 7 + int(a[-1]) * 5) % 24
+            events.append(BacktestEvent(t=iso(START + timedelta(days=d, hours=hour)), policy=k, type=typ, asset_id=a))
             if typ == "breakdown":
                 at_ = cost.asset_type(fc)
                 bd += 1
@@ -172,9 +173,28 @@ def backtest(p, cpo_price=None, miss_mult=1.0):
                         false_alarms=int(fa), downtime_h=dt, lost_cpo_t=round(lost, 1)))
     from backend.api.models import PolicyResult
     timeline = [TimelinePoint(t=iso(START + timedelta(days=d)),
-                              cost=PolicyCosts(**{k: int(cum[k][d]) for k in cum}), events=tl_events[d])
+                              cost=PolicyCosts(**{k: int(cum[k][d]) for k in cum}))
                 for d in range(365)]
-    return Backtest(threshold=0.30, policies=[PolicyResult(**r) for r in res], timeline=timeline)
+    return Backtest(threshold=0.30, policies=[PolicyResult(**r) for r in res], timeline=timeline,
+                    events=sorted(events, key=lambda e: e.t))
+
+
+def markers(bt):
+    names = {a: n for a, n, _ in ASSETS}
+    out = [Marker(t="2025-09-27T19:00:00+08:00", kind="bookmark", label_en="Quiet night: nothing needs you",
+                  label_ms="Malam tenang: tiada tindakan diperlukan"),
+           Marker(t="2025-10-16T11:00:00+08:00", kind="bookmark", asset_id="press_2",
+                  label_en="Press 2 worm-wear alert begins", label_ms="Amaran haus skru cacing Penekan 2 bermula"),
+           Marker(t=iso(AT), kind="bookmark", label_en="Boiler and press alerts on the same night",
+                  label_ms="Amaran dandang dan penekan pada malam yang sama")]
+    for e in bt.events:
+        if e.policy == "millguard" and e.type != "breakdown":
+            out.append(Marker(t=e.t, kind="alert", asset_id=e.asset_id,
+                              label_en=f"{names[e.asset_id]}: MillGuard alert", label_ms=f"{names[e.asset_id]}: amaran MillGuard"))
+        if e.policy == "run_to_failure":
+            out.append(Marker(t=e.t, kind="breakdown", asset_id=e.asset_id,
+                              label_en=f"{names[e.asset_id]}: breakdown", label_ms=f"{names[e.asset_id]}: kerosakan"))
+    return sorted(out, key=lambda m: m.t)
 
 
 def assumptions(p):
@@ -211,7 +231,9 @@ def main():
     write("line", Line(at=iso(AT), assets=line_assets()))
     for aid, _, _ in ASSETS:
         write(f"assets_{aid}", asset_detail(aid, acts))
-    write("backtest", backtest(p))
+    bt = backtest(p)
+    write("backtest", bt)
+    write("replay_markers", markers(bt))
     write("assumptions", assumptions(p))
     write("robustness", Robustness(dataset="MetroPT-3", failures_total=4, caught=3, median_lead_h=11.0,
                                    false_alarms_per_week=0.8,

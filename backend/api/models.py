@@ -70,7 +70,8 @@ class LineAsset(BaseModel):
     id: str
     name: str
     type: Literal["press", "boiler"]
-    stage: str
+    stage: Literal["press", "boiler"]
+    position: int   # 1-4 for presses, 0 for boiler
     status: AssetStatus
     risk_pct: float
 
@@ -125,22 +126,23 @@ class PolicyCosts(BaseModel):
     millguard: int
 
 
-class TimelineEvent(BaseModel):
+class BacktestEvent(BaseModel):
+    t: str   # exact hourly timestamp
     policy: PolicyId
     type: Literal["breakdown", "planned_fix", "false_alarm"]
     asset_id: str
 
 
 class TimelinePoint(BaseModel):
-    t: str
+    t: str   # daily, 365 points
     cost: PolicyCosts   # cumulative RM
-    events: list[TimelineEvent]
 
 
 class Backtest(BaseModel):
     threshold: float
     policies: list[PolicyResult]
     timeline: list[TimelinePoint]
+    events: list[BacktestEvent]
 
 
 class Assumption(BaseModel):
@@ -161,9 +163,18 @@ class Robustness(BaseModel):
     note: str
 
 
+class Marker(BaseModel):
+    t: str
+    kind: Literal["bookmark", "alert", "breakdown"]
+    label_en: str
+    label_ms: str
+    asset_id: str | None = None
+
+
 class FeedbackIn(BaseModel):
     action_id: str
-    useful: bool
+    useful: bool | None = None
+    decision: Recommendation | None = None
 
 
 class FeedbackOut(BaseModel):

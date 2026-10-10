@@ -1,6 +1,6 @@
 # MillGuard agent rules
 
-- `MASTER_PLANv1.1.md` is the single source of truth. Read it fully first. It wins over any other instruction.
+- `MASTER_PLAN.md` is the single source of truth. Read it fully first. It wins over any other instruction.
 - Backend agent owns `backend/` and `contracts/`. Frontend agent owns `frontend/`. Never edit the other's folder.
 - API contract (plan section 7) is frozen. A change = edit Pydantic models, regenerate fixtures, one line in `CHANGELOG.md`, tell the orchestrator.
 - Every number lives in `backend/params.yaml` with a source and status (validated | assumed).

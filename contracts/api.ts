@@ -38,7 +38,8 @@ export interface Brief {
 }
 
 export interface LineAsset {
-  id: string; name: string; type: "press" | "boiler"; stage: string;
+  id: string; name: string; type: "press" | "boiler";
+  stage: "press" | "boiler"; position: number; // 1-4 for presses, 0 for boiler
   status: AssetStatus; risk_pct: number;
 }
 
@@ -65,13 +66,26 @@ export interface PolicyResult {
 }
 
 export interface TimelinePoint {
-  t: string;
+  t: string; // daily, 365 points
   cost: { run_to_failure: number; fixed_interval: number; millguard: number }; // cumulative RM
-  events: { policy: PolicyId; type: "breakdown" | "planned_fix" | "false_alarm"; asset_id: string }[];
+}
+
+export interface BacktestEvent {
+  t: string; // exact hourly timestamp
+  policy: PolicyId; type: "breakdown" | "planned_fix" | "false_alarm"; asset_id: string;
 }
 
 // GET /api/backtest?cpo_price=&miss_cost_mult=&alert_budget=&compare=run_to_failure|fixed_interval
-export interface Backtest { threshold: number; policies: PolicyResult[]; timeline: TimelinePoint[] }
+// Inputs are clamped: cpo_price 3800-5000 (default 4292.5), miss_cost_mult 0.5-3 (1), alert_budget 1-10 (5).
+export interface Backtest {
+  threshold: number; policies: PolicyResult[]; timeline: TimelinePoint[]; events: BacktestEvent[];
+}
+
+// GET /api/replay/markers -> Marker[]
+export interface Marker {
+  t: string; kind: "bookmark" | "alert" | "breakdown";
+  label_en: string; label_ms: string; asset_id?: string;
+}
 
 // GET /api/assumptions -> Assumption[]
 export interface Assumption {
@@ -86,5 +100,5 @@ export interface Robustness {
 }
 
 // POST /api/feedback
-export interface FeedbackIn { action_id: string; useful: boolean }
+export interface FeedbackIn { action_id: string; useful?: boolean; decision?: Recommendation }
 export interface FeedbackOut { ok: boolean }
