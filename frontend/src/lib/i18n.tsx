@@ -110,6 +110,10 @@ const S = {
   nothingNeedsDay: ["Nothing needs you this shift", "Tiada apa perlukan anda syif ini"],
   alsoCounts: ["Also: {w} being watched · {s} weak signals ignored", "Juga: {w} dipantau · {s} isyarat lemah diabaikan"],
   counts: ["{w} being watched · {s} weak signals ignored", "{w} dipantau · {s} isyarat lemah diabaikan"],
+  countsOne: ["{w} being watched · 1 weak signal ignored", "{w} dipantau · 1 isyarat lemah diabaikan"],
+  alsoCountsOne: ["Also: {w} being watched · 1 weak signal ignored", "Juga: {w} dipantau · 1 isyarat lemah diabaikan"],
+  ignoredTitleOne: ["1 weak signal ignored", "1 isyarat lemah diabaikan"],
+  repaired: ["Repaired {when}", "Dibaiki {when}"],
   protectedIfAct: ["Protected if you act", "Dilindungi jika anda bertindak"],
   worthActing: ["Worth acting on", "Berbaloi untuk bertindak"],
   needsYouRanked: ["Needs you · most ringgit first", "Perlukan anda · ringgit terbanyak dahulu"],
@@ -228,6 +232,8 @@ interface Ctx {
   lang: Lang; setLang: (l: Lang) => void;
   t: (k: Key, vars?: Record<string, string | number>) => string;
   pick: (o: object, base: string) => string;
+  name: (o: { name: string; name_ms?: string } | { asset_name: string; asset_name_ms?: string }) => string;
+  unit: (s: { unit: string; unit_ms?: string }) => string;
 }
 
 const LangCtx = createContext<Ctx>(null!);
@@ -242,7 +248,12 @@ export function LangProvider({ children }: { children: ReactNode }) {
   };
   // pick(action, "headline") -> action.headline_en | action.headline_ms
   const pick: Ctx["pick"] = (o, base) => String((o as Record<string, unknown>)[`${base}_${lang}`] ?? "");
-  return <LangCtx.Provider value={{ lang, setLang, t, pick }}>{children}</LangCtx.Provider>;
+  // v1.9: Malay names and units, falling back to the English field.
+  const name: Ctx["name"] = (o) => "asset_name" in o
+    ? (lang === "ms" && o.asset_name_ms) || o.asset_name
+    : (lang === "ms" && o.name_ms) || o.name;
+  const unit: Ctx["unit"] = (u) => (lang === "ms" && u.unit_ms) || u.unit;
+  return <LangCtx.Provider value={{ lang, setLang, t, pick, name, unit }}>{children}</LangCtx.Provider>;
 }
 
 export const useLang = () => useContext(LangCtx);

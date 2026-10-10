@@ -47,7 +47,7 @@ export function How() {
 
 // The five steps, each with the real values from the act-now bookmark's machine.
 function Steps() {
-  const { t, pick, lang } = useLang();
+  const { t, pick, lang, name: nm } = useLang();
   const { bookmarks } = useClock();
   const bm = bookmarks.find((b) => b.asset_id);
   const res = useApi(bm ? () => api.asset(bm.asset_id!, bm.t) : null, [bm?.t]);
@@ -61,7 +61,7 @@ function Steps() {
     a && `${rm(a.rm_at_risk)} − ${rm(a.rm_cost_to_act)} = ${rm(a.rm_saved_if_acted)} ${t("protectedWord")}`,
     a?.reasons.map((r) => pick(r, "text")).join(" · "),
   ];
-  const name = d?.asset.name ?? bm?.asset_id;
+  const name = d ? nm(d.asset) : bm?.asset_id;
   return (
     <section aria-labelledby="steps" className="flex flex-col gap-3.5 lg:gap-4">
       <div>

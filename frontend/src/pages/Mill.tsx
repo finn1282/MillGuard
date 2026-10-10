@@ -38,7 +38,7 @@ export function Mill() {
             <h1 className="mt-1 lg:mt-1.5 mb-0 text-[26px] lg:text-4xl font-extrabold leading-tight">
               {n === 1 ? t("needYouOne") : t("needYouMany", { n })}
             </h1>
-            <p className="mt-2 mb-0 text-sm lg:text-[17px] text-muted">{t("alsoCounts", counts)}</p>
+            <p className="mt-2 mb-0 text-sm lg:text-[17px] text-muted">{t(counts.s === 1 ? "alsoCountsOne" : "alsoCounts", counts)}</p>
           </div>
           <div className="ml-auto text-right">
             <p className="label">{t("protectedIfAct")}</p>
@@ -53,7 +53,7 @@ export function Mill() {
               <h1 className="m-0 text-[26px] lg:text-4xl font-extrabold leading-tight">
                 {t(b.shift === "night" ? "nothingNeedsNight" : "nothingNeedsDay")}
               </h1>
-              <p className="mt-2 mb-0 text-[15px] lg:text-lg text-muted">{t("counts", counts)}</p>
+              <p className="mt-2 mb-0 text-[15px] lg:text-lg text-muted">{t(counts.s === 1 ? "countsOne" : "counts", counts)}</p>
             </div>
           </div>
           <div className="ml-auto text-right">
@@ -79,7 +79,7 @@ export function Mill() {
           )}
           {n === 0 && b.suppressed_count > 0 && (
             <div className="sec">
-              <h3 className="m-0 text-lg lg:text-xl font-extrabold">{t("ignoredTitle", { s: b.suppressed_count })}</h3>
+              <h3 className="m-0 text-lg lg:text-xl font-extrabold">{b.suppressed_count === 1 ? t("ignoredTitleOne") : t("ignoredTitle", { s: b.suppressed_count })}</h3>
               <p className="mt-2 mb-0 text-[15px] lg:text-[17px] leading-normal text-ink-2">{t("ignoredBody")}</p>
             </div>
           )}
@@ -91,11 +91,11 @@ export function Mill() {
 }
 
 function ActionCard({ a, rank }: { a: Action; rank: number }) {
-  const { t, pick } = useLang();
+  const { t, pick, name } = useLang();
   return (
     <Link to={`/machine/${a.asset_id}`} className={`block bg-card rounded p-4 lg:p-5 text-ink no-underline hover:shadow-md ${BORDER.act}`}>
       <div className="flex justify-between items-center gap-2.5 flex-wrap">
-        <span className="text-[21px] lg:text-2xl font-extrabold"><span className="font-num text-muted text-base lg:text-lg">{rank}</span> {a.asset_name}</span>
+        <span className="text-[21px] lg:text-2xl font-extrabold"><span className="font-num text-muted text-base lg:text-lg">{rank}</span> {name(a)}</span>
         <StatusChip status="act" />
       </div>
       <p className="mt-2.5 lg:mt-3 mb-0 text-base lg:text-lg leading-snug">{pick(a, "headline")}</p>
@@ -115,13 +115,13 @@ function ActionCard({ a, rank }: { a: Action; rank: number }) {
 
 function WatchCard({ a }: { a: LineAsset }) {
   const { at } = useClock();
-  const { t, pick } = useLang();
+  const { t, pick, name } = useLang();
   const d = useApi(at ? () => api.asset(a.id, at) : null, [a.id, at]);
   const o = d.data?.outlook;
   return (
     <Link to={`/machine/${a.id}`} className={`block bg-card rounded p-4 lg:p-5 text-ink no-underline hover:shadow-md ${BORDER.watch}`}>
       <div className="flex justify-between items-center gap-2.5 flex-wrap">
-        <span className="text-[21px] lg:text-2xl font-extrabold">{a.name}</span>
+        <span className="text-[21px] lg:text-2xl font-extrabold">{name(a)}</span>
         <StatusChip status="watch" />
       </div>
       <p className="mt-2.5 lg:mt-3 mb-0 text-base lg:text-lg leading-snug">{pick(a, "summary")}. {t("watchedNote")}</p>
@@ -136,11 +136,11 @@ function WatchCard({ a }: { a: LineAsset }) {
 }
 
 function Tile({ a }: { a: LineAsset }) {
-  const { pick } = useLang();
+  const { pick, name } = useLang();
   return (
     <Link to={`/machine/${a.id}`} className={`flex flex-col gap-1.5 p-3 rounded bg-card text-ink no-underline min-w-0 hover:shadow-md ${BORDER[a.status]}`}>
       <div className="flex justify-between items-center gap-2 flex-wrap">
-        <span className="text-lg font-extrabold">{a.name}</span><StatusChip status={a.status} small />
+        <span className="text-lg font-extrabold">{name(a)}</span><StatusChip status={a.status} small />
       </div>
       {a.status !== "ok" && <span className="text-base">{pick(a, "summary")}</span>}
     </Link>
@@ -148,11 +148,11 @@ function Tile({ a }: { a: LineAsset }) {
 }
 
 function Row({ a }: { a: LineAsset }) {
-  const { pick } = useLang();
+  const { pick, name } = useLang();
   return (
     <Link to={`/machine/${a.id}`} className={`flex justify-between items-center gap-3 px-3.5 py-3 min-h-[52px] border-t border-rule-soft text-ink no-underline ${ROW_BG[a.status]}`}>
       <span className="min-w-0">
-        <span className="block text-[17px] font-extrabold">{a.name}</span>
+        <span className="block text-[17px] font-extrabold">{name(a)}</span>
         {a.status !== "ok" && <span className="text-sm">{pick(a, "summary")}</span>}
       </span>
       <StatusChip status={a.status} small />

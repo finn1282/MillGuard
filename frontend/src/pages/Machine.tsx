@@ -41,7 +41,7 @@ const BAND: Record<AssetStatus, string> = {
 
 function MachineView({ id }: { id: string }) {
   const { at } = useClock();
-  const { t, pick, lang } = useLang();
+  const { t, pick, lang, name, unit } = useLang();
   const res = useApi(at ? () => api.asset(id, at) : null, [id, at]);
   const faults = useApi(api.faults, []);
   const line = useApi(at ? () => api.line(at) : null, [at]);
@@ -92,7 +92,7 @@ function MachineView({ id }: { id: string }) {
               <Link key={p.id} to={`/machine/${p.id}`} aria-current={p.id === id ? "page" : undefined}
                 className={`inline-flex items-center gap-1.5 min-h-[40px] px-2.5 rounded border text-sm font-bold no-underline
                   ${p.id === id ? "bg-ink text-paper border-ink" : "bg-card text-ink border-rule"}`}>
-                <StatusIcon status={p.status} size={14} />{p.name}
+                <StatusIcon status={p.status} size={14} />{name(p)}
               </Link>
             ))}
           </nav>
@@ -114,7 +114,7 @@ function MachineView({ id }: { id: string }) {
         <div className="flex flex-wrap gap-x-10 gap-y-3 lg:gap-y-6 justify-between items-end p-4 lg:px-6 lg:pt-[22px] lg:pb-[26px]">
           <div className="flex flex-col gap-1 lg:gap-1.5 min-w-0 basis-[min(100%,34rem)] grow">
             <div className="text-sm lg:text-[17px] text-muted font-semibold">{t(d.asset.type === "boiler" ? "stationBoiler" : "stationPress")}</div>
-            <h1 className="m-0 text-[28px] lg:text-[40px] font-extrabold leading-tight">{d.asset.name}</h1>
+            <h1 className="m-0 text-[28px] lg:text-[40px] font-extrabold leading-tight">{name(d.asset)}</h1>
             <p className="mt-1 lg:mt-1.5 mb-0 text-base lg:text-[21px] leading-snug">{riskLine}</p>
           </div>
           {hero != null && (
@@ -156,16 +156,24 @@ function MachineView({ id }: { id: string }) {
 
           {evidence.length > 0 && (
             <div className="sec pb-1.5 lg:pb-2.5">
-              <p className="label mb-1">{t(a ? "evidence" : "signals7d")}</p>
+              <div className="flex flex-wrap justify-between items-baseline gap-x-3 gap-y-1 mb-1">
+                <p className="label">{t(a ? "evidence" : "signals7d")}</p>
+                {o?.handled_at && (
+                  <span className="inline-flex items-center gap-1.5 text-sm lg:text-base font-bold text-ok">
+                    <span aria-hidden className="w-0.5 h-4 bg-ok" />{t("repaired", { when: `${dayMonth(o.handled_at, lang)} · ${hhmm(o.handled_at)}` })}
+                  </span>
+                )}
+              </div>
               {evidence.map(({ s, title, hot }, i) => (
                 <div key={s.signal + i} className={`grid grid-cols-[minmax(0,1fr)_auto] gap-2.5 lg:gap-5 items-center py-3 lg:py-3.5 ${i ? "border-t border-rule-soft" : ""}`}>
                   <div className="min-w-0">
                     <div className="text-[15px] lg:text-[17px] font-bold">{title}</div>
                     <div className="font-num text-[13px] lg:text-base text-muted mt-0.5">
-                      {pick(s, "summary")}{s.limit != null && ` · ${t("limit")} ${num(s.limit, 1)} ${s.unit}`}
+                      {pick(s, "summary")}{s.limit != null && ` · ${t("limit")} ${num(s.limit, 1)} ${unit(s)}`}
                     </div>
                   </div>
-                  <Sparkline points={s.points} limit={s.limit} hot={hot} label={`${pick(s, "label")}: ${pick(s, "summary")}`} />
+                  <Sparkline points={s.points} limit={s.limit} hot={hot} handledAt={o?.handled_at}
+                    label={`${pick(s, "label")}: ${pick(s, "summary")}`} />
                 </div>
               ))}
             </div>
@@ -198,6 +206,11 @@ function MachineView({ id }: { id: string }) {
           {a && !saved && <OutlookBar m={a} title={t("keepWatching")} wholeMill={wholeMill} />}
           {!a && o && <OutlookBar m={o} wholeMill={d.asset.type === "boiler"}
             title={d.status === "ok" ? t("nothingKeepRunning") : t("keepWatching")} />}
+          {!a && o && pick(o, "note") && (
+            <p className="m-0 flex gap-2.5 items-start bg-ok-bg border border-ok-border text-ok-ink rounded px-3.5 py-3 text-[15px] lg:text-[17px] leading-snug">
+              <IconTick size={18} className="mt-0.5" />{pick(o, "note")}
+            </p>
+          )}
           {d.fix && <FixPlanCard fix={d.fix} />}
 
           {!a && (d.last_service || d.next_check) && (
@@ -215,7 +228,7 @@ function MachineView({ id }: { id: string }) {
               </div>}
             </div>
           )}
-          {!a && <p className="m-0 text-[15px] lg:text-[17px] text-muted leading-normal">{t("watchNote", { name: d.asset.name })}</p>}
+          {!a && <p className="m-0 text-[15px] lg:text-[17px] text-muted leading-normal">{t("watchNote", { name: name(d.asset) })}</p>}
 
           {a && (<>
             {/* pinned above the tab bar on mobile, inline on desktop */}
