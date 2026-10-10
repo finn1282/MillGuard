@@ -135,4 +135,8 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    import sys
+    if "--check" in sys.argv:
+        check(OUT)
+    else:
+        main()

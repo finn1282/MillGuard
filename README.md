@@ -22,6 +22,9 @@ Other targets:
 | `make roi` | Low / base / high ROI table from the same backtest the app uses |
 | `make report` | Prints the 3 demo bookmarks with each card's numbers and the 4-policy table (default and strict inspection) |
 | `make fixtures` | Re-snapshots `contracts/fixtures/` from the real API (run after `make all`) |
+| `make demo-offline` | Last-resort demo: builds the frontend in fixture mode and serves it at http://localhost:4173 with no backend, bot or network |
+| `make demo-all` | API + Telegram bot + frontend dev server (live API) |
+| `make check` | Fixture checks, backend tests and a frontend production build; prints PASS/FAIL per stage |
 | `MILLGUARD_STUB=1 make api` | Serves the fixtures instead of live artifacts (demo backup) |
 
 ## Telegram alerts (optional)
@@ -48,7 +51,7 @@ With no key or network the response is `cached: false`, empty sections and a fri
 2. `backend/.env` has the bot token; the demo group has sent `/start` (`GET /api/notify/status` shows `enabled: true`, `subscribers: 1+`).
 3. Open the frontend; check the time bar bookmarks: Quiet night, Whole mill, Press 2 act now.
 4. At Press 2 act now press "Send to phone"; tap Schedule on the phone.
-5. Backup: `MILLGUARD_STUB=1 make demo` serves the real-snapshot fixtures if live artifacts are missing.
+5. Backup: `MILLGUARD_STUB=1 make demo`, and if the API itself is not usable `make demo-offline` (frontend only, real-snapshot fixtures, advice included) serves the real-snapshot fixtures if live artifacts are missing.
 6. Slide assets: `make pitch` rewrites `pitch/` (charts, tables, `numbers.md`).
 
 ## How it is built

@@ -6,6 +6,10 @@ pitch:
 	$(PY) -m backend.scripts.export_pitch
 demo:
 	sh backend/scripts/demo.sh $(PY)
+demo-offline:
+	sh backend/scripts/demo_offline.sh
+check:
+	sh backend/scripts/check.sh $(PY)
 demo-all:
 	sh backend/scripts/demo_all.sh $(PY)
 bot:
