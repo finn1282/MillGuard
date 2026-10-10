@@ -119,6 +119,8 @@ If Paderborn is skipped, the simulator still models the textbook bearing pattern
 ### 3.1 Simulator spec
 
 - **Mill:** 4 presses at 15 t/h each (60 t/h total), 1 boiler. Hourly data.
+- **Calendar:** simulate calendar year 2025 (1 Jan–31 Dec), so MPOB 2025 monthly seasonality lines up. Mill 10 is unseen in training, so its whole year is valid for the demo replay.
+- **Fixture numbers are samples.** In fixture mode the frontend shows a small "Sample data" badge. Final pitch numbers come only from the pipeline output.
 - **Many mills, not one:** simulate **10 mills × 12 months** with different seeds, noise and drift. Train on mills 1–9 (months 1–8), test on unseen mill 10 and on months 9–12. Demo replays mill 10. This gives enough failures to train and a real "unfamiliar data" test.
 - **Hidden states per press:** worm wear (grows with tonnes), bearing health, gearbox health, cone hydraulic health.
 - **Observed signals:** motor current, throughput, current per tonne, cone hydraulic pressure, gearbox oil temperature, vibration RMS and kurtosis, daily lab fibre oil loss.
@@ -168,6 +170,11 @@ The old ROI table in the original plan used RM4,180/t. **Do not hand-edit ROI nu
 **Pipeline (offline, `make all`):** simulate → features (rolling 6/24/72 h means, slopes, std; current per tonne; hours since service) → train → predict every hour for mill 10 → threshold + alert control → cost engine → backtest three policies → write `artifacts/*.parquet` + JSON. The API only reads artifacts, except `/backtest`, which re-runs the cheap cost maths with slider values.
 
 **Alert control:** alert when P(fail) > C_FP / (C_FP + C_FN); must hold 3 consecutive hours; clears only well below the threshold; max 5 per shift; only if there is still time to act.
+
+**Sanity fixes (v1.2, 15:20):**
+- **Fix now vs wait needs the risk up to the next planned stop**, which can be up to 7 days away. Train LightGBM for three horizons (24 h, 72 h, 168 h) and interpolate P(fail before next stop). Fix now = stop hours × RM/h + parts. Wait = P(fail before stop) × breakdown cost + parts.
+- **Fair baselines.** The fixed-interval policy uses the best interval found by a sweep on training mills (not a weak guess); run-to-failure is as-is. Judges will ask whether we beat a strawman.
+- **Boiler is P0 in simulated form.** The demo's competing alert needs it. Add 1 boiler to the simulator (steam temperature drift outside 530–545 °C, feed-water quality drift, rare tube-leak events). The real 5-day boiler dataset stays P1, as a "same detector works on real boiler data" check.
 
 ### 4.2 Professional stack (for the "path to a real mill" slide)
 
