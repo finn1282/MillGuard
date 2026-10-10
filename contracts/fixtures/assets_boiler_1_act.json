@@ -2316,10 +2316,10 @@
   }
  ],
  "last_service": {
-  "t": "2025-09-16T14:00:00+08:00",
-  "what_en": "Last repair logged on Boiler 1: steam temperature drift",
-  "what_ms": "Pembaikan terakhir direkodkan bagi Dandang 1: sisihan suhu stim",
-  "hours_since": 313.0
+  "t": "2025-09-28T07:00:00+08:00",
+  "what_en": "Last repair logged on Boiler 1: feed-water quality drift",
+  "what_ms": "Pembaikan terakhir direkodkan bagi Dandang 1: sisihan kualiti air suapan",
+  "hours_since": 32.0
  },
  "next_check": {
   "t": "2025-10-05T06:00:00+08:00",

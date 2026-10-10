@@ -40,6 +40,18 @@ def check(out):
                         bad.append(f"{f.name} {s['signal']}: {s[key]!r} outside points {min(v)}..{max(v)}")
             if s["unit_ms"] not in s["summary_ms"]:
                 bad.append(f"{f.name} {s['signal']}: unit_ms {s['unit_ms']!r} missing from summary_ms")
+    for f in sorted(out.glob("assets_*.json")):   # one signal, one percentage, per asset
+        d = json.loads(f.read_text())
+        quoted = {}
+        for r in (d.get("action") or {}).get("reasons", []):
+            m = re.search(r"(\d+)% (above|below)", r["text_en"])
+            if m:
+                quoted.setdefault(r["signal"], set()).add((int(m.group(1)), "up" if m.group(2) == "above" else "down"))
+        for c in (d.get("diagnosis") or {}).get("fingerprint", []):
+            m = re.match(r"(Up|Down) (\d+)%", c["observed_en"])
+            if m:
+                quoted.setdefault(c["signal"], set()).add((int(m.group(2)), m.group(1).lower()))
+        bad += [f"{f.name} {sig}: two different comparisons {sorted(v)}" for sig, v in quoted.items() if len(v) > 1]
     for f in sorted(out.glob("*.json")):
         def walk(x, k=""):
             if isinstance(x, dict):

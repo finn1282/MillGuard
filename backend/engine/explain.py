@@ -49,7 +49,7 @@ class Explainer:
             sent = self.sentence(g, row, asset_name)
             if sent:   # a reason whose change rounds to 0% says nothing: skip it and use the next one
                 res.append((g, score[g], sent))
-            if len(res) == 3:
+            if len(res) == 6:   # a pool: the service may drop some after quoting the fingerprint's numbers
                 break
         total = sum(v for _, v, _ in res) or 1.0
         return [dict(text_en=en, text_ms=ms, signal=g, direction=d, contribution=round(float(v / total), 3))

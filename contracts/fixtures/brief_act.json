@@ -20,25 +20,25 @@
    "headline_ms": "Penekan 2: Kerosakan hidraulik kon. Semak hidraulik kon sekarang.",
    "reasons": [
     {
-     "text_en": "Cone hydraulic pressure is 5% above Press 2's normal",
-     "text_ms": "Tekanan hidraulik kon 5% lebih tinggi daripada biasa bagi Penekan 2",
+     "text_en": "Cone hydraulic pressure is 4% above Press 2's normal",
+     "text_ms": "Tekanan hidraulik kon 4% lebih tinggi daripada biasa bagi Penekan 2",
      "signal": "cone_pressure",
      "direction": "up",
-     "contribution": 0.927
+     "contribution": 0.932
     },
     {
      "text_en": "Oil lost in fibre is 2.5% (alarm line is 4%)",
      "text_ms": "Kehilangan minyak dalam serabut ialah 2.5% (garis amaran 4%)",
      "signal": "fibre_oil_loss",
      "direction": "down",
-     "contribution": 0.037
+     "contribution": 0.038
     },
     {
-     "text_en": "Motor current per tonne is 1% above Press 2's normal",
-     "text_ms": "Arus motor setiap tan 1% lebih tinggi daripada biasa bagi Penekan 2",
-     "signal": "current_per_tonne",
+     "text_en": "768 hours since the last logged service on Press 2",
+     "text_ms": "768 jam sejak servis terakhir direkodkan bagi Penekan 2",
+     "signal": "hours_since_service",
      "direction": "up",
-     "contribution": 0.035
+     "contribution": 0.03
     }
    ],
    "why_rank_en": "Biggest ringgit saving tonight",

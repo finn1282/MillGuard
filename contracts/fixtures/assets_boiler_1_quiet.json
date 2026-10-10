@@ -2279,10 +2279,10 @@
  "fix": null,
  "history": [],
  "last_service": {
-  "t": "2025-01-01T00:00:00+08:00",
-  "what_en": "No repair logged yet this year",
-  "what_ms": "Tiada pembaikan direkodkan setakat ini tahun ini",
-  "hours_since": 5059.0
+  "t": "2025-07-27T07:00:00+08:00",
+  "what_en": "Last repair logged on Boiler 1: steam temperature drift",
+  "what_ms": "Pembaikan terakhir direkodkan bagi Dandang 1: sisihan suhu stim",
+  "hours_since": 84.0
  },
  "next_check": {
   "t": "2025-08-03T06:00:00+08:00",

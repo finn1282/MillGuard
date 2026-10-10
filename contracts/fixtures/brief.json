@@ -20,25 +20,25 @@
    "headline_ms": "Dandang 1: Sisihan kualiti air suapan. Semak rawatan air dan tiub dandang sekarang.",
    "reasons": [
     {
-     "text_en": "Feed-water conductivity is 21% above Boiler 1's normal",
-     "text_ms": "Kekonduksian air suapan 21% lebih tinggi daripada biasa bagi Dandang 1",
+     "text_en": "Feed-water conductivity is 9% above Boiler 1's normal",
+     "text_ms": "Kekonduksian air suapan 9% lebih tinggi daripada biasa bagi Dandang 1",
      "signal": "feedwater_cond",
      "direction": "up",
-     "contribution": 0.874
+     "contribution": 0.889
     },
     {
-     "text_en": "6,147 hours since the last logged service on Boiler 1",
-     "text_ms": "6,147 jam sejak servis terakhir direkodkan bagi Dandang 1",
+     "text_en": "164 hours since the last logged service on Boiler 1",
+     "text_ms": "164 jam sejak servis terakhir direkodkan bagi Dandang 1",
      "signal": "hours_since_service",
      "direction": "up",
-     "contribution": 0.107
+     "contribution": 0.109
     },
     {
-     "text_en": "Feed-water flow is 12% below Boiler 1's normal",
-     "text_ms": "Aliran air suapan 12% lebih rendah daripada biasa bagi Dandang 1",
-     "signal": "feedwater_flow",
-     "direction": "down",
-     "contribution": 0.019
+     "text_en": "Recent load on Boiler 1 differs from its usual pattern",
+     "text_ms": "Beban terkini pada Dandang 1 berbeza daripada corak biasa",
+     "signal": "load",
+     "direction": "up",
+     "contribution": 0.002
     }
    ],
    "why_rank_en": "Boiler stops the whole mill, so it comes first",

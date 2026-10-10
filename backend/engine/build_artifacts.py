@@ -62,6 +62,7 @@ def build_actions(p, fit):
         t_close = min(r.t_close, r.t_repair)
         if r.fail_idx is not None and not pd.isna(r.fail_idx):
             t_close = min(t_close, pd.Timestamp("2025-01-01") + pd.Timedelta(hours=int(r.fail_idx)))
+        pool = ex.reasons(MILL, r.asset_id, r.t_open, NAME[r.asset_id])
         en, ms = headline(p, r)
         hold = r.t_close   # the decision layer will not re-alert before this (risk must clear, or the would-be failure pass)
         if r.outcome == "prevented":
@@ -71,10 +72,10 @@ def build_actions(p, fit):
             fault_class=r.fault_class, risk_pct=round(float(risk * 100), 0),
             horizon_h=int(horizon), rm_at_risk=int(r.rm_at_risk), rm_cost_to_act=int(r.rm_cost_to_act),
             rm_saved_if_acted=int(r.rm_saved), recommendation=r.recommendation, deadline=iso(r.t_repair),
-            headline_en=en, headline_ms=ms, reasons=ex.reasons(MILL, r.asset_id, r.t_open, NAME[r.asset_id]),
+            headline_en=en, headline_ms=ms, reasons=pool[:3],
             criticality="whole_mill" if atype == "boiler" else "partial",
             t_open=iso(r.t_open), t_close=iso(t_close), t_candidate=iso(r.t_candidate),
-            internal=dict(t_hold=iso(max(hold, t_close)), outcome=r.outcome, fail_idx=None if r.fail_idx is None or pd.isna(r.fail_idx) else int(r.fail_idx))))
+            internal=dict(reason_pool=pool, t_hold=iso(max(hold, t_close)), outcome=r.outcome, fail_idx=None if r.fail_idx is None or pd.isna(r.fail_idx) else int(r.fail_idx))))
     fails = pd.read_parquet(ART / "mill10_failures.parquet")
     (ART / "test_mill.json").write_text(json.dumps(backtest.test_mill_table(ep, fails), indent=1))
     (ART / "actions.json").write_text(json.dumps(out, indent=1, ensure_ascii=False))

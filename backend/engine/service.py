@@ -180,9 +180,31 @@ class Service:
             return out
         hs = self._last_service(a["asset_id"], a["asset_name"], t)["hours_since"]   # one value for the reason and last_service
         name = a["asset_name"]
+        out["reasons"] = self._quote_fingerprint(a["asset_id"], name, a["internal"]["reason_pool"], t)
         out["reasons"] = [dict(r, text_en=text.REASON_SERVICE_EN.format(h=hs, asset=name), text_ms=text.REASON_SERVICE_MS.format(h=hs, asset=text.name_ms(name)))
-                          if r["signal"] == "hours_since_service" else r for r in a["reasons"]]
+                          if r["signal"] == "hours_since_service" else r for r in out["reasons"]]
         return self._money(out, a, t)
+
+    def _quote_fingerprint(self, aid, name, reasons, t):
+        """SHAP picks and orders the reasons; the number quoted for a signal is the fingerprint's (last 48 h vs own 30 days)."""
+        out = []
+        for r in reasons:
+            g = r["signal"]
+            if g in text.SIGNAL_LABEL and g != "fibre_oil_loss":
+                kind, pct = fingerprint.compare(self.tel, aid, g, t)
+                if kind is None:
+                    out.append(r); continue
+                if round(pct) == 0:
+                    continue   # a change that rounds to 0% is not a reason
+                d = "up" if kind == "up" else "down"
+                lab = text.SIGNAL_LABEL[g]
+                r = dict(r, direction=d,
+                         text_en=text.REASON_REL_EN.format(label=lab[0], pct=pct, word=text.WORD_EN[d], asset=name),
+                         text_ms=text.REASON_REL_MS.format(label=lab[1], pct=pct, word=text.WORD_MS[d], asset=text.name_ms(name)))
+            out.append(r)
+        out = out[:3]
+        total = sum(r["contribution"] for r in out) or 1.0
+        return [dict(r, contribution=round(r["contribution"] / total, 3)) for r in out]
 
     def _money(self, out, a, t):
         """rm_at_risk = expected loss if you wait = P(fail before deadline) x full breakdown cost."""
@@ -261,7 +283,8 @@ class Service:
         hrs = pd.date_range(t - pd.Timedelta(hours=window_h - 1), t, freq="h")
         (en, ms), unit = text.EXTRA_SERIES[sig]
         if sig == "hours_since_service":
-            logged = self.maint[self.maint.asset_id == aid].t.sort_values().values
+            logged = np.sort(np.concatenate([self.maint[self.maint.asset_id == aid].t.values,
+                                             np.array([a["t_close"] for a in self.actions if a["asset_id"] == aid], dtype="datetime64[ns]")]))
             last = lambda x: logged[logged <= np.datetime64(x)][-1] if (logged <= np.datetime64(x)).any() else np.datetime64(T0)
             v = [(x - pd.Timestamp(last(x))) / pd.Timedelta(hours=1) for x in hrs]
         elif sig == "alarms":
@@ -275,16 +298,19 @@ class Service:
         return self._series(sig, en, ms, unit, hrs, v, window_h, ends=sig == "hours_since_service")
 
     def _last_service(self, aid, name, t):
+        """Most recent of the logged service and the repair that closed the last alert (handled_at)."""
         m = self.maint[(self.maint.asset_id == aid) & (self.maint.t <= t)].sort_values("t")
-        if m.empty:
+        last = (m.iloc[-1].t, m.iloc[-1].fault_class) if not m.empty else None
+        for a in self.actions:
+            if a["asset_id"] == aid and a["t_close"] <= t and (last is None or a["t_close"] > last[0]):
+                last = (a["t_close"], a["fault_class"])
+        if last is None:
             en, ms = text.LAST_SERVICE["none"]
             return dict(t=iso(T0), what_en=en, what_ms=ms, hours_since=float((t - T0) / pd.Timedelta(hours=1)))
-        r = m.iloc[-1]
-        f_en, f_ms = text.FAULT_LABEL[r.fault_class]
-        ms_name = text.name_ms(name)
-        return dict(t=iso(r.t), what_en=text.LAST_SERVICE["press"][0].format(asset=name, fault=f_en),
-                    what_ms=text.LAST_SERVICE["press"][1].format(asset=ms_name, fault=f_ms),
-                    hours_since=float((t - r.t) / pd.Timedelta(hours=1)))
+        f_en, f_ms = text.FAULT_LABEL[last[1]]
+        return dict(t=iso(last[0]), what_en=text.LAST_SERVICE["press"][0].format(asset=name, fault=f_en),
+                    what_ms=text.LAST_SERVICE["press"][1].format(asset=text.name_ms(name), fault=f_ms),
+                    hours_since=float((t - last[0]) / pd.Timedelta(hours=1)))
 
     def _next_check(self, t):
         nxt = t + pd.Timedelta(hours=decide.hours_to_stop(t, 1))

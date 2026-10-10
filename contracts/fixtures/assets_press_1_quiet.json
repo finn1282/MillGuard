@@ -3468,10 +3468,10 @@
   }
  ],
  "last_service": {
-  "t": "2025-05-24T18:00:00+08:00",
+  "t": "2025-07-28T23:00:00+08:00",
   "what_en": "Last repair logged on Press 1: worm wear",
   "what_ms": "Pembaikan terakhir direkodkan bagi Penekan 1: haus skru cacing",
-  "hours_since": 1609.0
+  "hours_since": 44.0
  },
  "next_check": {
   "t": "2025-08-03T06:00:00+08:00",

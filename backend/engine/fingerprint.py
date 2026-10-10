@@ -61,6 +61,13 @@ def _observe(base, win, expected):
     return n > 0, "spike" if n else "nospike", dict(n=n)
 
 
+def compare(tel, aid, sig, t):
+    """(direction, pct) of the last 48 h against the machine's own 30-day normal; the one comparison the app quotes for a signal."""
+    base, win = _series(tel, aid, sig, t)
+    _, kind, nums = _observe(base, win, "up")
+    return (kind, abs(nums["pct"])) if kind in ("up", "down", "flat") else (None, None)
+
+
 def fingerprint(tel, aid, fault_class, t):
     out = []
     for sig, expected in text.FAULTS[fault_class]["signs"][:4]:
