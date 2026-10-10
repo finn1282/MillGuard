@@ -159,7 +159,7 @@ const S = {
   seeSources: ["See every number and its source →", "Lihat setiap nombor dan sumbernya →"],
   whatIf: ["What if…", "Bagaimana jika…"],
   whatIfSub: ["Move a slider and the totals update.", "Gerakkan peluncur dan jumlah dikemas kini."],
-  whatIfFixture: ["Sample data shows the base case only. The sliders work with the live API.", "Data contoh hanya menunjukkan kes asas. Peluncur berfungsi dengan API langsung."],
+  whatIfFixture: ["Sample data: each slider steps through 3 precomputed values.", "Data contoh: setiap peluncur bergerak melalui 3 nilai yang dikira awal."],
   cpoPrice: ["CPO price", "Harga MSM"],
   missCost: ["Cost of a missed failure", "Kos kerosakan terlepas"],
   alertBudget: ["Alerts per shift", "Amaran setiap syif"],

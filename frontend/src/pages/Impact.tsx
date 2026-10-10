@@ -3,7 +3,7 @@ import { AssumptionsDrawer } from "../components/AssumptionsDrawer";
 import { IconPause, IconPlay } from "../components/Icons";
 import { PageBar } from "../components/PageBar";
 import { ErrorBox, Loading } from "../components/States";
-import { api, USE_FIXTURES, type BacktestParams } from "../lib/api";
+import { api, USE_FIXTURES, type BacktestParams, type GridAxes } from "../lib/api";
 import { useClock } from "../lib/clock";
 import { monthShort, num, rmMillions } from "../lib/format";
 import { useLang, type Key } from "../lib/i18n";
@@ -201,18 +201,38 @@ type Params = { cpo_price: number; miss_cost_mult: number; alert_budget: number;
 function Sliders({ params, setParams, reset, loading }:
   { params: Params; setParams: (p: Params) => void; reset: () => void; loading: boolean }) {
   const { t } = useLang();
-  const row = (k: keyof Params, label: Key, min: number, max: number, step: number, fmt: (v: number) => string) => (
+  const grid = useApi(api.gridAxes, []).data as GridAxes | null | undefined;
+  const row = (k: keyof Params, label: Key, min: number, max: number, step: number, fmt: (v: number) => string) => {
+    // Fixture mode: the slider moves along the grid's axis values only.
+    const axis = grid?.[k];
+    if (axis) {
+      const i = axis.reduce((best, x, j) => (Math.abs(x - params[k]) < Math.abs(axis[best] - params[k]) ? j : best), 0);
+      return (
+        <div className="flex flex-col gap-2 py-3.5 lg:py-4 border-t border-rule-soft">
+          <div className="flex justify-between gap-2">
+            <label htmlFor={`s-${k}`} className="text-[15px] lg:text-[17px] font-bold">{t(label)}</label>
+            <span className="font-num text-[15px] lg:text-[17px] font-bold">{fmt(axis[i])}</span>
+          </div>
+          <input id={`s-${k}`} type="range" min={0} max={axis.length - 1} step={1} value={i} aria-valuetext={fmt(axis[i])}
+            onChange={(e) => setParams({ ...params, [k]: axis[Number(e.target.value)] })}
+            className="w-full h-11 accent-[var(--ink)]" />
+          <div className="flex justify-between text-sm lg:text-base text-muted">{axis.map((x) => <span key={x}>{fmt(x)}</span>)}</div>
+        </div>
+      );
+    }
+    return (
     <div className="flex flex-col gap-2 py-3.5 lg:py-4 border-t border-rule-soft">
       <div className="flex justify-between gap-2">
         <label htmlFor={`s-${k}`} className="text-[15px] lg:text-[17px] font-bold">{t(label)}</label>
         <span className="font-num text-[15px] lg:text-[17px] font-bold">{fmt(params[k])}</span>
       </div>
-      <input id={`s-${k}`} type="range" min={min} max={max} step={step} value={params[k]} disabled={USE_FIXTURES}
+      <input id={`s-${k}`} type="range" min={min} max={max} step={step} value={params[k]}
         onChange={(e) => setParams({ ...params, [k]: Number(e.target.value) })}
         className="w-full h-11 accent-[var(--ink)] disabled:opacity-50" />
       <div className="flex justify-between text-sm lg:text-base text-muted"><span>{fmt(min)}</span><span>{fmt(max)}</span></div>
     </div>
-  );
+    );
+  };
   return (
     <aside aria-labelledby="wi" className="sec basis-[320px] grow lg:max-w-[380px] rounded-t-2xl lg:rounded shadow-[0_-8px_24px_rgba(22,25,28,.12)] lg:shadow-none">
       <div className="flex justify-between items-baseline gap-2">
@@ -224,7 +244,7 @@ function Sliders({ params, setParams, reset, loading }:
       {row("miss_cost_mult", "missCost", 0.5, 3, 0.1, (v) => `${v.toFixed(1)}×`)}
       {row("alert_budget", "alertBudget", 1, 10, 1, (v) => String(v))}
       {row("inspection_accuracy", "inspection", 0, 1, 0.05, (v) => `${Math.round(v * 100)}%`)}
-      <button onClick={reset} disabled={USE_FIXTURES} className="btn btn-outline w-full mt-2">{t("reset")}</button>
+      <button onClick={reset} className="btn btn-outline w-full mt-2">{t("reset")}</button>
     </aside>
   );
 }
