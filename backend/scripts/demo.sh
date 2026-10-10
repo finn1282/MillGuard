@@ -3,7 +3,7 @@
 PY=${1:-.venv/bin/python}
 export MILLGUARD_STATE_FILE=backend/data/state.json   # API and bot are two processes: share state through a file
 export LIVE_AUTONOTIFY=${LIVE_AUTONOTIFY:-1}
-rm -f $MILLGUARD_STATE_FILE   # a fresh demo may send the same alerts again
+$PY -m backend.scripts.reset_demo_state   # a fresh demo may send the same alerts again; subscribers stay
 $PY -m uvicorn backend.api.main:app --host 0.0.0.0 --port 8000 &
 API=$!
 trap 'kill $API 2>/dev/null' EXIT INT TERM

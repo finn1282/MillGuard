@@ -1,4 +1,5 @@
 """Bot state (subscribers, sent alert ids, replay clock) through backend/state.py; token and allowed chats from backend/.env."""
+import json
 import os
 from pathlib import Path
 
@@ -28,7 +29,29 @@ def allowed():
     return {c.strip() for c in raw.split(",") if c.strip()}
 
 
+def _seed():
+    """Once per state: merge TELEGRAM_SUBSCRIBERS="chatid:lang,..." and the legacy backend/data/subscribers.json into the stored ones (stored win)."""
+    db = state.db()
+    if db.get("subs_seeded"):
+        return
+    load_env()
+    seed = {}
+    legacy = ROOT / "data" / "subscribers.json"
+    if legacy.exists():
+        try:
+            seed.update({str(k): dict(v) for k, v in json.loads(legacy.read_text()).items()})
+        except (OSError, ValueError, AttributeError, TypeError):
+            pass
+    for part in os.environ.get("TELEGRAM_SUBSCRIBERS", "").split(","):
+        chat, _, lang = part.strip().partition(":")
+        if chat:
+            seed[chat] = {"lang": lang if lang in ("en", "ms") else "en"}
+    db.set("subs", {**seed, **(db.get("subs") or {})})
+    db.set("subs_seeded", True)
+
+
 def subscribers():
+    _seed()
     return state.db().get("subs") or {}   # chat_id -> {"lang": "en"|"ms"}
 
 
@@ -64,3 +87,11 @@ def last_at():
 
 def set_last_at(at):
     state.db().set("last_at", at)
+
+
+def startup_line():
+    n = len(subscribers())
+    return f"telegram: token {'yes' if token() else 'no'}, subscribers {n}, autonotify {'on' if os.environ.get('LIVE_AUTONOTIFY') == '1' else 'off'}"
+
+
+NO_SUBS = "notify: 0 subscribers — send /start in the group or set TELEGRAM_SUBSCRIBERS"

@@ -153,7 +153,7 @@ def build_one(sid):
     if sid == "mill10":
         tb = _mill10_tables()
         act = next(m for m in json.loads((ART / "markers.json").read_text()) if m["kind"] == "bookmark" and m["label_en"].endswith("act now"))
-        start = iso(pd.Timestamp(act["t"]).tz_localize(None) - pd.Timedelta(hours=96))
+        start = iso(pd.Timestamp(act["t"]).tz_localize(None) - pd.Timedelta(hours=72))   # the alert opens about 1-1.5 minutes into a 1 s/h stream
         ep, issues = _write_dataset(sid, **tb, default_start=start)
     elif sid == "bad_sensor":
         for skip in range(6):   # the stream must raise a sensor alert and no machine alert on Press 4
@@ -172,10 +172,12 @@ def build_one(sid):
         ep, issues = _write_dataset(sid, **tb, default_start=iso(FORCED_H0), extra=dict(forced=dict(asset_id=asset, fault_class=comp)))
         fail_t = tb["failures"][(tb["failures"].asset_id == asset) & (tb["failures"].t > FORCED_H0)].t.min()
         hit = ep[(ep.asset_id == asset) & (ep.t_open < fail_t) & (ep.t_open > fail_t - pd.Timedelta(hours=300))]
-        if len(hit):   # start the stream a day before the alert so the viewer sees it arrive
-            start = iso(max(hit.t_open.min() - pd.Timedelta(hours=24), FORCED_H0 - pd.Timedelta(hours=300)))
-            m = json.loads((DIR / sid / "meta.json").read_text()); m["default_start"] = start
-            (DIR / sid / "meta.json").write_text(json.dumps(m))
+        if len(hit):   # the stream starts at FORCED_H0 (failure about 100 h later); only a late alert moves the start so it opens within about 2 minutes at 1 s/h
+            first = hit.t_open.min()
+            print(f"  {sid}: alert opens {(first - FORCED_H0) / pd.Timedelta(hours=1):.0f} h after the start, failure {(fail_t - FORCED_H0) / pd.Timedelta(hours=1):.0f} h")
+            if first > FORCED_H0 + pd.Timedelta(hours=110):
+                m = json.loads((DIR / sid / "meta.json").read_text()); m["default_start"] = iso(first - pd.Timedelta(hours=24))
+                (DIR / sid / "meta.json").write_text(json.dumps(m))
         else:
             print(f"WARNING {sid}: the forced failure was not alerted")
     print(f"scenario {sid}: built in {time.time() - t:.0f} s; {len(ep)} alerts, {len(issues)} sensor issues")

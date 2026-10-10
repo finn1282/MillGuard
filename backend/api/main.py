@@ -22,6 +22,10 @@ if not STUB:
 
 from backend.notify import store as _store   # noqa: E402  (loads backend/.env into os.environ: DEMO_KEY, KV_*, TELEGRAM_*)
 _store.load_env()
+try:
+    print(_store.startup_line())
+except Exception as e:   # a state backend that is down must not stop the API
+    print("telegram: status unavailable", type(e).__name__)
 
 app = FastAPI(title="MillGuard API", version="1.14")
 app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])

@@ -47,6 +47,8 @@ def notify(svc, at, kind):
     if store.token() is None:
         return False, 0
     subs = store.subscribers()
+    if not subs:
+        print(store.NO_SUBS)
     brief = svc.brief(at)
     store.set_last_at(brief["at"])
     sent = 0

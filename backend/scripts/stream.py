@@ -1,5 +1,5 @@
 """Stream a scenario through the gateway API, hour by hour, like the browser Gateway page does.
-  python -m backend.scripts.stream --scenario bad_sensor --speed 2 [--base-url http://localhost:8000] [--demo-key KEY] [--start ISO] [--hours 72]
+  python -m backend.scripts.stream --scenario bad_sensor --speed 2 [--base-url http://localhost:8000] [--demo-key KEY] [--start ISO] [--hours 144]
 The client is the gateway: it fetches the scenario's hourly payloads and POSTs them to /api/ingest."""
 import argparse
 import itertools
@@ -17,7 +17,7 @@ def main():
     ap.add_argument("--base-url", default=os.environ.get("MILLGUARD_API", "http://localhost:8000"))
     ap.add_argument("--demo-key", default=os.environ.get("DEMO_KEY"))
     ap.add_argument("--start", default=None)
-    ap.add_argument("--hours", type=int, default=96, help="how many hours to send (default 96)")
+    ap.add_argument("--hours", type=int, default=144, help="how many hours to send (default 144)")
     a = ap.parse_args()
     h = {"X-Demo-Key": a.demo_key} if a.demo_key else {}
     c = httpx.Client(base_url=a.base_url, headers=h, timeout=30)

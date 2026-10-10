@@ -152,6 +152,8 @@ def _autonotify(s, live_at, new_keys):
         send.notify(svc, live_at, "alert")
         for i in active_issues(s["session_id"], live_at):
             if state.db().add(f"sensor_sent:{s['session_id']}", f"{i['asset_id']}|{i['signal']}|{i['kind']}|{i['first_t']}"):
+                if not store.subscribers():
+                    print(store.NO_SUBS)
                 for chat, sub in store.subscribers().items():
                     send._post("sendMessage", chat_id=chat, text=messages.sensor_text(i, sub["lang"]))
     except Exception as e:   # Telegram or network trouble must never fail an ingest

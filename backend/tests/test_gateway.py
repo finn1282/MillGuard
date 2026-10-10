@@ -173,3 +173,37 @@ def test_csv_parsing_and_validation(client, monkeypatch):
     r = client.post("/api/upload?name=s.csv", content=b"asset_id,t,vib_rms\npress_1,2025-01-01T00:00:00,1\n", headers={"content-type": "text/csv"})
     assert r.status_code == 422 and "at least 400" in r.json()["detail"]
     assert client.post("/api/upload?name=s.csv", content=b"hello", headers={"content-type": "text/csv"}).status_code == 422
+
+
+def test_subscribers_survive_reset_and_get_alerts(monkeypatch, tmp_path):
+    from backend.notify import send, store
+    from backend.scripts import reset_demo_state
+    from backend.engine.service import Service
+    monkeypatch.setenv("TELEGRAM_SUBSCRIBERS", "111:ms, 222")
+    monkeypatch.setattr(store, "ROOT", tmp_path)   # no legacy file here
+    (tmp_path / "data").mkdir()
+    (tmp_path / "data" / "subscribers.json").write_text('{"333": {"lang": "en"}}')
+    assert store.subscribers() == {"333": {"lang": "en"}, "111": {"lang": "ms"}, "222": {"lang": "en"}}
+    store.set_sub(444, "ms")
+    state.db().set("live", {"x": 1}); state.db().add("sent:111", "old"); state.db().add("shift:s", "old")
+    assert reset_demo_state.reset() >= 3
+    assert state.db().get("live") is None and not store.sent_before("111", "old")
+    assert set(store.subscribers()) == {"111", "222", "333", "444"}   # seeded once, merged, never wiped
+    monkeypatch.setattr(store, "token", lambda: "t")
+    calls = []
+    monkeypatch.setattr(send, "_post", lambda method, **p: calls.append((p["chat_id"], p["text"])) or True)
+    svc = Service()
+    at = json.loads((ART.parent.parent / "contracts" / "fixtures" / "bookmarks.json").read_text())["act"]
+    ok, sent = send.notify(svc, at, "alert")
+    assert ok and sent >= 4 and {c for c, _ in calls} == {"111", "222", "333", "444"}
+
+
+def test_no_subscribers_is_logged(monkeypatch, capsys):
+    from backend.notify import send, store
+    from backend.engine.service import Service
+    monkeypatch.delenv("TELEGRAM_SUBSCRIBERS", raising=False)
+    monkeypatch.setattr(store, "ROOT", ART)   # no legacy file
+    monkeypatch.setattr(store, "token", lambda: "t")
+    monkeypatch.setattr(send, "_post", lambda *a, **k: True)
+    assert send.notify(Service(), "2025-09-29T15:00:00+08:00", "alert") == (True, 0)
+    assert store.NO_SUBS in capsys.readouterr().out
