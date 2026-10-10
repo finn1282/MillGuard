@@ -550,7 +550,7 @@ Owner: orchestrator chat. Task prompts live in the orchestrator's plan; each age
 - B1: navy + cool white palette (WCAG AA); Mill page shows only the 4 presses and Boiler 1 (no unmonitored stations); Machine page drops the fix plan and "Was this useful?" but KEEPS the AI advice panel (moved under the diagnosis); Schedule → Telegram toast; How page keeps only the fault guide (colour-coded per fault class), the test-mill card and an assumptions button — the five steps, data honesty and robustness sections are removed.
 - B3: new Gateway page (scenario picker, CSV upload, speed, start/stop, live payload log) and LIVE mode in the time bar with alert and sensor-check toasts.
 
-**Deployment (D1, D2):** backend as a Hugging Face Docker Space (API + bot + streamer, artifacts built locally and uploaded; write endpoints need X-Demo-Key); frontend on GitHub Pages against that API, with ?api= override and automatic fallback to fixtures. Only one Telegram poller (the Space) once deployed.
+**Deployment (V1, V2):** one Vercel project: frontend static + FastAPI as a Python function under /api; state in Upstash Redis; Telegram via webhook; the browser Gateway page streams readings. V1 may add vercel.json, .vercelignore, api/ and a root requirements.txt.
 
 **Folder ownership still holds** (A: backend/ + contracts/, B: frontend/). Exceptions: D1 may add Dockerfile and deploy/ at the root; D2 may edit .github/workflows/pages.yml.
 
