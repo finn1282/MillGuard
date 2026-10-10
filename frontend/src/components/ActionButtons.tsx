@@ -5,7 +5,7 @@ import type { Action, Recommendation } from "../lib/types";
 import { useLang } from "../lib/i18n";
 import { IconPhone, IconTick } from "./Icons";
 
-type Notice = { kind: "sending" } | { kind: "sent"; n: number } | { kind: "off" };
+type Notice = { kind: "sending" } | { kind: "sent"; n: number } | { kind: "off" } | { kind: "sample" };
 
 // The recommended action is the only filled button. Saved = 0 makes Keep watching the recommendation.
 export function ActionButtons({ action, recorded, onRecorded }: { action: Action; recorded: boolean; onRecorded: () => void }) {
@@ -23,14 +23,17 @@ export function ActionButtons({ action, recorded, onRecorded }: { action: Action
   const order: Recommendation[] = [rec, ...(["fix_now", "schedule_next_stop", "monitor"] as const).filter((r) => r !== rec)];
   const choose = (d: Recommendation) => {
     setChosen(d); onRecorded();
-    api.feedback({ action_id: action.id, decision: d }).catch(() => {});
-    if (d !== "schedule_next_stop" || !at) return setNotice(undefined);
+    if (d !== "schedule_next_stop" || !at) {
+      setNotice(undefined);
+      api.feedback({ action_id: action.id, decision: d }).catch(() => {});
+      return;
+    }
     setNotice({ kind: "sending" });
-    api.notifySchedule(at, action.id).then((r) => setNotice(r.ok && r.sent > 0 ? { kind: "sent", n: r.sent } : { kind: "off" }));
+    api.schedule(at, action.id).then((r) => setNotice(r.sample ? { kind: "sample" } : r.sent > 0 ? { kind: "sent", n: r.sent } : { kind: "off" }));
   };
   const btn = (r: Recommendation, primary: boolean) => (
     <button key={r} onClick={() => choose(r)} aria-pressed={chosen === r}
-      className={`btn inline-flex items-center justify-center gap-2 ${primary ? "btn-primary text-[17px] lg:text-[19px] min-h-[54px] lg:min-h-[60px]"
+      className={`btn inline-flex items-center justify-center gap-2 ${primary ? `${r === "fix_now" ? "btn-act" : "btn-primary"} text-[17px] lg:text-[19px] min-h-[54px] lg:min-h-[60px]`
         : r === "monitor" ? "btn-outline" : "btn-strong"}`}>
       {chosen === r && <IconTick size={18} />}{text[r]}
     </button>
@@ -54,7 +57,7 @@ function Recorded() {
   );
 }
 
-// Schedule: the Telegram result, or that it is not connected.
+// Schedule: "notified" only when a live backend reports sent >= 1; otherwise sample data or not connected.
 function Toast({ n }: { n: Notice }) {
   const { t } = useLang();
   const sent = n.kind === "sent";
@@ -64,7 +67,7 @@ function Toast({ n }: { n: Notice }) {
       <span className={`flex-none w-8 h-8 rounded-full flex items-center justify-center ${sent ? "bg-ok text-white" : "bg-paper text-muted"}`}>
         <IconPhone size={16} />
       </span>
-      {n.kind === "sending" ? t("notifying") : sent ? t("notified", { n: n.n }) : t("notConnected")}
+      {n.kind === "sending" ? t("notifying") : sent ? t("notified", { n: n.n }) : t(n.kind === "sample" ? "sampleScheduled" : "notConnected")}
     </p>
   );
 }

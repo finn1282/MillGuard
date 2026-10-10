@@ -4,6 +4,10 @@ import type {
 } from "./types";
 
 export const USE_FIXTURES = import.meta.env.VITE_USE_FIXTURES === "true";
+// True when showing sample data: fixture mode, or after a fallback to fixtures (call markSampleFallback when that happens).
+let fellBack = false;
+export const markSampleFallback = () => { fellBack = true; };
+export const isSample = () => USE_FIXTURES || fellBack;
 const API = String(import.meta.env.VITE_API_URL ?? "").replace(/\/$/, "");
 
 const files = import.meta.glob(["../../../contracts/fixtures/*.json", "../../../contracts/fixtures/backtest_grid/*.json"],
@@ -101,11 +105,17 @@ export const api = {
   advice: (asset_id: string, at: string, lang: "en" | "ms") =>
     USE_FIXTURES ? fixtureAdvice(asset_id, at, lang) : post<AdviceOut>("/advice", { asset_id, at, lang }, 75_000),
   notify: (at: string, kind: "alert" | "brief" | "schedule" = "alert", action_id?: string) =>
-    USE_FIXTURES && kind === "schedule" ? fixture<NotifyOut>("notify_schedule")
-      : post<NotifyOut>("/notify", { at, kind, action_id }),
-  // v1.13 Schedule: live mode checks the bot first; fixture mode uses notify_schedule.json. Never claims a send that did not happen.
-  notifySchedule: async (at: string, action_id: string): Promise<NotifyOut> => {
-    if (!USE_FIXTURES && !(await api.notifyStatus()).enabled) return { ok: false, sent: 0 };
-    return api.notify(at, "schedule", action_id).catch(() => ({ ok: false, sent: 0 }));
+    post<NotifyOut>("/notify", { at, kind, action_id }),
+  // v1.13 Schedule: notify only, the backend records the feedback whether Telegram is on or off.
+  // Backend unreachable: record the feedback directly. Sample data never sends, so it never claims to.
+  schedule: async (at: string, action_id: string): Promise<{ sample: boolean; sent: number }> => {
+    if (isSample()) return { sample: true, sent: 0 };
+    try {
+      const r = await api.notify(at, "schedule", action_id);
+      return { sample: false, sent: r.ok ? r.sent : 0 };
+    } catch (e) {
+      if (e instanceof TypeError) api.feedback({ action_id, decision: "schedule_next_stop" }).catch(() => {});
+      return { sample: false, sent: 0 };
+    }
   },
 };

@@ -91,6 +91,7 @@ const S = {
   notifying: ["Notifying engineers on Telegram…", "Memaklumkan jurutera melalui Telegram…"],
   notified: ["Engineers notified on Telegram ({n} recipients)", "Jurutera dimaklumkan melalui Telegram ({n} penerima)"],
   notConnected: ["Scheduled. Telegram is not connected.", "Dijadualkan. Telegram tidak disambungkan."],
+  sampleScheduled: ["Scheduled (sample data — no Telegram message sent)", "Dijadualkan (data contoh — tiada mesej Telegram dihantar)"],
   lastService: ["Last service", "Servis terakhir"],
   hoursAgo: ["{h} hours ago", "{h} jam lalu"],
   machines: ["Machines", "Mesin"],
