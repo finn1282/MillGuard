@@ -235,6 +235,7 @@ def simulate_all(seed=2025):
         lives.append(pd.DataFrame(d["lives"]))
         for pi in range(4):
             hidden.append(pd.DataFrame(dict(mill_id=mill, asset_id=f"press_{pi + 1}", t=d["t"], inc=d["inc"][:, pi])))
+        hidden.append(pd.DataFrame(dict(mill_id=mill, asset_id="boiler_1", t=d["t"], inc=d["boiler_on"].astype(float))))
     out = dict(telemetry=pd.concat(tels), errors=pd.concat(errs), failures=pd.concat(fails),
                maintenance=pd.concat(wos), lives=pd.concat(lives), hidden=pd.concat(hidden))
     for k, v in out.items():

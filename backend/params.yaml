@@ -12,6 +12,8 @@ economics:
   unplanned_press_stop_h: {value: 4,    unit: h,       source: "Team assumption", status: assumed}
   unplanned_boiler_stop_h: {value: 8,   unit: h,       source: "Team assumption (boiler stop halts whole mill)", status: assumed}
   planned_repair_extra_lost_h: {value: 0, unit: h,     source: "Repair done inside weekly planned stop", status: assumed}
+  repair_stop_h_press: {value: 2, unit: h, source: "Fix-now repair stops one press this long", status: assumed}
+  repair_stop_h_boiler: {value: 0, unit: h, source: "Boiler fix-now is a no-stop intervention", status: assumed}
   unplanned_repair_multiplier: {value: 1.5, unit: x parts, source: "Run-to-failure causes collateral damage; repair costs 1.5x planned parts", status: assumed}
   lost_share:          {value: 0.30,    unit: fraction, source: "Share of delayed output truly lost; range 0.20-0.40; rest caught up", status: assumed}
   lost_share_low:      {value: 0.20,    unit: fraction, source: "Plan 3.2 range", status: assumed}
@@ -27,8 +29,8 @@ repair_cost_rm:   # parts + labour per fault class (placeholders)
   gearbox_shaft:  {value: 9000,  unit: RM, source: "Placeholder", status: assumed}
   hydraulic_cone: {value: 3500,  unit: RM, source: "Placeholder", status: assumed}
   electrical:     {value: 2500,  unit: RM, source: "Placeholder", status: assumed}
-  boiler_steam:   {value: 8000,  unit: RM, source: "Placeholder", status: assumed}
-  boiler_water:   {value: 6000,  unit: RM, source: "Placeholder", status: assumed}
+  boiler_steam:   {value: 3000,  unit: RM, source: "No-stop intervention (feed-water dosing, blowdown); placeholder", status: assumed}
+  boiler_water:   {value: 3000,  unit: RM, source: "No-stop intervention (water treatment); placeholder", status: assumed}
   unknown:        {value: 3000,  unit: RM, source: "Placeholder", status: assumed}
 
 simulator:
@@ -55,5 +57,8 @@ alerting:
   max_per_shift:   {value: 5,   unit: count, source: "Plan 4.1", status: validated}
   horizon_h:       {value: 72,  unit: h,     source: "Plan 4.1", status: validated}
   hysteresis_ratio: {value: 0.6, unit: x threshold, source: "Clear below 60% of threshold", status: assumed}
+  inspection_finds_wrong_class: {value: 0.5, unit: probability, source: "If the predicted class is wrong, the crew inspection still finds the real fault this often", status: assumed}
+  fix_now_response_h: {value: 2, unit: h, source: "Time from fix-now alert to repair done", status: assumed}
+  clear_hours:     {value: 6, unit: h, source: "Alert clears after this many hours below hysteresis level", status: assumed}
   min_lead_h:      {value: 6,   unit: h,     source: "Alert only if time remains to act", status: assumed}
   fixed_interval_h: {value: 1000, unit: h,   source: "Fixed-interval policy; near RCM worm interval ~1,217 h", status: assumed}

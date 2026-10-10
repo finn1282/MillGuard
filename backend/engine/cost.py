@@ -46,3 +46,8 @@ def false_alarm_cost(p) -> int:
 
 def saved_if_acted(p, fault_class: str, cpo_price=None, miss_mult=1.0) -> int:
     return breakdown_cost(p, fault_class, cpo_price, miss_mult) - planned_cost(p, fault_class)
+
+
+def fix_now_stop_cost(p, atype: str, cpo_price=None) -> int:
+    h = val(p, "economics", "repair_stop_h_boiler" if atype == "boiler" else "repair_stop_h_press")
+    return round(h * rm_per_mill_hour(p, cpo_price) * criticality(p, atype) * val(p, "economics", "lost_share"))
