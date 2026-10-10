@@ -334,3 +334,19 @@ class FeedbackIn(BaseModel):
 
 class FeedbackOut(BaseModel):
     ok: bool
+
+
+class NotifyIn(BaseModel):
+    at: str | None = None
+    kind: Literal["alert", "brief"]
+
+
+class NotifyOut(BaseModel):
+    ok: bool
+    sent: int
+
+
+class NotifyStatus(BaseModel):
+    enabled: bool
+    channel: str
+    subscribers: int

@@ -170,3 +170,9 @@ export interface Robustness {
 // POST /api/feedback
 export interface FeedbackIn { action_id: string; useful?: boolean; decision?: Recommendation }
 export interface FeedbackOut { ok: boolean }
+
+// v1.8 (additive). POST /api/notify sends what the replay clock shows at `at` to Telegram subscribers.
+export interface NotifyIn { at?: string; kind: "alert" | "brief" }
+export interface NotifyOut { ok: boolean; sent: number } // ok=false, sent=0 when the bot is not configured
+// GET /api/notify/status. The "Send to phone" button is shown only when enabled.
+export interface NotifyStatus { enabled: boolean; channel: string; subscribers: number }

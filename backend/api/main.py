@@ -8,7 +8,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
 from backend.api.models import (AssetDetail, Assumption, Backtest, Brief, FeedbackIn, FeedbackOut,
-                                FaultGuide, Line, Marker, Meta, Robustness)
+                                FaultGuide, Line, Marker, Meta, NotifyIn, NotifyOut, NotifyStatus, Robustness)
 
 ROOT = Path(__file__).resolve().parents[2]
 FIX = ROOT / "contracts" / "fixtures"
@@ -106,6 +106,26 @@ def replay_markers(at: str | None = None):
 @app.post("/api/feedback", response_model=FeedbackOut)
 def feedback(body: FeedbackIn):
     if not STUB:
-        with open(ART / "feedback.jsonl", "a") as f:
-            f.write(body.model_dump_json() + "\n")
+        from backend.api.feedback import record
+        record(body)
     return {"ok": True}
+
+
+@app.get("/api/notify/status", response_model=NotifyStatus)
+def notify_status():
+    if STUB:
+        return fx("notify_status")
+    from backend.notify import send
+    return send.status()
+
+
+@app.post("/api/notify", response_model=NotifyOut)
+def notify(body: NotifyIn):
+    if STUB:
+        return {"ok": False, "sent": 0}
+    from backend.notify import send
+    try:
+        ok, sent = send.notify(svc, body.at, body.kind)
+    except Exception:   # a Telegram or network problem must never take the API down
+        return {"ok": False, "sent": 0}
+    return {"ok": ok, "sent": sent}

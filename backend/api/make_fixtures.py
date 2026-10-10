@@ -3,7 +3,7 @@ Fixture mode (MILLGUARD_STUB=1) is the demo backup, so it shows true numbers. Ru
 import json
 from pathlib import Path
 
-from backend.api.models import (AssetDetail, Assumption, Backtest, Brief, FeedbackOut, Line, Marker, Meta, Robustness)
+from backend.api.models import (AssetDetail, Assumption, Backtest, Brief, FeedbackOut, Line, Marker, Meta, NotifyOut, NotifyStatus, Robustness)
 from backend.engine import playbook
 from backend.engine.service import ART, ASSETS, Service
 
@@ -37,6 +37,8 @@ def main():
     write("robustness", Robustness(**s.robustness()))
     write("faults", playbook.all_guides())
     write("feedback", FeedbackOut(ok=True))
+    write("notify_status", NotifyStatus(enabled=False, channel="telegram", subscribers=0))
+    write("notify", NotifyOut(ok=False, sent=0))
     (OUT / "bookmarks.json").write_text(json.dumps(at, indent=1))
     print("fixtures (real snapshot) written to", OUT, at)
 

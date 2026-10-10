@@ -305,3 +305,26 @@ COST_EXPLAIN_PRESS = ("A press breakdown costs {h} hours x RM{per_press_h:,.0f} 
                       "(about RM{total:,.0f} for worm wear)",)
 COST_EXPLAIN_BOILER = ("A boiler breakdown costs {h} hours x RM{per_mill_h:,.0f} per mill-hour (the whole mill stops) x {share:.0%} truly lost + repair cost x {mult} "
                        "(about RM{total:,.0f})",)
+
+# ---- v1.8 Telegram messages (same facts as the app; EN and BM per subscriber) ----
+NOTIFY = {
+    "alert": ("⚠️ {asset} · {fault} · {risk}% chance it fails {window} · {rec} · Protects RM{saved:,}\nWhy: {reason}\nWhen: {deadline}",
+              "⚠️ {asset} · {fault} · {risk}% kemungkinan rosak {window} · {rec} · Melindungi RM{saved:,}\nSebab: {reason}\nBila: {deadline}"),
+    "rec_fix_now": ("Fix now", "Baiki sekarang"),
+    "rec_schedule": ("Schedule for {deadline}", "Jadualkan untuk {deadline}"),
+    "brief_head": ("🌙 MillGuard · {shift} shift brief · {clock}", "🌙 MillGuard · ringkasan syif {shift} · {clock}"),
+    "shift": {"night": ("night", "malam"), "day": ("day", "siang")},
+    "brief_line": ("{i}. {asset} · {fault} · {risk}% · {rec} · Protects RM{saved:,}",
+                   "{i}. {asset} · {fault} · {risk}% · {rec} · Melindungi RM{saved:,}"),
+    "brief_total": ("Total protected: RM{total:,}", "Jumlah dilindungi: RM{total:,}"),
+    "brief_none": ("✅ Nothing needs you {when}. Watching {w} machine(s).", "✅ Tiada tindakan diperlukan {when}. Memantau {w} mesin."),
+    "when": {"night": ("tonight", "malam ini"), "day": ("today", "hari ini")},
+    "buttons": {"fix_now": ("Fix now", "Baiki sekarang"), "schedule_next_stop": ("Schedule", "Jadualkan"),
+                "monitor": ("Keep watching", "Terus pantau")},
+    "recorded": ("Recorded: {choice}. Thank you.", "Direkodkan: {choice}. Terima kasih."),
+    "start": ("Subscribed to MillGuard alerts (English). Use /bm for Bahasa Malaysia, /brief for the current brief.",
+              "Dilanggan kepada amaran MillGuard (Bahasa Malaysia). Guna /en untuk bahasa Inggeris, /brief untuk ringkasan semasa."),
+    "lang_set": ("Language set to English.", "Bahasa ditetapkan kepada Bahasa Malaysia."),
+    "not_allowed": ("This chat is not on the allowed list.", "Sembang ini tiada dalam senarai dibenarkan."),
+    "budget": ("(Alert limit for this shift reached; more are in the app.)", "(Had amaran untuk syif ini dicapai; selebihnya ada dalam aplikasi.)"),
+}

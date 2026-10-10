@@ -24,6 +24,16 @@ Other targets:
 | `make fixtures` | Re-snapshots `contracts/fixtures/` from the real API (run after `make all`) |
 | `MILLGUARD_STUB=1 make api` | Serves the fixtures instead of live artifacts (demo backup) |
 
+## Telegram alerts (optional)
+
+1. In Telegram, message @BotFather, send `/newbot`, and copy the token.
+2. `cp backend/.env.example backend/.env` and paste the token after `TELEGRAM_BOT_TOKEN=` (the file is gitignored; never commit or share it).
+   Optional: `TELEGRAM_ALLOWED_CHATS=` with comma-separated chat ids.
+3. `make bot` (long polling, no public URL). Each person (or a group) sends `/start`; `/en` and `/bm` switch language, `/brief` sends the brief.
+4. With `make api` running, the frontend (or `curl -X POST localhost:8000/api/notify -H 'content-type: application/json' -d '{"at":"2025-09-29T15:00:00+08:00","kind":"alert"}'`) sends what the replay clock shows. `GET /api/notify/status` says whether it is enabled.
+5. Tapping Fix now / Schedule / Keep watching records feedback through the same code as `POST /api/feedback`.
+Without a token everything still runs; `enabled` is false and nothing is sent.
+
 ## How it is built
 
 - `backend/sim/` simulator: 10 mills, calendar 2025, hourly; 4 presses + 1 boiler; hidden component lives; assumed P-F warning periods (`params.yaml`).
