@@ -1,7 +1,9 @@
 #!/bin/sh
 # Start the API and the Telegram bot together; Ctrl+C stops both.
 PY=${1:-.venv/bin/python}
-rm -f backend/data/notify_sent.json   # a fresh demo may send the same alerts again
+export MILLGUARD_STATE_FILE=backend/data/state.json   # API and bot are two processes: share state through a file
+export LIVE_AUTONOTIFY=${LIVE_AUTONOTIFY:-1}
+rm -f $MILLGUARD_STATE_FILE   # a fresh demo may send the same alerts again
 $PY -m uvicorn backend.api.main:app --host 0.0.0.0 --port 8000 &
 API=$!
 trap 'kill $API 2>/dev/null' EXIT INT TERM

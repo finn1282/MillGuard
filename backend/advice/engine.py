@@ -7,12 +7,12 @@ from pathlib import Path
 
 from pydantic import BaseModel, ValidationError
 
+from backend import state
 from backend.advice import llm
 from backend.api.models import AdviceOut, AdviceSection, AdviceSource
 
 ROOT = Path(__file__).resolve().parents[2]
 KNOW = ROOT / "backend" / "knowledge"
-CACHE = ROOT / "backend" / "data" / "advice_cache.json"
 FIX = ROOT / "contracts" / "fixtures"
 HEADINGS = {"en": ["Check first", "Step by step", "Safety", "Parts and tools", "Call the manufacturer if"],
             "ms": ["Semak dahulu", "Langkah demi langkah", "Keselamatan", "Alat dan alat ganti", "Hubungi pengilang jika"]}
@@ -118,7 +118,7 @@ def from_fixture(aid, at, lang):
 
 def load_cache():
     try:
-        return json.loads(CACHE.read_text())
+        return state.db().get("advice_cache") or {}
     except Exception:
         return {}
 
@@ -154,8 +154,7 @@ def advise(svc, aid, at, lang="en", use_cache=True) -> AdviceOut:
                 out = None
         if out is None or len(out.sections) != 5:
             return unavailable(lang)
-        CACHE.parent.mkdir(exist_ok=True)
-        c = load_cache(); c[k] = out.model_dump(mode="json"); CACHE.write_text(json.dumps(c, ensure_ascii=False, indent=1))
+        c = load_cache(); c[k] = out.model_dump(mode="json"); state.db().set("advice_cache", c)
         return out
     except Exception as e:
         print("advice: failed:", type(e).__name__)

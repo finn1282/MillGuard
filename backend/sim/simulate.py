@@ -41,7 +41,7 @@ def effect(comp, age, life):
     return float(np.clip(1 - (life - age) / PRECURSOR_H[comp], 0, 1)) if comp in PRECURSOR_H else 0.0
 
 
-def run_dynamics(rng, p, mill):
+def run_dynamics(rng, p, mill, force=None):
     """Hour loop: throughput, wear, failures. Returns arrays and records."""
     PRECURSOR_H.update({c: val(p, "simulator", f"pf_h_{c}") for c in ("worm_wear", "gearbox_shaft", "bearing", "hydraulic_cone")})
     crop = np.array(val(p, "simulator", "crop_index_2025"))
@@ -77,6 +77,11 @@ def run_dynamics(rng, p, mill):
     noise_t = rng.normal(0, 0.03, size=(H, P))
 
     for h in range(H):
+        if force and h == force["h_pre"]:   # scenario: this component will fail `extra` running hours from now (its normal warning ramp precedes it)
+            s = state[(force["asset"], force["comp"])]
+            s["life"] = s["age"] + force["extra"]
+            last = next(x for x in reversed(lives_log) if x["asset_id"] == force["asset"] and x["comp"] == force["comp"])
+            last["life"] = s["life"]
         mill_up = base_run[h] and h >= mill_down
         boiler_on[h] = mill_up
         for pi in range(P):
@@ -214,21 +219,40 @@ def build_failures(rng, p, mill, d):
     return fail, wo
 
 
-def simulate_all(seed=2025, mills=None, noise_fixed=None, seed_shift=0, id_offset=0, out_dir=DATA, tables=None):
-    """Default: the 10 mills. Augmented copies: mills=1..9, noise_fixed=2.0, own seeds, ids shifted by id_offset, own folder."""
+def draw_mill(p, seed, mill, noise_fixed, force_spec=None):
+    """Scenario design for one mill: stop counts inside the target; demo mill 10 needs a boiler event. Returns (d, rng, noise_mult, offset).
+    force_spec = (asset, comp, h0, run_h): re-run the accepted draw with that component failing run_h running hours after hour h0."""
+    lo, hi = val(p, "simulator", "target_stops_per_mill_year")
+    for attempt in range(50):
+        def start():
+            rng = np.random.default_rng(seed + mill + 1000 * attempt)
+            noise_mult = noise_fixed or rng.uniform(0.85, 1.25) * (1.25 if mill == 10 else 1.0)   # mill 10 deliberately noisier
+            return rng, noise_mult, rng.uniform(-0.03, 0.03) + (0.04 if mill == 10 else 0.0)       # and miscalibrated
+        rng, noise_mult, offset = start()
+        d = run_dynamics(rng, p, mill)
+        n_press = sum(a != "boiler_1" for _, a, _ in d["failures"])
+        n_boiler = len(d["failures"]) - n_press
+        if lo <= n_press <= hi and (mill != 10 or n_boiler >= 1):
+            break
+    if force_spec is None:
+        return d, rng, noise_mult, offset
+    asset, comp, h0, run_h = force_spec
+    run = d["inc"][:, int(asset[-1]) - 1] if asset != "boiler_1" else d["boiler_on"].astype(float)
+    C = np.cumsum(run)
+    h_pre = h0 - 24 * 21
+    extra = float(C[h0] + run_h - C[h_pre - 1])
+    rng, noise_mult, offset = start()
+    d = run_dynamics(rng, p, mill, force=dict(asset=asset, comp=comp, h_pre=h_pre, extra=extra))
+    return d, rng, noise_mult, offset
+
+
+def simulate_all(seed=2025, mills=None, noise_fixed=None, seed_shift=0, id_offset=0, out_dir=DATA, tables=None, force_spec=None, write=True):
+    """Default: the 10 mills. Augmented copies: mills=1..9, noise_fixed=2.0, own seeds, ids shifted by id_offset, own folder.
+    Scenarios: mills=[10], force_spec, write=False."""
     p = load(); out_dir.mkdir(parents=True, exist_ok=True)
     tels, errs, fails, wos, lives, hidden = [], [], [], [], [], []
     for mill in (mills or range(1, val(p, "simulator", "n_mills") + 1)):
-        lo, hi = val(p, "simulator", "target_stops_per_mill_year")
-        for attempt in range(50):   # scenario design: stop counts inside target; demo mill 10 needs a boiler event
-            rng = np.random.default_rng(seed + seed_shift + mill + 1000 * attempt)
-            noise_mult = noise_fixed or rng.uniform(0.85, 1.25) * (1.25 if mill == 10 else 1.0)   # mill 10 deliberately noisier
-            offset = rng.uniform(-0.03, 0.03) + (0.04 if mill == 10 else 0.0)       # and miscalibrated
-            d = run_dynamics(rng, p, mill + id_offset)
-            n_press = sum(a != "boiler_1" for _, a, _ in d["failures"])
-            n_boiler = len(d["failures"]) - n_press
-            if lo <= n_press <= hi and (mill != 10 or n_boiler >= 1 or id_offset):
-                break
+        d, rng, noise_mult, offset = draw_mill(p, seed + seed_shift, mill, noise_fixed, force_spec)
         mid = mill + id_offset
         tel = build_telemetry(rng, p, mid, d, noise_mult, offset)
         f, wo = build_failures(rng, p, mid, d)
@@ -240,7 +264,7 @@ def simulate_all(seed=2025, mills=None, noise_fixed=None, seed_shift=0, id_offse
     out = dict(telemetry=pd.concat(tels), errors=pd.concat(errs), failures=pd.concat(fails),
                maintenance=pd.concat(wos), lives=pd.concat(lives), hidden=pd.concat(hidden))
     for k, v in out.items():
-        if tables is None or k in tables:
+        if write and (tables is None or k in tables):
             v.reset_index(drop=True).to_parquet(out_dir / f"{k}.parquet")
     return out
 

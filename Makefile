@@ -1,5 +1,5 @@
 PY=.venv/bin/python
-.PHONY: pitch demo bot stress setup libomp fixtures api all roi report
+.PHONY: scenarios live stream pitch demo bot stress setup libomp fixtures api all roi report
 setup:
 	uv venv --allow-existing --python 3.11 .venv && uv pip install --python $(PY) -r backend/requirements.txt
 	@if [ "$$(uname)" = Darwin ]; then $(PY) -c 'import lightgbm' 2>/dev/null || sh backend/scripts/fix_libomp.sh $(PY); fi
@@ -7,6 +7,12 @@ pitch:
 	$(PY) -m backend.scripts.export_pitch
 demo:
 	sh backend/scripts/demo.sh $(PY)
+live:   # API + polling bot with shared state and auto-notify; stream with `make stream SCENARIO=bad_sensor`
+	sh backend/scripts/demo.sh $(PY)
+scenarios:
+	$(PY) -m backend.gateway.scenarios
+stream:
+	$(PY) -m backend.scripts.stream --scenario $(or $(SCENARIO),mill10) --speed $(or $(SPEED),2)
 demo-offline:
 	sh backend/scripts/demo_offline.sh
 check:

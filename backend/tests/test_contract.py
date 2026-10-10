@@ -119,7 +119,7 @@ def test_advice_never_crashes_without_key(monkeypatch):
     assert engine.advise(s, "nope", None, "ms").message
 
 
-def test_notify_schedule_v113(monkeypatch, tmp_path):
+def test_notify_schedule_v113(monkeypatch):
     if not PRED.exists():
         pytest.skip("run `make all` first")
     from fastapi.testclient import TestClient
@@ -128,14 +128,16 @@ def test_notify_schedule_v113(monkeypatch, tmp_path):
     if STUB:
         pytest.skip("stub mode")
     monkeypatch.setattr(store, "token", lambda: None)   # no token: ok false, sent 0, no crash
-    monkeypatch.setattr("backend.api.feedback.ART", tmp_path)
+    from backend import state
+    state.use(state.Memory())
     c, at = TestClient(app), load("bookmarks")["act"]
     assert c.post("/api/notify", json={"kind": "schedule", "at": at}).status_code == 422
     assert c.post("/api/notify", json={"kind": "schedule", "at": at, "action_id": "nope"}).status_code == 404
     a = load("brief_act")["actions"][0]
     r = c.post("/api/notify", json={"kind": "schedule", "at": at, "action_id": a["id"]})
     assert r.status_code == 200 and r.json() == {"ok": False, "sent": 0}
-    assert "schedule_next_stop" in (tmp_path / "feedback.jsonl").read_text()
+    assert any(x["decision"] == "schedule_next_stop" for x in state.db().items("feedback"))
+    state.use(None)
     for lang in ("en", "ms"):
         msg = messages.scheduled_text(a, lang)
         assert a[f"deadline_label_{lang}"] in msg and f"RM{a['rm_saved_if_acted']:,}" in msg

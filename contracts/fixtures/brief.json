@@ -142,5 +142,6 @@
  ],
  "rm_protected_total": 78431,
  "watching_count": 0,
- "suppressed_count": 0
+ "suppressed_count": 0,
+ "sensor_alerts": []
 }

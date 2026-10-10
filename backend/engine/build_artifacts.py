@@ -7,7 +7,7 @@ import pandas as pd
 
 from backend.engine import cost, decide, fingerprint, text
 from backend.engine.explain import Explainer
-from backend.engine.service import ART, ASSETS, DAY_EN, DAY_MS, NAME, Service, iso
+from backend.engine.service import ART, ASSETS, DAY_EN, DAY_MS, NAME, Service, files, iso
 from backend.params import val
 from backend.sim.simulate import DATA
 
@@ -41,13 +41,15 @@ def headline(p, ep):
             text.HEADLINE_SCHED_MS.format(asset=nm_ms, fault=f_ms.capitalize(), phrase=ph_ms, when=w_ms))
 
 
-def build_actions(p, fit):
+def build_actions(p, fit, f=None, feats=None):
+    """f: the dataset's files (service.files); feats: its feature table (default: the training features file, which holds mill 10)."""
     from backend.engine import backtest
-    pred = pd.read_parquet(ART / "mill10_predictions.parquet")
-    fails = pd.read_parquet(ART / "mill10_failures.parquet")
+    f = f or files(ART, "mill10_")
+    pred = pd.read_parquet(f["predictions"])
+    fails = pd.read_parquet(f["failures"])
     thr = {t: decide.risk_threshold(p, t, fit["k"][t]) for t in ("press", "boiler")}
     ep = decide.run_mill(p, pred, fails, thr, 5, None, 1.0, MILL, fit["trigger"])
-    ex = Explainer(joblib.load(ART / "models.joblib"), pd.read_parquet(DATA / "features_labeled.parquet"))
+    ex = Explainer(joblib.load(ART / "models.joblib"), pd.read_parquet(DATA / "features_labeled.parquet") if feats is None else feats)
     out = []
     for r in ep.itertuples():
         atype = "boiler" if r.asset_id.startswith("boiler") else "press"
@@ -76,13 +78,12 @@ def build_actions(p, fit):
             criticality="whole_mill" if atype == "boiler" else "partial",
             t_open=iso(r.t_open), t_close=iso(t_close), t_candidate=iso(r.t_candidate),
             internal=dict(reason_pool=pool, t_hold=iso(max(hold, t_close)), outcome=r.outcome, fail_idx=None if r.fail_idx is None or pd.isna(r.fail_idx) else int(r.fail_idx))))
-    fails = pd.read_parquet(ART / "mill10_failures.parquet")
-    (ART / "test_mill.json").write_text(json.dumps(backtest.test_mill_table(ep, fails), indent=1))
-    (ART / "actions.json").write_text(json.dumps(out, indent=1, ensure_ascii=False))
+    (f["actions"].parent / "test_mill.json").write_text(json.dumps(backtest.test_mill_table(ep, fails), indent=1))
+    f["actions"].write_text(json.dumps(out, indent=1, ensure_ascii=False))
     return ep
 
 
-def build_markers(svc: Service, ep):
+def build_markers(svc: Service, ep, out_file=None):
     M = text.MARKERS
     nights = [t for t in svc.times if t.hour == 19 and t >= pd.Timestamp("2025-02-01")]
     briefs = {t: svc.brief(iso(t)) for t in nights}
@@ -136,7 +137,7 @@ def build_markers(svc: Service, ep):
         out.append(dict(t=iso(r.t), kind="breakdown", asset_id=r.asset_id,
                         label_en=M["breakdown_en"].format(asset=nm), label_ms=M["breakdown_ms"].format(asset=text.name_ms(nm))))
     out.sort(key=lambda m: m["t"])
-    (ART / "markers.json").write_text(json.dumps(out, indent=1, ensure_ascii=False))
+    (out_file or ART / "markers.json").write_text(json.dumps(out, indent=1, ensure_ascii=False))
     print("bookmarks:", [(m["t"], m["label_en"]) for m in out if m["kind"] == "bookmark"],
           "" if both_t is not None else "\nWARNING: no prevented boiler alert")
 

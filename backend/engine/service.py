@@ -41,18 +41,25 @@ def shift_of(t) -> str:
     return "night" if t.hour >= 19 or t.hour < 7 else "day"
 
 
+def files(root, prefix):
+    """Table files of one dataset: the mill-10 artifacts (prefix 'mill10_') or a scenario folder (no prefix)."""
+    return {k: root / f"{prefix}{k}.parquet" for k in ("predictions", "failures", "telemetry", "lives", "hidden", "maintenance", "errors")} \
+        | {"actions": root / "actions.json", "markers": root / "markers.json"}
+
+
 class Service:
-    def __init__(self):
+    def __init__(self, root=ART, prefix="mill10_"):
+        self.root, self.f = root, files(root, prefix)
         self.p = load()
         self.fit = json.loads((ART / "policy_fit.json").read_text())
-        self.pred = pd.read_parquet(ART / "mill10_predictions.parquet")
-        self.fails = pd.read_parquet(ART / "mill10_failures.parquet")
-        self.tel = pd.read_parquet(ART / "mill10_telemetry.parquet")
-        self.lives = pd.read_parquet(ART / "mill10_lives.parquet")
-        self.hidden = pd.read_parquet(ART / "mill10_hidden.parquet")
-        self.maint = pd.read_parquet(ART / "mill10_maintenance.parquet") if (ART / "mill10_maintenance.parquet").exists() else pd.DataFrame(columns=["asset_id", "t", "fault_class"])
-        self.errors = pd.read_parquet(ART / "mill10_errors.parquet") if (ART / "mill10_errors.parquet").exists() else pd.DataFrame(columns=["asset_id", "t"])
-        self.actions = json.loads((ART / "actions.json").read_text())
+        self.pred = pd.read_parquet(self.f["predictions"])
+        self.fails = pd.read_parquet(self.f["failures"])
+        self.tel = pd.read_parquet(self.f["telemetry"])
+        self.lives = pd.read_parquet(self.f["lives"])
+        self.hidden = pd.read_parquet(self.f["hidden"])
+        self.maint = pd.read_parquet(self.f["maintenance"]) if self.f["maintenance"].exists() else pd.DataFrame(columns=["asset_id", "t", "fault_class"])
+        self.errors = pd.read_parquet(self.f["errors"]) if self.f["errors"].exists() else pd.DataFrame(columns=["asset_id", "t"])
+        self.actions = json.loads(self.f["actions"].read_text())
         for a in self.actions:
             for k in ("t_open", "t_close", "t_candidate"):
                 a[k] = pd.Timestamp(a[k]).tz_localize(None)
@@ -432,4 +439,5 @@ class Service:
                     note="Not run yet.")
 
     def markers(self):
-        return json.loads((ART / "markers.json").read_text())
+        f = self.f["markers"] if self.f["markers"].exists() else ART / "markers.json"
+        return json.loads(f.read_text())

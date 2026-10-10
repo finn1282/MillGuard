@@ -9,3 +9,5 @@ __pycache__/
 .DS_Store
 backend/artifacts/*.joblib
 backend/artifacts/feedback.jsonl
+# rebuilt by `make scenarios` (about 5 MB each)
+backend/artifacts/scenarios/

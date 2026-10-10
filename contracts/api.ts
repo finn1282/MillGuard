@@ -228,12 +228,13 @@ export interface LiveStatus {
 // POST /api/live/start (replaces any running session), POST /api/live/stop (body empty, returns LiveStatus with enabled=false)
 export interface LiveStartIn { scenario_id: string; start?: string | null; speed_s_per_h?: number } // speed: seconds of wall clock per simulated hour, used by the client to pace
 export interface LiveSession { session_id: string; scenario_id: string; start_t: string; speed_s_per_h: number; started_wallclock: string }
-// While a session is active, /api/brief, /api/line, /api/assets/{id}, /api/meta and /api/backtest serve the session's scenario at live_at (the `at` argument is ignored);
+// While a session is active, /api/brief, /api/line, /api/assets/{id} and /api/meta serve the session's scenario at live_at (the `at` argument is ignored; /api/backtest stays on mill 10);
 // sensor_alerts are merged into brief and line. With no session nothing changes (mill10, replay clock).
 // GET /api/scenarios, GET /api/scenarios/{id}/hours?from=<iso>&n=<int> -> ReadingIn[] (n hours x 5 assets, oldest first, n <= 168)
 export interface Scenario {
   id: string; name_en: string; name_ms: string; description_en: string; description_ms: string;
   default_start: string; hours: number; upload_enabled: boolean; // upload_enabled false on Vercel
 }
-// POST /api/upload (multipart file; CSV columns asset_id, t, then one column per reading). Local only: 501 on Vercel. Builds scenario "csv_<name>".
+// POST /api/upload (multipart file, or a raw text/csv body with ?name=; CSV columns asset_id, t, then one column per reading; 422 if unreadable or under 400 hourly rows per asset). Local only: 501 on Vercel. Builds scenario "csv_<name>".
+// POST /api/telegram/webhook (Telegram -> server, header X-Telegram-Bot-Api-Secret-Token; not for the frontend).
 export interface UploadOut { scenario_id: string; rows: number; assets: number; issues: string[] }

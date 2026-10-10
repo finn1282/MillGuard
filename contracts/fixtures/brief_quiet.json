@@ -4,5 +4,6 @@
  "actions": [],
  "rm_protected_total": 0,
  "watching_count": 1,
- "suppressed_count": 1
+ "suppressed_count": 1,
+ "sensor_alerts": []
 }

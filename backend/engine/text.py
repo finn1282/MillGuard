@@ -417,3 +417,21 @@ ASSUMPTION_LABEL = {
 POLICY_LABEL = {"fixed_interval": ("Fixed schedule (published RCM intervals)", "Jadual tetap (selang RCM terbitan)")}
 BACKTEST_APPROX = ("After an early repair, the part is treated as renewed; its slightly earlier next wear-out is not modelled "
                    "(median warning about 70 h vs average part lives of 600–1,000 h).")
+
+
+# ---- v1.14 sensor alerts (never machine alerts) ----
+SENSOR_NAME = {"current": ("motor current", "arus motor"), "vibration": ("vibration", "getaran"), "oil_temp": ("gearbox oil temperature", "suhu minyak gear"),
+               "cone_pressure": ("cone pressure", "tekanan kon"), "steam_temp": ("steam temperature", "suhu stim"),
+               "steam_pressure": ("steam pressure", "tekanan stim"), "feedwater_flow": ("feed-water flow", "aliran air suapan"),
+               "feedwater_cond": ("feed-water conductivity", "kekonduksian air suapan"), "fibre": ("oil-in-fibre lab", "makmal minyak dalam serabut"),
+               "throughput": ("throughput", "kadar suapan")}
+SENSOR_MSG = {
+    "stuck": ("{asset} {sensor} sensor looks faulty: the reading is frozen. Check the sensor, not the machine",
+              "Penderia {sensor} {asset} nampak rosak: bacaan beku. Periksa penderia, bukan mesin"),
+    "spike": ("{asset} {sensor} sensor looks faulty: a reading jumped far outside its normal range. Check the sensor, not the machine",
+              "Penderia {sensor} {asset} nampak rosak: bacaan melonjak jauh di luar julat biasa. Periksa penderia, bukan mesin"),
+    "out_of_range": ("{asset} {sensor} sensor looks faulty: the reading is outside what is physically possible. Check the sensor, not the machine",
+                     "Penderia {sensor} {asset} nampak rosak: bacaan di luar julat yang mungkin. Periksa penderia, bukan mesin"),
+    "missing": ("{asset} {sensor} sensor has stopped reporting. Check the sensor and its cable, not the machine",
+                "Penderia {sensor} {asset} berhenti melapor. Periksa penderia dan kabelnya, bukan mesin")}
+NOTIFY["sensor"] = ("🔧 Sensor check: {msg}", "🔧 Semakan penderia: {msg}")

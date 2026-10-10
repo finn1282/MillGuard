@@ -32,6 +32,10 @@ def scheduled_text(a, lang):
               deadline=a[f"deadline_label_{lang}"], saved=a["rm_saved_if_acted"])
 
 
+def sensor_text(i, lang):
+    return _t("sensor", lang, msg=i[f"message_{lang}"])
+
+
 def brief_text(b, lang):
     shift = text.NOTIFY["shift"][b["shift"]][LANG[lang]]
     clock = pd.Timestamp(b["at"]).strftime("%d/%m %H:%M")
