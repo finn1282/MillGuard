@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How it works (desktop)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F3F1EC}
+a{color:#1D4ED8}a:hover{color:#1E3A8A}
+.mono{font-family:'JetBrains Mono',monospace}
+.sec{background:#FFFFFF;border:1px solid #D9D5CC;border-radius:6px;padding:22px}
+.label{font-size:16px;letter-spacing:.08em;text-transform:uppercase;color:#545B61;font-weight:700;margin:0}
+.btn{font-family:inherit;font-size:17px;font-weight:700;border-radius:6px;padding:12px 18px;min-height:52px;cursor:pointer;line-height:1.2}
+.navl{display:flex;align-items:center;gap:12px;padding:12px;border-radius:6px;color:#D5D8DA;text-decoration:none;font-size:17px;min-height:48px;box-sizing:border-box}
+.tb{font-size:16px;min-height:44px;padding:8px 14px}
+.tag{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:4px 12px 4px 8px;font-weight:700;font-size:16px}
+.grad{background:#E6F4F1;color:#0B5D56;border:1px solid #8FCBC2}
+.sud{background:#F3F1EC;color:#545B61;border:1px dashed #9C978C}
+.dt{font-size:16px;font-weight:700;color:#545B61;margin:12px 0 2px}
+.dd{font-size:17px;line-height:1.45;margin:0}
+.hl{padding:10px 0;border-top:1px solid #E6E2D9;font-size:17px;line-height:1.45}
+</style>
+</head>
+<body>
+<div style="font-family:'Archivo',sans-serif;color:#16191C;background:#F3F1EC;min-height:2300px;display:flex;flex-wrap:wrap">
+<nav aria-label="Main" style="flex:0 0 212px;background:#16191C;color:#F3F1EC;display:flex;flex-direction:column;gap:4px;padding:24px 14px">
+  <div style="font-weight:800;font-size:20px;letter-spacing:.04em;padding:0 12px 28px">MILLGUARD</div>
+  <a href="#" class="navl"><span class="mono" style="font-size:14px;color:#9AA1A6">01</span>Mill</a>
+  <a href="#" class="navl"><span class="mono" style="font-size:14px;color:#9AA1A6">02</span>Machine</a>
+  <a href="#" class="navl"><span class="mono" style="font-size:14px;color:#9AA1A6">03</span>Impact</a>
+  <a href="#" class="navl" aria-current="page" style="background:#F3F1EC;color:#16191C;font-weight:700"><span class="mono" style="font-size:14px;color:#545B61">04</span>How it works</a>
+</nav>
+<main style="flex:999 1 560px;min-width:0;display:flex;flex-direction:column">
+  <div style="display:flex;flex-wrap:wrap;align-items:center;gap:14px;padding:14px 40px;border-bottom:1px solid #D9D5CC;background:#FBFAF7">
+    <span style="font-size:20px;font-weight:800">How does the AI know?</span>
+    <div style="flex:1"></div>
+    <span style="display:inline-flex;align-items:center;gap:6px;font-size:16px;font-weight:700;background:#FEF3C7;color:#78350F;border:1px solid #F5D78E;border-radius:4px;padding:6px 10px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M10 3h4M11 3v6L5 19a1 1 0 0 0 .9 1.5h12.2A1 1 0 0 0 19 19l-6-10V3"/></svg>Sample data</span>
+    <div role="group" aria-label="Language" style="display:flex;border:1px solid #9C978C;border-radius:6px;overflow:hidden"><button class="btn tb" aria-pressed="true" style="border:0;border-radius:0;background:#16191C;color:#F3F1EC">EN</button><button class="btn tb" style="border:0;border-radius:0;background:transparent;color:#16191C">BM</button></div>
+  </div>
+
+  <div style="padding:28px 40px 56px;display:flex;flex-direction:column;gap:36px;max-width:1320px">
+    <section aria-labelledby="h1" style="display:flex;flex-direction:column;gap:16px">
+      <div><h1 id="h1" style="margin:0;font-size:36px;font-weight:800">Five steps, from sensor to ringgit</h1><p style="margin:6px 0 0;font-size:18px;color:#545B61">Followed through with tonight's Press 2 alert.</p></div>
+      <ol style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px">
+        
+          <li class="sec" style="padding:20px;display:flex;flex-direction:column;gap:10px">
+            <span class="mono" style="font-size:16px;font-weight:700;color:#545B61">01</span>
+            <h2 style="margin:0;font-size:24px;font-weight:800">Sense</h2>
+            <p style="margin:0;font-size:17px;line-height:1.45">Cheap clamp-on sensors read each machine every hour. Read-only — nothing talks back to the controls.</p>
+            <div style="margin-top:auto;background:#F3F1EC;border-radius:4px;padding:10px 12px;font-size:16px;line-height:1.4"><strong>Press 2:</strong> motor current, throughput, vibration, oil in fibre</div>
+          </li>
+        
+          <li class="sec" style="padding:20px;display:flex;flex-direction:column;gap:10px">
+            <span class="mono" style="font-size:16px;font-weight:700;color:#545B61">02</span>
+            <h2 style="margin:0;font-size:24px;font-weight:800">Warning signs</h2>
+            <p style="margin:0;font-size:17px;line-height:1.45">Raw readings become trends a fitter would recognise.</p>
+            <div style="margin-top:auto;background:#F3F1EC;border-radius:4px;padding:10px 12px;font-size:16px;line-height:1.4"><strong>Press 2:</strong> current per tonne up 12% in 5 days</div>
+          </li>
+        
+          <li class="sec" style="padding:20px;display:flex;flex-direction:column;gap:10px">
+            <span class="mono" style="font-size:16px;font-weight:700;color:#545B61">03</span>
+            <h2 style="margin:0;font-size:24px;font-weight:800">Predict</h2>
+            <p style="margin:0;font-size:17px;line-height:1.45">The chance of failure in 24, 72 and 168 hours, and which fault it most likely is.</p>
+            <div style="margin-top:auto;background:#F3F1EC;border-radius:4px;padding:10px 12px;font-size:16px;line-height:1.4"><strong>Press 2:</strong> 41% before the 06:00 stop · worm wear, 82%</div>
+          </li>
+        
+          <li class="sec" style="padding:20px;display:flex;flex-direction:column;gap:10px">
+            <span class="mono" style="font-size:16px;font-weight:700;color:#545B61">04</span>
+            <h2 style="margin:0;font-size:24px;font-weight:800">Decide</h2>
+            <p style="margin:0;font-size:17px;line-height:1.45">Ringgit at risk if you wait against the cost of fixing. Only the best few reach you.</p>
+            <div style="margin-top:auto;background:#F3F1EC;border-radius:4px;padding:10px 12px;font-size:16px;line-height:1.4"><strong>Press 2:</strong> RM21,000 − RM3,000 = RM18,000 protected</div>
+          </li>
+        
+          <li class="sec" style="padding:20px;display:flex;flex-direction:column;gap:10px">
+            <span class="mono" style="font-size:16px;font-weight:700;color:#545B61">05</span>
+            <h2 style="margin:0;font-size:24px;font-weight:800">Explain</h2>
+            <p style="margin:0;font-size:17px;line-height:1.45">The top three reasons in plain words, in English or Bahasa Malaysia.</p>
+            <div style="margin-top:auto;background:#F3F1EC;border-radius:4px;padding:10px 12px;font-size:16px;line-height:1.4"><strong>Press 2:</strong> current up, oil loss up, throughput steady</div>
+          </li>
+        
+      </ol>
+    </section>
+
+    <section aria-labelledby="h2" style="display:flex;flex-direction:column;gap:16px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap"><h2 id="h2" style="margin:0;font-size:30px;font-weight:800">Fault guide</h2><span style="font-size:17px;color:#545B61">From published screw press and boiler failure studies</span></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,330px),1fr));gap:14px">
+        
+          <article class="sec" style="padding:20px;display:flex;flex-direction:column">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap"><h3 style="margin:0;font-size:22px;font-weight:800">Worm wear</h3>
+              <span class="tag grad"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M3 18l6-6 4 4 8-8"/></svg>Gradual — predictable</span>
+              
+            </div>
+            <p class="dt">What it is</p><p class="dd">The screw flights that squeeze the fruit wear down.</p>
+            <p class="dt">Fingerprint</p><p class="dd">Current per tonne up, oil in fibre up, throughput steady.</p>
+            <p class="dt">Why it matters</p><p class="dd">More oil lost every hour, then the press stops.</p>
+            <p class="dt">Standard fix</p><p class="dd">Replace the worm set at a planned stop.</p>
+          </article>
+        
+          <article class="sec" style="padding:20px;display:flex;flex-direction:column">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap"><h3 style="margin:0;font-size:22px;font-weight:800">Bearing damage</h3>
+              <span class="tag grad"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M3 18l6-6 4 4 8-8"/></svg>Gradual — predictable</span>
+              
+            </div>
+            <p class="dt">What it is</p><p class="dd">A rolling bearing starts to crack or pit.</p>
+            <p class="dt">Fingerprint</p><p class="dd">Vibration spikes first, then overall vibration rises.</p>
+            <p class="dt">Why it matters</p><p class="dd">A seized bearing can bend the shaft — a long stop.</p>
+            <p class="dt">Standard fix</p><p class="dd">Replace the bearing; check lubrication and alignment.</p>
+          </article>
+        
+          <article class="sec" style="padding:20px;display:flex;flex-direction:column">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap"><h3 style="margin:0;font-size:22px;font-weight:800">Gearbox / shaft</h3>
+              <span class="tag grad"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M3 18l6-6 4 4 8-8"/></svg>Gradual — predictable</span>
+              
+            </div>
+            <p class="dt">What it is</p><p class="dd">Gears or the drive shaft wear or misalign.</p>
+            <p class="dt">Fingerprint</p><p class="dd">Gearbox oil temperature drifts up; vibration rises.</p>
+            <p class="dt">Why it matters</p><p class="dd">Gearbox repairs take days, not hours.</p>
+            <p class="dt">Standard fix</p><p class="dd">Change oil, inspect gears, check the shaft.</p>
+          </article>
+        
+          <article class="sec" style="padding:20px;display:flex;flex-direction:column">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap"><h3 style="margin:0;font-size:22px;font-weight:800">Hydraulic cone</h3>
+              <span class="tag grad"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M3 18l6-6 4 4 8-8"/></svg>Gradual — predictable</span>
+              
+            </div>
+            <p class="dt">What it is</p><p class="dd">The cone that sets pressing force loses pressure.</p>
+            <p class="dt">Fingerprint</p><p class="dd">Cone pressure unstable or dropping.</p>
+            <p class="dt">Why it matters</p><p class="dd">Poor pressing — more oil left in the fibre.</p>
+            <p class="dt">Standard fix</p><p class="dd">Check hydraulic oil, seals and accumulator.</p>
+          </article>
+        
+          <article class="sec" style="padding:20px;display:flex;flex-direction:column">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap"><h3 style="margin:0;font-size:22px;font-weight:800">Electrical</h3>
+              
+              <span class="tag sud"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg>Sudden — hard to predict</span>
+            </div>
+            <p class="dt">What it is</p><p class="dd">Motor, starter or cable fault.</p>
+            <p class="dt">Fingerprint</p><p class="dd">Current spikes or drops out with little warning.</p>
+            <p class="dt">Why it matters</p><p class="dd">The press stops at once.</p>
+            <p class="dt">Standard fix</p><p class="dd">Check motor, starter and cables. Mostly caught after, not before.</p>
+          </article>
+        
+          <article class="sec" style="padding:20px;display:flex;flex-direction:column">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap"><h3 style="margin:0;font-size:22px;font-weight:800">Boiler steam</h3>
+              <span class="tag grad"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M3 18l6-6 4 4 8-8"/></svg>Gradual — predictable</span>
+              
+            </div>
+            <p class="dt">What it is</p><p class="dd">Steam temperature leaves its safe band.</p>
+            <p class="dt">Fingerprint</p><p class="dd">Steam temperature outside 530–545 °C, swinging.</p>
+            <p class="dt">Why it matters</p><p class="dd">Low steam stops the whole mill.</p>
+            <p class="dt">Standard fix</p><p class="dd">Check fuel feed (fibre and shell) and combustion air.</p>
+          </article>
+        
+          <article class="sec" style="padding:20px;display:flex;flex-direction:column">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap"><h3 style="margin:0;font-size:22px;font-weight:800">Boiler water</h3>
+              <span class="tag grad"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M3 18l6-6 4 4 8-8"/></svg>Gradual — predictable</span>
+              
+            </div>
+            <p class="dt">What it is</p><p class="dd">Dissolved solids build up in the boiler water.</p>
+            <p class="dt">Fingerprint</p><p class="dd">Feed-water conductivity up; blowdown overdue.</p>
+            <p class="dt">Why it matters</p><p class="dd">Scale and tube damage — a whole-mill stop.</p>
+            <p class="dt">Standard fix</p><p class="dd">Check dosing, blow down, test the water.</p>
+          </article>
+        
+      </div>
+    </section>
+
+    <section aria-labelledby="h3" style="display:flex;flex-direction:column;gap:16px">
+      <div><h2 id="h3" style="margin:0;font-size:30px;font-weight:800">What's real, simulated and assumed</h2><p style="margin:6px 0 0;font-size:18px;color:#545B61">No public palm oil mill sensor dataset exists, so we say exactly where each number comes from.</p></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px">
+        <div class="sec" style="border-top:4px solid #0F766E">
+          <h3 style="margin:0 0 8px;font-size:22px;font-weight:800;display:flex;gap:8px;align-items:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F766E" stroke-width="2.4" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M7.5 12.5l3 3 6-6"/></svg>Real</h3>
+          <div class="hl">CPO price RM4,292.50/t and OER 19.74% (MPOB 2025)</div>
+          <div class="hl">Monthly crop seasonality (MPOB 2025 production)</div>
+          <div class="hl">Real compressor test data (MetroPT-3, 4 dated failures)</div>
+        </div>
+        <div class="sec" style="border-top:4px solid #1D4ED8">
+          <h3 style="margin:0 0 8px;font-size:22px;font-weight:800;display:flex;gap:8px;align-items:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1D4ED8" stroke-width="2.2" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/></svg>Simulated</h3>
+          <div class="hl">Press and boiler sensor signals, 10 mills × 12 months</div>
+          <div class="hl">Failures and work-order logs, with 10% deliberately messy</div>
+          <div class="hl">Every simulator setting has a cited source</div>
+        </div>
+        <div class="sec" style="border-top:4px solid #78350F">
+          <h3 style="margin:0 0 8px;font-size:22px;font-weight:800;display:flex;gap:8px;align-items:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#78350F" stroke-width="2.2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .8-1 1.5V14M12 17.5v.01"/></svg>Assumed</h3>
+          <div class="hl">Repair parts and labour per fault</div>
+          <div class="hl">Unplanned press stop lasts 4 hours</div>
+          <div class="hl">Share of delayed output truly lost; RM300 per false-alarm check</div>
+        </div>
+      </div>
+      <div class="sec" style="display:flex;flex-wrap:wrap;gap:16px 40px;align-items:center">
+        <h3 style="margin:0;font-size:22px;font-weight:800">Robustness</h3>
+        <span style="font-size:17px">Unseen Mill 10: <strong>[catch rate by fault type — from pipeline]</strong></span>
+        <span style="font-size:17px">Real compressor data: <strong>[caught X of 4 — from pipeline]</strong></span>
+        <a href="#" style="font-size:17px;font-weight:700">See every number and its source →</a>
+      </div>
+    </section>
+  </div>
+</main>
+</div>
+</body>
+</html>

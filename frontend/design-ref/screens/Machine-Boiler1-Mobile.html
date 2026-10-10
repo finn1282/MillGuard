@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Boiler 1 — Machine (mobile)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F3F1EC}
+a{color:#1D4ED8}a:hover{color:#1E3A8A}
+.mono{font-family:'JetBrains Mono',monospace}
+.sec{background:#FFFFFF;border:1px solid #D9D5CC;border-radius:6px;padding:18px}
+.label{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#545B61;font-weight:700;margin:0}
+.btn{font-family:inherit;font-size:16px;font-weight:700;border-radius:6px;padding:10px 12px;min-height:50px;cursor:pointer;line-height:1.2}
+.fp{display:grid;grid-template-columns:24px minmax(0,1fr);gap:10px;padding:12px 0;border-top:1px solid #E6E2D9;align-items:start}
+.ev{display:grid;grid-template-columns:minmax(0,1fr) 104px;gap:10px;align-items:center;padding:12px 0;border-top:1px solid #E6E2D9}
+.li{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-top:1px solid #E6E2D9;font-size:15px;line-height:1.4}
+.box{width:20px;height:20px;border:2px solid #16191C;border-radius:3px;flex:none}
+.tab{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:48px;color:#D5D8DA;text-decoration:none;font-size:12px;line-height:1.15;text-align:center;border-radius:6px;padding:4px 2px}
+</style>
+</head>
+<body>
+<div style="width:390px;height:2300px;box-sizing:border-box;font-family:'Archivo',sans-serif;color:#16191C;background:#F3F1EC;display:flex;flex-direction:column">
+  <div style="background:#FBFAF7;border-bottom:1px solid #D9D5CC;padding:12px 16px;display:flex;flex-direction:column;gap:10px">
+    <div style="display:flex;align-items:center;gap:10px">
+      <button class="btn" aria-label="Play replay" style="background:#16191C;color:#F3F1EC;border:0;width:44px;min-height:44px;padding:0;display:flex;align-items:center;justify-content:center"><svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M4 2l10 6-10 6z"/></svg></button>
+      <div style="flex:1;min-width:0"><div class="mono" style="font-size:15px;font-weight:700">THU 16 OCT · 19:00</div><div style="font-size:13px;color:#545B61">Night shift</div></div>
+      <div role="group" aria-label="Language" style="display:flex;border:1px solid #9C978C;border-radius:6px;overflow:hidden"><button class="btn" aria-pressed="true" style="min-height:44px;padding:0 11px;border:0;border-radius:0;background:#16191C;color:#F3F1EC;font-size:14px">EN</button><button class="btn" style="min-height:44px;padding:0 11px;border:0;border-radius:0;background:transparent;color:#16191C;font-size:14px">BM</button></div>
+    </div>
+    <div style="display:flex;gap:8px;overflow-x:auto;align-items:center">
+      <span style="flex:none;display:inline-flex;align-items:center;gap:5px;font-size:13px;font-weight:700;background:#FEF3C7;color:#78350F;border:1px solid #F5D78E;border-radius:4px;padding:6px 8px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M10 3h4M11 3v6L5 19a1 1 0 0 0 .9 1.5h12.2A1 1 0 0 0 19 19l-6-10V3"/></svg>Sample data</span>
+      <button class="btn" style="flex:none;font-size:14px;min-height:40px;padding:4px 10px;background:transparent;border:1px solid #9C978C;color:#16191C">Quiet night</button>
+      <button class="btn" style="flex:none;font-size:14px;min-height:40px;padding:4px 10px;background:transparent;border:1px solid #9C978C;color:#16191C">Press 2 act now</button>
+      <button class="btn" aria-pressed="true" style="flex:none;font-size:14px;min-height:40px;padding:4px 10px;background:#16191C;border:1px solid #16191C;color:#F3F1EC">Whole mill</button>
+    </div>
+  </div>
+
+  <div style="padding:16px;display:flex;flex-direction:column;gap:14px;flex:1">
+    <a href="#" style="font-size:15px;font-weight:600">← Back to the mill</a>
+    <header style="background:#FFFFFF;border:1px solid #D9D5CC;border-radius:6px;overflow:hidden">
+      <div style="background:#C2410C;color:#FFFFFF;display:flex;align-items:center;gap:6px 8px;padding:9px 16px;font-weight:800;font-size:15px;letter-spacing:.05em;flex-wrap:wrap"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M12 3l10 18H2z"/><path d="M12 10v5M12 18v.01"/></svg>ACT NOW<span style="flex:1"></span><span style="font-weight:600;letter-spacing:0;font-size:14px">by 23:00 tonight</span></div>
+      <div style="display:flex;gap:10px;padding:12px 16px;background:#FFF1E8;border-bottom:1px solid #F3C9AE;font-size:15px;line-height:1.4"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9A3412" stroke-width="2.2" aria-hidden="true" style="flex:none;margin-top:1px"><path d="M3 20V10l5 3V10l5 3V6l8 4v10z"/></svg><span><strong>Why first:</strong> the boiler stops the whole mill — all 4 presses stop with it.</span></div>
+      <div style="padding:16px;display:flex;flex-direction:column;gap:4px">
+        <div style="font-size:14px;color:#545B61;font-weight:600">Boiler house · whole-mill risk</div>
+        <h1 style="margin:0;font-size:28px;font-weight:800;line-height:1.1">Boiler 1</h1>
+        <p style="margin:4px 0 12px;font-size:16px;line-height:1.4">If not fixed by 23:00 tonight: <strong class="mono" style="font-size:18px">30%</strong> chance of a boiler trip before the next stop</p>
+        <p class="label">Expected loss if you skip it</p>
+        <div class="mono" style="font-size:42px;font-weight:800;color:#9A3412;letter-spacing:-.02em;line-height:1.1">RM60,000</div>
+      </div>
+    </header>
+
+    <h2 style="margin:6px 0 0;font-size:20px;font-weight:800;display:flex;align-items:center;gap:8px"><span class="mono" style="font-size:13px;background:#16191C;color:#F3F1EC;border-radius:4px;padding:2px 7px">A</span>What's wrong</h2>
+    <div class="sec" style="display:flex;flex-direction:column;gap:10px">
+      <p class="label">Diagnosis</p>
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px"><h3 style="margin:0;font-size:22px;font-weight:800;line-height:1.2">Feed-water quality drifting</h3><span style="font-size:14px;color:#545B61;white-space:nowrap"><strong class="mono" style="font-size:18px;color:#16191C">74%</strong> sure</span></div>
+      <p style="margin:0;font-size:16px;line-height:1.5;color:#2B3035">Dissolved solids are building up in the boiler water, so steam temperature wanders outside its 530–545 °C band.</p>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center"><span style="font-size:14px;color:#545B61">Less likely:</span><span style="font-size:14px;border:1px solid #D9D5CC;border-radius:4px;padding:5px 8px">Fuel feed <span class="mono">18%</span></span><span style="font-size:14px;border:1px solid #D9D5CC;border-radius:4px;padding:5px 8px">Boiler steam <span class="mono">8%</span></span></div>
+    </div>
+
+    <div class="sec" style="padding-bottom:6px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:6px;flex-wrap:wrap"><p class="label">Fault fingerprint — boiler water</p><span style="font-size:14px;font-weight:700">3 of 4 match</span></div>
+      <div class="fp"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F766E" stroke-width="2.8" role="img" aria-label="Matches"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><div><div style="font-size:16px;font-weight:700">Steam temperature unstable</div><div class="mono" style="font-size:14px;color:#545B61">527–549 °C tonight</div></div></div>
+      <div class="fp"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F766E" stroke-width="2.8" role="img" aria-label="Matches"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><div><div style="font-size:16px;font-weight:700">Feed-water conductivity rising</div><div class="mono" style="font-size:14px;color:#545B61">+18% in 2 days</div></div></div>
+      <div class="fp"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F766E" stroke-width="2.8" role="img" aria-label="Matches"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><div><div style="font-size:16px;font-weight:700">Blowdown overdue</div><div style="font-size:14px;color:#545B61">Last one 9 h ago</div></div></div>
+      <div class="fp"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#545B61" stroke-width="2.8" role="img" aria-label="Does not match"><path d="M6 6l12 12M18 6L6 18"/></svg><div><div style="font-size:16px;font-weight:700;color:#545B61">Fuel feed steady</div><div style="font-size:14px;color:#545B61">Points away from a fuel-feed fault</div></div></div>
+    </div>
+
+    <div class="sec" style="padding-bottom:6px">
+      <p class="label" style="margin-bottom:4px">Evidence · last 7 days</p>
+      <div class="ev" style="border-top:0"><div><div style="font-size:15px;font-weight:700">Steam temp. leaving its band</div><div class="mono" style="font-size:13px;color:#545B61">band 530–545 °C</div></div><svg width="104" height="36" viewBox="0 0 200 52" role="img" aria-label="Swinging outside the band"><rect x="0" y="16" width="200" height="20" fill="#E6E2D9"/><polyline points="2,26 22,25 42,27 62,26 82,24 102,28 122,22 140,32 156,14 172,38 186,12 198,40" fill="none" stroke="#C2410C" stroke-width="4"/></svg></div>
+      <div class="ev"><div><div style="font-size:15px;font-weight:700">Conductivity climbing</div><div class="mono" style="font-size:13px;color:#545B61">+18% in 2 days</div></div><svg width="104" height="36" viewBox="0 0 200 52" role="img" aria-label="Rising"><polyline points="2,40 40,40 80,39 120,37 140,32 160,24 180,16 198,10" fill="none" stroke="#C2410C" stroke-width="4"/></svg></div>
+      <div class="ev"><div><div style="font-size:15px;font-weight:700">Fuel feed steady</div><div class="mono" style="font-size:13px;color:#545B61">not a feed fault</div></div><svg width="104" height="36" viewBox="0 0 200 52" role="img" aria-label="Flat"><polyline points="2,26 30,25 58,27 86,26 114,25 142,26 170,27 198,26" fill="none" stroke="#545B61" stroke-width="4"/></svg></div>
+    </div>
+
+    <div class="sec" style="display:flex;flex-direction:column;gap:10px">
+      <p class="label">History on this machine</p>
+      <div style="display:flex;justify-content:space-between;gap:8px;font-size:15px;flex-wrap:wrap"><span><span class="mono" style="color:#545B61">18 MAY</span> · Steam loss</span><span style="display:inline-flex;align-items:center;gap:4px;font-weight:700;font-size:14px;color:#9A3412"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>Missed</span></div>
+      <div style="display:flex;justify-content:space-between;gap:8px;font-size:15px;flex-wrap:wrap"><span><span class="mono" style="color:#545B61">03 AUG</span> · Water quality drift</span><span style="display:inline-flex;align-items:center;gap:4px;font-weight:700;font-size:14px;color:#0F766E"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Predicted</span></div>
+      <a href="#" style="font-size:15px;font-weight:700">Learn about boiler water faults →</a>
+    </div>
+
+    <h2 style="margin:6px 0 0;font-size:20px;font-weight:800;display:flex;align-items:center;gap:8px"><span class="mono" style="font-size:13px;background:#16191C;color:#F3F1EC;border-radius:4px;padding:2px 7px">B</span>What to do</h2>
+    <div style="background:#16191C;color:#F3F1EC;border-radius:6px;padding:18px;display:flex;flex-direction:column;gap:14px">
+      <p style="margin:0;font-size:21px;font-weight:800;line-height:1.25">Check water dosing and blow down before 23:00 — no mill stop needed</p>
+      <div style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px 12px;border-top:1px solid #3A4046;padding-top:14px;align-items:baseline">
+        <div><div style="font-size:15px;color:#D5D8DA">Expected loss if you skip it</div><div class="mono" style="font-size:13px;color:#AEB4B8;margin-top:2px">30% × RM200,000 mill stop</div></div><span class="mono" style="font-size:21px;font-weight:700;color:#FDBA74;text-align:right">RM60,000</span>
+        <div style="font-size:15px;color:#D5D8DA">− Fix now, mill keeps running</div><span class="mono" style="font-size:21px;font-weight:700;text-align:right">RM2,000</span>
+        <span style="grid-column:1 / -1;height:2px;background:#F3F1EC"></span>
+        <div style="font-size:17px;font-weight:800">= You protect</div><span class="mono" style="font-size:36px;font-weight:800;color:#5EEAD4;letter-spacing:-.02em;text-align:right">RM58,000</span>
+      </div>
+    </div>
+    <div class="sec">
+      <p class="label">Fix plan</p>
+      <div style="font-size:14px;font-weight:600;margin:6px 0 8px">Crew 2 · about 1 hour · no mill stop</div>
+      <ol style="margin:0;padding:0;list-style:none">
+        <li class="li"><span class="box" aria-hidden="true"></span>Check the chemical dosing pump and tank level</li>
+        <li class="li"><span class="box" aria-hidden="true"></span>Take a boiler water sample and test dissolved solids</li>
+        <li class="li"><span class="box" aria-hidden="true"></span>Do a manual bottom blowdown</li>
+        <li class="li"><span class="box" aria-hidden="true"></span>Set dosing back to the water treatment chart</li>
+        <li class="li"><span class="box" aria-hidden="true"></span>Watch steam temperature for 1 hour</li>
+      </ol>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;align-items:center"><span style="font-size:13px;color:#545B61;font-weight:700">Parts</span><span style="font-size:14px;background:#F3F1EC;border-radius:4px;padding:5px 8px">Dosing chemical top-up</span><span style="font-size:14px;background:#F3F1EC;border-radius:4px;padding:5px 8px">Test kit</span></div>
+      <p style="margin:10px 0 0;font-size:14px;color:#0F766E;font-weight:700;display:flex;gap:6px;align-items:flex-start"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" aria-hidden="true" style="flex:none;margin-top:2px"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Done while running — no lost production</p>
+    </div>
+  </div>
+
+  <div style="background:#FFFFFF;border-top:1px solid #D9D5CC;padding:12px 16px;display:flex;flex-direction:column;gap:8px;box-shadow:0 -6px 16px rgba(22,25,28,.08)">
+    <button class="btn" style="background:#C2410C;color:#FFFFFF;border:2px solid #C2410C;font-size:17px;min-height:54px">Fix now — before 23:00</button>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px"><button class="btn" style="background:#FFFFFF;color:#16191C;border:2px solid #16191C">Schedule</button><button class="btn" style="background:#FFFFFF;color:#16191C;border:2px solid #9C978C">Keep watching</button></div>
+  </div>
+  <nav aria-label="Main" style="background:#16191C;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;padding:8px 8px 20px">
+    <a href="#" class="tab"><span class="mono" style="font-size:11px;color:#9AA1A6">01</span>Mill</a>
+    <a href="#" class="tab" aria-current="page" style="background:#F3F1EC;color:#16191C;font-weight:700"><span class="mono" style="font-size:11px;color:#545B61">02</span>Machine</a>
+    <a href="#" class="tab"><span class="mono" style="font-size:11px;color:#9AA1A6">03</span>Impact</a>
+    <a href="#" class="tab"><span class="mono" style="font-size:11px;color:#9AA1A6">04</span>How it works</a>
+  </nav>
+</div>
+</body>
+</html>

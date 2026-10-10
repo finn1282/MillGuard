@@ -1,0 +1,70 @@
+[
+  {
+    "name": "Components.html",
+    "title": "MillGuard components"
+  },
+  {
+    "name": "How-Desktop.html",
+    "title": "How it works (desktop)"
+  },
+  {
+    "name": "How-Mobile.html",
+    "title": "How it works (mobile)"
+  },
+  {
+    "name": "Impact-Desktop.html",
+    "title": "Impact (desktop)"
+  },
+  {
+    "name": "Impact-Mobile.html",
+    "title": "Impact (mobile)"
+  },
+  {
+    "name": "Machine-Boiler1-Desktop.html",
+    "title": "Boiler 1 — Machine (desktop)"
+  },
+  {
+    "name": "Machine-Boiler1-Mobile.html",
+    "title": "Boiler 1 — Machine (mobile)"
+  },
+  {
+    "name": "Machine-Normal-Desktop.html",
+    "title": "Press 1 Normal — Machine (desktop)"
+  },
+  {
+    "name": "Machine-Normal-Mobile.html",
+    "title": "Press 1 Normal — Machine (mobile)"
+  },
+  {
+    "name": "Machine-Press2-Desktop.html",
+    "title": "Press 2 — Machine (desktop)"
+  },
+  {
+    "name": "Machine-Press2-Mobile-BM.html",
+    "title": "Pres 2 — Mesin (mudah alih, BM)"
+  },
+  {
+    "name": "Machine-Press2-Mobile.html",
+    "title": "Press 2 — Machine (mobile)"
+  },
+  {
+    "name": "Mill-Desktop.html",
+    "title": "Mill — tonight (desktop)"
+  },
+  {
+    "name": "Mill-Mobile.html",
+    "title": "Mill — tonight (mobile)"
+  },
+  {
+    "name": "Mill-Quiet-Desktop.html",
+    "title": "Mill — quiet night (desktop)"
+  },
+  {
+    "name": "Mill-Quiet-Mobile.html",
+    "title": "Mill — quiet night (mobile)"
+  },
+  {
+    "name": "StressTest.html",
+    "title": "Real-number stress test"
+  }
+]

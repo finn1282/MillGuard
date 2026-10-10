@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Impact (desktop)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F3F1EC}
+a{color:#1D4ED8}a:hover{color:#1E3A8A}
+.mono{font-family:'JetBrains Mono',monospace}
+.sec{background:#FFFFFF;border:1px solid #D9D5CC;border-radius:6px;padding:24px}
+.label{font-size:16px;letter-spacing:.08em;text-transform:uppercase;color:#545B61;font-weight:700;margin:0}
+.btn{font-family:inherit;font-size:17px;font-weight:700;border-radius:6px;padding:12px 18px;min-height:52px;cursor:pointer;line-height:1.2}
+.navl{display:flex;align-items:center;gap:12px;padding:12px;border-radius:6px;color:#D5D8DA;text-decoration:none;font-size:17px;min-height:48px;box-sizing:border-box}
+.tb{font-size:16px;min-height:44px;padding:8px 14px}
+.stat{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:12px 0;border-top:1px solid #E6E2D9;font-size:18px}
+.lane{position:relative;height:56px;background:#F3F1EC;border-radius:4px}
+.sl{display:flex;flex-direction:column;gap:8px;padding:16px 0;border-top:1px solid #E6E2D9}
+input[type=range]{width:100%;accent-color:#16191C;height:28px}
+</style>
+</head>
+<body>
+<div style="font-family:'Archivo',sans-serif;color:#16191C;background:#F3F1EC;min-height:1300px;display:flex;flex-wrap:wrap">
+<nav aria-label="Main" style="flex:0 0 212px;background:#16191C;color:#F3F1EC;display:flex;flex-direction:column;gap:4px;padding:24px 14px">
+  <div style="font-weight:800;font-size:20px;letter-spacing:.04em;padding:0 12px 28px">MILLGUARD</div>
+  <a href="#" class="navl"><span class="mono" style="font-size:14px;color:#9AA1A6">01</span>Mill</a>
+  <a href="#" class="navl"><span class="mono" style="font-size:14px;color:#9AA1A6">02</span>Machine</a>
+  <a href="#" class="navl" aria-current="page" style="background:#F3F1EC;color:#16191C;font-weight:700"><span class="mono" style="font-size:14px;color:#545B61">03</span>Impact</a>
+  <a href="#" class="navl"><span class="mono" style="font-size:14px;color:#9AA1A6">04</span>How it works</a>
+</nav>
+<main style="flex:999 1 560px;min-width:0;display:flex;flex-direction:column">
+  <div style="display:flex;flex-wrap:wrap;align-items:center;gap:14px;padding:14px 40px;border-bottom:1px solid #D9D5CC;background:#FBFAF7">
+    <div style="display:flex;flex-direction:column"><span style="font-size:20px;font-weight:800">Mill 10 · Jan–Dec 2025 replay</span><span style="font-size:16px;color:#545B61">A mill the model never saw in training</span></div>
+    <div style="flex:1"></div>
+    <span style="display:inline-flex;align-items:center;gap:6px;font-size:16px;font-weight:700;background:#FEF3C7;color:#78350F;border:1px solid #F5D78E;border-radius:4px;padding:6px 10px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M10 3h4M11 3v6L5 19a1 1 0 0 0 .9 1.5h12.2A1 1 0 0 0 19 19l-6-10V3"/></svg>Sample data</span>
+    <div role="group" aria-label="Language" style="display:flex;border:1px solid #9C978C;border-radius:6px;overflow:hidden"><button class="btn tb" aria-pressed="true" style="border:0;border-radius:0;background:#16191C;color:#F3F1EC">EN</button><button class="btn tb" style="border:0;border-radius:0;background:transparent;color:#16191C">BM</button></div>
+  </div>
+
+  <div style="padding:28px 40px 56px;display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start;max-width:1400px;box-sizing:border-box">
+    <div style="flex:999 1 600px;min-width:0;display:flex;flex-direction:column;gap:20px">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap">
+        <h1 style="margin:0;font-size:36px;font-weight:800">Is it worth it?</h1>
+        <div role="group" aria-label="Compare against" style="display:flex;flex-wrap:wrap;border:1px solid #9C978C;border-radius:6px;overflow:hidden;background:#FFFFFF">
+          <span style="font-size:16px;color:#545B61;padding:0 12px;display:flex;align-items:center">Compare with</span>
+          <button class="btn tb" aria-pressed="true" style="border:0;border-radius:0;background:#16191C;color:#F3F1EC">Fix when it breaks</button>
+          <button class="btn tb" style="border:0;border-left:1px solid #D9D5CC;border-radius:0;background:transparent;color:#16191C">Fixed schedule only</button>
+          <button class="btn tb" style="border:0;border-left:1px solid #D9D5CC;border-radius:0;background:transparent;color:#16191C">MillGuard only</button>
+        </div>
+      </div>
+
+      <div style="background:#16191C;color:#F3F1EC;border-radius:6px;padding:26px 28px;display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:12px 32px">
+        <div><div style="font-size:18px;color:#D5D8DA">Saved per year with MillGuard</div><div class="mono" style="font-size:80px;font-weight:800;color:#5EEAD4;letter-spacing:-.03em;line-height:1">RM420,000</div></div>
+        <div style="font-size:26px;font-weight:800">25 fewer breakdowns</div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:16px">
+        <div class="sec" style="border-top:4px solid #9A3412">
+          <p class="label">Before · today</p>
+          <h2 style="margin:6px 0 10px;font-size:24px;font-weight:800">Fix when it breaks</h2>
+          <div class="mono" style="font-size:52px;font-weight:800;color:#9A3412;letter-spacing:-.02em">RM1.04m <span style="font-family:'Archivo',sans-serif;font-size:18px;font-weight:600;color:#545B61;letter-spacing:0">per year</span></div>
+          <div class="stat" style="margin-top:8px"><span>Breakdowns</span><strong class="mono" style="font-size:26px">37</strong></div>
+          <div class="stat"><span>Downtime</span><strong class="mono" style="font-size:26px">148 h</strong></div>
+        </div>
+        <div class="sec" style="border-top:4px solid #0F766E">
+          <p class="label">After</p>
+          <h2 style="margin:6px 0 10px;font-size:24px;font-weight:800">Your schedule + MillGuard</h2>
+          <div class="mono" style="font-size:52px;font-weight:800;color:#0F766E;letter-spacing:-.02em">RM0.62m <span style="font-family:'Archivo',sans-serif;font-size:18px;font-weight:600;color:#545B61;letter-spacing:0">per year</span></div>
+          <div class="stat" style="margin-top:8px"><span>Breakdowns</span><strong class="mono" style="font-size:26px">12</strong></div>
+          <div class="stat"><span>Downtime</span><strong class="mono" style="font-size:26px">48 h</strong></div>
+        </div>
+      </div>
+
+      <div class="sec" style="display:flex;flex-direction:column;gap:14px">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+          <h2 style="margin:0;font-size:22px;font-weight:800">12 months, same failures, two ways</h2>
+          <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;font-size:16px">
+            <span style="display:flex;align-items:center;gap:6px"><span style="width:5px;height:22px;background:#C2410C;border-radius:1px" aria-hidden="true"></span>Breakdown</span>
+            <span style="display:flex;align-items:center;gap:6px"><span style="width:12px;height:12px;border-radius:50%;background:#0F766E" aria-hidden="true"></span>Planned fix</span>
+            <button class="btn" style="background:#16191C;color:#F3F1EC;border:0;min-height:48px;display:flex;gap:8px;align-items:center"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M4 2l10 6-10 6z"/></svg>Play the year</button>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:200px minmax(0,1fr) 120px;gap:10px 16px;align-items:center">
+          <span style="font-size:17px;font-weight:700">Fix when it breaks</span>
+          <div class="lane" role="img" aria-label="37 breakdowns spread across the year">
+            <span style="position:absolute;top:14px;width:5px;height:28px;background:#C2410C;border-radius:1px;left:1.33%"></span><span style="position:absolute;top:14px;width:5px;height:28px;background:#C2410C;border-radius:1px;left:4.19%"></span><span style="position:absolute;top:14px;width:5px;height:28px;background:#C2410C;border-radius:1px;left:5.93%"></span><span style="position:absolute;top:14px;width:5px;height:28px;background:#C2410C;border-radius:1px;left:8.91%"></span><span style="position:absolute;top:14px;width:5px;height:28px;background:#C2410C;border-radius:1px;left:12.04%"></span><span style="position:absolute;top:14px;width:5px;height:28px;background:#C2410C;border-radius:1px;left:14.88%"></span><span style="position:absolute;top:14px;width:5px;height:28px;background:#C2410C;border-radius:1px;left:16.66%"></span><span style="position:absolute;top:14px;width:5px;height:28px;background:#C2410C;border-radius:1px;left:21.09%"></span><span style="position:absolute;top:14px;width:5px;height:28px;background:#C2410C;border-radius:1px;left:23.17%"></span><span style="position:absolute;top:14px;width:5px;height:28px;background:#C2410C;border-radius:1px;left:25.48%"></span><span style="position:absolute;top:14px;width:5px;height:28px;background:#C2410C;border-radius:1px;left:27.91%"></span><span style="position:absolute;top:14px;width:5px;height:28px;background:#C2410C;border-radius:1px;left:31.69%"></span><span style="position:absolute;top:14px;width:5px;height:28px;background:#C2410C;border-radius:1px;left:34.12%"></span><span style="position:absolute;top:14px;width:5px;height:28px;background:#C2410C;border-radius:1px;left:35.57%"></span><span style="position:absolute;top:14px;width:5px;height:28px;background:#C2410C;border-radius:1px;left:39.19%"></span><span style="position:absolute;top:14px;width:5px;height:28px;background:#C2410C;border-radius:1px;left:41.32%"></span><span style="position:absolute;top:14px;width:5px;height:28px;background:#C2410C;border-radius:1px;left:44.97%"></span><span style="position:absolute;top:14px;width:5px;height:28px;background:#C2410C;border-radius:1px;left:46.56%"></span><span style="position:absolute;top:14px;width:5px;height:28px;background:#C2410C;border-radius:1px;left:50.13%"></span><span style="position:absolute;top:14px;width:5px;height:28px;background:#C2410C;border-radius:1px;left:52.68%"></span><span style="position:absolute;top:14px;width:5px;height:28px;background:#C2410C;border-radius:1px;left:54.71%"></span><span style="position:absolute;top:14px;width:5px;height:28px;background:#C2410C;border-radius:1px;left:57.14%"></span><span style="position:absolute;top:14px;width:5px;height:28px;background:#C2410C;border-radius:1px;left:61.76%"></span><span style="position:absolute;top:14px;width:5px;height:28px;background:#C2410C;border-radius:1px;left:64.53%"></span><span style="position:absolute;top:14px;width:5px;height:28px;background:#C2410C;border-radius:1px;left:65.40%"></span><span style="position:absolute;top:14px;width:5px;height:28px;background:#C2410C;border-radius:1px;left:68.80%"></span><span style="position:absolute;top:14px;width:5px;height:28px;background:#C2410C;border-radius:1px;left:72.61%"></span><span style="position:absolute;top:14px;width:5px;height:28px;background:#C2410C;border-radius:1px;left:73.65%"></span><span style="position:absolute;top:14px;width:5px;height:28px;background:#C2410C;border-radius:1px;left:76.85%"></span><span style="position:absolute;top:14px;width:5px;height:28px;background:#C2410C;border-radius:1px;left:79.84%"></span><span style="position:absolute;top:14px;width:5px;height:28px;background:#C2410C;border-radius:1px;left:82.80%"></span><span style="position:absolute;top:14px;width:5px;height:28px;background:#C2410C;border-radius:1px;left:84.66%"></span><span style="position:absolute;top:14px;width:5px;height:28px;background:#C2410C;border-radius:1px;left:87.13%"></span><span style="position:absolute;top:14px;width:5px;height:28px;background:#C2410C;border-radius:1px;left:91.59%"></span><span style="position:absolute;top:14px;width:5px;height:28px;background:#C2410C;border-radius:1px;left:93.13%"></span><span style="position:absolute;top:14px;width:5px;height:28px;background:#C2410C;border-radius:1px;left:95.37%"></span><span style="position:absolute;top:14px;width:5px;height:28px;background:#C2410C;border-radius:1px;left:98.75%"></span>
+          </div>
+          <span class="mono" style="font-size:24px;font-weight:800;color:#9A3412;text-align:right">RM1.04m</span>
+          <span style="font-size:17px;font-weight:700">Schedule + MillGuard</span>
+          <div class="lane" role="img" aria-label="12 breakdowns and 24 planned fixes across the year">
+            <span style="position:absolute;top:22px;width:12px;height:12px;border-radius:50%;background:#0F766E;left:2.81%"></span><span style="position:absolute;top:22px;width:12px;height:12px;border-radius:50%;background:#0F766E;left:5.14%"></span><span style="position:absolute;top:22px;width:12px;height:12px;border-radius:50%;background:#0F766E;left:10.22%"></span><span style="position:absolute;top:22px;width:12px;height:12px;border-radius:50%;background:#0F766E;left:13.04%"></span><span style="position:absolute;top:22px;width:12px;height:12px;border-radius:50%;background:#0F766E;left:19.57%"></span><span style="position:absolute;top:22px;width:12px;height:12px;border-radius:50%;background:#0F766E;left:21.96%"></span><span style="position:absolute;top:22px;width:12px;height:12px;border-radius:50%;background:#0F766E;left:25.95%"></span><span style="position:absolute;top:22px;width:12px;height:12px;border-radius:50%;background:#0F766E;left:30.47%"></span><span style="position:absolute;top:22px;width:12px;height:12px;border-radius:50%;background:#0F766E;left:36.19%"></span><span style="position:absolute;top:22px;width:12px;height:12px;border-radius:50%;background:#0F766E;left:39.59%"></span><span style="position:absolute;top:22px;width:12px;height:12px;border-radius:50%;background:#0F766E;left:42.57%"></span><span style="position:absolute;top:22px;width:12px;height:12px;border-radius:50%;background:#0F766E;left:47.64%"></span><span style="position:absolute;top:22px;width:12px;height:12px;border-radius:50%;background:#0F766E;left:52.02%"></span><span style="position:absolute;top:22px;width:12px;height:12px;border-radius:50%;background:#0F766E;left:57.25%"></span><span style="position:absolute;top:22px;width:12px;height:12px;border-radius:50%;background:#0F766E;left:61.03%"></span><span style="position:absolute;top:22px;width:12px;height:12px;border-radius:50%;background:#0F766E;left:64.63%"></span><span style="position:absolute;top:22px;width:12px;height:12px;border-radius:50%;background:#0F766E;left:69.24%"></span><span style="position:absolute;top:22px;width:12px;height:12px;border-radius:50%;background:#0F766E;left:74.40%"></span><span style="position:absolute;top:22px;width:12px;height:12px;border-radius:50%;background:#0F766E;left:75.48%"></span><span style="position:absolute;top:22px;width:12px;height:12px;border-radius:50%;background:#0F766E;left:79.93%"></span><span style="position:absolute;top:22px;width:12px;height:12px;border-radius:50%;background:#0F766E;left:85.83%"></span><span style="position:absolute;top:22px;width:12px;height:12px;border-radius:50%;background:#0F766E;left:89.28%"></span><span style="position:absolute;top:22px;width:12px;height:12px;border-radius:50%;background:#0F766E;left:94.03%"></span><span style="position:absolute;top:22px;width:12px;height:12px;border-radius:50%;background:#0F766E;left:96.69%"></span>
+            <span style="position:absolute;top:14px;width:5px;height:28px;background:#C2410C;border-radius:1px;left:3.82%"></span><span style="position:absolute;top:14px;width:5px;height:28px;background:#C2410C;border-radius:1px;left:13.32%"></span><span style="position:absolute;top:14px;width:5px;height:28px;background:#C2410C;border-radius:1px;left:18.89%"></span><span style="position:absolute;top:14px;width:5px;height:28px;background:#C2410C;border-radius:1px;left:28.53%"></span><span style="position:absolute;top:14px;width:5px;height:28px;background:#C2410C;border-radius:1px;left:35.19%"></span><span style="position:absolute;top:14px;width:5px;height:28px;background:#C2410C;border-radius:1px;left:42.67%"></span><span style="position:absolute;top:14px;width:5px;height:28px;background:#C2410C;border-radius:1px;left:56.01%"></span><span style="position:absolute;top:14px;width:5px;height:28px;background:#C2410C;border-radius:1px;left:62.97%"></span><span style="position:absolute;top:14px;width:5px;height:28px;background:#C2410C;border-radius:1px;left:73.28%"></span><span style="position:absolute;top:14px;width:5px;height:28px;background:#C2410C;border-radius:1px;left:82.36%"></span><span style="position:absolute;top:14px;width:5px;height:28px;background:#C2410C;border-radius:1px;left:86.10%"></span><span style="position:absolute;top:14px;width:5px;height:28px;background:#C2410C;border-radius:1px;left:93.51%"></span>
+          </div>
+          <span class="mono" style="font-size:24px;font-weight:800;color:#0F766E;text-align:right">RM0.62m</span>
+          <span></span>
+          <div style="display:grid;grid-template-columns:repeat(12,minmax(0,1fr));font-size:16px;color:#545B61"><span>J</span><span>F</span><span>M</span><span>A</span><span>M</span><span>J</span><span>J</span><span>A</span><span>S</span><span>O</span><span>N</span><span>D</span></div>
+          <span></span>
+        </div>
+      </div>
+      <a href="#" style="font-size:17px;font-weight:700">See every number and its source →</a>
+    </div>
+
+    <aside aria-labelledby="wi" class="sec" style="flex:1 1 320px;max-width:380px;box-sizing:border-box">
+      <h2 id="wi" style="margin:0 0 4px;font-size:24px;font-weight:800">What if…</h2>
+      <p style="margin:0 0 6px;font-size:16px;color:#545B61">Move a slider and the totals update.</p>
+      <div class="sl"><div style="display:flex;justify-content:space-between;gap:8px"><label for="s1" style="font-size:17px;font-weight:700">CPO price</label><span class="mono" style="font-size:17px;font-weight:700">RM4,292.50/t</span></div><input id="s1" type="range" min="3800" max="5000" step="10" value="4292"><div style="display:flex;justify-content:space-between;font-size:16px;color:#545B61"><span>RM3,800</span><span>RM5,000</span></div></div>
+      <div class="sl"><div style="display:flex;justify-content:space-between;gap:8px"><label for="s2" style="font-size:17px;font-weight:700">Cost of a missed failure</label><span class="mono" style="font-size:17px;font-weight:700">1.0×</span></div><input id="s2" type="range" min="0.5" max="3" step="0.1" value="1"><div style="display:flex;justify-content:space-between;font-size:16px;color:#545B61"><span>0.5×</span><span>3×</span></div></div>
+      <div class="sl"><div style="display:flex;justify-content:space-between;gap:8px"><label for="s3" style="font-size:17px;font-weight:700">Alerts per shift</label><span class="mono" style="font-size:17px;font-weight:700">5</span></div><input id="s3" type="range" min="1" max="10" step="1" value="5"><div style="display:flex;justify-content:space-between;font-size:16px;color:#545B61"><span>1</span><span>10</span></div></div>
+      <div class="sl"><div style="display:flex;justify-content:space-between;gap:8px"><label for="s4" style="font-size:17px;font-weight:700">Inspection finds the fault</label><span class="mono" style="font-size:17px;font-weight:700">50%</span></div><input id="s4" type="range" min="0" max="100" step="5" value="50"><div style="display:flex;justify-content:space-between;font-size:16px;color:#545B61"><span>0%</span><span>100%</span></div></div>
+      <button class="btn" style="width:100%;margin-top:8px;background:#FFFFFF;color:#16191C;border:2px solid #9C978C">Reset to base case</button>
+    </aside>
+  </div>
+</main>
+</div>
+</body>
+</html>

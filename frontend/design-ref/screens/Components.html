@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MillGuard components</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F3F1EC}
+a{color:#1D4ED8}a:hover{color:#1E3A8A}
+.mono{font-family:'JetBrains Mono',monospace}
+.cell{background:#FBFAF7;border:1px solid #D9D5CC;border-radius:8px;padding:22px;display:flex;flex-direction:column;gap:14px}
+.cap{font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:#545B61;font-weight:700;margin:0}
+.note{font-size:15px;color:#545B61;margin:0;line-height:1.45}
+.btn{font-family:inherit;font-size:16px;font-weight:700;border-radius:6px;padding:8px 14px;min-height:44px;cursor:pointer;line-height:1.2}
+.chip{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:4px 12px 4px 8px;font-weight:700;font-size:16px;white-space:nowrap}
+.act{background:#C2410C;color:#FFFFFF}
+.watch{background:#FEF3C7;color:#78350F;border:1px solid #D9A441}
+.ok{background:#E6F4F1;color:#0B5D56;border:1px solid #8FCBC2}
+.sw{display:grid;grid-template-columns:48px minmax(0,1fr) auto;gap:12px;align-items:center;font-size:15px}
+.dot{width:48px;height:36px;border-radius:4px;border:1px solid #D9D5CC}
+.tile{display:flex;flex-direction:column;gap:6px;padding:12px;border-radius:6px;background:#FFFFFF;border:1px solid #D9D5CC;min-width:0}
+</style>
+</head>
+<body>
+<div style="width:1440px;height:2000px;box-sizing:border-box;padding:56px;font-family:'Archivo',sans-serif;color:#16191C;background:#F3F1EC;display:flex;flex-direction:column;gap:24px">
+  <div style="display:flex;justify-content:space-between;align-items:flex-end">
+    <div><h1 style="margin:0;font-size:44px;font-weight:800">MillGuard components</h1><p style="margin:6px 0 0;font-size:18px;color:#545B61">Direction B · Archivo + JetBrains Mono · light paper ground</p></div>
+    <span class="mono" style="font-size:16px;color:#545B61">v1 · 10 Oct</span>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px">
+    <div class="cell">
+      <p class="cap">Status chip</p>
+      <div style="display:flex;flex-wrap:wrap;gap:10px">
+        <span class="chip act"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M12 3l10 18H2z"/><path d="M12 10v5M12 18v.01"/></svg>Act now</span>
+        <span class="chip watch"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>Watch</span>
+        <span class="chip ok"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Normal</span>
+        <span class="chip" style="border:1px dashed #9C978C;color:#545B61">Not monitored</span>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px">
+        <span class="chip act">Bertindak sekarang</span><span class="chip watch">Pantau</span><span class="chip ok">Normal</span>
+      </div>
+      <p class="note">Always colour + icon + word. BM labels fit without truncation.</p>
+    </div>
+
+    <div class="cell">
+      <p class="cap">Colour tokens · contrast on white</p>
+      <div class="sw"><span class="dot" style="background:#C2410C"></span><span>Act now <span class="mono">#C2410C</span></span><span class="mono">5.2:1</span></div>
+      <div class="sw"><span class="dot" style="background:#9A3412"></span><span>Loss / RM at risk <span class="mono">#9A3412</span></span><span class="mono">7.3:1</span></div>
+      <div class="sw"><span class="dot" style="background:#FEF3C7"></span><span>Watch text <span class="mono">#78350F</span> on fill</span><span class="mono">8.4:1</span></div>
+      <div class="sw"><span class="dot" style="background:#0F766E"></span><span>Normal / protected <span class="mono">#0F766E</span></span><span class="mono">5.5:1</span></div>
+      <div class="sw"><span class="dot" style="background:#545B61"></span><span>Secondary text <span class="mono">#545B61</span></span><span class="mono">6.6:1</span></div>
+      <div class="sw"><span class="dot" style="background:#16191C"></span><span>Ink <span class="mono">#16191C</span></span><span class="mono">17:1</span></div>
+    </div>
+
+    <div class="cell">
+      <p class="cap">Time bar · EN/BM toggle · Sample badge</p>
+      <div style="display:flex;align-items:center;gap:10px;background:#FFFFFF;border:1px solid #D9D5CC;border-radius:6px;padding:10px">
+        <button class="btn" aria-label="Play replay" style="background:#16191C;color:#F3F1EC;border:0;width:44px;padding:0;display:flex;align-items:center;justify-content:center"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M4 2l10 6-10 6z"/></svg></button>
+        <div><div class="mono" style="font-size:17px;font-weight:700">SAT 11 OCT · 19:00</div><div style="font-size:15px;color:#545B61">Night shift</div></div>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <button class="btn" style="background:transparent;border:1px solid #9C978C;color:#16191C">Quiet night</button>
+        <button class="btn" aria-pressed="true" style="background:#16191C;border:1px solid #16191C;color:#F3F1EC">Press 2 act now</button>
+        <button class="btn" style="background:transparent;border:1px solid #9C978C;color:#16191C">Whole mill</button>
+      </div>
+      <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+        <div role="group" aria-label="Language" style="display:flex;border:1px solid #9C978C;border-radius:6px;overflow:hidden"><button class="btn" aria-pressed="true" style="border:0;border-radius:0;background:#16191C;color:#F3F1EC">EN</button><button class="btn" style="border:0;border-radius:0;background:transparent;color:#16191C">BM</button></div>
+        <span style="display:inline-flex;align-items:center;gap:6px;font-size:16px;font-weight:700;background:#FEF3C7;color:#78350F;border:1px solid #F5D78E;border-radius:4px;padding:6px 10px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M10 3h4M11 3v6L5 19a1 1 0 0 0 .9 1.5h12.2A1 1 0 0 0 19 19l-6-10V3"/></svg>Sample data</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px">
+    <div class="cell">
+      <p class="cap">Attention card</p>
+      <div style="background:#FFFFFF;border:2px solid #C2410C;border-radius:6px;padding:18px">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><span style="font-size:22px;font-weight:800"><span class="mono" style="color:#545B61;font-size:17px">2</span> Press 2</span><span class="chip act"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M12 3l10 18H2z"/><path d="M12 10v5M12 18v.01"/></svg>Act now</span></div>
+        <p style="margin:10px 0 0;font-size:17px;line-height:1.45">Worm screw wearing out — change at the 06:00 stop</p>
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-top:12px;padding-top:12px;border-top:1px solid #E6E2D9"><span style="font-size:16px">At <strong class="mono">06:00</strong> stop</span><span class="mono" style="font-size:30px;font-weight:800">RM18,000</span></div>
+      </div>
+      <p class="note">Ranked by RM protected. Whole-mill cards add a "Why first" line.</p>
+    </div>
+
+    <div class="cell">
+      <p class="cap">Machine tile</p>
+      <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px">
+        <div class="tile" style="border:2px solid #C2410C"><div style="display:flex;justify-content:space-between;align-items:center;gap:6px;flex-wrap:wrap"><span style="font-size:17px;font-weight:800">Press 2</span><span class="chip act" style="font-size:14px">Act now</span></div><span style="font-size:15px">Worm wearing</span></div>
+        <div class="tile" style="border:2px solid #D9A441"><div style="display:flex;justify-content:space-between;align-items:center;gap:6px;flex-wrap:wrap"><span style="font-size:17px;font-weight:800">Press 3</span><span class="chip watch" style="font-size:14px">Watch</span></div><span style="font-size:15px">Vibration slightly up</span></div>
+        <div class="tile"><div style="display:flex;justify-content:space-between;align-items:center;gap:6px;flex-wrap:wrap"><span style="font-size:17px;font-weight:800">Press 1</span><span class="chip ok" style="font-size:14px">Normal</span></div></div>
+        <div class="tile" style="border:2px dashed #BDB8AD;background:#F8F7F3;color:#545B61"><span style="font-size:17px;font-weight:700">Digesters</span><span style="font-size:15px">Not monitored</span></div>
+      </div>
+    </div>
+
+    <div class="cell">
+      <p class="cap">Fingerprint row</p>
+      <div style="background:#FFFFFF;border:1px solid #D9D5CC;border-radius:6px;padding:4px 16px">
+        <div style="display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) auto;gap:10px;padding:12px 0;align-items:center"><span style="font-size:16px;font-weight:700">Current per tonne rises</span><span class="mono" style="font-size:15px">+12% in 5 days</span><span style="display:inline-flex;gap:4px;align-items:center;font-weight:700;color:#0F766E"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Yes</span></div>
+        <div style="display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) auto;gap:10px;padding:12px 0;border-top:1px solid #E6E2D9;align-items:center"><span style="font-size:16px;font-weight:700;color:#545B61">No vibration spikes</span><span style="font-size:15px">Normal</span><span style="display:inline-flex;gap:4px;align-items:center;font-weight:700;color:#545B61"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>Not bearing</span></div>
+      </div>
+      <p class="note">Usual sign · seen now · match. A ✗ row says what it rules out.</p>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px">
+    <div class="cell">
+      <p class="cap">Evidence item</p>
+      <div style="background:#FFFFFF;border:1px solid #D9D5CC;border-radius:6px;padding:16px;display:grid;grid-template-columns:minmax(0,1fr) 160px;gap:14px;align-items:center">
+        <div><div style="font-size:17px;font-weight:700">Oil left in fibre near the limit</div><div class="mono" style="font-size:15px;color:#545B61">3.1% → 3.6% · limit 4%</div></div>
+        <svg width="160" height="48" viewBox="0 0 200 52" role="img" aria-label="Rising toward the 4% limit"><line x1="0" y1="6" x2="200" y2="6" stroke="#545B61" stroke-dasharray="5 5"/><polyline points="2,44 40,40 78,36 116,29 154,22 198,15" fill="none" stroke="#C2410C" stroke-width="3"/></svg>
+      </div>
+      <p class="note">7-day trend. Dashed line = limit. Rust = the signal behind the alert; grey = context.</p>
+    </div>
+
+    <div class="cell">
+      <p class="cap">Decision bar</p>
+      <div style="background:#16191C;color:#F3F1EC;border-radius:6px;padding:18px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 14px;align-items:baseline">
+        <div><div style="font-size:16px;color:#D5D8DA">Expected loss if you skip it</div><div class="mono" style="font-size:14px;color:#AEB4B8">41% × RM51,000 breakdown</div></div><span class="mono" style="font-size:22px;font-weight:700;color:#FDBA74">RM21,000</span>
+        <div style="font-size:16px;color:#D5D8DA">− Fix at the planned stop</div><span class="mono" style="font-size:22px;font-weight:700">RM3,000</span>
+        <span style="grid-column:1 / -1;height:2px;background:#F3F1EC"></span>
+        <div style="font-size:18px;font-weight:800">= You protect</div><span class="mono" style="font-size:36px;font-weight:800;color:#5EEAD4">RM18,000</span>
+      </div>
+    </div>
+
+    <div class="cell">
+      <p class="cap">Before / after counter</p>
+      <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px">
+        <div style="background:#FFFFFF;border:1px solid #D9D5CC;border-top:4px solid #9A3412;border-radius:6px;padding:14px"><div style="font-size:15px;font-weight:700;color:#545B61">Before</div><div class="mono" style="font-size:30px;font-weight:800;color:#9A3412">RM1.04m</div><div style="font-size:15px">37 breakdowns</div></div>
+        <div style="background:#FFFFFF;border:1px solid #D9D5CC;border-top:4px solid #0F766E;border-radius:6px;padding:14px"><div style="font-size:15px;font-weight:700;color:#545B61">After</div><div class="mono" style="font-size:30px;font-weight:800;color:#0F766E">RM0.62m</div><div style="font-size:15px">12 breakdowns</div></div>
+      </div>
+      <p class="note">Counters climb with the replay. Before = fix when it breaks; After = schedule + MillGuard.</p>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px">
+    <div class="cell" style="grid-column:span 2">
+      <p class="cap">Fix plan</p>
+      <div style="background:#FFFFFF;border:1px solid #D9D5CC;border-radius:6px;padding:18px">
+        <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:6px"><span style="font-size:16px;font-weight:700;color:#545B61;letter-spacing:.08em">FIX PLAN</span><span style="font-size:16px;font-weight:600">Crew 3 · about 4 hours · needs press stop</span></div>
+        <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 24px">
+          <div style="display:flex;gap:12px;padding:10px 0;border-top:1px solid #E6E2D9;font-size:16px"><span style="width:20px;height:20px;border:2px solid #16191C;border-radius:3px;flex:none" aria-hidden="true"></span>Isolate and lock out Press 2</div>
+          <div style="display:flex;gap:12px;padding:10px 0;border-top:1px solid #E6E2D9;font-size:16px"><span style="width:20px;height:20px;border:2px solid #16191C;border-radius:3px;flex:none" aria-hidden="true"></span>Remove the cone and pull the worm</div>
+          <div style="display:flex;gap:12px;padding:10px 0;border-top:1px solid #E6E2D9;font-size:16px"><span style="width:20px;height:20px;border:2px solid #16191C;border-radius:3px;flex:none" aria-hidden="true"></span>Measure flight wear and replace</div>
+          <div style="display:flex;gap:12px;padding:10px 0;border-top:1px solid #E6E2D9;font-size:16px"><span style="width:20px;height:20px;border:2px solid #16191C;border-radius:3px;flex:none" aria-hidden="true"></span>Test run and check fibre oil loss</div>
+        </div>
+        <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap;align-items:center"><span style="font-size:15px;color:#545B61;font-weight:700">Parts</span><span style="font-size:15px;background:#F3F1EC;border-radius:4px;padding:5px 9px">Worm screw set ×1</span><span style="font-size:15px;background:#F3F1EC;border-radius:4px;padding:5px 9px">Gasket kit ×1</span></div>
+      </div>
+    </div>
+    <div class="cell">
+      <p class="cap">Action buttons</p>
+      <button class="btn" style="background:#C2410C;color:#FFFFFF;border:2px solid #C2410C;min-height:56px;font-size:18px">Schedule for 06:00 stop</button>
+      <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px"><button class="btn" style="background:#FFFFFF;color:#16191C;border:2px solid #16191C;min-height:52px">Fix now</button><button class="btn" style="background:#FFFFFF;color:#16191C;border:2px solid #9C978C;min-height:52px">Keep watching</button></div>
+      <p class="note">The recommended action is always the single filled button.</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>
