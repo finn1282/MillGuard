@@ -10,7 +10,7 @@ import { Mill } from "./pages/Mill";
 export function App() {
   return (
     <LangProvider>
-      <BrowserRouter>
+      <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/$/, "") || "/"}>
         <ClockProvider>
           <Routes>
             <Route element={<Shell />}>
