@@ -4,7 +4,8 @@ import { useClock } from "../lib/clock";
 import { clock } from "../lib/format";
 import { useLang } from "../lib/i18n";
 import { useApi } from "../lib/useApi";
-import { IconChevron, IconPause, IconPhone, IconPlay } from "./Icons";
+import { useSourceName } from "../lib/live";
+import { IconChevron, IconPause, IconPhone, IconPlay, IconWatch } from "./Icons";
 import { SampleBadge } from "./SampleBadge";
 
 export function LangToggle() {
@@ -49,14 +50,32 @@ function SendToPhone({ actions }: { actions?: number }) {
   );
 }
 
+// LIVE · scenario · last reading n s ago; amber "Stream paused" after 10 s without a reading.
+function LivePill() {
+  const { live } = useClock();
+  const { t } = useLang();
+  const name = useSourceName(live?.source);
+  if (!live) return null;
+  const s = live.seconds_since_last;
+  const paused = s != null && s > 10;
+  return (
+    <span role="status" className={`inline-flex items-center gap-2 rounded-chip border-2 px-3 py-1.5 font-bold text-sm lg:text-base leading-tight
+      ${paused ? "bg-watch-bg border-watch-border text-watch-ink" : "bg-card border-live text-ink"}`}>
+      {paused ? <IconWatch size={16} /> : <span aria-hidden className="relative flex w-3 h-3"><span className="absolute inset-0 rounded-full bg-live animate-ping opacity-60" /><span className="relative w-3 h-3 rounded-full bg-live" /></span>}
+      <span className={`font-extrabold tracking-wider ${paused ? "" : "text-live"}`}>{t("liveTag")}</span>
+      <span>· {name} · {paused ? t("livePaused") : s == null ? t("liveWaiting") : t("liveLast", { n: Math.round(s) })}</span>
+    </span>
+  );
+}
+
 export function TimeBar() {
-  const { at, playing, setPlaying, step, bookmarks, setAt } = useClock();
+  const { at, playing, setPlaying, step, bookmarks, setAt, live } = useClock();
   const { t, lang, pick } = useLang();
   const brief = useApi(at ? () => api.brief(at) : null, [at]);
   const shift = brief.data ? t(brief.data.shift) : "";
 
   const chips = bookmarks.map((b) => (
-    <button key={b.t} aria-pressed={b.t === at} onClick={() => setAt(b.t)}
+    <button key={b.t} aria-pressed={b.t === at} onClick={() => setAt(b.t)} disabled={!!live}
       className={`flex-none lg:flex-initial max-w-[15rem] lg:max-w-[22rem] text-left leading-tight rounded border font-bold
         text-sm lg:text-base min-h-[40px] lg:min-h-[44px] px-2.5 lg:px-3.5 py-1.5
         ${b.t === at ? "bg-brand border-brand text-white" : "bg-transparent border-control-border text-ink"}`}>
@@ -66,19 +85,19 @@ export function TimeBar() {
 
   const controls = (
     <div className="flex items-center gap-1.5 flex-none">
-      <button aria-label={t(playing ? "pause" : "play")} onClick={() => setPlaying(!playing)}
+      <button aria-label={t(playing ? "pause" : "play")} onClick={() => setPlaying(!playing)} disabled={!!live}
         className="w-11 h-11 lg:w-12 lg:h-12 rounded bg-brand text-white flex items-center justify-center">
         {playing ? <IconPause size={14} /> : <IconPlay size={14} />}
       </button>
-      <button aria-label={t("back1h")} onClick={() => step(-1)} className="hidden md:flex w-9 h-11 rounded text-ink items-center justify-center hover:bg-rule-soft"><IconChevron left size={18} /></button>
-      <button aria-label={t("fwd1h")} onClick={() => step(1)} className="hidden md:flex w-9 h-11 rounded text-ink items-center justify-center hover:bg-rule-soft"><IconChevron size={18} /></button>
+      <button aria-label={t("back1h")} onClick={() => step(-1)} disabled={!!live} className="hidden md:flex w-9 h-11 rounded text-ink items-center justify-center hover:bg-rule-soft"><IconChevron left size={18} /></button>
+      <button aria-label={t("fwd1h")} onClick={() => step(1)} disabled={!!live} className="hidden md:flex w-9 h-11 rounded text-ink items-center justify-center hover:bg-rule-soft"><IconChevron size={18} /></button>
     </div>
   );
 
   const when = (
     <div className="flex flex-col min-w-0">
       <span className="font-num font-bold text-[15px] lg:text-xl whitespace-nowrap">{at ? clock(at, lang) : "—"}</span>
-      <span className="text-[13px] lg:text-base text-muted">{shift}<span className="hidden lg:inline">{shift && " · "}{t("replayClock")}</span></span>
+      <span className="text-[13px] lg:text-base text-muted">{shift}{!live && <span className="hidden lg:inline">{shift && " · "}{t("replayClock")}</span>}</span>
     </div>
   );
 
@@ -88,10 +107,11 @@ export function TimeBar() {
       <div className="hidden lg:flex flex-wrap items-center gap-x-3.5 gap-y-3 px-10 py-3.5">
         <div className="order-1">{controls}</div>
         <div className="order-2">{when}</div>
+        {live && <div className="order-3"><LivePill /></div>}
         <div role="group" aria-label={t("bookmarks")}
           className="order-last basis-full flex flex-wrap gap-2">{chips}</div>
         <div className="order-5 ml-auto flex items-center gap-3.5">
-          <SendToPhone actions={brief.data?.actions.length} /><SampleBadge /><LangToggle />
+          {!live && <SendToPhone actions={brief.data?.actions.length} />}<SampleBadge /><LangToggle />
         </div>
       </div>
       {/* mobile + tablet */}
@@ -101,6 +121,7 @@ export function TimeBar() {
           <div className="flex-1 min-w-0">{when}</div>
           <LangToggle />
         </div>
+        {live && <div><LivePill /></div>}
         <div role="group" aria-label={t("bookmarks")} className="flex gap-2 overflow-x-auto items-center -mx-4 px-4 pb-0.5">
           <SampleBadge />{chips}
         </div>

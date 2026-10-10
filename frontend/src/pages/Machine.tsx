@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
 import { ActionButtons } from "../components/ActionButtons";
 import { AdvicePanel } from "../components/AdvicePanel";
@@ -49,9 +49,12 @@ function MachineView({ id }: { id: string }) {
   const line = useApi(at ? () => api.line(at) : null, [at]);
   const sticky = useStickyTop(24);
   const [recorded, setRecorded] = useState(false);
-  useEffect(() => setRecorded(false), [id, at]);
+  // Reset per alert, not per hour: the live clock moves every few seconds.
+  const actionId = res.data?.action?.id;
+  useEffect(() => setRecorded(false), [id, actionId]);
+  const adviceAt = useFirstAt(`${id}|${actionId}`, at);
 
-  if (res.error) return <ErrorBox error={res.error} retry={res.retry} />;
+  if (res.error && !res.data) return <ErrorBox error={res.error} retry={res.retry} />;
   if (!res.data) return <Loading />;
   const d: AssetDetail = res.data;
   const a = d.action;
@@ -158,7 +161,7 @@ function MachineView({ id }: { id: string }) {
               )}
             </div>
           )}
-          {a && at && <AdvicePanel key={`${id}@${at}`} assetId={id} at={at} />}
+          {a && adviceAt && <AdvicePanel key={`${id}@${a.id}`} assetId={id} at={adviceAt} />}
           {d.diagnosis && d.diagnosis.fingerprint.length > 0 && <Fingerprint d={d.diagnosis} />}
 
           {evidence.length > 0 && (
@@ -239,7 +242,7 @@ function MachineView({ id }: { id: string }) {
           {a && (<>
             {/* pinned above the tab bar on mobile, inline on desktop */}
             <div className="fixed lg:static inset-x-0 bottom-[var(--tabbar-h)] z-20 bg-card lg:bg-transparent border-t border-rule lg:border-0 shadow-[0_-6px_16px_var(--shadow)] lg:shadow-none px-4 py-3 lg:p-0">
-              <ActionButtons key={`${a.id}@${at}`} action={a} recorded={recorded} onRecorded={() => setRecorded(true)} />
+              <ActionButtons key={a.id} action={a} recorded={recorded} onRecorded={() => setRecorded(true)} />
             </div>
           </>)}
         </section>
@@ -255,4 +258,11 @@ function H2({ id, letter, children }: { id: string; letter: string; children: Re
       {children}
     </h2>
   );
+}
+
+// The clock time when `key` was first seen, so advice asked for an alert is not re-asked every live hour.
+function useFirstAt(key: string, at: string | undefined) {
+  const first = useRef<{ key: string; at?: string }>({ key, at });
+  if (first.current.key !== key || !first.current.at) first.current = { key, at };
+  return first.current.at;
 }

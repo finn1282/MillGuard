@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
-import { IconTick } from "../components/Icons";
+import { IconTick, IconWatch } from "../components/Icons";
 import { StatusChip } from "../components/Status";
 import { ErrorBox, Loading } from "../components/States";
 import { api } from "../lib/api";
 import { useClock } from "../lib/clock";
 import { rm } from "../lib/format";
 import { useLang } from "../lib/i18n";
-import type { Action, AssetStatus, LineAsset } from "../lib/types";
+import type { Action, AssetStatus, LineAsset, SensorAlert } from "../lib/types";
 import { useApi } from "../lib/useApi";
 
 const BORDER: Record<AssetStatus, string> = { act: "border-2 border-act", watch: "border-2 border-watch-border", ok: "border border-rule" };
@@ -18,8 +18,9 @@ export function Mill() {
   const brief = useApi(at ? () => api.brief(at) : null, [at]);
   const line = useApi(at ? () => api.line(at) : null, [at]);
 
+  // Live mode: keep the last data on screen through a failed refresh.
   const err = brief.error ?? line.error;
-  if (err) return <ErrorBox error={err} retry={() => { brief.retry(); line.retry(); }} />;
+  if (err && !(brief.data && line.data)) return <ErrorBox error={err} retry={() => { brief.retry(); line.retry(); }} />;
   if (!brief.data || !line.data) return <Loading />;
   const b = brief.data;
   const assets = line.data.assets;
@@ -60,6 +61,8 @@ export function Mill() {
           </div>
         </header>
       )}
+
+      <SensorChecks alerts={[...(b.sensor_alerts ?? []), ...(line.data.sensor_alerts ?? [])]} />
 
       <div className="flex flex-wrap gap-3.5 lg:gap-6 items-start">
         <div className="flex flex-col gap-3.5 basis-[380px] grow lg:max-w-[460px] min-w-0">
@@ -192,6 +195,27 @@ function MillMap({ assets }: { assets: LineAsset[] }) {
         </div>
       </div>
       {assets.length === 0 && <p className="text-muted">{t("noMachines")}</p>}
+    </section>
+  );
+}
+
+// Sensor problems (v1.14): an amber "Sensor check" row, never a machine status.
+function SensorChecks({ alerts }: { alerts: SensorAlert[] }) {
+  const { t, pick } = useLang();
+  const seen = new Set<string>();
+  const list = alerts.filter((a) => { const k = `${a.asset_id}|${a.signal}|${a.kind}`; return seen.has(k) ? false : (seen.add(k), true); });
+  if (!list.length) return null;
+  return (
+    <section aria-label={t("sensorCheck")} className="flex flex-col gap-2">
+      {list.map((a) => (
+        <div key={`${a.asset_id}|${a.signal}|${a.kind}`} className="flex flex-wrap items-center gap-x-3 gap-y-1 bg-watch-tint border-2 border-watch-border rounded px-4 py-3">
+          <span className="inline-flex items-center gap-1.5 rounded-chip bg-watch-bg border border-watch-border text-watch-ink font-bold text-sm lg:text-base px-2.5 py-1">
+            <IconWatch size={16} />{t("sensorCheck")}
+          </span>
+          <span className="flex-1 min-w-[14rem] text-base lg:text-lg font-bold text-ink">{pick(a, "message")}</span>
+          <span className="text-sm lg:text-base text-watch-ink font-semibold">{t("sensorNote")}</span>
+        </div>
+      ))}
     </section>
   );
 }

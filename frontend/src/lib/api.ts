@@ -1,6 +1,6 @@
 import type {
   AdviceOut, Assumption, AssetDetail, Backtest, Brief, FaultGuide, FeedbackIn, FeedbackOut,
-  Line, Marker, Meta, NotifyOut, NotifyStatus, Robustness,
+  IngestOut, Line, LiveSession, LiveStatus, Marker, Meta, NotifyOut, NotifyStatus, ReadingIn, Robustness, Scenario, UploadOut,
 } from "./types";
 
 export const USE_FIXTURES = import.meta.env.VITE_USE_FIXTURES === "true";
@@ -40,7 +40,29 @@ async function fixtureAdvice(asset_id: string, at: string, lang: "en" | "ms"): P
   return fixture<AdviceOut>(`advice_${key}`).catch(() => { throw new OfflineUnavailable(key); });
 }
 
+// Presenter key for write endpoints (v1.14). Session storage only: never in the URL or the build.
+const KEY = "mg.demoKey";
+export function demoKey(): string | null { try { return sessionStorage.getItem(KEY); } catch { return null; } }
+export function setDemoKey(k: string) { try { sessionStorage.setItem(KEY, k); } catch { /* private mode */ } }
+
+export class HttpError extends Error {
+  constructor(public status: number, message: string) { super(message); }
+}
+async function fail(r: Response): Promise<never> {
+  let detail = r.statusText;
+  try { const j = await r.json(); if (typeof j.detail === "string") detail = j.detail; } catch { /* not JSON */ }
+  throw new HttpError(r.status, `${r.status} ${detail}`);
+}
+
 const cache = new Map<string, Promise<unknown>>();
+// A new live session serves different data for the same `at`: drop everything cached.
+export const clearCache = () => cache.clear();
+
+async function fresh<T>(path: string, params: Record<string, string | number> = {}): Promise<T> {
+  const q = new URLSearchParams(Object.entries(params).map(([k, v]) => [k, String(v)]));
+  const r = await fetch(`${API}/api${path}${q.size ? `?${q}` : ""}`, { cache: "no-store" });
+  return r.ok ? r.json() : fail(r);
+}
 
 function get<T>(path: string, params: Record<string, string | number | undefined> = {}): Promise<T> {
   const q = new URLSearchParams();
@@ -57,13 +79,17 @@ function get<T>(path: string, params: Record<string, string | number | undefined
   return cache.get(url) as Promise<T>;
 }
 
-async function post<T>(path: string, body: unknown, timeoutMs?: number): Promise<T> {
+async function post<T>(path: string, body?: unknown, timeoutMs?: number): Promise<T> {
+  const headers: Record<string, string> = {};
+  const key = demoKey();
+  if (key) headers["X-Demo-Key"] = key;
+  const form = body instanceof FormData;
+  if (!form) headers["Content-Type"] = "application/json";
   const r = await fetch(`${API}/api${path}`, {
-    method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body),
+    method: "POST", headers, body: form ? body : JSON.stringify(body ?? {}),
     signal: timeoutMs ? AbortSignal.timeout(timeoutMs) : undefined,
   });
-  if (!r.ok) throw new Error(`${r.status} ${r.statusText}`);
-  return r.json();
+  return r.ok ? r.json() : fail(r);
 }
 
 export type GridAxes = { cpo_price: number[]; miss_cost_mult: number[]; alert_budget: number[]; inspection_accuracy: number[] };
@@ -104,6 +130,15 @@ export const api = {
   // The model can take up to 30 s plus one retry on the backend.
   advice: (asset_id: string, at: string, lang: "en" | "ms") =>
     USE_FIXTURES ? fixtureAdvice(asset_id, at, lang) : post<AdviceOut>("/advice", { asset_id, at, lang }, 75_000),
+  // v1.14 gateway. Live endpoints are never cached; offline mode has no live backend.
+  live: (): Promise<LiveStatus | null> => (USE_FIXTURES ? Promise.resolve(null) : fresh<LiveStatus>("/live")),
+  scenarios: () => get<Scenario[]>("/scenarios"),
+  scenarioHours: (id: string, from: string, n = 24) => fresh<ReadingIn[]>(`/scenarios/${id}/hours`, { from, n }),
+  ingest: (rows: ReadingIn[]) => post<IngestOut>("/ingest", rows),
+  liveStart: (scenario_id: string, start: string | undefined, speed_s_per_h: number) =>
+    post<LiveSession>("/live/start", { scenario_id, start, speed_s_per_h }),
+  liveStop: () => post<LiveStatus>("/live/stop"),
+  upload: (file: File) => { const f = new FormData(); f.append("file", file); return post<UploadOut>("/upload", f, 60_000); },
   notify: (at: string, kind: "alert" | "brief" | "schedule" = "alert", action_id?: string) =>
     post<NotifyOut>("/notify", { at, kind, action_id }),
   // v1.13 Schedule: notify only, the backend records the feedback whether Telegram is on or off.

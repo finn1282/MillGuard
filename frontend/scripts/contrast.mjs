@@ -20,7 +20,8 @@ const pairs = [
   ["white", "brand"], ["white", "brand-2"], ["db-label", "brand"], ["db-sub", "brand"],
   ["db-loss", "brand"], ["db-protect", "brand"], ["gold", "brand"],
   ["gold-ink", "card"], ["gold-ink", "paper"], ["info", "card"], ["info", "paper"],
-  ["sample-ink", "sample-bg"],
+  ["sample-ink", "sample-bg"], ["live", "card"], ["live", "paper-bar"],
+  ["db-label", "ink"], ["db-sub", "ink"], ["gold", "ink"],
   ["focus", "card", 3], ["focus", "paper", 3], ["gold", "brand", 3], ["gold", "brand-2", 3], ["gold", "ink", 3],
 ].map(([f, b, min = 4.5]) => [f, b, vars[f], vars[b], min]);
 

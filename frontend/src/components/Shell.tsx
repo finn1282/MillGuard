@@ -4,6 +4,7 @@ import { useClock } from "../lib/clock";
 import { useLang, type Key } from "../lib/i18n";
 import { PalmMark } from "./Icons";
 import { ErrorBoundary } from "./ErrorBoundary";
+import { LiveToasts } from "./LiveToasts";
 import { TimeBar } from "./TimeBar";
 
 export const PAGES: { to: string; key: Key }[] = [
@@ -11,6 +12,7 @@ export const PAGES: { to: string; key: Key }[] = [
   { to: "/machine", key: "machine" },
   { to: "/impact", key: "impact" },
   { to: "/how", key: "how" },
+  { to: "/gateway", key: "gateway" },
 ];
 
 function Rail() {
@@ -34,7 +36,7 @@ function Rail() {
 function Tabs() {
   const { t } = useLang();
   return (
-    <nav aria-label="Main" className="lg:hidden fixed bottom-0 inset-x-0 z-30 bg-brand grid grid-cols-4 gap-1 px-2 pt-2 pb-[max(12px,env(safe-area-inset-bottom))]">
+    <nav aria-label="Main" className="lg:hidden fixed bottom-0 inset-x-0 z-30 bg-brand grid grid-cols-5 gap-1 px-1.5 pt-2 pb-[max(12px,env(safe-area-inset-bottom))]">
       {PAGES.map((p, i) => (
         <NavLink key={p.to} to={p.to}
           className={({ isActive }) => `flex flex-col items-center justify-center gap-0.5 min-h-[48px] rounded px-0.5 py-1 text-xs text-center leading-tight no-underline
@@ -48,7 +50,7 @@ function Tabs() {
   );
 }
 
-// Presenter shortcuts: 1-4 switch pages, B jumps to the next bookmark.
+// Presenter shortcuts: 1-5 switch pages, B jumps to the next bookmark.
 function useShortcuts() {
   const nav = useNavigate();
   const { nextBookmark } = useClock();
@@ -77,6 +79,7 @@ export function Shell() {
         <ErrorBoundary resetKey={pathname}><Outlet /></ErrorBoundary>
       </main>
       <Tabs />
+      <LiveToasts />
     </div>
   );
 }
