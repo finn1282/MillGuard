@@ -1,7 +1,11 @@
 PY=.venv/bin/python
-.PHONY: setup fixtures api all roi
+.PHONY: setup libomp fixtures api all roi report
 setup:
 	uv venv --python 3.11 .venv && uv pip install --python $(PY) -r backend/requirements.txt
+libomp:
+	sh backend/scripts/fix_libomp.sh $(PY)
+report:
+	$(PY) -m backend.scripts.report
 fixtures:
 	$(PY) -m backend.api.make_fixtures
 api:
