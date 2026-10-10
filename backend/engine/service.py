@@ -1,4 +1,5 @@
 """Read-only service over pipeline artifacts. Stateless: every call takes `at`."""
+import copy
 import json
 from pathlib import Path
 
@@ -131,13 +132,17 @@ class Service:
         return [(c[3:], float(v)) for c, v in row.sort_values(ascending=False).items()]
 
     def _window(self, a, t):
-        """(horizon_h, P(fail before the action deadline)) at replay time t."""
+        """(horizon_h, P(fail within the wait window)) at replay time t."""
         h = self.idx(t)
         tr = self._trig[a["asset_id"]]
-        if a["recommendation"] == "fix_now":   # waiting means waiting for the next planned stop
-            hrs = min(168, decide.hours_to_stop(t, val(self.p, "alerting", "min_lead_h")))
+        # v1.6: "wait" = skip this chance to fix it. fix_now: now -> next planned stop.
+        # schedule_next_stop: now -> the stop after the next one (always > 168 h away, since stops are 168 h apart).
+        # The models only look 168 h ahead, so any longer window is clipped to 168 h (risk is understated, not overstated).
+        if a["recommendation"] == "fix_now":
+            hrs = decide.hours_to_stop(t, val(self.p, "alerting", "min_lead_h"))
         else:
-            hrs = max(1, int(np.ceil((pd.Timestamp(a["deadline"]).tz_localize(None) - t) / pd.Timedelta(hours=1))))
+            hrs = int(np.ceil((pd.Timestamp(a["deadline"]).tz_localize(None) - t) / pd.Timedelta(hours=1))) + 168
+        hrs = max(1, min(168, hrs))
         return hrs, decide.p_before(tr["p24"][h], tr["p72"][h], tr["p168"][h], hrs)
 
     def _action(self, a, rank, top_saved, has_whole, t=None):
@@ -230,17 +235,21 @@ class Service:
                             what_ms=w[1].format(fault=f_ms.capitalize()), downtime_h=float(r.downtime_h), was_predicted=warned))
         return out
 
-    def backtest(self, cpo_price=None, miss_cost_mult=1.0, alert_budget=5, compare="run_to_failure"):
+    def backtest(self, cpo_price=None, miss_cost_mult=1.0, alert_budget=5, compare="run_to_failure", inspection_accuracy=None):
         cpo = min(max(cpo_price if cpo_price else val(self.p, "economics", "cpo_price_rm_per_t"), 3800), 5000)
         miss = min(max(miss_cost_mult, 0.5), 3)
         bud = int(min(max(alert_budget, 1), 10))
-        key = (round(cpo, 2), round(miss, 3), bud)
+        acc = val(self.p, "alerting", "inspection_finds_wrong_class") if inspection_accuracy is None \
+            else min(max(inspection_accuracy, 0.0), 1.0)
+        key = (round(cpo, 2), round(miss, 3), bud, round(acc, 3))
         if key not in self._bt_cache:
+            p = copy.deepcopy(self.p)
+            p["alerting"]["inspection_finds_wrong_class"]["value"] = acc
             ep, events, thr, = None, None, None
-            ep, events, thr = backtest.run_all_policies(self.p, 10, self.pred, self.fails, self.lives, self.hidden,
+            ep, events, thr = backtest.run_all_policies(p, 10, self.pred, self.fails, self.lives, self.hidden,
                                                         self.fit["k"], self.fit["fixed_interval_frac"], bud, cpo, miss,
                                                         self.fit["trigger"], self.fit["schedule_plus"])
-            pols = [backtest.summarize(self.p, events, k) for k in backtest.POLICIES]
+            pols = [backtest.summarize(p, events, k) for k in backtest.POLICIES]
             tl = backtest.timeline(events)
             evs = sorted(({"t": iso(e["t"]), "policy": e["policy"], "type": e["type"], "asset_id": e["asset_id"]}
                           for e in events), key=lambda e: e["t"])

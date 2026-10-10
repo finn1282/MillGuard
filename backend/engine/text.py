@@ -34,7 +34,7 @@ PRESS_2_WORM = dict(
 
 MARKERS = dict(
     quiet_en="Quiet night: nothing needs you", quiet_ms="Malam tenang: tiada tindakan diperlukan",
-    onset_en="Press 2 worm-wear alert begins", onset_ms="Amaran haus skru cacing Penekan 2 bermula",
+    act_en="{asset}: {fault}, act now", act_ms="{asset}: {fault}, bertindak sekarang",
     both_en="Boiler and press alerts on the same night", both_ms="Amaran dandang dan penekan pada malam yang sama",
     alert_en="{asset}: MillGuard alert", alert_ms="{asset}: amaran MillGuard",
     breakdown_en="{asset}: breakdown", breakdown_ms="{asset}: kerosakan")

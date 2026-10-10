@@ -5,7 +5,7 @@ import joblib
 import numpy as np
 import pandas as pd
 
-from backend.engine import cost, decide, text
+from backend.engine import cost, decide, fingerprint, text
 from backend.engine.explain import Explainer
 from backend.engine.service import ART, ASSETS, DAY_EN, DAY_MS, NAME, Service, iso
 from backend.params import val
@@ -83,21 +83,31 @@ def build_markers(svc: Service, ep):
     q = ([t for t in quiet if briefs[t]["watching_count"] and briefs[t]["suppressed_count"]] or
          [t for t in quiet if briefs[t]["watching_count"] or briefs[t]["suppressed_count"]] or quiet)
     q_t = q[len(q) // 3] if q else nights[0]
-    w = ep[(ep.asset_id == "press_2") & (ep.fault_class == "worm_wear") & (ep.t_open >= "2025-02-01")]
-    w = w[w.outcome == "prevented"] if (w.outcome == "prevented").any() else w
-    def live_saved(asset, t):
-        return max([r["rm_saved_if_acted"] for r, a in svc._live(t) if a["asset_id"] == asset] or [0])
-    onset = max(w.t_open, key=lambda t: live_saved("press_2", t)) if len(w) else nights[len(nights) // 2]
+    gradual = {"worm_wear", "bearing", "gearbox_shaft", "hydraulic_cone"}
+    cands = []   # (matches, saved, -hour, t, action): true-positive alerts on gradual faults, every hour of their window
+    for a in svc.actions:
+        e = ep[(ep.asset_id == a["asset_id"]) & (ep.t_open == a["t_open"])]
+        if a["t_open"] < pd.Timestamp("2025-02-01") or a["asset_type"] != "press" or a["fault_class"] not in gradual \
+                or not len(e) or e.iloc[0].outcome != "prevented":
+            continue
+        for t in pd.date_range(a["t_open"], a["t_close"] - pd.Timedelta(hours=1), freq="h"):
+            m = sum(c.matches for c in fingerprint.fingerprint(svc.tel, a["asset_id"], a["fault_class"], t))
+            sv = svc._money(dict(a), a, t)["rm_saved_if_acted"]
+            cands.append((a["asset_id"] == "press_2", m, sv, -t.value, t, a))
+    act = max(cands, key=lambda c: c[:4]) if cands else None
+    onset = act[4] if act else nights[len(nights) // 2]
+    act_asset = act[5] if act else dict(asset_id="press_2", fault_class="worm_wear")
     both = []
     for t in svc.times:
         if (t.hour >= 19 or t.hour < 7) and t >= pd.Timestamp("2025-02-01"):
             ids = {x["asset_id"] for x in svc.active(t)}
             if "boiler_1" in ids and ids - {"boiler_1"}:
-                sv = {a["asset_id"]: r["rm_saved_if_acted"] for r, a in svc._live(t)}
-                both.append((min(sv["boiler_1"], max(v for k, v in sv.items() if k != "boiler_1")), t))
+                both.append((sum(r["rm_saved_if_acted"] for r, _ in svc._live(t)), t))
     both_t = max(both)[1] if both else None
+    nm = NAME[act_asset["asset_id"]]; f_en, f_ms = text.FAULT_LABEL[act_asset["fault_class"]]
     out = [dict(t=iso(q_t), kind="bookmark", label_en=M["quiet_en"], label_ms=M["quiet_ms"]),
-           dict(t=iso(onset), kind="bookmark", asset_id="press_2", label_en=M["onset_en"], label_ms=M["onset_ms"])]
+           dict(t=iso(onset), kind="bookmark", asset_id=act_asset["asset_id"],
+                label_en=M["act_en"].format(asset=nm, fault=f_en), label_ms=M["act_ms"].format(asset=nm.replace("Press", "Penekan"), fault=f_ms))]
     if both_t is not None:
         out.append(dict(t=iso(both_t), kind="bookmark", label_en=M["both_en"], label_ms=M["both_ms"]))
     for r in ep.itertuples():

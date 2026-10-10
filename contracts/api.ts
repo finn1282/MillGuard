@@ -88,8 +88,10 @@ export interface FaultGuide {
   typical_downtime_h: number; typical_cost_rm: number; onset: "gradual" | "sudden";
 }
 
-// Money: rm_at_risk = P(fail before deadline) x full breakdown cost (full = round(rm_at_risk / (risk_pct/100))).
-// horizon_h = hours from `at` to `deadline`; risk_pct = probability of failure inside that window.
+// Money (v1.6): "wait" = skip this chance to fix it. fix_now: window = now -> next planned stop;
+// schedule_next_stop: window = now -> the stop after the next (clipped to 168 h, the model horizon).
+// horizon_h = that window; risk_pct = P(fail within it); rm_at_risk = risk x full breakdown cost
+// (full = round(rm_at_risk / (risk_pct/100))); rm_saved_if_acted = max(0, rm_at_risk - rm_cost_to_act).
 export interface AssetDetail {
   asset: LineAsset;
   status: AssetStatus; risk_pct: number;
@@ -116,7 +118,8 @@ export interface BacktestEvent {
   policy: PolicyId; type: "breakdown" | "planned_fix" | "false_alarm"; asset_id: string;
 }
 
-// GET /api/backtest?cpo_price=&miss_cost_mult=&alert_budget=&compare=run_to_failure|fixed_interval
+// GET /api/backtest?cpo_price=&miss_cost_mult=&alert_budget=&compare=run_to_failure|fixed_interval&inspection_accuracy=
+// inspection_accuracy (v1.6): 0-1, default 0.5 = chance a crew inspection finds the real fault when the predicted class was wrong.
 // Inputs are clamped: cpo_price 3800-5000 (default 4292.5), miss_cost_mult 0.5-3 (1), alert_budget 1-10 (5).
 export interface Backtest {
   threshold: number; policies: PolicyResult[]; timeline: TimelinePoint[]; events: BacktestEvent[];

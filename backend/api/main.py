@@ -19,7 +19,7 @@ if not STUB:
     from backend.engine.service import Service
     svc = Service()
 
-app = FastAPI(title="MillGuard API", version="1.5")
+app = FastAPI(title="MillGuard API", version="1.6")
 app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
 
 
@@ -69,13 +69,13 @@ def asset(asset_id: str, at: str | None = None, window_h: int = 168):
 
 @app.get("/api/backtest", response_model=Backtest)
 def backtest(cpo_price: float = 4292.5, miss_cost_mult: float = 1.0, alert_budget: int = 5,
-             compare: str = "run_to_failure", at: str | None = None):
+             compare: str = "run_to_failure", inspection_accuracy: float = 0.5, at: str | None = None):
     cpo_price = clamp(cpo_price, 3800, 5000)
     miss_cost_mult = clamp(miss_cost_mult, 0.5, 3)
     alert_budget = int(clamp(alert_budget, 1, 10))
     if STUB:
         return fx("backtest")
-    return svc.backtest(cpo_price, miss_cost_mult, alert_budget, compare)
+    return svc.backtest(cpo_price, miss_cost_mult, alert_budget, compare, clamp(inspection_accuracy, 0.0, 1.0))
 
 
 @app.get("/api/faults", response_model=list[FaultGuide])
