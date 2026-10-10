@@ -1,7 +1,9 @@
 PY=.venv/bin/python
-.PHONY: setup libomp fixtures api all roi report
+.PHONY: stress setup libomp fixtures api all roi report
 setup:
 	uv venv --python 3.11 .venv && uv pip install --python $(PY) -r backend/requirements.txt
+stress:
+	$(PY) -m backend.robustness.stress
 libomp:
 	sh backend/scripts/fix_libomp.sh $(PY)
 report:

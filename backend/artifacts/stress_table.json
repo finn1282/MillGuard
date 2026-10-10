@@ -1,0 +1,114 @@
+[
+ {
+  "caught": 22,
+  "total": 34,
+  "fa_week": 1.3,
+  "alerts": 91,
+  "tp_alerts": 22,
+  "median_lead_h": 63.0,
+  "cost": {
+   "run_to_failure": 972848,
+   "fixed_interval": 723550,
+   "millguard": 557570,
+   "schedule_plus_millguard": 421040
+  },
+  "key": "baseline",
+  "label": "No perturbation (reference)"
+ },
+ {
+  "caught": 9,
+  "total": 34,
+  "fa_week": 3.62,
+  "alerts": 198,
+  "tp_alerts": 9,
+  "median_lead_h": 114.0,
+  "cost": {
+   "run_to_failure": 972848,
+   "fixed_interval": 723550,
+   "millguard": 1447854,
+   "schedule_plus_millguard": 1187186
+  },
+  "key": "noise2",
+  "label": "Sensor noise x2"
+ },
+ {
+  "caught": 5,
+  "total": 34,
+  "fa_week": 2.03,
+  "alerts": 111,
+  "tp_alerts": 5,
+  "median_lead_h": 83.0,
+  "cost": {
+   "run_to_failure": 972848,
+   "fixed_interval": 723550,
+   "millguard": 926262,
+   "schedule_plus_millguard": 635716
+  },
+  "key": "noise3",
+  "label": "Sensor noise x3"
+ },
+ {
+  "caught": 24,
+  "total": 34,
+  "fa_week": 1.38,
+  "alerts": 97,
+  "tp_alerts": 24,
+  "median_lead_h": 71.0,
+  "cost": {
+   "run_to_failure": 972848,
+   "fixed_interval": 723550,
+   "millguard": 574772,
+   "schedule_plus_millguard": 445118
+  },
+  "key": "miss20",
+  "label": "20% of readings missing"
+ },
+ {
+  "caught": 21,
+  "total": 34,
+  "fa_week": 1.61,
+  "alerts": 105,
+  "tp_alerts": 21,
+  "median_lead_h": 63.0,
+  "cost": {
+   "run_to_failure": 972848,
+   "fixed_interval": 723550,
+   "millguard": 758897,
+   "schedule_plus_millguard": 622117
+  },
+  "key": "miss40",
+  "label": "40% of readings missing"
+ },
+ {
+  "caught": 24,
+  "total": 34,
+  "fa_week": 1.3,
+  "alerts": 94,
+  "tp_alerts": 24,
+  "median_lead_h": 61.5,
+  "cost": {
+   "run_to_failure": 972848,
+   "fixed_interval": 723550,
+   "millguard": 558320,
+   "schedule_plus_millguard": 428666
+  },
+  "key": "drift",
+  "label": "Slow sensor drift (+10% over the year on current and vibration)"
+ },
+ {
+  "caught": 21,
+  "total": 34,
+  "fa_week": 1.32,
+  "alerts": 91,
+  "tp_alerts": 21,
+  "median_lead_h": 59.0,
+  "cost": {
+   "run_to_failure": 972848,
+   "fixed_interval": 723550,
+   "millguard": 568496,
+   "schedule_plus_millguard": 428966
+  },
+  "key": "wo25",
+  "label": "25% of work orders with the wrong fault class"
+ }
+]

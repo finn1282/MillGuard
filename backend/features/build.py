@@ -53,10 +53,11 @@ def since_wo(h_idx, wo_h, ct):
     return hrs, tonnes
 
 
-def build(save=True) -> pd.DataFrame:
-    tel = pd.read_parquet(DATA / "telemetry.parquet")
-    err = pd.read_parquet(DATA / "errors.parquet")
-    wo = pd.read_parquet(DATA / "maintenance.parquet")
+def build(save=True, tel=None, err=None, wo=None) -> pd.DataFrame:
+    """Feature table. tel/err/wo can be passed in (stress tests perturb them); defaults read the simulator tables."""
+    tel = pd.read_parquet(DATA / "telemetry.parquet") if tel is None else tel
+    err = pd.read_parquet(DATA / "errors.parquet") if err is None else err
+    wo = pd.read_parquet(DATA / "maintenance.parquet") if wo is None else wo
     t0 = tel.t.min()
     rows = []
     for mill, mt in tel.groupby("mill_id"):

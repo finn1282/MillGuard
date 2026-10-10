@@ -77,6 +77,12 @@ def main(skip_sim=False):
     except Exception as e:   # robustness check must not break the main pipeline
         print("MetroPT-3 step skipped:", e)
     try:
+        from backend.robustness import stress
+        print("\n== Stress test on mill 10 (no retraining, thresholds unchanged) ==")
+        stress.main()
+    except Exception as e:
+        print("Stress test skipped:", e)
+    try:
         from backend.robustness import boiler_real
         from backend.scripts import fetch_boiler
         fetch_boiler.main()
