@@ -1,0 +1,8 @@
+{
+ "dataset": "MetroPT-3",
+ "failures_total": 4,
+ "caught": 3,
+ "median_lead_h": 11.0,
+ "false_alarms_per_week": 0.8,
+ "note": "PLACEHOLDER until the real MetroPT-3 run (plan step 8)."
+}

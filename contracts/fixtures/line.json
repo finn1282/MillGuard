@@ -1,0 +1,45 @@
+{
+ "at": "2025-10-18T19:00:00+08:00",
+ "assets": [
+  {
+   "id": "press_1",
+   "name": "Press 1",
+   "type": "press",
+   "stage": "pressing",
+   "status": "ok",
+   "risk_pct": 4.0
+  },
+  {
+   "id": "press_2",
+   "name": "Press 2",
+   "type": "press",
+   "stage": "pressing",
+   "status": "act",
+   "risk_pct": 41.0
+  },
+  {
+   "id": "press_3",
+   "name": "Press 3",
+   "type": "press",
+   "stage": "pressing",
+   "status": "ok",
+   "risk_pct": 7.0
+  },
+  {
+   "id": "press_4",
+   "name": "Press 4",
+   "type": "press",
+   "stage": "pressing",
+   "status": "watch",
+   "risk_pct": 33.0
+  },
+  {
+   "id": "boiler_1",
+   "name": "Boiler 1",
+   "type": "boiler",
+   "stage": "utilities",
+   "status": "act",
+   "risk_pct": 58.0
+  }
+ ]
+}

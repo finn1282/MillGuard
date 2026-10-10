@@ -1,0 +1,370 @@
+[
+ {
+  "key": "economics.throughput_tph",
+  "label": "Throughput tph",
+  "value": 60.0,
+  "unit": "t FFB/h",
+  "source": "Published mill simulation (plan 3.2)",
+  "status": "validated"
+ },
+ {
+  "key": "economics.presses",
+  "label": "Presses",
+  "value": 4.0,
+  "unit": "count",
+  "source": "Plan 3.1 (4 presses x 15 t/h)",
+  "status": "validated"
+ },
+ {
+  "key": "economics.press_throughput_tph",
+  "label": "Press throughput tph",
+  "value": 15.0,
+  "unit": "t FFB/h",
+  "source": "Plan 3.1",
+  "status": "validated"
+ },
+ {
+  "key": "economics.oer",
+  "label": "Oer",
+  "value": 0.1974,
+  "unit": "fraction",
+  "source": "MPOB Overview of the Malaysian Oil Palm Industry 2025",
+  "status": "validated"
+ },
+ {
+  "key": "economics.cpo_price_rm_per_t",
+  "label": "Cpo price rm per t",
+  "value": 4292.5,
+  "unit": "RM/t",
+  "source": "MPOB 2025 average CPO price (spot ~RM4,420 on 5 Oct 2026)",
+  "status": "validated"
+ },
+ {
+  "key": "economics.cpo_price_slider_min",
+  "label": "Cpo price slider min",
+  "value": 3800.0,
+  "unit": "RM/t",
+  "source": "Plan 3.2 slider range",
+  "status": "assumed"
+ },
+ {
+  "key": "economics.cpo_price_slider_max",
+  "label": "Cpo price slider max",
+  "value": 5000.0,
+  "unit": "RM/t",
+  "source": "Plan 3.2 slider range",
+  "status": "assumed"
+ },
+ {
+  "key": "economics.rm_per_mill_hour",
+  "label": "Rm per mill hour",
+  "value": 50844.0,
+  "unit": "RM/h",
+  "source": "60 x 0.1974 x 4292.5 (plan quotes ~RM50,800)",
+  "status": "assumed"
+ },
+ {
+  "key": "economics.rm_per_press_hour",
+  "label": "Rm per press hour",
+  "value": 12711.0,
+  "unit": "RM/h",
+  "source": "rm_per_mill_hour / 4 (plan quotes ~RM12,700)",
+  "status": "assumed"
+ },
+ {
+  "key": "economics.unplanned_press_stop_h",
+  "label": "Unplanned press stop h",
+  "value": 4.0,
+  "unit": "h",
+  "source": "Team assumption",
+  "status": "assumed"
+ },
+ {
+  "key": "economics.unplanned_boiler_stop_h",
+  "label": "Unplanned boiler stop h",
+  "value": 8.0,
+  "unit": "h",
+  "source": "Team assumption (boiler stop halts whole mill)",
+  "status": "assumed"
+ },
+ {
+  "key": "economics.planned_repair_extra_lost_h",
+  "label": "Planned repair extra lost h",
+  "value": 0.0,
+  "unit": "h",
+  "source": "Repair done inside weekly planned stop",
+  "status": "assumed"
+ },
+ {
+  "key": "economics.unplanned_repair_multiplier",
+  "label": "Unplanned repair multiplier",
+  "value": 1.5,
+  "unit": "x parts",
+  "source": "Run-to-failure causes collateral damage; repair costs 1.5x planned parts",
+  "status": "assumed"
+ },
+ {
+  "key": "economics.lost_share",
+  "label": "Lost share",
+  "value": 0.3,
+  "unit": "fraction",
+  "source": "Share of delayed output truly lost; range 0.20-0.40; rest caught up",
+  "status": "assumed"
+ },
+ {
+  "key": "economics.lost_share_low",
+  "label": "Lost share low",
+  "value": 0.2,
+  "unit": "fraction",
+  "source": "Plan 3.2 range",
+  "status": "assumed"
+ },
+ {
+  "key": "economics.lost_share_high",
+  "label": "Lost share high",
+  "value": 0.4,
+  "unit": "fraction",
+  "source": "Plan 3.2 range",
+  "status": "assumed"
+ },
+ {
+  "key": "economics.false_alarm_cost_rm",
+  "label": "False alarm cost rm",
+  "value": 300.0,
+  "unit": "RM",
+  "source": "Inspection cost per false alarm",
+  "status": "assumed"
+ },
+ {
+  "key": "economics.miss_cost_mult",
+  "label": "Miss cost mult",
+  "value": 1.0,
+  "unit": "x",
+  "source": "Slider: multiplier on cost of a missed failure",
+  "status": "assumed"
+ },
+ {
+  "key": "economics.criticality_boiler",
+  "label": "Criticality boiler",
+  "value": 1.0,
+  "unit": "mill share",
+  "source": "Boiler stop = whole mill",
+  "status": "assumed"
+ },
+ {
+  "key": "economics.criticality_press",
+  "label": "Criticality press",
+  "value": 0.25,
+  "unit": "mill share",
+  "source": "One press = 1/4 mill",
+  "status": "assumed"
+ },
+ {
+  "key": "repair_cost_rm.worm_wear",
+  "label": "Worm wear",
+  "value": 6000.0,
+  "unit": "RM",
+  "source": "Placeholder",
+  "status": "assumed"
+ },
+ {
+  "key": "repair_cost_rm.bearing",
+  "label": "Bearing",
+  "value": 4500.0,
+  "unit": "RM",
+  "source": "Placeholder",
+  "status": "assumed"
+ },
+ {
+  "key": "repair_cost_rm.gearbox_shaft",
+  "label": "Gearbox shaft",
+  "value": 9000.0,
+  "unit": "RM",
+  "source": "Placeholder",
+  "status": "assumed"
+ },
+ {
+  "key": "repair_cost_rm.hydraulic_cone",
+  "label": "Hydraulic cone",
+  "value": 3500.0,
+  "unit": "RM",
+  "source": "Placeholder",
+  "status": "assumed"
+ },
+ {
+  "key": "repair_cost_rm.electrical",
+  "label": "Electrical",
+  "value": 2500.0,
+  "unit": "RM",
+  "source": "Placeholder",
+  "status": "assumed"
+ },
+ {
+  "key": "repair_cost_rm.boiler_steam",
+  "label": "Boiler steam",
+  "value": 8000.0,
+  "unit": "RM",
+  "source": "Placeholder",
+  "status": "assumed"
+ },
+ {
+  "key": "repair_cost_rm.boiler_water",
+  "label": "Boiler water",
+  "value": 6000.0,
+  "unit": "RM",
+  "source": "Placeholder",
+  "status": "assumed"
+ },
+ {
+  "key": "repair_cost_rm.unknown",
+  "label": "Unknown",
+  "value": 3000.0,
+  "unit": "RM",
+  "source": "Placeholder",
+  "status": "assumed"
+ },
+ {
+  "key": "simulator.n_mills",
+  "label": "N mills",
+  "value": 10.0,
+  "unit": "count",
+  "source": "Plan 3.1",
+  "status": "assumed"
+ },
+ {
+  "key": "simulator.months",
+  "label": "Months",
+  "value": 12.0,
+  "unit": "count",
+  "source": "Plan 3.1",
+  "status": "assumed"
+ },
+ {
+  "key": "simulator.step_h",
+  "label": "Step h",
+  "value": 1.0,
+  "unit": "h",
+  "source": "Plan 3.1 hourly data",
+  "status": "assumed"
+ },
+ {
+  "key": "simulator.worm_life_h_min",
+  "label": "Worm life h min",
+  "value": 700.0,
+  "unit": "h",
+  "source": "Plan 1.4 (700-800 h in original plan)",
+  "status": "validated"
+ },
+ {
+  "key": "simulator.worm_life_h_max",
+  "label": "Worm life h max",
+  "value": 2000.0,
+  "unit": "h",
+  "source": "RCM screw press studies: ~1,217 h interval, ~2,035 h replacement (UMM 2026, UIN Suska 2021)",
+  "status": "validated"
+ },
+ {
+  "key": "simulator.cone_pressure_max_bar",
+  "label": "Cone pressure max bar",
+  "value": 60.0,
+  "unit": "bar",
+  "source": "Plan 3.1 calibration anchor",
+  "status": "validated"
+ },
+ {
+  "key": "simulator.fibre_oil_loss_alarm",
+  "label": "Fibre oil loss alarm",
+  "value": 0.04,
+  "unit": "fraction",
+  "source": "Thai mill sensor study (SAJIE 36(1))",
+  "status": "validated"
+ },
+ {
+  "key": "simulator.target_stops_per_mill_year",
+  "label": "Target stops per mill year",
+  "value": "25, 50",
+  "unit": "count",
+  "source": "North Sumatra mill logged 65 in 7 months; plan target",
+  "status": "validated"
+ },
+ {
+  "key": "simulator.messy_work_order_share",
+  "label": "Messy work order share",
+  "value": 0.1,
+  "unit": "fraction",
+  "source": "Plan 3.1 (wrong class or late timestamp)",
+  "status": "assumed"
+ },
+ {
+  "key": "simulator.weekly_planned_stop_h",
+  "label": "Weekly planned stop h",
+  "value": 6.0,
+  "unit": "h",
+  "source": "Plan 2.3 (06:00 stop); duration assumed",
+  "status": "assumed"
+ },
+ {
+  "key": "simulator.missing_reading_rate",
+  "label": "Missing reading rate",
+  "value": 0.01,
+  "unit": "fraction",
+  "source": "Team assumption",
+  "status": "assumed"
+ },
+ {
+  "key": "simulator.crop_index_2025",
+  "label": "Crop index 2025",
+  "value": "0.84, 0.72, 0.82, 0.88, 0.97, 1.02, 1.08, 1.15, 1.19, 1.22, 1.12, 0.99",
+  "unit": "relative to annual mean",
+  "source": "MPOB monthly summary 2025; only Feb and Oct anchors from plan, rest approximate",
+  "status": "assumed"
+ },
+ {
+  "key": "alerting.persistence_h",
+  "label": "Persistence h",
+  "value": 3.0,
+  "unit": "h",
+  "source": "Plan 4.1",
+  "status": "validated"
+ },
+ {
+  "key": "alerting.max_per_shift",
+  "label": "Max per shift",
+  "value": 5.0,
+  "unit": "count",
+  "source": "Plan 4.1",
+  "status": "validated"
+ },
+ {
+  "key": "alerting.horizon_h",
+  "label": "Horizon h",
+  "value": 72.0,
+  "unit": "h",
+  "source": "Plan 4.1",
+  "status": "validated"
+ },
+ {
+  "key": "alerting.hysteresis_ratio",
+  "label": "Hysteresis ratio",
+  "value": 0.6,
+  "unit": "x threshold",
+  "source": "Clear below 60% of threshold",
+  "status": "assumed"
+ },
+ {
+  "key": "alerting.min_lead_h",
+  "label": "Min lead h",
+  "value": 6.0,
+  "unit": "h",
+  "source": "Alert only if time remains to act",
+  "status": "assumed"
+ },
+ {
+  "key": "alerting.fixed_interval_h",
+  "label": "Fixed interval h",
+  "value": 1000.0,
+  "unit": "h",
+  "source": "Fixed-interval policy; near RCM worm interval ~1,217 h",
+  "status": "assumed"
+ }
+]

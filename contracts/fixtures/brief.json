@@ -1,0 +1,134 @@
+{
+ "at": "2025-10-18T19:00:00+08:00",
+ "shift": "night",
+ "actions": [
+  {
+   "id": "act_boiler_1_0001",
+   "asset_id": "boiler_1",
+   "asset_name": "Boiler 1",
+   "asset_type": "boiler",
+   "fault_class": "boiler_steam",
+   "risk_pct": 58.0,
+   "horizon_h": 24,
+   "rm_at_risk": 134017,
+   "rm_cost_to_act": 8000,
+   "rm_saved_if_acted": 126017,
+   "recommendation": "fix_now",
+   "deadline": "2025-10-18T21:00:00+08:00",
+   "headline_en": "Boiler 1: steam temperature anomaly. Inspect now.",
+   "headline_ms": "Dandang 1: anomali suhu stim. Periksa sekarang.",
+   "reasons": [
+    {
+     "text_en": "Steam temperature has run 18 °C below its normal band for 4 hours",
+     "text_ms": "Suhu stim 18 °C di bawah julat biasa selama 4 jam",
+     "signal": "steam_temp",
+     "direction": "down",
+     "contribution": 0.47
+    },
+    {
+     "text_en": "Steam pressure is swinging twice as much as usual",
+     "text_ms": "Tekanan stim berayun dua kali ganda daripada biasa",
+     "signal": "steam_pressure",
+     "direction": "up",
+     "contribution": 0.33
+    },
+    {
+     "text_en": "Feedwater flow is falling while the mill load is steady",
+     "text_ms": "Aliran air suapan menurun walaupun beban kilang stabil",
+     "signal": "feedwater_flow",
+     "direction": "down",
+     "contribution": 0.2
+    }
+   ],
+   "why_rank_en": "Boiler stops the whole mill: about RM50,840 of CPO at risk every hour",
+   "why_rank_ms": "Dandang menghentikan seluruh kilang: kira-kira RM50,840 CPO berisiko setiap jam",
+   "criticality": "whole_mill"
+  },
+  {
+   "id": "act_press_2_0001",
+   "asset_id": "press_2",
+   "asset_name": "Press 2",
+   "asset_type": "press",
+   "fault_class": "worm_wear",
+   "risk_pct": 41.0,
+   "horizon_h": 48,
+   "rm_at_risk": 24252,
+   "rm_cost_to_act": 6000,
+   "rm_saved_if_acted": 18252,
+   "recommendation": "schedule_next_stop",
+   "deadline": "2025-10-19T06:00:00+08:00",
+   "headline_en": "Press 2: worm wear. Change the worm at tomorrow's 06:00 stop.",
+   "headline_ms": "Penekan 2: haus skru cacing. Tukar skru pada henti terancang esok jam 06:00.",
+   "reasons": [
+    {
+     "text_en": "Motor current per tonne is 9% above Press 2's normal for 5 days",
+     "text_ms": "Arus motor setiap tan 9% lebih tinggi daripada biasa bagi Penekan 2 selama 5 hari",
+     "signal": "current_per_tonne",
+     "direction": "up",
+     "contribution": 0.46
+    },
+    {
+     "text_en": "Oil lost in fibre rose to 3.6% (alarm line is 4%)",
+     "text_ms": "Kehilangan minyak dalam serabut meningkat kepada 3.6% (garis amaran 4%)",
+     "signal": "fibre_oil_loss",
+     "direction": "up",
+     "contribution": 0.31
+    },
+    {
+     "text_en": "Worm has run 1,310 h since the last change; typical life is about 1,200 h",
+     "text_ms": "Skru cacing telah beroperasi 1,310 jam sejak penggantian terakhir; hayat biasa kira-kira 1,200 jam",
+     "signal": "hours_since_service",
+     "direction": "up",
+     "contribution": 0.23
+    }
+   ],
+   "why_rank_en": "Costs less than the boiler alert, but the fix is cheap and fits the planned stop",
+   "why_rank_ms": "Kos lebih rendah daripada amaran dandang, tetapi pembaikan murah dan muat dalam henti terancang",
+   "criticality": "partial"
+  },
+  {
+   "id": "act_press_4_0001",
+   "asset_id": "press_4",
+   "asset_name": "Press 4",
+   "asset_type": "press",
+   "fault_class": "bearing",
+   "risk_pct": 33.0,
+   "horizon_h": 72,
+   "rm_at_risk": 22002,
+   "rm_cost_to_act": 4500,
+   "rm_saved_if_acted": 17502,
+   "recommendation": "monitor",
+   "deadline": "2025-10-20T07:00:00+08:00",
+   "headline_en": "Press 4: early bearing signs. Keep watching.",
+   "headline_ms": "Penekan 4: tanda awal galas. Teruskan pemantauan.",
+   "reasons": [
+    {
+     "text_en": "Vibration kurtosis has risen for 3 days while RMS is still normal",
+     "text_ms": "Kurtosis getaran meningkat selama 3 hari manakala RMS masih normal",
+     "signal": "vibration_kurtosis",
+     "direction": "up",
+     "contribution": 0.58
+    },
+    {
+     "text_en": "Gearbox oil temperature is 2 °C above its usual level",
+     "text_ms": "Suhu minyak gear 2 °C lebih tinggi daripada biasa",
+     "signal": "gearbox_oil_temp",
+     "direction": "up",
+     "contribution": 0.24
+    },
+    {
+     "text_en": "Bearing has run 1,850 h since service",
+     "text_ms": "Galas telah beroperasi 1,850 jam sejak servis",
+     "signal": "hours_since_service",
+     "direction": "up",
+     "contribution": 0.18
+    }
+   ],
+   "why_rank_en": "One press is a quarter of the mill, so this ranks below the boiler and Press 2",
+   "why_rank_ms": "Satu penekan ialah suku kilang, jadi ia berada di bawah dandang dan Penekan 2",
+   "criticality": "partial"
+  }
+ ],
+ "watching_count": 1,
+ "suppressed_count": 3
+}

@@ -12,6 +12,7 @@ economics:
   unplanned_press_stop_h: {value: 4,    unit: h,       source: "Team assumption", status: assumed}
   unplanned_boiler_stop_h: {value: 8,   unit: h,       source: "Team assumption (boiler stop halts whole mill)", status: assumed}
   planned_repair_extra_lost_h: {value: 0, unit: h,     source: "Repair done inside weekly planned stop", status: assumed}
+  unplanned_repair_multiplier: {value: 1.5, unit: x parts, source: "Run-to-failure causes collateral damage; repair costs 1.5x planned parts", status: assumed}
   lost_share:          {value: 0.30,    unit: fraction, source: "Share of delayed output truly lost; range 0.20-0.40; rest caught up", status: assumed}
   lost_share_low:      {value: 0.20,    unit: fraction, source: "Plan 3.2 range", status: assumed}
   lost_share_high:     {value: 0.40,    unit: fraction, source: "Plan 3.2 range", status: assumed}
