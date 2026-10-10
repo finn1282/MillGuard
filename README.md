@@ -127,11 +127,11 @@ Other targets:
 
 One Vercel project serves the web app (`frontend/dist`) and the API (`api/index.py`, the FastAPI app as one Python function; `/api/*` is rewritten to it, so the app calls the same origin and needs no `VITE_API_URL`).
 
-1. `vercel login` and `vercel link` once. In the project settings add: `KV_REST_API_URL` and `KV_REST_API_TOKEN` (Upstash Redis, from the Vercel Marketplace; without it state is per-instance memory and the live session will not hold), `DEMO_KEY` (protects the write endpoints; the browser sends it as `X-Demo-Key`), `TELEGRAM_BOT_TOKEN`, `TELEGRAM_WEBHOOK_SECRET`, `LIVE_AUTONOTIFY=1`, and optionally `LLM_API_KEY`.
+1. `vercel login` and `vercel link` once. In the project settings add: `KV_REST_API_URL` and `KV_REST_API_TOKEN` (Upstash Redis, from the Vercel Marketplace; without it state is per-instance memory and the live session will not hold), `DEMO_KEY` (protects the write endpoints; the browser sends it as `X-Demo-Key`), `TELEGRAM_BOT_TOKEN`, `TELEGRAM_WEBHOOK_SECRET`, `TELEGRAM_SUBSCRIBERS` (`chatid:lang,...`, so the group is subscribed without a `/start`), `LIVE_AUTONOTIFY=1`, `VERCEL_SUPPORT_LARGE_FUNCTIONS=1` (also set in `vercel.json`; allows a function above 250 MB, the Large Functions beta on Fluid compute), and optionally `LLM_API_KEY`.
 2. `make vercel-deploy`: builds the artifacts and scenarios if missing (`make all scenarios`), then `vercel deploy --prod`. `.vercelignore` replaces `.gitignore` for the upload, so the built `backend/artifacts/` (including `scenarios/`) reaches the function; models, `backend/data/` and `.env` do not.
 3. `make set-webhook URL=https://<project>.vercel.app` points Telegram at `/api/telegram/webhook`. Stop `make bot` first: polling and a webhook cannot both be active. `make set-webhook URL=delete` goes back to polling.
 
-Notes: the function installs the slim root `requirements.txt` (no lightgbm, scikit-learn or shap: they are only needed to build artifacts, and `api/index.py` stubs the `shap` import); CSV upload and the feedback log write to local disk and are for local use only. The Vercel Python function limit is 250 MB unzipped; if a deploy fails on size, drop `openai` from `requirements.txt` (AI advice then shows its "unavailable" message).
+Notes: the function installs the slim root `requirements.txt` (no lightgbm, scikit-learn or shap: they are only needed to build artifacts, and `api/index.py` stubs the `shap` import); CSV upload and the feedback log write to local disk and are for local use only. The function bundle is close to or above 250 MB uncompressed, so it relies on Large Functions (see above).
 
 ## Telegram alerts (optional)
 
