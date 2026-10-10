@@ -17,7 +17,8 @@ MILL = 10
 def write_tables():
     ART.mkdir(exist_ok=True)
     for src, dst, col in [("predictions", "mill10_predictions", "mill_id"), ("failures", "mill10_failures", "mill_id"),
-                          ("lives", "mill10_lives", "mill_id"), ("hidden", "mill10_hidden", "mill_id")]:
+                          ("lives", "mill10_lives", "mill_id"), ("hidden", "mill10_hidden", "mill_id"),
+                          ("maintenance", "mill10_maintenance", "mill_id"), ("errors", "mill10_errors", "mill_id")]:
         d = pd.read_parquet(DATA / f"{src}.parquet")
         d[d[col] == MILL].reset_index(drop=True).to_parquet(ART / f"{dst}.parquet")
     tel = pd.read_parquet(DATA / "telemetry.parquet")
@@ -71,6 +72,8 @@ def build_actions(p, fit):
             criticality="whole_mill" if atype == "boiler" else "partial",
             t_open=iso(r.t_open), t_close=iso(t_close), t_candidate=iso(r.t_candidate),
             internal=dict(outcome=r.outcome, fail_idx=None if r.fail_idx is None or pd.isna(r.fail_idx) else int(r.fail_idx))))
+    fails = pd.read_parquet(ART / "mill10_failures.parquet")
+    (ART / "test_mill.json").write_text(json.dumps(backtest.test_mill_table(ep, fails), indent=1))
     (ART / "actions.json").write_text(json.dumps(out, indent=1, ensure_ascii=False))
     return ep
 

@@ -20,11 +20,13 @@ def all_guides():
     return [guide(fc) for fc in text.FAULTS if fc != "unknown"] + [guide("unknown")]
 
 
-def fix_plan(fc, best_window):
+def fix_plan(fc, best_window, fix_now=False):
     f = text.FAULTS[fc]
     return FixPlan(title_en=text.FIX_PHRASE[fc][0], title_ms=text.FIX_PHRASE[fc][1], steps_en=f["steps"][0],
                    steps_ms=f["steps"][1], parts=[Part(name_en=n[0], name_ms=n[1], qty=q) for n, q in f["parts"]],
-                   crew=f["crew"], est_hours=f["hours"], needs_stop=f["needs_stop"], best_window=best_window)
+                   crew=f["crew"], est_hours=f["hours"], needs_stop=f["needs_stop"], best_window=best_window,
+                   stop=("none" if not f["needs_stop"] else "machine"),
+                   lost_production=bool(fix_now and f["needs_stop"]))   # stopping outside the planned stop loses output
 
 
 def diagnosis(fc, confidence, alternatives, checks):

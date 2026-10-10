@@ -28,8 +28,8 @@
    },
    {
     "signal": "vib_rms",
-    "label_en": "Vibration level (RMS)",
-    "label_ms": "Tahap getaran (RMS)",
+    "label_en": "Vibration level (root mean square)",
+    "label_ms": "Tahap getaran (punca min kuasa dua)",
     "expected": "up"
    }
   ],
@@ -68,8 +68,8 @@
    },
    {
     "signal": "vib_rms",
-    "label_en": "Vibration level (RMS)",
-    "label_ms": "Tahap getaran (RMS)",
+    "label_en": "Vibration level (root mean square)",
+    "label_ms": "Tahap getaran (punca min kuasa dua)",
     "expected": "up"
    },
    {
@@ -114,8 +114,8 @@
    },
    {
     "signal": "vib_rms",
-    "label_en": "Vibration level (RMS)",
-    "label_ms": "Tahap getaran (RMS)",
+    "label_en": "Vibration level (root mean square)",
+    "label_ms": "Tahap getaran (punca min kuasa dua)",
     "expected": "up"
    },
    {
@@ -356,8 +356,8 @@
    },
    {
     "signal": "vib_rms",
-    "label_en": "Vibration level (RMS)",
-    "label_ms": "Tahap getaran (RMS)",
+    "label_en": "Vibration level (root mean square)",
+    "label_ms": "Tahap getaran (punca min kuasa dua)",
     "expected": "up"
    }
   ],

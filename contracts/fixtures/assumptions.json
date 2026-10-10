@@ -438,5 +438,21 @@
   "unit": "h",
   "source": "Fixed-interval policy; near RCM worm interval ~1,217 h",
   "status": "assumed"
+ },
+ {
+  "key": "derived.breakdown_cost_press",
+  "label": "How a press breakdown cost is worked out",
+  "value": "A press breakdown costs 4 hours x RM12,710 per press-hour x 30% truly lost + repair cost x 1.5 (about RM24,252 for worm wear)",
+  "unit": "",
+  "source": "Derived from the economics and repair-cost values above",
+  "status": "assumed"
+ },
+ {
+  "key": "derived.breakdown_cost_boiler",
+  "label": "How a boiler breakdown cost is worked out",
+  "value": "A boiler breakdown costs 8 hours x RM50,840 per mill-hour (the whole mill stops) x 30% truly lost + repair cost x 1.5 (about RM126,517)",
+  "unit": "",
+  "source": "Derived from the economics and repair-cost values above",
+  "status": "assumed"
  }
 ]

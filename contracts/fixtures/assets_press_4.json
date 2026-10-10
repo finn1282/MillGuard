@@ -575,7 +575,10 @@
      "2025-09-14T02:00:00+08:00",
      4.405
     ]
-   ]
+   ],
+   "limit": null,
+   "summary_en": "4.3 to 4.3 A/t over 7 days",
+   "summary_ms": "4.3 kepada 4.3 A/t dalam 7 hari"
   },
   {
    "signal": "vib_kurtosis",
@@ -1143,7 +1146,10 @@
      "2025-09-14T02:00:00+08:00",
      3.246
     ]
-   ]
+   ],
+   "limit": null,
+   "summary_en": "3.0 to 3.0 over 7 days",
+   "summary_ms": "3.0 kepada 3.0 dalam 7 hari"
   },
   {
    "signal": "gearbox_oil_temp",
@@ -1819,7 +1825,10 @@
      "2025-09-14T03:00:00+08:00",
      47.393
     ]
-   ]
+   ],
+   "limit": 80.0,
+   "summary_en": "62.6 to 69.0 °C over 7 days",
+   "summary_ms": "62.6 kepada 69.0 °C dalam 7 hari"
   },
   {
    "signal": "cone_pressure",
@@ -2499,12 +2508,15 @@
      "2025-09-14T03:00:00+08:00",
      0.0
     ]
-   ]
+   ],
+   "limit": 57.0,
+   "summary_en": "27.8 to 39.0 bar over 7 days",
+   "summary_ms": "27.8 kepada 39.0 bar dalam 7 hari"
   },
   {
    "signal": "vib_rms",
-   "label_en": "Vibration level (RMS)",
-   "label_ms": "Tahap getaran (RMS)",
+   "label_en": "Vibration level (root mean square)",
+   "label_ms": "Tahap getaran (punca min kuasa dua)",
    "unit": "mm/s",
    "points": [
     [
@@ -3171,7 +3183,10 @@
      "2025-09-14T03:00:00+08:00",
      0.0
     ]
-   ]
+   ],
+   "limit": 3.2,
+   "summary_en": "1.3 to 1.8 mm/s over 7 days",
+   "summary_ms": "1.3 kepada 1.8 mm/s dalam 7 hari"
   },
   {
    "signal": "motor_current",
@@ -3843,7 +3858,10 @@
      "2025-09-14T03:00:00+08:00",
      0.0
     ]
-   ]
+   ],
+   "limit": null,
+   "summary_en": "38.7 to 52.1 A over 7 days",
+   "summary_ms": "38.7 kepada 52.1 A dalam 7 hari"
   },
   {
    "signal": "fibre_oil_loss",
@@ -3879,7 +3897,10 @@
      "2025-09-13T08:00:00+08:00",
      2.646
     ]
-   ]
+   ],
+   "limit": 4.0,
+   "summary_en": "2.6 to 2.6 % over 7 days",
+   "summary_ms": "2.6 kepada 2.6 % dalam 7 hari"
   }
  ],
  "alert_windows": [],
@@ -3928,5 +3949,27 @@
    "downtime_h": 4.0,
    "was_predicted": true
   }
- ]
+ ],
+ "last_service": {
+  "t": "2025-09-05T06:00:00+08:00",
+  "what_en": "Last repair logged on Press 4: worm wear",
+  "what_ms": "Pembaikan terakhir direkodkan bagi Penekan 4: haus skru cacing",
+  "hours_since": 213.0
+ },
+ "next_check": {
+  "t": "2025-09-14T06:00:00+08:00",
+  "label_en": "Next planned stop",
+  "label_ms": "Henti terancang seterusnya"
+ },
+ "outlook": {
+  "fault_class": "electrical",
+  "risk_pct": 4.0,
+  "horizon_h": 168,
+  "rm_breakdown_cost": 19002,
+  "rm_at_risk": 760,
+  "rm_cost_to_act": 2500,
+  "rm_saved_if_acted": 0,
+  "window_label_en": "before the planned stop after next, Sunday 06:00 (counted up to 168 hours)",
+  "window_label_ms": "sebelum henti terancang selepas yang seterusnya, Ahad jam 06:00 (dikira sehingga 168 jam)"
+ }
 }

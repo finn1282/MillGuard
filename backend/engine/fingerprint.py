@@ -53,6 +53,9 @@ def _observe(base, win, expected):
     if expected == "unstable":
         x = float(win.diff().std() / (base.diff().std() or 1e-9))
         return x >= UNSTABLE_X, "unstable" if x >= UNSTABLE_X else "steady", dict(x=x)
+    if expected == "steady":
+        pct = (float(win.mean()) - mu) / abs(mu) * 100 if mu else 0.0
+        return abs(pct) < PCT_MIN * 4, "steady_pct", dict(pct=pct)
     z = (win - mu) / (float(base.std()) or 1e-9)
     n = int((z > SPIKE_Z).sum())
     return n > 0, "spike" if n else "nospike", dict(n=n)
@@ -63,6 +66,9 @@ def fingerprint(tel, aid, fault_class, t):
     for sig, expected in text.FAULTS[fault_class]["signs"][:4]:
         base, win = _series(tel, aid, sig, t)
         ok, kind, nums = _observe(base, win, expected)
-        en, ms = text.OBSERVED[kind]
-        out.append(playbook.check(sig, expected, en.format(**nums), ms.format(**nums), bool(ok)))
+        en, ms = text.STEADY_OBS if kind == "steady_pct" else text.OBSERVED[kind]
+        en, ms = en.format(**nums), ms.format(**nums)
+        if not ok and (kind in ("flat", "steady", "nospike") or kind == expected):   # fault has not progressed that far yet
+            en, ms = text.NOT_YET[0] + en[0].lower() + en[1:], text.NOT_YET[1] + ms[0].lower() + ms[1:]
+        out.append(playbook.check(sig, expected, en, ms, bool(ok)))
     return out

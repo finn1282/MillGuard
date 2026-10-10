@@ -2,6 +2,7 @@
  "at": "2025-05-18T19:00:00+08:00",
  "shift": "night",
  "actions": [],
+ "rm_protected_total": 0,
  "watching_count": 3,
  "suppressed_count": 2
 }

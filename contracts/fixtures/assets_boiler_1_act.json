@@ -687,7 +687,10 @@
      "2025-09-29T15:00:00+08:00",
      541.079
     ]
-   ]
+   ],
+   "limit": 530.0,
+   "summary_en": "531 to 531 °C over 7 days",
+   "summary_ms": "531 kepada 531 °C dalam 7 hari"
   },
   {
    "signal": "steam_pressure",
@@ -1367,7 +1370,10 @@
      "2025-09-29T15:00:00+08:00",
      21.183
     ]
-   ]
+   ],
+   "limit": null,
+   "summary_en": "20.8 to 20.9 bar over 7 days",
+   "summary_ms": "20.8 kepada 20.9 bar dalam 7 hari"
   },
   {
    "signal": "feedwater_flow",
@@ -2047,7 +2053,10 @@
      "2025-09-29T15:00:00+08:00",
      34.968
     ]
-   ]
+   ],
+   "limit": null,
+   "summary_en": "30.6 to 30.2 t/h over 7 days",
+   "summary_ms": "30.6 kepada 30.2 t/h dalam 7 hari"
   },
   {
    "signal": "feedwater_cond",
@@ -2719,7 +2728,10 @@
      "2025-09-29T15:00:00+08:00",
      19.179
     ]
-   ]
+   ],
+   "limit": null,
+   "summary_en": "20.7 to 20.8 µS/cm over 7 days",
+   "summary_ms": "20.7 kepada 20.8 µS/cm dalam 7 hari"
   }
  ],
  "alert_windows": [
@@ -2749,8 +2761,8 @@
     "label_en": "Feed-water conductivity",
     "label_ms": "Kekonduksian air suapan",
     "expected": "up",
-    "observed_en": "Down 4% vs normal, last 5 days",
-    "observed_ms": "Turun 4% berbanding biasa, 5 hari lepas",
+    "observed_en": "Down 4% compared with normal, in the last 5 days",
+    "observed_ms": "Turun 4% berbanding biasa dalam 5 hari lepas",
     "matches": false
    },
    {
@@ -2758,8 +2770,8 @@
     "label_en": "Feed-water conductivity",
     "label_ms": "Kekonduksian air suapan",
     "expected": "unstable",
-    "observed_en": "As steady as normal (0.9x)",
-    "observed_ms": "Sama stabil seperti biasa (0.9x)",
+    "observed_en": "Not yet: as steady as normal (0.9x)",
+    "observed_ms": "Belum lagi: sama stabil seperti biasa (0.9x)",
     "matches": false
    },
    {
@@ -2767,8 +2779,8 @@
     "label_en": "Steam temperature",
     "label_ms": "Suhu stim",
     "expected": "down",
-    "observed_en": "No clear change vs normal (+0%)",
-    "observed_ms": "Tiada perubahan jelas berbanding biasa (+0%)",
+    "observed_en": "Not yet: no clear change compared with normal (+0%)",
+    "observed_ms": "Belum lagi: tiada perubahan jelas berbanding biasa (+0%)",
     "matches": false
    }
   ]
@@ -2783,5 +2795,27 @@
    "downtime_h": 8.0,
    "was_predicted": true
   }
- ]
+ ],
+ "last_service": {
+  "t": "2025-09-16T14:00:00+08:00",
+  "what_en": "Last repair logged on Boiler 1: steam temperature drift",
+  "what_ms": "Pembaikan terakhir direkodkan bagi Dandang 1: sisihan suhu stim",
+  "hours_since": 313.0
+ },
+ "next_check": {
+  "t": "2025-10-05T06:00:00+08:00",
+  "label_en": "Next planned stop",
+  "label_ms": "Henti terancang seterusnya"
+ },
+ "outlook": {
+  "fault_class": "boiler_water",
+  "risk_pct": 4.0,
+  "horizon_h": 168,
+  "rm_breakdown_cost": 126517,
+  "rm_at_risk": 5061,
+  "rm_cost_to_act": 3000,
+  "rm_saved_if_acted": 2061,
+  "window_label_en": "before the planned stop after next, Sunday 06:00 (counted up to 168 hours)",
+  "window_label_ms": "sebelum henti terancang selepas yang seterusnya, Ahad jam 06:00 (dikira sehingga 168 jam)"
+ }
 }

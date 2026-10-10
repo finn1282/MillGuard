@@ -133,3 +133,22 @@ def run_all_policies(p, mill, pred, failures, lives, hidden, k, frac, budget=5, 
     if plus:
         events += schedule_plus_events(p, mill, failures, lives, hidden, plus["frac"], episodes, plus["catch"], cpo, miss)
     return episodes, events, thr
+
+
+def test_mill_table(ep, failures, mill=10):
+    """Per fault class: failures, caught (prevented by an alert) and median lead time; plus false alarms per week."""
+    prevented = {(e.asset_id, e.fail_idx): e for e in ep.itertuples() if e.outcome == "prevented"}
+    rows = {}
+    for r in failures.itertuples():
+        idx = int((r.t - T0) / pd.Timedelta(hours=1))
+        row = rows.setdefault(r.fault_class, dict(fault_class=r.fault_class, total=0, caught=0, leads=[]))
+        row["total"] += 1
+        e = prevented.get((r.asset_id, idx))
+        if e is not None:
+            row["caught"] += 1
+            row["leads"].append((r.t - e.t_open) / pd.Timedelta(hours=1))
+    by = [dict(fault_class=v["fault_class"], total=v["total"], caught=v["caught"],
+               median_lead_h=round(float(np.median(v["leads"])), 1) if v["leads"] else 0.0)
+          for v in sorted(rows.values(), key=lambda v: -v["total"])]
+    fa = int(ep.outcome.isin(["false_alarm", "misclassified"]).sum()) if len(ep) else 0
+    return dict(id=mill, by_fault_class=by, false_alarms_per_week=round(fa / (365 / 7), 2))

@@ -571,7 +571,10 @@
      "2025-09-29T15:00:00+08:00",
      4.449
     ]
-   ]
+   ],
+   "limit": null,
+   "summary_en": "4.5 to 4.5 A/t over 7 days",
+   "summary_ms": "4.5 kepada 4.5 A/t dalam 7 hari"
   },
   {
    "signal": "vib_kurtosis",
@@ -1139,7 +1142,10 @@
      "2025-09-29T15:00:00+08:00",
      2.946
     ]
-   ]
+   ],
+   "limit": null,
+   "summary_en": "3.0 to 3.0 over 7 days",
+   "summary_ms": "3.0 kepada 3.0 dalam 7 hari"
   },
   {
    "signal": "gearbox_oil_temp",
@@ -1799,7 +1805,10 @@
      "2025-09-29T15:00:00+08:00",
      72.659
     ]
-   ]
+   ],
+   "limit": 80.0,
+   "summary_en": "69.0 to 68.1 °C over 7 days",
+   "summary_ms": "69.0 kepada 68.1 °C dalam 7 hari"
   },
   {
    "signal": "cone_pressure",
@@ -2471,12 +2480,15 @@
      "2025-09-29T15:00:00+08:00",
      46.513
     ]
-   ]
+   ],
+   "limit": 57.0,
+   "summary_en": "39.1 to 41.0 bar over 7 days",
+   "summary_ms": "39.1 kepada 41.0 bar dalam 7 hari"
   },
   {
    "signal": "vib_rms",
-   "label_en": "Vibration level (RMS)",
-   "label_ms": "Tahap getaran (RMS)",
+   "label_en": "Vibration level (root mean square)",
+   "label_ms": "Tahap getaran (punca min kuasa dua)",
    "unit": "mm/s",
    "points": [
     [
@@ -3143,7 +3155,10 @@
      "2025-09-29T15:00:00+08:00",
      2.131
     ]
-   ]
+   ],
+   "limit": 3.2,
+   "summary_en": "1.9 to 1.9 mm/s over 7 days",
+   "summary_ms": "1.9 kepada 1.9 mm/s dalam 7 hari"
   },
   {
    "signal": "motor_current",
@@ -3815,7 +3830,10 @@
      "2025-09-29T15:00:00+08:00",
      65.6
     ]
-   ]
+   ],
+   "limit": null,
+   "summary_en": "56.9 to 56.1 A over 7 days",
+   "summary_ms": "56.9 kepada 56.1 A dalam 7 hari"
   },
   {
    "signal": "fibre_oil_loss",
@@ -3851,7 +3869,10 @@
      "2025-09-29T08:00:00+08:00",
      2.933
     ]
-   ]
+   ],
+   "limit": 4.0,
+   "summary_en": "3.0 to 2.9 % over 7 days",
+   "summary_ms": "3.0 kepada 2.9 % dalam 7 hari"
   }
  ],
  "alert_windows": [
@@ -3901,7 +3922,12 @@
   ],
   "why_rank_en": "Biggest ringgit saving tonight",
   "why_rank_ms": "Penjimatan ringgit terbesar malam ini",
-  "criticality": "partial"
+  "criticality": "partial",
+  "rm_breakdown_cost": 20502,
+  "deadline_label_en": "within 4 hours, by 19:00",
+  "deadline_label_ms": "dalam 4 jam, sebelum 19:00",
+  "window_label_en": "before the next planned stop, Sunday 06:00",
+  "window_label_ms": "sebelum henti terancang seterusnya, Ahad jam 06:00"
  },
  "diagnosis": {
   "fault_class": "hydraulic_cone",
@@ -3935,8 +3961,8 @@
     "label_en": "Cone hydraulic pressure",
     "label_ms": "Tekanan hidraulik kon",
     "expected": "up",
-    "observed_en": "Up 4% vs normal, last 5 days",
-    "observed_ms": "Naik 4% berbanding biasa, 5 hari lepas",
+    "observed_en": "Up 4% compared with normal, in the last 5 days",
+    "observed_ms": "Naik 4% berbanding biasa dalam 5 hari lepas",
     "matches": true
    },
    {
@@ -3987,7 +4013,9 @@
   "crew": 2,
   "est_hours": 3.0,
   "needs_stop": true,
-  "best_window": "2025-09-29T15:00:00+08:00"
+  "best_window": "2025-09-29T15:00:00+08:00",
+  "stop": "machine",
+  "lost_production": true
  },
  "history": [
   {
@@ -4038,5 +4066,27 @@
    "downtime_h": 4.0,
    "was_predicted": true
   }
- ]
+ ],
+ "last_service": {
+  "t": "2025-08-28T15:00:00+08:00",
+  "what_en": "Last repair logged on Press 2: worm wear",
+  "what_ms": "Pembaikan terakhir direkodkan bagi Penekan 2: haus skru cacing",
+  "hours_since": 768.0
+ },
+ "next_check": {
+  "t": "2025-10-05T06:00:00+08:00",
+  "label_en": "Next planned stop",
+  "label_ms": "Henti terancang seterusnya"
+ },
+ "outlook": {
+  "fault_class": "hydraulic_cone",
+  "risk_pct": 84.0,
+  "horizon_h": 135,
+  "rm_breakdown_cost": 20502,
+  "rm_at_risk": 17222,
+  "rm_cost_to_act": 11126,
+  "rm_saved_if_acted": 6096,
+  "window_label_en": "before the next planned stop, Sunday 06:00",
+  "window_label_ms": "sebelum henti terancang seterusnya, Ahad jam 06:00"
+ }
 }

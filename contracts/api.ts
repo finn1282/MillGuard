@@ -21,6 +21,9 @@ export interface Action {
   reasons: Reason[]; // exactly 3
   why_rank_en: string; why_rank_ms: string;
   criticality: "whole_mill" | "partial";
+  rm_breakdown_cost: number; // v1.7: full breakdown cost; the UI never divides
+  deadline_label_en: string; deadline_label_ms: string;  // e.g. "tomorrow's 06:00 stop"
+  window_label_en: string; window_label_ms: string;      // end of the risk window, e.g. "before the next stop, Sunday 06:00"
 }
 
 // GET /api/meta
@@ -33,6 +36,7 @@ export interface Meta {
 // GET /api/brief?at=
 export interface Brief {
   at: string; shift: "day" | "night";
+  rm_protected_total: number; // v1.7: sum of rm_saved_if_acted of the actions shown
   actions: Action[]; // <=5, sorted by rm_saved_if_acted desc
   watching_count: number; suppressed_count: number;
 }
@@ -50,10 +54,11 @@ export interface Line { at: string; assets: LineAsset[] }
 export interface Series {
   signal: string; label_en: string; label_ms: string; unit: string;
   points: [string, number][]; // [t, value]
+  limit?: number | null; summary_en?: string; summary_ms?: string; // v1.7
 }
 
 // GET /api/assets/{id}?at=&window_h=168
-export type Expected = "up" | "down" | "unstable" | "spike";
+export type Expected = "up" | "down" | "unstable" | "spike" | "steady";
 
 export interface FingerprintCheck {
   signal: string; label_en: string; label_ms: string; expected: Expected;
@@ -71,6 +76,7 @@ export interface FixPlan {
   title_en: string; title_ms: string; steps_en: string[]; steps_ms: string[];
   parts: { name_en: string; name_ms: string; qty: number }[];
   crew: number; est_hours: number; needs_stop: boolean;
+  stop: "none" | "machine" | "whole_mill"; lost_production: boolean; // v1.7
   best_window: string; // ISO: next planned stop if the plan is to schedule, else now
 }
 
@@ -101,6 +107,14 @@ export interface AssetDetail {
   action: Action | null;
   diagnosis: Diagnosis | null; fix: FixPlan | null;
   history: HistoryItem[]; // last 12 months for this machine
+  last_service?: { t: string; what_en: string; what_ms: string; hours_since: number } | null; // v1.7
+  next_check?: { t: string; label_en: string; label_ms: string } | null;
+  outlook?: Outlook | null; // v1.7: at-risk and cost figures for every status, including ok
+}
+export interface Outlook {
+  fault_class: FaultClass; risk_pct: number; horizon_h: number; rm_breakdown_cost: number;
+  rm_at_risk: number; rm_cost_to_act: number; rm_saved_if_acted: number;
+  window_label_en: string; window_label_ms: string;
 }
 
 export interface PolicyResult {
@@ -118,7 +132,7 @@ export interface BacktestEvent {
   policy: PolicyId; type: "breakdown" | "planned_fix" | "false_alarm"; asset_id: string;
 }
 
-// GET /api/backtest?cpo_price=&miss_cost_mult=&alert_budget=&compare=run_to_failure|fixed_interval&inspection_accuracy=
+// GET /api/backtest?cpo_price=&miss_cost_mult=&alert_budget=&compare=run_to_failure|fixed_interval|millguard_only&inspection_accuracy=
 // inspection_accuracy (v1.6): 0-1, default 0.5 = chance a crew inspection finds the real fault when the predicted class was wrong.
 // Inputs are clamped: cpo_price 3800-5000 (default 4292.5), miss_cost_mult 0.5-3 (1), alert_budget 1-10 (5).
 export interface Backtest {
@@ -148,6 +162,8 @@ export interface RobustnessEntry {
 export interface Robustness {
   dataset: string; failures_total: number; caught: number;
   median_lead_h: number; false_alarms_per_week: number; note: string;
+  test_mill?: { id: number; by_fault_class: { fault_class: FaultClass; total: number; caught: number; median_lead_h: number }[];
+                false_alarms_per_week: number } | null; // v1.7
   extra: RobustnessEntry[]; // v1.6, additive; may be empty
 }
 

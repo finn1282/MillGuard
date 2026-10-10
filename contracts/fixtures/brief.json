@@ -26,7 +26,7 @@
      "contribution": 0.874
     },
     {
-     "text_en": "0 h since the last logged service on Boiler 1",
+     "text_en": "0 hours since the last logged service on Boiler 1",
      "text_ms": "0 jam sejak servis terakhir direkodkan bagi Dandang 1",
      "signal": "hours_since_service",
      "direction": "up",
@@ -42,9 +42,15 @@
    ],
    "why_rank_en": "Boiler stops the whole mill, so it comes first",
    "why_rank_ms": "Dandang menghentikan seluruh kilang, jadi ia diutamakan",
-   "criticality": "whole_mill"
+   "criticality": "whole_mill",
+   "rm_breakdown_cost": 126517,
+   "deadline_label_en": "within 4 hours, by 07:00",
+   "deadline_label_ms": "dalam 4 jam, sebelum 07:00",
+   "window_label_en": "before the next planned stop, Sunday 06:00",
+   "window_label_ms": "sebelum henti terancang seterusnya, Ahad jam 06:00"
   }
  ],
+ "rm_protected_total": 122252,
  "watching_count": 0,
  "suppressed_count": 0
 }

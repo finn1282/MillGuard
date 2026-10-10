@@ -42,9 +42,15 @@
    ],
    "why_rank_en": "Biggest ringgit saving tonight",
    "why_rank_ms": "Penjimatan ringgit terbesar malam ini",
-   "criticality": "partial"
+   "criticality": "partial",
+   "rm_breakdown_cost": 20502,
+   "deadline_label_en": "within 4 hours, by 19:00",
+   "deadline_label_ms": "dalam 4 jam, sebelum 19:00",
+   "window_label_en": "before the next planned stop, Sunday 06:00",
+   "window_label_ms": "sebelum henti terancang seterusnya, Ahad jam 06:00"
   }
  ],
+ "rm_protected_total": 6096,
  "watching_count": 1,
  "suppressed_count": 1
 }

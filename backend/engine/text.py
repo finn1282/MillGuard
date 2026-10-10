@@ -54,7 +54,7 @@ SIGNAL_LABEL = {   # signal -> (EN, MS)
     "motor_current": ("Motor current", "Arus motor"),
     "cone_pressure": ("Cone hydraulic pressure", "Tekanan hidraulik kon"),
     "gearbox_oil_temp": ("Gearbox oil temperature", "Suhu minyak gear"),
-    "vib_rms": ("Vibration level (RMS)", "Tahap getaran (RMS)"),
+    "vib_rms": ("Vibration level (root mean square)", "Tahap getaran (punca min kuasa dua)"),
     "vib_kurtosis": ("Vibration spikiness (kurtosis)", "Kemuncakan getaran (kurtosis)"),
     "fibre_oil_loss": ("Oil lost in fibre", "Kehilangan minyak dalam serabut"),
     "steam_temp": ("Steam temperature", "Suhu stim"),
@@ -68,9 +68,9 @@ WORD_EN = {"up": "above", "down": "below"}
 WORD_MS = {"up": "lebih tinggi daripada", "down": "lebih rendah daripada"}
 REASON_FIBRE_EN = "Oil lost in fibre is {v:.1f}% (alarm line is 4%)"
 REASON_FIBRE_MS = "Kehilangan minyak dalam serabut ialah {v:.1f}% (garis amaran 4%)"
-REASON_SERVICE_EN = "{h:,.0f} h since the last logged service on {asset}"
+REASON_SERVICE_EN = "{h:,.0f} hours since the last logged service on {asset}"
 REASON_SERVICE_MS = "{h:,.0f} jam sejak servis terakhir direkodkan bagi {asset}"
-REASON_ALARMS_EN = "{n:.0f} controller alarms on {asset} in the last 24 h"
+REASON_ALARMS_EN = "{n:.0f} controller alarms on {asset} in the last 24 hours"
 REASON_ALARMS_MS = "{n:.0f} penggera pengawal pada {asset} dalam 24 jam lepas"
 REASON_LOAD_EN = "Recent load on {asset} differs from its usual pattern"
 REASON_LOAD_MS = "Beban terkini pada {asset} berbeza daripada corak biasa"
@@ -270,9 +270,9 @@ SUMMARY = {   # line card summary per fault class (EN, MS); normal state below
 SUMMARY_OK = ("Normal", "Normal")
 EXPECT_EN = {"up": "should rise", "down": "should fall", "unstable": "should swing more", "spike": "should show spikes"}
 OBSERVED = {   # (kind) -> (EN, MS) templates; "normal" = the machine's own 30 days before the 5-day window
-    "up": ("Up {pct:.0f}% vs normal, last 5 days", "Naik {pct:.0f}% berbanding biasa, 5 hari lepas"),
-    "down": ("Down {pct:.0f}% vs normal, last 5 days", "Turun {pct:.0f}% berbanding biasa, 5 hari lepas"),
-    "flat": ("No clear change vs normal ({pct:+.0f}%)", "Tiada perubahan jelas berbanding biasa ({pct:+.0f}%)"),
+    "up": ("Up {pct:.0f}% compared with normal, in the last 5 days", "Naik {pct:.0f}% berbanding biasa dalam 5 hari lepas"),
+    "down": ("Down {pct:.0f}% compared with normal, in the last 5 days", "Turun {pct:.0f}% berbanding biasa dalam 5 hari lepas"),
+    "flat": ("No clear change compared with normal ({pct:+.0f}%)", "Tiada perubahan jelas berbanding biasa ({pct:+.0f}%)"),
     "unstable": ("Swinging {x:.1f}x more than normal", "Berayun {x:.1f}x lebih daripada biasa"),
     "steady": ("As steady as normal ({x:.1f}x)", "Sama stabil seperti biasa ({x:.1f}x)"),
     "spike": ("{n} spikes in 5 days", "{n} lonjakan dalam 5 hari"),
@@ -281,3 +281,27 @@ OBSERVED = {   # (kind) -> (EN, MS) templates; "normal" = the machine's own 30 d
 HISTORY_WHAT = {
     True: ("{fault}: MillGuard warned before it failed", "{fault}: MillGuard memberi amaran sebelum rosak"),
     False: ("{fault}: broke down with no warning", "{fault}: rosak tanpa amaran")}
+
+NOT_YET = ("Not yet: ", "Belum lagi: ")
+STEADY_OBS = ("Holding steady ({pct:+.0f}%)", "Kekal stabil ({pct:+.0f}%)")
+# ---- v1.7 labels
+DAY_PART = {"today": ("today", "hari ini"), "tomorrow": ("tomorrow", "esok")}
+DEADLINE_NOW = ("within {h} hours, by {clock}", "dalam {h} jam, sebelum {clock}")
+DEADLINE_STOP_TOMORROW = ("tomorrow's 06:00 planned stop", "henti terancang esok jam 06:00")
+DEADLINE_STOP_DAY = ("the {day} 06:00 planned stop", "henti terancang {day} jam 06:00")
+WINDOW_NEXT = ("before the next planned stop, {day} 06:00", "sebelum henti terancang seterusnya, {day} jam 06:00")
+WINDOW_AFTER = ("before the planned stop after next, {day} 06:00 (counted up to 168 hours)",
+                "sebelum henti terancang selepas yang seterusnya, {day} jam 06:00 (dikira sehingga 168 jam)")
+LAST_SERVICE = {"press": ("Last repair logged on {asset}: {fault}", "Pembaikan terakhir direkodkan bagi {asset}: {fault}"),
+                "none": ("No repair logged yet this year", "Tiada pembaikan direkodkan setakat ini tahun ini")}
+NEXT_CHECK = ("Next planned stop", "Henti terancang seterusnya")
+SERIES_SUMMARY = ("{a} to {b} {unit} over {days} days", "{a} kepada {b} {unit} dalam {days} hari")
+SERIES_LIMIT = {"fibre_oil_loss": 4.0, "gearbox_oil_temp": 80.0, "vib_rms": 3.2, "cone_pressure": 57.0, "steam_temp": 530.0}
+EXTRA_SERIES = {   # reason signals that are not raw telemetry: label (EN, MS), unit
+    "hours_since_service": (("Hours since the last logged repair", "Jam sejak pembaikan terakhir direkodkan"), "hours"),
+    "alarms": (("Controller alarms per day", "Penggera pengawal setiap hari"), "alarms"),
+    "load": (("Mill load", "Beban kilang"), "t/h")}
+COST_EXPLAIN_PRESS = ("A press breakdown costs {h} hours x RM{per_press_h:,.0f} per press-hour x {share:.0%} truly lost + repair cost x {mult} "
+                      "(about RM{total:,.0f} for worm wear)",)
+COST_EXPLAIN_BOILER = ("A boiler breakdown costs {h} hours x RM{per_mill_h:,.0f} per mill-hour (the whole mill stops) x {share:.0%} truly lost + repair cost x {mult} "
+                       "(about RM{total:,.0f})",)

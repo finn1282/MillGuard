@@ -1,0 +1,48 @@
+{
+ "id": 10,
+ "by_fault_class": [
+  {
+   "fault_class": "worm_wear",
+   "total": 19,
+   "caught": 11,
+   "median_lead_h": 86.0
+  },
+  {
+   "fault_class": "electrical",
+   "total": 6,
+   "caught": 5,
+   "median_lead_h": 15.0
+  },
+  {
+   "fault_class": "hydraulic_cone",
+   "total": 3,
+   "caught": 2,
+   "median_lead_h": 100.5
+  },
+  {
+   "fault_class": "unknown",
+   "total": 2,
+   "caught": 0,
+   "median_lead_h": 0.0
+  },
+  {
+   "fault_class": "bearing",
+   "total": 2,
+   "caught": 2,
+   "median_lead_h": 77.5
+  },
+  {
+   "fault_class": "boiler_water",
+   "total": 1,
+   "caught": 1,
+   "median_lead_h": 59.0
+  },
+  {
+   "fault_class": "boiler_steam",
+   "total": 1,
+   "caught": 1,
+   "median_lead_h": 23.0
+  }
+ ],
+ "false_alarms_per_week": 1.3
+}

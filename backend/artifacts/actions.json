@@ -23,7 +23,7 @@
     "contribution": 0.002
    },
    {
-    "text_en": "0 h since the last logged service on Boiler 1",
+    "text_en": "0 hours since the last logged service on Boiler 1",
     "text_ms": "0 jam sejak servis terakhir direkodkan bagi Dandang 1",
     "signal": "hours_since_service",
     "direction": "up",
@@ -117,7 +117,7 @@
     "contribution": 0.141
    },
    {
-    "text_en": "0 h since the last logged service on Boiler 1",
+    "text_en": "0 hours since the last logged service on Boiler 1",
     "text_ms": "0 jam sejak servis terakhir direkodkan bagi Dandang 1",
     "signal": "hours_since_service",
     "direction": "up",
@@ -164,7 +164,7 @@
     "contribution": 0.767
    },
    {
-    "text_en": "0 h since the last logged service on Press 4",
+    "text_en": "0 hours since the last logged service on Press 4",
     "text_ms": "0 jam sejak servis terakhir direkodkan bagi Penekan 4",
     "signal": "hours_since_service",
     "direction": "up",
@@ -211,7 +211,7 @@
     "contribution": 0.143
    },
    {
-    "text_en": "0 h since the last logged service on Boiler 1",
+    "text_en": "0 hours since the last logged service on Boiler 1",
     "text_ms": "0 jam sejak servis terakhir direkodkan bagi Dandang 1",
     "signal": "hours_since_service",
     "direction": "up",
@@ -258,7 +258,7 @@
     "contribution": 0.149
    },
    {
-    "text_en": "0 h since the last logged service on Boiler 1",
+    "text_en": "0 hours since the last logged service on Boiler 1",
     "text_ms": "0 jam sejak servis terakhir direkodkan bagi Dandang 1",
     "signal": "hours_since_service",
     "direction": "up",
@@ -305,7 +305,7 @@
     "contribution": 0.143
    },
    {
-    "text_en": "0 h since the last logged service on Boiler 1",
+    "text_en": "0 hours since the last logged service on Boiler 1",
     "text_ms": "0 jam sejak servis terakhir direkodkan bagi Dandang 1",
     "signal": "hours_since_service",
     "direction": "up",
@@ -352,7 +352,7 @@
     "contribution": 0.232
    },
    {
-    "text_en": "0 h since the last logged service on Boiler 1",
+    "text_en": "0 hours since the last logged service on Boiler 1",
     "text_ms": "0 jam sejak servis terakhir direkodkan bagi Dandang 1",
     "signal": "hours_since_service",
     "direction": "up",
@@ -399,7 +399,7 @@
     "contribution": 0.163
    },
    {
-    "text_en": "0 h since the last logged service on Boiler 1",
+    "text_en": "0 hours since the last logged service on Boiler 1",
     "text_ms": "0 jam sejak servis terakhir direkodkan bagi Dandang 1",
     "signal": "hours_since_service",
     "direction": "up",
@@ -446,7 +446,7 @@
     "contribution": 0.186
    },
    {
-    "text_en": "0 h since the last logged service on Boiler 1",
+    "text_en": "0 hours since the last logged service on Boiler 1",
     "text_ms": "0 jam sejak servis terakhir direkodkan bagi Dandang 1",
     "signal": "hours_since_service",
     "direction": "up",
@@ -493,7 +493,7 @@
     "contribution": 0.188
    },
    {
-    "text_en": "0 h since the last logged service on Boiler 1",
+    "text_en": "0 hours since the last logged service on Boiler 1",
     "text_ms": "0 jam sejak servis terakhir direkodkan bagi Dandang 1",
     "signal": "hours_since_service",
     "direction": "up",
@@ -540,7 +540,7 @@
     "contribution": 0.211
    },
    {
-    "text_en": "0 h since the last logged service on Boiler 1",
+    "text_en": "0 hours since the last logged service on Boiler 1",
     "text_ms": "0 jam sejak servis terakhir direkodkan bagi Dandang 1",
     "signal": "hours_since_service",
     "direction": "up",
@@ -587,7 +587,7 @@
     "contribution": 0.106
    },
    {
-    "text_en": "0 h since the last logged service on Boiler 1",
+    "text_en": "0 hours since the last logged service on Boiler 1",
     "text_ms": "0 jam sejak servis terakhir direkodkan bagi Dandang 1",
     "signal": "hours_since_service",
     "direction": "up",
@@ -634,7 +634,7 @@
     "contribution": 0.73
    },
    {
-    "text_en": "1,214 h since the last logged service on Press 2",
+    "text_en": "1,214 hours since the last logged service on Press 2",
     "text_ms": "1,214 jam sejak servis terakhir direkodkan bagi Penekan 2",
     "signal": "hours_since_service",
     "direction": "up",
@@ -681,7 +681,7 @@
     "contribution": 0.259
    },
    {
-    "text_en": "0 h since the last logged service on Boiler 1",
+    "text_en": "0 hours since the last logged service on Boiler 1",
     "text_ms": "0 jam sejak servis terakhir direkodkan bagi Dandang 1",
     "signal": "hours_since_service",
     "direction": "up",
@@ -728,7 +728,7 @@
     "contribution": 0.17
    },
    {
-    "text_en": "0 h since the last logged service on Boiler 1",
+    "text_en": "0 hours since the last logged service on Boiler 1",
     "text_ms": "0 jam sejak servis terakhir direkodkan bagi Dandang 1",
     "signal": "hours_since_service",
     "direction": "up",
@@ -782,7 +782,7 @@
     "contribution": 0.281
    },
    {
-    "text_en": "0 h since the last logged service on Press 1",
+    "text_en": "0 hours since the last logged service on Press 1",
     "text_ms": "0 jam sejak servis terakhir direkodkan bagi Penekan 1",
     "signal": "hours_since_service",
     "direction": "up",
@@ -822,7 +822,7 @@
     "contribution": 0.147
    },
    {
-    "text_en": "0 h since the last logged service on Boiler 1",
+    "text_en": "0 hours since the last logged service on Boiler 1",
     "text_ms": "0 jam sejak servis terakhir direkodkan bagi Dandang 1",
     "signal": "hours_since_service",
     "direction": "up",
@@ -876,7 +876,7 @@
     "contribution": 0.29
    },
    {
-    "text_en": "1,703 h since the last logged service on Press 2",
+    "text_en": "1,703 hours since the last logged service on Press 2",
     "text_ms": "1,703 jam sejak servis terakhir direkodkan bagi Penekan 2",
     "signal": "hours_since_service",
     "direction": "up",
@@ -916,7 +916,7 @@
     "contribution": 0.178
    },
    {
-    "text_en": "0 h since the last logged service on Boiler 1",
+    "text_en": "0 hours since the last logged service on Boiler 1",
     "text_ms": "0 jam sejak servis terakhir direkodkan bagi Dandang 1",
     "signal": "hours_since_service",
     "direction": "up",
@@ -963,7 +963,7 @@
     "contribution": 0.784
    },
    {
-    "text_en": "1,321 h since the last logged service on Press 3",
+    "text_en": "1,321 hours since the last logged service on Press 3",
     "text_ms": "1,321 jam sejak servis terakhir direkodkan bagi Penekan 3",
     "signal": "hours_since_service",
     "direction": "up",
@@ -1010,7 +1010,7 @@
     "contribution": 0.312
    },
    {
-    "text_en": "0 h since the last logged service on Boiler 1",
+    "text_en": "0 hours since the last logged service on Boiler 1",
     "text_ms": "0 jam sejak servis terakhir direkodkan bagi Dandang 1",
     "signal": "hours_since_service",
     "direction": "up",
@@ -1057,7 +1057,7 @@
     "contribution": 0.655
    },
    {
-    "text_en": "0 h since the last logged service on Boiler 1",
+    "text_en": "0 hours since the last logged service on Boiler 1",
     "text_ms": "0 jam sejak servis terakhir direkodkan bagi Dandang 1",
     "signal": "hours_since_service",
     "direction": "up",
@@ -1104,7 +1104,7 @@
     "contribution": 0.134
    },
    {
-    "text_en": "0 h since the last logged service on Boiler 1",
+    "text_en": "0 hours since the last logged service on Boiler 1",
     "text_ms": "0 jam sejak servis terakhir direkodkan bagi Dandang 1",
     "signal": "hours_since_service",
     "direction": "up",
@@ -1151,7 +1151,7 @@
     "contribution": 0.126
    },
    {
-    "text_en": "0 h since the last logged service on Boiler 1",
+    "text_en": "0 hours since the last logged service on Boiler 1",
     "text_ms": "0 jam sejak servis terakhir direkodkan bagi Dandang 1",
     "signal": "hours_since_service",
     "direction": "up",
@@ -1198,7 +1198,7 @@
     "contribution": 0.134
    },
    {
-    "text_en": "0 h since the last logged service on Boiler 1",
+    "text_en": "0 hours since the last logged service on Boiler 1",
     "text_ms": "0 jam sejak servis terakhir direkodkan bagi Dandang 1",
     "signal": "hours_since_service",
     "direction": "up",
@@ -1245,7 +1245,7 @@
     "contribution": 0.4
    },
    {
-    "text_en": "0 h since the last logged service on Boiler 1",
+    "text_en": "0 hours since the last logged service on Boiler 1",
     "text_ms": "0 jam sejak servis terakhir direkodkan bagi Dandang 1",
     "signal": "hours_since_service",
     "direction": "up",
@@ -1292,7 +1292,7 @@
     "contribution": 0.216
    },
    {
-    "text_en": "0 h since the last logged service on Boiler 1",
+    "text_en": "0 hours since the last logged service on Boiler 1",
     "text_ms": "0 jam sejak servis terakhir direkodkan bagi Dandang 1",
     "signal": "hours_since_service",
     "direction": "up",
@@ -1339,7 +1339,7 @@
     "contribution": 0.144
    },
    {
-    "text_en": "0 h since the last logged service on Boiler 1",
+    "text_en": "0 hours since the last logged service on Boiler 1",
     "text_ms": "0 jam sejak servis terakhir direkodkan bagi Dandang 1",
     "signal": "hours_since_service",
     "direction": "up",
@@ -1393,7 +1393,7 @@
     "contribution": 0.252
    },
    {
-    "text_en": "1,465 h since the last logged service on Press 4",
+    "text_en": "1,465 hours since the last logged service on Press 4",
     "text_ms": "1,465 jam sejak servis terakhir direkodkan bagi Penekan 4",
     "signal": "hours_since_service",
     "direction": "up",
@@ -1433,7 +1433,7 @@
     "contribution": 0.13
    },
    {
-    "text_en": "0 h since the last logged service on Boiler 1",
+    "text_en": "0 hours since the last logged service on Boiler 1",
     "text_ms": "0 jam sejak servis terakhir direkodkan bagi Dandang 1",
     "signal": "hours_since_service",
     "direction": "up",
@@ -1480,7 +1480,7 @@
     "contribution": 0.124
    },
    {
-    "text_en": "0 h since the last logged service on Boiler 1",
+    "text_en": "0 hours since the last logged service on Boiler 1",
     "text_ms": "0 jam sejak servis terakhir direkodkan bagi Dandang 1",
     "signal": "hours_since_service",
     "direction": "up",
@@ -1581,7 +1581,7 @@
     "contribution": 0.283
    },
    {
-    "text_en": "2,561 h since the last logged service on Press 3",
+    "text_en": "2,561 hours since the last logged service on Press 3",
     "text_ms": "2,561 jam sejak servis terakhir direkodkan bagi Penekan 3",
     "signal": "hours_since_service",
     "direction": "up",
@@ -1621,7 +1621,7 @@
     "contribution": 0.162
    },
    {
-    "text_en": "0 h since the last logged service on Boiler 1",
+    "text_en": "0 hours since the last logged service on Boiler 1",
     "text_ms": "0 jam sejak servis terakhir direkodkan bagi Dandang 1",
     "signal": "hours_since_service",
     "direction": "up",
@@ -1675,7 +1675,7 @@
     "contribution": 0.294
    },
    {
-    "text_en": "1,446 h since the last logged service on Press 2",
+    "text_en": "1,446 hours since the last logged service on Press 2",
     "text_ms": "1,446 jam sejak servis terakhir direkodkan bagi Penekan 2",
     "signal": "hours_since_service",
     "direction": "up",
@@ -1722,7 +1722,7 @@
     "contribution": 0.372
    },
    {
-    "text_en": "1,464 h since the last logged service on Press 2",
+    "text_en": "1,464 hours since the last logged service on Press 2",
     "text_ms": "1,464 jam sejak servis terakhir direkodkan bagi Penekan 2",
     "signal": "hours_since_service",
     "direction": "up",
@@ -1762,7 +1762,7 @@
     "contribution": 0.426
    },
    {
-    "text_en": "0 h since the last logged service on Boiler 1",
+    "text_en": "0 hours since the last logged service on Boiler 1",
     "text_ms": "0 jam sejak servis terakhir direkodkan bagi Dandang 1",
     "signal": "hours_since_service",
     "direction": "up",
@@ -1809,7 +1809,7 @@
     "contribution": 0.133
    },
    {
-    "text_en": "0 h since the last logged service on Boiler 1",
+    "text_en": "0 hours since the last logged service on Boiler 1",
     "text_ms": "0 jam sejak servis terakhir direkodkan bagi Dandang 1",
     "signal": "hours_since_service",
     "direction": "up",
@@ -1856,7 +1856,7 @@
     "contribution": 0.358
    },
    {
-    "text_en": "0 h since the last logged service on Boiler 1",
+    "text_en": "0 hours since the last logged service on Boiler 1",
     "text_ms": "0 jam sejak servis terakhir direkodkan bagi Dandang 1",
     "signal": "hours_since_service",
     "direction": "up",
@@ -1903,7 +1903,7 @@
     "contribution": 0.181
    },
    {
-    "text_en": "0 h since the last logged service on Boiler 1",
+    "text_en": "0 hours since the last logged service on Boiler 1",
     "text_ms": "0 jam sejak servis terakhir direkodkan bagi Dandang 1",
     "signal": "hours_since_service",
     "direction": "up",
@@ -1950,7 +1950,7 @@
     "contribution": 0.134
    },
    {
-    "text_en": "0 h since the last logged service on Boiler 1",
+    "text_en": "0 hours since the last logged service on Boiler 1",
     "text_ms": "0 jam sejak servis terakhir direkodkan bagi Dandang 1",
     "signal": "hours_since_service",
     "direction": "up",
@@ -1997,7 +1997,7 @@
     "contribution": 0.131
    },
    {
-    "text_en": "0 h since the last logged service on Boiler 1",
+    "text_en": "0 hours since the last logged service on Boiler 1",
     "text_ms": "0 jam sejak servis terakhir direkodkan bagi Dandang 1",
     "signal": "hours_since_service",
     "direction": "up",
@@ -2044,7 +2044,7 @@
     "contribution": 0.134
    },
    {
-    "text_en": "0 h since the last logged service on Boiler 1",
+    "text_en": "0 hours since the last logged service on Boiler 1",
     "text_ms": "0 jam sejak servis terakhir direkodkan bagi Dandang 1",
     "signal": "hours_since_service",
     "direction": "up",
@@ -2098,7 +2098,7 @@
     "contribution": 0.329
    },
    {
-    "text_en": "1,149 h since the last logged service on Press 4",
+    "text_en": "1,149 hours since the last logged service on Press 4",
     "text_ms": "1,149 jam sejak servis terakhir direkodkan bagi Penekan 4",
     "signal": "hours_since_service",
     "direction": "up",
@@ -2138,7 +2138,7 @@
     "contribution": 0.231
    },
    {
-    "text_en": "0 h since the last logged service on Boiler 1",
+    "text_en": "0 hours since the last logged service on Boiler 1",
     "text_ms": "0 jam sejak servis terakhir direkodkan bagi Dandang 1",
     "signal": "hours_since_service",
     "direction": "up",
@@ -2185,7 +2185,7 @@
     "contribution": 0.628
    },
    {
-    "text_en": "0 h since the last logged service on Boiler 1",
+    "text_en": "0 hours since the last logged service on Boiler 1",
     "text_ms": "0 jam sejak servis terakhir direkodkan bagi Dandang 1",
     "signal": "hours_since_service",
     "direction": "up",
@@ -2232,7 +2232,7 @@
     "contribution": 0.164
    },
    {
-    "text_en": "0 h since the last logged service on Boiler 1",
+    "text_en": "0 hours since the last logged service on Boiler 1",
     "text_ms": "0 jam sejak servis terakhir direkodkan bagi Dandang 1",
     "signal": "hours_since_service",
     "direction": "up",
@@ -2279,7 +2279,7 @@
     "contribution": 0.135
    },
    {
-    "text_en": "0 h since the last logged service on Boiler 1",
+    "text_en": "0 hours since the last logged service on Boiler 1",
     "text_ms": "0 jam sejak servis terakhir direkodkan bagi Dandang 1",
     "signal": "hours_since_service",
     "direction": "up",
@@ -2326,7 +2326,7 @@
     "contribution": 0.142
    },
    {
-    "text_en": "0 h since the last logged service on Boiler 1",
+    "text_en": "0 hours since the last logged service on Boiler 1",
     "text_ms": "0 jam sejak servis terakhir direkodkan bagi Dandang 1",
     "signal": "hours_since_service",
     "direction": "up",
@@ -2420,7 +2420,7 @@
     "contribution": 0.153
    },
    {
-    "text_en": "0 h since the last logged service on Boiler 1",
+    "text_en": "0 hours since the last logged service on Boiler 1",
     "text_ms": "0 jam sejak servis terakhir direkodkan bagi Dandang 1",
     "signal": "hours_since_service",
     "direction": "up",
@@ -2474,7 +2474,7 @@
     "contribution": 0.261
    },
    {
-    "text_en": "1,561 h since the last logged service on Press 1",
+    "text_en": "1,561 hours since the last logged service on Press 1",
     "text_ms": "1,561 jam sejak servis terakhir direkodkan bagi Penekan 1",
     "signal": "hours_since_service",
     "direction": "up",
@@ -2561,7 +2561,7 @@
     "contribution": 0.413
    },
    {
-    "text_en": "0 h since the last logged service on Boiler 1",
+    "text_en": "0 hours since the last logged service on Boiler 1",
     "text_ms": "0 jam sejak servis terakhir direkodkan bagi Dandang 1",
     "signal": "hours_since_service",
     "direction": "up",
@@ -2608,7 +2608,7 @@
     "contribution": 0.217
    },
    {
-    "text_en": "0 h since the last logged service on Boiler 1",
+    "text_en": "0 hours since the last logged service on Boiler 1",
     "text_ms": "0 jam sejak servis terakhir direkodkan bagi Dandang 1",
     "signal": "hours_since_service",
     "direction": "up",
@@ -2655,7 +2655,7 @@
     "contribution": 0.463
    },
    {
-    "text_en": "0 h since the last logged service on Boiler 1",
+    "text_en": "0 hours since the last logged service on Boiler 1",
     "text_ms": "0 jam sejak servis terakhir direkodkan bagi Dandang 1",
     "signal": "hours_since_service",
     "direction": "up",
@@ -2702,7 +2702,7 @@
     "contribution": 0.188
    },
    {
-    "text_en": "0 h since the last logged service on Boiler 1",
+    "text_en": "0 hours since the last logged service on Boiler 1",
     "text_ms": "0 jam sejak servis terakhir direkodkan bagi Dandang 1",
     "signal": "hours_since_service",
     "direction": "up",
@@ -2749,7 +2749,7 @@
     "contribution": 0.762
    },
    {
-    "text_en": "1,866 h since the last logged service on Press 2",
+    "text_en": "1,866 hours since the last logged service on Press 2",
     "text_ms": "1,866 jam sejak servis terakhir direkodkan bagi Penekan 2",
     "signal": "hours_since_service",
     "direction": "up",
@@ -2843,7 +2843,7 @@
     "contribution": 0.132
    },
    {
-    "text_en": "0 h since the last logged service on Boiler 1",
+    "text_en": "0 hours since the last logged service on Boiler 1",
     "text_ms": "0 jam sejak servis terakhir direkodkan bagi Dandang 1",
     "signal": "hours_since_service",
     "direction": "up",
@@ -2890,7 +2890,7 @@
     "contribution": 0.352
    },
    {
-    "text_en": "0 h since the last logged service on Boiler 1",
+    "text_en": "0 hours since the last logged service on Boiler 1",
     "text_ms": "0 jam sejak servis terakhir direkodkan bagi Dandang 1",
     "signal": "hours_since_service",
     "direction": "up",
@@ -2944,7 +2944,7 @@
     "contribution": 0.252
    },
    {
-    "text_en": "1,243 h since the last logged service on Press 4",
+    "text_en": "1,243 hours since the last logged service on Press 4",
     "text_ms": "1,243 jam sejak servis terakhir direkodkan bagi Penekan 4",
     "signal": "hours_since_service",
     "direction": "up",
@@ -2984,7 +2984,7 @@
     "contribution": 0.244
    },
    {
-    "text_en": "0 h since the last logged service on Boiler 1",
+    "text_en": "0 hours since the last logged service on Boiler 1",
     "text_ms": "0 jam sejak servis terakhir direkodkan bagi Dandang 1",
     "signal": "hours_since_service",
     "direction": "up",
@@ -3031,14 +3031,14 @@
     "contribution": 0.621
    },
    {
-    "text_en": "Vibration level (RMS) is 7% above Press 3's normal",
-    "text_ms": "Tahap getaran (RMS) 7% lebih tinggi daripada biasa bagi Penekan 3",
+    "text_en": "Vibration level (root mean square) is 7% above Press 3's normal",
+    "text_ms": "Tahap getaran (punca min kuasa dua) 7% lebih tinggi daripada biasa bagi Penekan 3",
     "signal": "vib_rms",
     "direction": "up",
     "contribution": 0.297
    },
    {
-    "text_en": "953 h since the last logged service on Press 3",
+    "text_en": "953 hours since the last logged service on Press 3",
     "text_ms": "953 jam sejak servis terakhir direkodkan bagi Penekan 3",
     "signal": "hours_since_service",
     "direction": "up",
@@ -3078,7 +3078,7 @@
     "contribution": 0.874
    },
    {
-    "text_en": "0 h since the last logged service on Boiler 1",
+    "text_en": "0 hours since the last logged service on Boiler 1",
     "text_ms": "0 jam sejak servis terakhir direkodkan bagi Dandang 1",
     "signal": "hours_since_service",
     "direction": "up",
@@ -3125,7 +3125,7 @@
     "contribution": 0.694
    },
    {
-    "text_en": "109 h since the last logged service on Boiler 1",
+    "text_en": "109 hours since the last logged service on Boiler 1",
     "text_ms": "109 jam sejak servis terakhir direkodkan bagi Dandang 1",
     "signal": "hours_since_service",
     "direction": "up",
@@ -3367,7 +3367,7 @@
     "contribution": 0.28
    },
    {
-    "text_en": "1,587 h since the last logged service on Press 1",
+    "text_en": "1,587 hours since the last logged service on Press 1",
     "text_ms": "1,587 jam sejak servis terakhir direkodkan bagi Penekan 1",
     "signal": "hours_since_service",
     "direction": "up",
@@ -3461,7 +3461,7 @@
     "contribution": 0.238
    },
    {
-    "text_en": "1,090 h since the last logged service on Press 4",
+    "text_en": "1,090 hours since the last logged service on Press 4",
     "text_ms": "1,090 jam sejak servis terakhir direkodkan bagi Penekan 4",
     "signal": "hours_since_service",
     "direction": "up",
@@ -3595,7 +3595,7 @@
     "contribution": 0.766
    },
    {
-    "text_en": "322 h since the last logged service on Press 4",
+    "text_en": "322 hours since the last logged service on Press 4",
     "text_ms": "322 jam sejak servis terakhir direkodkan bagi Penekan 4",
     "signal": "hours_since_service",
     "direction": "up",
@@ -3689,7 +3689,7 @@
     "contribution": 0.874
    },
    {
-    "text_en": "544 h since the last logged service on Press 1",
+    "text_en": "544 hours since the last logged service on Press 1",
     "text_ms": "544 jam sejak servis terakhir direkodkan bagi Penekan 1",
     "signal": "hours_since_service",
     "direction": "up",
@@ -3783,7 +3783,7 @@
     "contribution": 0.683
    },
    {
-    "text_en": "1,972 h since the last logged service on Press 2",
+    "text_en": "1,972 hours since the last logged service on Press 2",
     "text_ms": "1,972 jam sejak servis terakhir direkodkan bagi Penekan 2",
     "signal": "hours_since_service",
     "direction": "up",
@@ -3877,7 +3877,7 @@
     "contribution": 0.331
    },
    {
-    "text_en": "19 controller alarms on Boiler 1 in the last 24 h",
+    "text_en": "19 controller alarms on Boiler 1 in the last 24 hours",
     "text_ms": "19 penggera pengawal pada Dandang 1 dalam 24 jam lepas",
     "signal": "alarms",
     "direction": "up",
@@ -3924,7 +3924,7 @@
     "contribution": 0.361
    },
    {
-    "text_en": "159 h since the last logged service on Boiler 1",
+    "text_en": "159 hours since the last logged service on Boiler 1",
     "text_ms": "159 jam sejak servis terakhir direkodkan bagi Dandang 1",
     "signal": "hours_since_service",
     "direction": "up",
@@ -4065,7 +4065,7 @@
     "contribution": 0.81
    },
    {
-    "text_en": "1,304 h since the last logged service on Press 4",
+    "text_en": "1,304 hours since the last logged service on Press 4",
     "text_ms": "1,304 jam sejak servis terakhir direkodkan bagi Penekan 4",
     "signal": "hours_since_service",
     "direction": "up",
@@ -4119,7 +4119,7 @@
     "contribution": 0.262
    },
    {
-    "text_en": "1,303 h since the last logged service on Press 3",
+    "text_en": "1,303 hours since the last logged service on Press 3",
     "text_ms": "1,303 jam sejak servis terakhir direkodkan bagi Penekan 3",
     "signal": "hours_since_service",
     "direction": "up",

@@ -36,6 +36,11 @@ class Action(BaseModel):
     why_rank_en: str
     why_rank_ms: str
     criticality: Literal["whole_mill", "partial"]
+    rm_breakdown_cost: int   # v1.7: full breakdown cost, explicit (the UI never divides)
+    deadline_label_en: str
+    deadline_label_ms: str
+    window_label_en: str     # end of the v1.6 risk window, e.g. "before the next stop, Sunday 06:00"
+    window_label_ms: str
 
 
 class MillInfo(BaseModel):
@@ -62,6 +67,7 @@ class Brief(BaseModel):
     at: str
     shift: Literal["day", "night"]
     actions: list[Action] = Field(max_length=5)
+    rm_protected_total: int   # v1.7: sum of rm_saved_if_acted over the actions shown
     watching_count: int
     suppressed_count: int
 
@@ -89,6 +95,9 @@ class Series(BaseModel):
     label_ms: str
     unit: str
     points: list[tuple[str, float]]
+    limit: float | None = None   # v1.7: alarm line, if the signal has one
+    summary_en: str = ""         # v1.7: e.g. "4.1 to 4.6 A/t over 7 days"
+    summary_ms: str = ""
 
 
 class AlertWindow(BaseModel):
@@ -101,7 +110,7 @@ class FailureEvent(BaseModel):
     fault_class: FaultClass
 
 
-Expected = Literal["up", "down", "unstable", "spike"]
+Expected = Literal["up", "down", "unstable", "spike", "steady"]
 
 
 class FingerprintCheck(BaseModel):
@@ -146,6 +155,8 @@ class FixPlan(BaseModel):
     est_hours: float
     needs_stop: bool
     best_window: str
+    stop: Literal["none", "machine", "whole_mill"]   # v1.7
+    lost_production: bool
 
 
 class HistoryItem(BaseModel):
@@ -180,6 +191,32 @@ class FaultGuide(BaseModel):
     onset: Literal["gradual", "sudden"]
 
 
+class LastService(BaseModel):
+    t: str
+    what_en: str
+    what_ms: str
+    hours_since: float
+
+
+class NextCheck(BaseModel):
+    t: str
+    label_en: str
+    label_ms: str
+
+
+class Outlook(BaseModel):
+    """At-risk and cost figures for the most likely fault, present for every status (including ok)."""
+    fault_class: FaultClass
+    risk_pct: float
+    horizon_h: int
+    rm_breakdown_cost: int
+    rm_at_risk: int
+    rm_cost_to_act: int
+    rm_saved_if_acted: int
+    window_label_en: str
+    window_label_ms: str
+
+
 class AssetDetail(BaseModel):
     asset: LineAsset
     status: AssetStatus
@@ -191,6 +228,9 @@ class AssetDetail(BaseModel):
     diagnosis: Diagnosis | None
     fix: FixPlan | None
     history: list[HistoryItem]
+    last_service: LastService | None = None   # v1.7
+    next_check: NextCheck | None = None
+    outlook: Outlook | None = None
 
 
 PolicyId = Literal["run_to_failure", "fixed_interval", "millguard", "schedule_plus_millguard"]
@@ -254,6 +294,19 @@ class RobustnessEntry(BaseModel):
     note: str
 
 
+class ClassCatch(BaseModel):
+    fault_class: FaultClass
+    total: int
+    caught: int
+    median_lead_h: float
+
+
+class TestMill(BaseModel):
+    id: int
+    by_fault_class: list[ClassCatch]
+    false_alarms_per_week: float
+
+
 class Robustness(BaseModel):
     dataset: str
     failures_total: int
@@ -261,6 +314,7 @@ class Robustness(BaseModel):
     median_lead_h: float
     false_alarms_per_week: float
     note: str
+    test_mill: TestMill | None = None   # v1.7: unseen mill 10, per fault class
     extra: list[RobustnessEntry] = []   # v1.6 additive: other real-data checks (may be empty)
 
 
