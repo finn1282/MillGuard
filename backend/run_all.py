@@ -58,6 +58,13 @@ def main(skip_sim=False):
     pred = pd.read_parquet(DATA / "predictions.parquet")
     pred[pred.mill_id == MILL].to_parquet(ART / "mill10_predictions.parquet")
     ep.to_parquet(ART / "episodes.parquet")
+    prev = ep[ep.outcome == "prevented"]
+    fb = fails.asset_id == "boiler_1"
+    (ART / "roi_inputs.json").write_text(json.dumps(dict(
+        press_failures_per_year=int((~fb).sum()), boiler_failures_per_year=int(fb.sum()),
+        press_catch_rate=float((prev.asset_id != "boiler_1").sum() / max((~fb).sum(), 1)),
+        boiler_catch_rate=float((prev.asset_id == "boiler_1").sum() / max(fb.sum(), 1)),
+        false_alarms_per_year=int(ep.outcome.isin(["false_alarm", "misclassified"]).sum())), indent=1))
     build_artifacts.main()
 
 
