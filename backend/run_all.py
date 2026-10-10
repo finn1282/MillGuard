@@ -66,6 +66,16 @@ def main(skip_sim=False):
         boiler_catch_rate=float((prev.asset_id == "boiler_1").sum() / max(fb.sum(), 1)),
         false_alarms_per_year=int(ep.outcome.isin(["false_alarm", "misclassified"]).sum())), indent=1))
     build_artifacts.main()
+    try:
+        from backend.robustness import metropt
+        from backend.scripts import fetch_metropt
+        if not metropt.SRC.exists():
+            fetch_metropt.main()
+        r = metropt.main()
+        print(f"\n== MetroPT-3 (real data) ==  caught {r['caught']}/{r['failures_total']}  median lead {r['median_lead_h']} h  "
+              f"false alarms/week {r['false_alarms_per_week']}")
+    except Exception as e:   # robustness check must not break the main pipeline
+        print("MetroPT-3 step skipped:", e)
 
 
 if __name__ == "__main__":

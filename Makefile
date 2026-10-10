@@ -1,5 +1,5 @@
 PY=.venv/bin/python
-.PHONY: setup fixtures api all
+.PHONY: setup fixtures api all roi
 setup:
 	uv venv --python 3.11 .venv && uv pip install --python $(PY) -r backend/requirements.txt
 fixtures:
@@ -8,3 +8,5 @@ api:
 	$(PY) -m uvicorn backend.api.main:app --host 0.0.0.0 --port 8000
 all:
 	$(PY) -m backend.run_all
+roi:
+	$(PY) -m backend.scripts.roi
