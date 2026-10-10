@@ -1,6 +1,6 @@
 # MillGuard — Master Plan (Single Source of Truth)
 
-Version 1.5 · Sat 10 Oct 2026, 17:20 MYT · Team: 3 people, 2 computers (A = backend, B = design then frontend, third member = pitch) · Deadline: **Sun 11 Oct, 09:30 MYT**
+Version 1.6 · Sat 10 Oct 2026, 17:45 MYT · Team: 3 people, 2 computers (A = backend, B = design then frontend, third member = pitch) · Deadline: **Sun 11 Oct, 09:30 MYT**
 Owner of this file: the orchestrator chat. Agents read it, they do not rewrite it. Propose changes in `CHANGELOG.md` and the orchestrator merges them.
 
 ---
@@ -315,8 +315,15 @@ interface FaultGuide { fault_class: FaultClass; name_en: string; name_ms: string
 - New `GET /api/faults` → `FaultGuide[]` (static, from the FMEA studies; drives the fault guide).
 - `/api/backtest` policies include `schedule_plus_millguard` (v1.4). The Impact page's "After" = `schedule_plus_millguard`, "Before" = `run_to_failure`.
 - Fix steps are generic maintenance actions (inspect, replace, check), written in plain language.
-- **Money semantics (17:30, no shape change):** `rm_at_risk` = **expected loss if you wait** = P(fail before the action deadline) × full breakdown cost. The UI shows the maths: "Expected loss if you wait: RM21,000 (41% × RM51,000 breakdown)". The full breakdown cost is `round(rm_at_risk / (risk_pct/100))`.
-- **Risk window = time to the decision:** `horizon_h` = hours from `at` until `deadline` (e.g. 19:00 → 06:00 stop = 11 h), and `risk_pct` is the probability of failure within that window. The UI says "41% chance before tomorrow's 06:00 stop", not "in 48 h".
+- **Money semantics (v1.6, 17:45; replaces the 17:30 rule):** "wait" means **skipping this chance to fix it**.
+  - `fix_now`: window = now → next planned stop.
+  - `schedule_next_stop`: window = now → the planned stop **after** the next one (skipping this stop means running a week longer).
+  - `horizon_h` = that window in hours; `risk_pct` = P(fail within it); `rm_at_risk` = risk × full breakdown cost; `rm_saved_if_acted` = `rm_at_risk − rm_cost_to_act` (min 0).
+  - UI wording: "If not fixed at tomorrow's 06:00 stop: 74% chance it fails before the next one" and "Expected loss if you skip it: RM17,900 (74% × RM24,200 breakdown)". The full breakdown cost is `round(rm_at_risk / (risk_pct/100))`.
+- **v1.6 contract change:** `/api/backtest` takes `inspection_accuracy` (0–1, default 0.5) = `inspection_finds_wrong_class`.
+- **Demo moments (rule, not cherry-picking totals):** Act-now bookmark = an alert on a gradual fault that was later prevented (true positive), placed at the hour in its alert window where the fingerprint matches most checks; prefer Press 2. Both-alerts bookmark = a night where a boiler alert and a press alert are both Act now, with the largest combined saving. Quiet bookmark = a night with 0 actions and non-zero watching/suppressed. Yearly totals are unaffected.
+- **Fixtures = real snapshot.** Once bookmarks are final, regenerate every fixture from the real API at those bookmarks (and the real backtest), so fixture mode (the demo backup) shows true numbers. Repeat at the 03:00 freeze.
+- **Results v1.4 (mill 10, 2025):** run-to-failure RM973k / 34 breakdowns; fixed (swept) RM724k / 10; MillGuard alone RM558k / 12; schedule + MillGuard RM421k / 3. Catch 22/34, median lead 63 h, 1.3 false alarms/week. Strict inspection case: schedule + MillGuard RM558k. Caveats to disclose: assumed P-F warning periods (worm 300 h, gearbox 400 h, bearing 150 h, cone 200 h); the "schedule + MillGuard" schedule is 0.6× mean life (close to the plain schedule's 0.5×, so not truly stretched); MetroPT-3 0/4 caught early.
 
 **Contract v1.1 changes (10 Oct, 15:10):**
 - New `GET /api/replay/markers`. Bookmarks are the 3 demo moments on mill 10, chosen by the backend: quiet night, Press 2 worm-wear alert onset, boiler + press alerts on the same night. Alerts are every MillGuard alert. Breakdowns are failures under run-to-failure.
