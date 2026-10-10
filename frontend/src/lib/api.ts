@@ -1,3 +1,4 @@
+import { MOCK_ADVICE, type Advice } from "../mocks/advice";
 import type {
   Assumption, AssetDetail, Backtest, Brief, FaultGuide, FeedbackIn, FeedbackOut,
   Line, Marker, Meta, NotifyOut, NotifyStatus, Robustness,
@@ -16,12 +17,26 @@ async function fixture<T>(name: string): Promise<T> {
 }
 
 // contracts/README.md: whole-mill = no suffix, act-now = _act, quiet = _quiet; match on the date of `at`.
-async function variant(name: string, at?: string): Promise<unknown> {
+async function suffixFor(at?: string): Promise<string> {
   const marks = await fixture<Record<string, string>>("bookmarks");
   const day = at?.slice(0, 10);
   const hit = Object.entries(marks).find(([, t]) => t.slice(0, 10) === day)?.[0];
-  const suffix = hit === "act" ? "_act" : hit === "quiet" ? "_quiet" : "";
+  return hit === "act" ? "_act" : hit === "quiet" ? "_quiet" : "";
+}
+
+async function variant(name: string, at?: string): Promise<unknown> {
+  const suffix = await suffixFor(at);
   return fixture(name + suffix).catch(() => fixture(name));
+}
+
+export class OfflineUnavailable extends Error {}
+
+// Fixture advice: the backend's advice_<asset>[_act|_quiet]_<lang> file, else the frontend mock, else unavailable.
+async function fixtureAdvice(asset_id: string, at: string, lang: "en" | "ms"): Promise<Advice> {
+  const key = `${asset_id}${await suffixFor(at)}_${lang}`;
+  const hit = await fixture<Advice>(`advice_${key}`).catch(() => MOCK_ADVICE[key]);
+  if (!hit) throw new OfflineUnavailable(key);
+  return hit;
 }
 
 const cache = new Map<string, Promise<unknown>>();
@@ -41,9 +56,10 @@ function get<T>(path: string, params: Record<string, string | number | undefined
   return cache.get(url) as Promise<T>;
 }
 
-async function post<T>(path: string, body: unknown): Promise<T> {
+async function post<T>(path: string, body: unknown, timeoutMs?: number): Promise<T> {
   const r = await fetch(`${API}/api${path}`, {
     method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body),
+    signal: timeoutMs ? AbortSignal.timeout(timeoutMs) : undefined,
   });
   if (!r.ok) throw new Error(`${r.status} ${r.statusText}`);
   return r.json();
@@ -84,5 +100,8 @@ export const api = {
   notifyStatus: (): Promise<NotifyStatus> =>
     (USE_FIXTURES ? fixture<NotifyStatus>("notify_status") : get<NotifyStatus>("/notify/status"))
       .catch(() => ({ enabled: false, channel: "", subscribers: 0 })),
+  // The model can take up to 30 s plus one retry on the backend.
+  advice: (asset_id: string, at: string, lang: "en" | "ms") =>
+    USE_FIXTURES ? fixtureAdvice(asset_id, at, lang) : post<Advice>("/advice", { asset_id, at, lang }, 75_000),
   notify: (at: string, kind: "alert" | "brief" = "alert") => post<NotifyOut>("/notify", { at, kind }),
 };

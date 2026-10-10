@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
 import { ActionButtons, Useful } from "../components/ActionButtons";
+import { AdvicePanel } from "../components/AdvicePanel";
 import { DecisionBar, OutlookBar } from "../components/Decision";
 import { Fingerprint } from "../components/Fingerprint";
 import { FixPlanCard } from "../components/FixPlanCard";
@@ -212,6 +213,7 @@ function MachineView({ id }: { id: string }) {
             </p>
           )}
           {d.fix && <FixPlanCard fix={d.fix} />}
+          {a && d.fix && at && <AdvicePanel key={`${id}@${at}`} assetId={id} at={at} />}
 
           {!a && (d.last_service || d.next_check) && (
             <div className="sec grid grid-cols-2 gap-5">
