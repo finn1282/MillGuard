@@ -30,6 +30,8 @@ const S = {
   sending: ["Sending…", "Menghantar…"],
   sentTo: ["Sent to {n} phones", "Dihantar ke {n} telefon"],
   sendFailed: ["Not sent", "Tidak dihantar"],
+  alreadySent: ["Already sent to the group", "Sudah dihantar ke kumpulan"],
+  nothingToSend: ["No alerts to send right now", "Tiada amaran untuk dihantar sekarang"],
   // machine page
   backToMill: ["← Back to the mill", "← Kembali ke kilang"],
   deadline: ["Deadline", "Tarikh akhir"],

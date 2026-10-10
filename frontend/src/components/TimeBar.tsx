@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { api } from "../lib/api";
 import { useClock } from "../lib/clock";
 import { clock } from "../lib/format";
@@ -21,16 +21,21 @@ export function LangToggle() {
   );
 }
 
-function SendToPhone() {
+function SendToPhone({ actions }: { actions?: number }) {
   const { at } = useClock();
   const { t } = useLang();
   const status = useApi(api.notifyStatus, []);
   const [msg, setMsg] = useState<string>();
   const [busy, setBusy] = useState(false);
+  useEffect(() => setMsg(undefined), [at]);
   if (!status.data?.enabled || !at) return null;
   const send = async () => {
     setBusy(true);
-    try { const r = await api.notify(at, "alert"); setMsg(r.ok ? t("sentTo", { n: r.sent }) : t("sendFailed")); }
+    try {
+      // ok false = bot not configured. ok + sent 0 = already sent (one message per alert id), or nothing to send.
+      const r = await api.notify(at, "alert");
+      setMsg(!r.ok ? t("sendFailed") : r.sent > 0 ? t("sentTo", { n: r.sent }) : actions === 0 ? t("nothingToSend") : t("alreadySent"));
+    }
     catch { setMsg(t("sendFailed")); }
     setBusy(false);
   };
@@ -86,7 +91,7 @@ export function TimeBar() {
         <div role="group" aria-label={t("bookmarks")}
           className="order-last basis-full flex flex-wrap gap-2">{chips}</div>
         <div className="order-5 ml-auto flex items-center gap-3.5">
-          <SendToPhone /><SampleBadge /><LangToggle />
+          <SendToPhone actions={brief.data?.actions.length} /><SampleBadge /><LangToggle />
         </div>
       </div>
       {/* mobile + tablet */}
