@@ -2,6 +2,7 @@ PY=.venv/bin/python
 .PHONY: pitch demo bot stress setup libomp fixtures api all roi report
 setup:
 	uv venv --python 3.11 .venv && uv pip install --python $(PY) -r backend/requirements.txt
+	@if [ "$$(uname)" = Darwin ]; then $(PY) -c 'import lightgbm' 2>/dev/null || sh backend/scripts/fix_libomp.sh $(PY); fi
 pitch:
 	$(PY) -m backend.scripts.export_pitch
 demo:

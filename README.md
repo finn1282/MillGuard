@@ -64,7 +64,7 @@ Every number lives in `backend/params.yaml` with its source and status.
 ## Run it (Python 3.11, macOS or Linux)
 
 ```sh
-make setup      # uv venv + dependencies
+make setup      # uv venv + dependencies (on macOS it also fixes the LightGBM libomp error by itself)
 make libomp     # macOS only, if LightGBM fails with "libomp.dylib not found" (or: brew install libomp)
 make all        # simulate -> train -> tune on training mills -> mill-10 backtest -> artifacts -> MetroPT-3 (about 2 min)
 make api        # http://localhost:8000/docs  (CORS open)
