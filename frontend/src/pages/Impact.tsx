@@ -132,7 +132,7 @@ function Strip({ bt, before, after }: { bt: Backtest; before: PolicyId; after: P
     if (!playing) return;
     const start = performance.now() - p * 8000;
     const tick = (now: number) => {
-      const v = Math.min(1, (now - start) / 8000);
+      const v = Math.max(0, Math.min(1, (now - start) / 8000));   // rAF time can be slightly before start
       setP(v);
       if (v < 1) raf.current = requestAnimationFrame(tick); else setPlaying(false);
     };
@@ -142,7 +142,7 @@ function Strip({ bt, before, after }: { bt: Backtest; before: PolicyId; after: P
   }, [playing]);
 
   const play = () => { if (!playing && p >= 1) setP(0); setPlaying(!playing); };
-  const idx = Math.min(tl.length - 1, Math.floor(p * tl.length));
+  const idx = Math.max(0, Math.min(tl.length - 1, Math.floor(p * tl.length)));
   const months = Array.from({ length: 12 }, (_, m) => monthShort(`${tl[0].t.slice(0, 4)}-${String(m + 1).padStart(2, "0")}-15T00:00:00+08:00`, lang));
 
   const lane = (id: PolicyId, tone: string) => {
@@ -161,7 +161,7 @@ function Strip({ bt, before, after }: { bt: Backtest; before: PolicyId; after: P
         })}
         <span className="absolute top-0 bottom-0 w-0.5 bg-ink" style={{ left: `${p * 100}%` }} aria-hidden />
       </div>
-      <span className={`font-num font-extrabold text-right text-[17px] lg:text-2xl col-start-2 row-start-1 ${tone}`}>{rmMillions(tl[idx].cost[id])}</span>
+      <span className={`font-num font-extrabold text-right text-[17px] lg:text-2xl col-start-2 row-start-1 ${tone}`}>{rmMillions(tl[idx]?.cost[id] ?? 0)}</span>
     </div>);
   };
 
